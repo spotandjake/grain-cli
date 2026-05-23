@@ -7,7 +7,8 @@
     "jsr:@cliffy/table@1.1.0": "1.1.0",
     "jsr:@std/fmt@^1.0.9": "1.0.10",
     "jsr:@std/semver@^1.0.8": "1.0.8",
-    "jsr:@std/text@^1.0.17": "1.0.18"
+    "jsr:@std/text@^1.0.17": "1.0.18",
+    "npm:@grain/stdlib@~0.7.2": "0.7.2"
   },
   "jsr": {
     "@cliffy/command@1.1.0": {
@@ -47,9 +48,15 @@
       "integrity": "d199e516f80599813c64fd4aee5b8f26f6f7d1e1434c88fd153aeea6fea6a9b9"
     }
   },
+  "npm": {
+    "@grain/stdlib@0.7.2": {
+      "integrity": "sha512-dqaoK6YCa96X4zFIWcxpbDZMhlcQq2Rh//VlinOBNl3zIvXtSoQfYH3zajBvVck08g0KF1HqL4urgBYzoualxQ=="
+    }
+  },
   "workspace": {
     "dependencies": [
-      "jsr:@cliffy/command@^1.1.0"
+      "jsr:@cliffy/command@^1.1.0",
+      "npm:@grain/stdlib@~0.7.2"
     ]
   }
 }

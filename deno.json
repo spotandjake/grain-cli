@@ -11,15 +11,16 @@
   },
   "compile": {
     "include": [
-      "commands/grainc.bc.cjs",
-      "commands/graindoc.bc.cjs",
-      "commands/grainformat.bc.cjs", 
-      "commands/grainlsp.bc.cjs"
+      "artifacts/grainc.bc.cjs",
+      "artifacts/graindoc.bc.cjs",
+      "artifacts/grainformat.bc.cjs", 
+      "artifacts/grainlsp.bc.cjs"
     ],
     "exclude": []
   },
   "imports": {
-    "@cliffy/command": "jsr:@cliffy/command@^1.1.0"
+    "@cliffy/command": "jsr:@cliffy/command@^1.1.0",
+    "@grain/stdlib": "npm:@grain/stdlib@^0.7.2"
   },
   "exports": {
     "./grain": "./main.js"

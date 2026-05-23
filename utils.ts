@@ -15,7 +15,7 @@ export function optionsToArgs(opts: Record<string, any>, aliasMap: Record<string
 export async function runCommand(name: string, args: string[]) {
   if (!name) throw new Error("No command provided");
 
-  const base = new URL("./commands/", import.meta.url);
+  const base = new URL("./artifacts/", import.meta.url);
   const exe = new URL(`${name}.exe`, base);
   const js = new URL(`${name}.bc.cjs`, base);
 
