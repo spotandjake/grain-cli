@@ -1,0 +1,7 @@
+# Artifacts
+dist/
+commands/
+
+# Local Testing
+*.gr
+test.sh

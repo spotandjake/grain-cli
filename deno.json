@@ -1,0 +1,30 @@
+{
+  "name": "@grain/cli",
+  "version": "0.7.2",
+  "description": "A command line tool for the Grain language.",
+  "license": "MIT",
+  "tasks": {
+    "bundle": "deno compile --allow-read --allow-write --allow-run --allow-env --output ./dist/grain main.ts",
+    "fmt": "deno fmt",
+    "check-fmt": "deno fmt --check",
+    "clean": "rm -f bin/*.exe bin/*.bc.js"
+  },
+  "compile": {
+    "include": [
+      "commands/grainc.bc.cjs",
+      "commands/graindoc.bc.cjs",
+      "commands/grainformat.bc.cjs", 
+      "commands/grainlsp.bc.cjs"
+    ],
+    "exclude": []
+  },
+  "imports": {
+    "@cliffy/command": "jsr:@cliffy/command@^1.1.0"
+  },
+  "exports": {
+    "./grain": "./main.js"
+  },
+  "bin": {
+    "grain": "./main.js"
+  }
+}
