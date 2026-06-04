@@ -20,8 +20,6 @@ export type RunOptions = {
   env?: string[];
 } & Options;
 
-
-// TODO: Clean this up
 export const run = async (filename: string, opts: RunOptions, program: Command, unprocessedArgs: string[]) => {
   const preopens: { [key: string]: string } = {};
   opts.dir?.forEach((preopen) => {
@@ -37,7 +35,6 @@ export const run = async (filename: string, opts: RunOptions, program: Command, 
   });
 
   const wasi = new WASI({
-    // TODO: Validate that this didn't change
     args: unprocessedArgs,
     env: cliEnv,
     preopens: preopens,
@@ -50,7 +47,7 @@ export const run = async (filename: string, opts: RunOptions, program: Command, 
   let bytes;
   try {
     bytes = await readFile(filename);
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error(`Unable to read file: ${filename}`);
     process.exitCode = 1;
     return;

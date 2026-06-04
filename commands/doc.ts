@@ -5,7 +5,7 @@ import { runCommand, ForwardOption, optionsToFlags, type Options } from "../util
 export const doc = async (file: string, opts: Options, program: Command) => {
   return await runCommand("graindoc", optionsToFlags(program, opts, [file]));
 }
-// Setup the command
+
 export default (cli: Command, unprocessedArgs: string[]) => {
   cli.command("doc <file|dir:string>")
     .description("generate documentation for a grain file")

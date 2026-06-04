@@ -8,7 +8,7 @@ export type Options = Record<string, unknown>;
  */
 export class ForwardOption extends Option {
   // A ForwardOption is forwarded to the underlying program
-  private forward: boolean = true;
+  public forward: boolean = true;
   public toFlag(opts: Options) {
     const value = opts[this.attributeName()];
     if (value instanceof Array && value.length > 0) {
@@ -27,9 +27,8 @@ export class ForwardOption extends Option {
 export class ProfileOption extends Option {
   // Like ForwardOption, ProfileOption is forwarded to the underlying program
   // but we convert the flag into a profile flag, i.e. `--release` becomes `--profile=release`
-  private forward: boolean = true;
-  // TODO: Use a proper type here
-  toFlag(opts: any) {
+  public forward: boolean = true;
+  public toFlag(opts: Options) {
     const attribute = this.attributeName();
     if (opts[attribute]) {
       return `--profile=${attribute}`;

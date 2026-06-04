@@ -19,8 +19,6 @@ if (endOptsI === -1) endOptsI = Infinity;
 const argsToProcess = process.argv.slice(0, endOptsI);
 const unprocessedArgs = process.argv.slice(endOptsI + 1);
 
-
-// TODO: This needs some major cleanup
 class GrainHelp extends Help {
   override visibleOptions(cmd: any) {
     // If we are running `--help` at the root, we want to list options for `compile-and-run`

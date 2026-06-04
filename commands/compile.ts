@@ -5,7 +5,7 @@ import { runCommand, ForwardOption, optionsToFlags, type Options } from "../util
 export const compile = async (file: string, opts: Options, program: Command) => {
   return await runCommand("grainc", optionsToFlags(program, opts, [file]));
 }
-// Setup the command
+
 export default (cli: Command, unprocessedArgs: string[]) => {
   cli.command("compile <file:string>")
     .description("compile a grain program into wasm")

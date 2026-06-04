@@ -5,7 +5,7 @@ import { runCommand, optionsToFlags, type Options } from "../utils.ts";
 export const lsp = async (opts: Options, program: Command) => {
   return await runCommand("grainlsp", optionsToFlags(program, opts, []));
 }
-// Setup the command
+
 export default (cli: Command, unprocessedArgs: string[]) => {
   cli.command("lsp")
     .description("start the Grain LSP server")

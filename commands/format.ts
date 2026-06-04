@@ -5,7 +5,7 @@ import { runCommand, ForwardOption, optionsToFlags, type Options } from "../util
 export const format = async (file: string, opts: Options, program: Command) => {
   return await runCommand("grainformat", optionsToFlags(program, opts, [file]));
 }
-// Setup the command
+
 export default (cli: Command, unprocessedArgs: string[]) => {
   cli.command("format <file|dir:string>")
     .description("format a grain file")
