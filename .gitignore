@@ -1,6 +1,7 @@
 # Artifacts
 dist/
 artifacts/
+stdlib/
 
 # Local Testing
 *.local/
