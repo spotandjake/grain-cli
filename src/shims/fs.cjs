@@ -1,7 +1,7 @@
-// This file exists to shim `fs.fstatSync` when it is called on a file descriptor from the deno vfs. 
-// The deno vfs does not support `fstatSync` and will throw a `NotSupported` error when it is called. 
-// This shim catches that error and returns a fake `Stats` object that indicates that the file is a 
-// regular file with a size of 0 and a modification time of the Unix epoch. 
+// This file exists to shim `fs.fstatSync` when it is called on a file descriptor from the deno vfs.
+// The deno vfs does not support `fstatSync` and will throw a `NotSupported` error when it is called.
+// This shim catches that error and returns a fake `Stats` object that indicates that the file is a
+// regular file with a size of 0 and a modification time of the Unix epoch.
 // This allows the compiler to use files from the stdlib.
 const realFs = require("node:fs");
 

@@ -1,8 +1,8 @@
 # Artifacts
 dist/
-artifacts/
-stdlib/
+src/artifacts/
+src/stdlib/
 
 # Local Testing
-*.local/
-*.local
+*.local.*
+target/

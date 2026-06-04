@@ -1,10 +1,10 @@
-import { type Command } from 'commander';
+import { type Command } from "commander";
 
-import { runCommand, optionsToFlags, type Options } from "../utils.ts";
+import { type Options, optionsToFlags, runCommand } from "../utils.ts";
 
 export const lsp = async (opts: Options, program: Command) => {
   return await runCommand("grainlsp", optionsToFlags(program, opts, []));
-}
+};
 
 export default (cli: Command, unprocessedArgs: string[]) => {
   cli.command("lsp")

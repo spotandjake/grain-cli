@@ -1,10 +1,9 @@
-import { type Command } from 'commander';
+import { type Command } from "commander";
 import { readFile } from "node:fs/promises";
 import { WASI } from "node:wasi";
 import { argv, env } from "node:process";
 
-
-import { runCommand, type Options } from "../utils.ts";
+import { type Options, runCommand } from "../utils.ts";
 
 // NOTE: Monkey patch emitWarning to ignore the WASI experimental warning until it's stabilized
 if ((globalThis as any).process?.emitWarning) {
@@ -20,7 +19,12 @@ export type RunOptions = {
   env?: string[];
 } & Options;
 
-export const run = async (filename: string, opts: RunOptions, program: Command, unprocessedArgs: string[]) => {
+export const run = async (
+  filename: string,
+  opts: RunOptions,
+  program: Command,
+  unprocessedArgs: string[],
+) => {
   const preopens: { [key: string]: string } = {};
   opts.dir?.forEach((preopen) => {
     const [guestDir, hostDir = guestDir] = preopen.split("=");
@@ -89,7 +93,7 @@ export const run = async (filename: string, opts: RunOptions, program: Command, 
     process.exitCode = 1;
     return;
   }
-}
+};
 // Setup the command
 export default (cli: Command, unprocessedArgs: string[]) => {
   cli.command("run <file:string>")
