@@ -4,7 +4,8 @@
   "description": "A command line tool for the Grain language.",
   "license": "MIT",
   "tasks": {
-    "bundle": "deno compile --allow-read --allow-write --allow-run --allow-env --output ./dist/grain main.ts",
+    "shim": "deno run --allow-read --allow-write=./artifacts ./scripts/apply_shims.ts",
+    "bundle": "deno compile -P --output ./dist/grain main.ts",
     "fmt": "deno fmt",
     "check-fmt": "deno fmt --check",
     "clean": "rm -f bin/*.exe bin/*.bc.js"
@@ -14,13 +15,21 @@
       "artifacts/grainc.bc.cjs",
       "artifacts/graindoc.bc.cjs",
       "artifacts/grainformat.bc.cjs", 
-      "artifacts/grainlsp.bc.cjs"
+      "artifacts/grainlsp.bc.cjs",
+      "shims/fs.cjs",
+      "stdlib/"
     ],
-    "exclude": []
+    "exclude": [],
+    "permissions": {
+      "read": true,
+      "write": true,
+      "run": true,
+      "env": true
+    }
   },
   "imports": {
-    "@cliffy/command": "jsr:@cliffy/command@^1.1.0",
-    "@grain/stdlib": "npm:@grain/stdlib@^0.7.2"
+    "@grain/stdlib": "npm:@grain/stdlib@^0.7.2",
+    "commander": "npm:commander@^14.0.3"
   },
   "exports": {
     "./grain": "./main.js"

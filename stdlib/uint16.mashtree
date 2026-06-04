@@ -1,0 +1,3652 @@
+((mash_code
+  ((functions
+    (((id ((stamp 1626) (name fromInt16))) (name (fromInt16))
+      (args (GrainValue GrainValue)) (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagInt16
+                ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 56) (col 989) (bol 979)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 56) (col 1007) (bol 979)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 56) (col 989) (bol 979)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 56) (col 1007) (bol 979)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_and_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 65535)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 57) (col 1020) (bol 1008)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 57) (col 1034) (bol 1008)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 57) (col 1020) (bol 1008)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 57) (col 1034) (bol 1008)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MPrim1 TagUint16
+           ((immediate_desc (MImmBinding (MLocalBind 1 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 57) (col 1010) (bol 1008)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 57) (col 1035) (bol 1008)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 2) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs
+       (((txt Unsafe)
+         (loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 54) (col 927) (bol 926)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 54) (col 933) (bol 926)))
+           (loc_ghost false))))))
+      (func_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 55) (col 958) (bol 934)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 58) (col 1037) (bol 1036)))
+        (loc_ghost false))))
+     ((id ((stamp 1629) (name incr))) (name (incr))
+      (args (GrainValue GrainValue)) (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 72) (col 1277) (bol 1263)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 72) (col 1295) (bol 1263)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 72) (col 1277) (bol 1263)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 72) (col 1295) (bol 1263)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_add_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 1)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 73) (col 1308) (bol 1296)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 73) (col 1318) (bol 1296)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 73) (col 1308) (bol 1296)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 73) (col 1318) (bol 1296)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_and_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 1 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 65535)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 73) (col 1308) (bol 1296)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 73) (col 1331) (bol 1296)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 73) (col 1308) (bol 1296)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 73) (col 1331) (bol 1296)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MPrim1 TagUint16
+           ((immediate_desc (MImmBinding (MLocalBind 2 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 73) (col 1298) (bol 1296)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 73) (col 1332) (bol 1296)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 3) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs
+       (((txt Unsafe)
+         (loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 70) (col 1216) (bol 1215)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 70) (col 1222) (bol 1215)))
+           (loc_ghost false))))))
+      (func_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 71) (col 1242) (bol 1223)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 74) (col 1334) (bol 1333)))
+        (loc_ghost false))))
+     ((id ((stamp 1632) (name decr))) (name (decr))
+      (args (GrainValue GrainValue)) (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 89) (col 1614) (bol 1600)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 89) (col 1632) (bol 1600)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 89) (col 1614) (bol 1600)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 89) (col 1632) (bol 1600)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_sub_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 1)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 90) (col 1645) (bol 1633)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 90) (col 1655) (bol 1633)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 90) (col 1645) (bol 1633)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 90) (col 1655) (bol 1633)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_and_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 1 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 65535)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 90) (col 1645) (bol 1633)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 90) (col 1668) (bol 1633)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 90) (col 1645) (bol 1633)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 90) (col 1668) (bol 1633)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MPrim1 TagUint16
+           ((immediate_desc (MImmBinding (MLocalBind 2 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 90) (col 1635) (bol 1633)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 90) (col 1669) (bol 1633)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 3) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs
+       (((txt Unsafe)
+         (loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 87) (col 1553) (bol 1552)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 87) (col 1559) (bol 1552)))
+           (loc_ghost false))))))
+      (func_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 88) (col 1579) (bol 1560)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 91) (col 1671) (bol 1670)))
+        (loc_ghost false))))
+     ((id ((stamp 1635) (name +))) (name (+))
+      (args (GrainValue GrainValue GrainValue)) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 108) (col 1972) (bol 1962)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 108) (col 1986) (bol 1962)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 108) (col 1972) (bol 1962)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 108) (col 1986) (bol 1962)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 109) (col 1997) (bol 1987)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 109) (col 2011) (bol 1987)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 109) (col 1997) (bol 1987)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 109) (col 2011) (bol 1987)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_add_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 1 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 110) (col 2024) (bol 2012)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 110) (col 2029) (bol 2012)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 110) (col 2024) (bol 2012)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 110) (col 2029) (bol 2012)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_and_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 2 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 65535)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 110) (col 2024) (bol 2012)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 110) (col 2042) (bol 2012)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 110) (col 2024) (bol 2012)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 110) (col 2042) (bol 2012)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MPrim1 TagUint16
+           ((immediate_desc (MImmBinding (MLocalBind 3 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 110) (col 2014) (bol 2012)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 110) (col 2043) (bol 2012)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 4) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs
+       (((txt Unsafe)
+         (loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 106) (col 1909) (bol 1908)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 106) (col 1915) (bol 1908)))
+           (loc_ghost false))))))
+      (func_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 107) (col 1934) (bol 1916)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 111) (col 2045) (bol 2044)))
+        (loc_ghost false))))
+     ((id ((stamp 1640) (name -))) (name (-))
+      (args (GrainValue GrainValue GrainValue)) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 128) (col 2360) (bol 2350)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 128) (col 2374) (bol 2350)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 128) (col 2360) (bol 2350)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 128) (col 2374) (bol 2350)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 129) (col 2385) (bol 2375)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 129) (col 2399) (bol 2375)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 129) (col 2385) (bol 2375)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 129) (col 2399) (bol 2375)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_sub_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 1 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 130) (col 2412) (bol 2400)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 130) (col 2417) (bol 2400)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 130) (col 2412) (bol 2400)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 130) (col 2417) (bol 2400)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_and_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 2 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 65535)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 130) (col 2412) (bol 2400)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 130) (col 2430) (bol 2400)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 130) (col 2412) (bol 2400)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 130) (col 2430) (bol 2400)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MPrim1 TagUint16
+           ((immediate_desc (MImmBinding (MLocalBind 3 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 130) (col 2402) (bol 2400)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 130) (col 2431) (bol 2400)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 4) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs
+       (((txt Unsafe)
+         (loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 126) (col 2297) (bol 2296)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 126) (col 2303) (bol 2296)))
+           (loc_ghost false))))))
+      (func_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 127) (col 2322) (bol 2304)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 131) (col 2433) (bol 2432)))
+        (loc_ghost false))))
+     ((id ((stamp 1645) (name *))) (name (*))
+      (args (GrainValue GrainValue GrainValue)) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 148) (col 2742) (bol 2732)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 148) (col 2756) (bol 2732)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 148) (col 2742) (bol 2732)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 148) (col 2756) (bol 2732)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 149) (col 2767) (bol 2757)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 149) (col 2781) (bol 2757)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 149) (col 2767) (bol 2757)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 149) (col 2781) (bol 2757)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_mul_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 1 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 150) (col 2794) (bol 2782)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 150) (col 2799) (bol 2782)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 150) (col 2794) (bol 2782)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 150) (col 2799) (bol 2782)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_and_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 2 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 65535)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 150) (col 2794) (bol 2782)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 150) (col 2812) (bol 2782)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 150) (col 2794) (bol 2782)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 150) (col 2812) (bol 2782)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MPrim1 TagUint16
+           ((immediate_desc (MImmBinding (MLocalBind 3 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 150) (col 2784) (bol 2782)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 150) (col 2813) (bol 2782)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 4) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs
+       (((txt Unsafe)
+         (loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 146) (col 2679) (bol 2678)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 146) (col 2685) (bol 2678)))
+           (loc_ghost false))))))
+      (func_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 147) (col 2704) (bol 2686)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 151) (col 2815) (bol 2814)))
+        (loc_ghost false))))
+     ((id ((stamp 1650) (name /))) (name (/))
+      (args (GrainValue GrainValue GrainValue)) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 168) (col 3122) (bol 3112)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 168) (col 3136) (bol 3112)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 168) (col 3122) (bol 3112)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 168) (col 3136) (bol 3112)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 169) (col 3147) (bol 3137)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 169) (col 3161) (bol 3137)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 169) (col 3147) (bol 3137)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 169) (col 3161) (bol 3137)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_div_u_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 1 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 170) (col 3174) (bol 3162)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 170) (col 3179) (bol 3162)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 170) (col 3174) (bol 3162)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 170) (col 3179) (bol 3162)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_and_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 2 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 65535)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 170) (col 3174) (bol 3162)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 170) (col 3192) (bol 3162)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 170) (col 3174) (bol 3162)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 170) (col 3192) (bol 3162)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MPrim1 TagUint16
+           ((immediate_desc (MImmBinding (MLocalBind 3 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 170) (col 3164) (bol 3162)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 170) (col 3193) (bol 3162)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 4) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs
+       (((txt Unsafe)
+         (loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 166) (col 3059) (bol 3058)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 166) (col 3065) (bol 3058)))
+           (loc_ghost false))))))
+      (func_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 167) (col 3084) (bol 3066)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 171) (col 3195) (bol 3194)))
+        (loc_ghost false))))
+     ((id ((stamp 1655) (name rem))) (name (rem))
+      (args (GrainValue GrainValue GrainValue)) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 186) (col 3499) (bol 3489)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 186) (col 3513) (bol 3489)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 186) (col 3499) (bol 3489)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 186) (col 3513) (bol 3489)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 187) (col 3524) (bol 3514)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 187) (col 3538) (bol 3514)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 187) (col 3524) (bol 3514)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 187) (col 3538) (bol 3514)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_rem_u_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 1 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 188) (col 3551) (bol 3539)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 188) (col 3569) (bol 3539)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 188) (col 3551) (bol 3539)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 188) (col 3569) (bol 3539)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MPrim1 TagUint16
+           ((immediate_desc (MImmBinding (MLocalBind 2 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 189) (col 3572) (bol 3570)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 189) (col 3586) (bol 3570)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 3) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs
+       (((txt Unsafe)
+         (loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 184) (col 3436) (bol 3435)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 184) (col 3442) (bol 3435)))
+           (loc_ghost false))))))
+      (func_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 185) (col 3461) (bol 3443)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 190) (col 3588) (bol 3587)))
+        (loc_ghost false))))
+     ((id ((stamp 1661) (name <<))) (name (<<))
+      (args (GrainValue GrainValue GrainValue)) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 207) (col 3949) (bol 3935)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 207) (col 3967) (bol 3935)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 207) (col 3949) (bol 3935)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 207) (col 3967) (bol 3935)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 208) (col 3983) (bol 3968)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 208) (col 4002) (bol 3968)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 208) (col 3983) (bol 3968)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 208) (col 4002) (bol 3968)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_shl_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 1 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 209) (col 4015) (bol 4003)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 209) (col 4030) (bol 4003)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 209) (col 4015) (bol 4003)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 209) (col 4030) (bol 4003)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_and_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 2 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 65535)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 209) (col 4015) (bol 4003)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 209) (col 4043) (bol 4003)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 209) (col 4015) (bol 4003)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 209) (col 4043) (bol 4003)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MPrim1 TagUint16
+           ((immediate_desc (MImmBinding (MLocalBind 3 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 209) (col 4005) (bol 4003)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 209) (col 4044) (bol 4003)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 4) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs
+       (((txt Unsafe)
+         (loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 205) (col 3872) (bol 3871)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 205) (col 3878) (bol 3871)))
+           (loc_ghost false))))))
+      (func_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 206) (col 3898) (bol 3879)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 210) (col 4046) (bol 4045)))
+        (loc_ghost false))))
+     ((id ((stamp 1666) (name >>>))) (name (>>>))
+      (args (GrainValue GrainValue GrainValue)) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 227) (col 4402) (bol 4388)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 227) (col 4420) (bol 4388)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 227) (col 4402) (bol 4388)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 227) (col 4420) (bol 4388)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 228) (col 4436) (bol 4421)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 228) (col 4455) (bol 4421)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 228) (col 4436) (bol 4421)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 228) (col 4455) (bol 4421)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_shr_u_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 1 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 229) (col 4468) (bol 4456)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 229) (col 4484) (bol 4456)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 229) (col 4468) (bol 4456)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 229) (col 4484) (bol 4456)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_and_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 2 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 65535)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 229) (col 4468) (bol 4456)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 229) (col 4497) (bol 4456)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 229) (col 4468) (bol 4456)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 229) (col 4497) (bol 4456)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MPrim1 TagUint16
+           ((immediate_desc (MImmBinding (MLocalBind 3 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 229) (col 4458) (bol 4456)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 229) (col 4498) (bol 4456)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 4) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs
+       (((txt Unsafe)
+         (loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 225) (col 4324) (bol 4323)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 225) (col 4330) (bol 4323)))
+           (loc_ghost false))))))
+      (func_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 226) (col 4351) (bol 4331)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 230) (col 4500) (bol 4499)))
+        (loc_ghost false))))
+     ((id ((stamp 1671) (name ==))) (name (==))
+      (args (GrainValue GrainValue GrainValue)) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 247) (col 4863) (bol 4853)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 247) (col 4877) (bol 4853)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 247) (col 4863) (bol 4853)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 247) (col 4877) (bol 4853)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 248) (col 4888) (bol 4878)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 248) (col 4902) (bol 4878)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 248) (col 4888) (bol 4878)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 248) (col 4902) (bol 4878)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MPrim2
+           (WasmBinaryI32 (wasm_op Op_eq_int32)
+            (arg_types (Wasm_int32 Wasm_int32)) (ret_type Grain_bool))
+           ((immediate_desc (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))
+           ((immediate_desc (MImmBinding (MLocalBind 1 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 249) (col 4905) (bol 4903)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 249) (col 4911) (bol 4903)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 2) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs
+       (((txt Unsafe)
+         (loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 245) (col 4799) (bol 4798)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 245) (col 4805) (bol 4798)))
+           (loc_ghost false))))))
+      (func_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 246) (col 4825) (bol 4806)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 250) (col 4913) (bol 4912)))
+        (loc_ghost false))))
+     ((id ((stamp 1676) (name !=))) (name (!=))
+      (args (GrainValue GrainValue GrainValue)) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 267) (col 5284) (bol 5274)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 267) (col 5298) (bol 5274)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 267) (col 5284) (bol 5274)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 267) (col 5298) (bol 5274)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 268) (col 5309) (bol 5299)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 268) (col 5323) (bol 5299)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 268) (col 5309) (bol 5299)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 268) (col 5323) (bol 5299)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MPrim2
+           (WasmBinaryI32 (wasm_op Op_ne_int32)
+            (arg_types (Wasm_int32 Wasm_int32)) (ret_type Grain_bool))
+           ((immediate_desc (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))
+           ((immediate_desc (MImmBinding (MLocalBind 1 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 269) (col 5326) (bol 5324)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 269) (col 5332) (bol 5324)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 2) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs
+       (((txt Unsafe)
+         (loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 265) (col 5220) (bol 5219)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 265) (col 5226) (bol 5219)))
+           (loc_ghost false))))))
+      (func_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 266) (col 5246) (bol 5227)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 270) (col 5334) (bol 5333)))
+        (loc_ghost false))))
+     ((id ((stamp 1681) (name <))) (name (<))
+      (args (GrainValue GrainValue GrainValue)) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 287) (col 5696) (bol 5686)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 287) (col 5710) (bol 5686)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 287) (col 5696) (bol 5686)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 287) (col 5710) (bol 5686)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 288) (col 5721) (bol 5711)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 288) (col 5735) (bol 5711)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 288) (col 5721) (bol 5711)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 288) (col 5735) (bol 5711)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MPrim2
+           (WasmBinaryI32 (wasm_op Op_lt_u_int32)
+            (arg_types (Wasm_int32 Wasm_int32)) (ret_type Grain_bool))
+           ((immediate_desc (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))
+           ((immediate_desc (MImmBinding (MLocalBind 1 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 289) (col 5738) (bol 5736)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 289) (col 5743) (bol 5736)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 2) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs
+       (((txt Unsafe)
+         (loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 285) (col 5633) (bol 5632)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 285) (col 5639) (bol 5632)))
+           (loc_ghost false))))))
+      (func_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 286) (col 5658) (bol 5640)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 290) (col 5745) (bol 5744)))
+        (loc_ghost false))))
+     ((id ((stamp 1686) (name >))) (name (>))
+      (args (GrainValue GrainValue GrainValue)) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 307) (col 6113) (bol 6103)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 307) (col 6127) (bol 6103)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 307) (col 6113) (bol 6103)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 307) (col 6127) (bol 6103)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 308) (col 6138) (bol 6128)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 308) (col 6152) (bol 6128)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 308) (col 6138) (bol 6128)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 308) (col 6152) (bol 6128)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MPrim2
+           (WasmBinaryI32 (wasm_op Op_gt_u_int32)
+            (arg_types (Wasm_int32 Wasm_int32)) (ret_type Grain_bool))
+           ((immediate_desc (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))
+           ((immediate_desc (MImmBinding (MLocalBind 1 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 309) (col 6155) (bol 6153)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 309) (col 6160) (bol 6153)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 2) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs
+       (((txt Unsafe)
+         (loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 305) (col 6050) (bol 6049)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 305) (col 6056) (bol 6049)))
+           (loc_ghost false))))))
+      (func_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 306) (col 6075) (bol 6057)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 310) (col 6162) (bol 6161)))
+        (loc_ghost false))))
+     ((id ((stamp 1691) (name <=))) (name (<=))
+      (args (GrainValue GrainValue GrainValue)) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 330) (col 6607) (bol 6597)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 330) (col 6621) (bol 6597)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 330) (col 6607) (bol 6597)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 330) (col 6621) (bol 6597)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 331) (col 6632) (bol 6622)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 331) (col 6646) (bol 6622)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 331) (col 6632) (bol 6622)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 331) (col 6646) (bol 6622)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MPrim2
+           (WasmBinaryI32 (wasm_op Op_le_u_int32)
+            (arg_types (Wasm_int32 Wasm_int32)) (ret_type Grain_bool))
+           ((immediate_desc (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))
+           ((immediate_desc (MImmBinding (MLocalBind 1 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 332) (col 6649) (bol 6647)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 332) (col 6655) (bol 6647)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 2) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs
+       (((txt Unsafe)
+         (loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 328) (col 6543) (bol 6542)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 328) (col 6549) (bol 6542)))
+           (loc_ghost false))))))
+      (func_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 329) (col 6569) (bol 6550)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 333) (col 6657) (bol 6656)))
+        (loc_ghost false))))
+     ((id ((stamp 1696) (name >=))) (name (>=))
+      (args (GrainValue GrainValue GrainValue)) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 353) (col 7108) (bol 7098)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 353) (col 7122) (bol 7098)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 353) (col 7108) (bol 7098)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 353) (col 7122) (bol 7098)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 354) (col 7133) (bol 7123)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 354) (col 7147) (bol 7123)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 354) (col 7133) (bol 7123)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 354) (col 7147) (bol 7123)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MPrim2
+           (WasmBinaryI32 (wasm_op Op_ge_u_int32)
+            (arg_types (Wasm_int32 Wasm_int32)) (ret_type Grain_bool))
+           ((immediate_desc (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))
+           ((immediate_desc (MImmBinding (MLocalBind 1 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 355) (col 7150) (bol 7148)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 355) (col 7156) (bol 7148)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 2) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs
+       (((txt Unsafe)
+         (loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 351) (col 7044) (bol 7043)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 351) (col 7050) (bol 7043)))
+           (loc_ghost false))))))
+      (func_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 352) (col 7070) (bol 7051)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 356) (col 7158) (bol 7157)))
+        (loc_ghost false))))
+     ((id ((stamp 1701) (name lnot))) (name (lnot))
+      (args (GrainValue GrainValue)) (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 370) (col 7437) (bol 7423)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 370) (col 7455) (bol 7423)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 370) (col 7437) (bol 7423)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 370) (col 7455) (bol 7423)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_xor_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 -1)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 371) (col 7469) (bol 7456)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 371) (col 7488) (bol 7456)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 371) (col 7469) (bol 7456)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 371) (col 7488) (bol 7456)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_and_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 1 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 65535)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 371) (col 7469) (bol 7456)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 371) (col 7502) (bol 7456)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 371) (col 7469) (bol 7456)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 371) (col 7502) (bol 7456)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MPrim1 TagUint16
+           ((immediate_desc (MImmBinding (MLocalBind 2 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 371) (col 7458) (bol 7456)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 371) (col 7503) (bol 7456)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 3) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs
+       (((txt Unsafe)
+         (loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 368) (col 7376) (bol 7375)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 368) (col 7382) (bol 7375)))
+           (loc_ghost false))))))
+      (func_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 369) (col 7402) (bol 7383)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 372) (col 7505) (bol 7504)))
+        (loc_ghost false))))
+     ((id ((stamp 1704) (name &))) (name (&))
+      (args (GrainValue GrainValue GrainValue)) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 389) (col 7896) (bol 7886)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 389) (col 7910) (bol 7886)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 389) (col 7896) (bol 7886)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 389) (col 7910) (bol 7886)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 390) (col 7921) (bol 7911)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 390) (col 7935) (bol 7911)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 390) (col 7921) (bol 7911)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 390) (col 7935) (bol 7911)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_and_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 1 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 391) (col 7948) (bol 7936)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 391) (col 7953) (bol 7936)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 391) (col 7948) (bol 7936)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 391) (col 7953) (bol 7936)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MPrim1 TagUint16
+           ((immediate_desc (MImmBinding (MLocalBind 2 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 391) (col 7938) (bol 7936)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 391) (col 7954) (bol 7936)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 3) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs
+       (((txt Unsafe)
+         (loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 387) (col 7833) (bol 7832)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 387) (col 7839) (bol 7832)))
+           (loc_ghost false))))))
+      (func_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 388) (col 7858) (bol 7840)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 392) (col 7956) (bol 7955)))
+        (loc_ghost false))))
+     ((id ((stamp 1709) (name |))) (name (|))
+      (args (GrainValue GrainValue GrainValue)) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 409) (col 8356) (bol 8346)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 409) (col 8370) (bol 8346)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 409) (col 8356) (bol 8346)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 409) (col 8370) (bol 8346)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 410) (col 8381) (bol 8371)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 410) (col 8395) (bol 8371)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 410) (col 8381) (bol 8371)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 410) (col 8395) (bol 8371)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_or_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 1 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 411) (col 8408) (bol 8396)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 411) (col 8413) (bol 8396)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 411) (col 8408) (bol 8396)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 411) (col 8413) (bol 8396)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MPrim1 TagUint16
+           ((immediate_desc (MImmBinding (MLocalBind 2 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 411) (col 8398) (bol 8396)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 411) (col 8414) (bol 8396)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 3) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs
+       (((txt Unsafe)
+         (loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 407) (col 8293) (bol 8292)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 407) (col 8299) (bol 8292)))
+           (loc_ghost false))))))
+      (func_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 408) (col 8318) (bol 8300)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 412) (col 8416) (bol 8415)))
+        (loc_ghost false))))
+     ((id ((stamp 1714) (name ^))) (name (^))
+      (args (GrainValue GrainValue GrainValue)) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 429) (col 8822) (bol 8812)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 429) (col 8836) (bol 8812)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 429) (col 8822) (bol 8812)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 429) (col 8836) (bol 8812)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 UntagUint16
+                ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 430) (col 8847) (bol 8837)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 430) (col 8861) (bol 8837)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 430) (col 8847) (bol 8837)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 430) (col 8861) (bol 8837)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_xor_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 1 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 431) (col 8874) (bol 8862)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+                  (line 431) (col 8879) (bol 8862)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 431) (col 8874) (bol 8862)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 431) (col 8879) (bol 8862)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MPrim1 TagUint16
+           ((immediate_desc (MImmBinding (MLocalBind 2 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 431) (col 8864) (bol 8862)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 431) (col 8880) (bol 8862)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 3) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs
+       (((txt Unsafe)
+         (loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 427) (col 8759) (bol 8758)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+             (line 427) (col 8765) (bol 8758)))
+           (loc_ghost false))))))
+      (func_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 428) (col 8784) (bol 8766)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 432) (col 8882) (bol 8881)))
+        (loc_ghost false))))))
+   (imports
+    (((mimp_id ((stamp 1720) (name coerceUint16ToNumber)))
+      (mimp_mod runtime/numbers.gr) (mimp_name coerceUint16ToNumber)
+      (mimp_type
+       (MFuncImport (GrainValue (WasmValue WasmRef)) ((WasmValue WasmRef))))
+      (mimp_kind MImportGrain) (mimp_setup MSetupNone) (mimp_used true))
+     ((mimp_id ((stamp 1720) (name coerceUint16ToNumber)))
+      (mimp_mod runtime/numbers.gr) (mimp_name coerceUint16ToNumber)
+      (mimp_type (MGlobalImport GrainValue true)) (mimp_kind MImportGrain)
+      (mimp_setup MCallGetter) (mimp_used true))
+     ((mimp_id ((stamp 1719) (name coerceNumberToUint16)))
+      (mimp_mod runtime/numbers.gr) (mimp_name coerceNumberToUint16)
+      (mimp_type
+       (MFuncImport (GrainValue (WasmValue WasmRef)) ((WasmValue WasmRef))))
+      (mimp_kind MImportGrain) (mimp_setup MSetupNone) (mimp_used true))
+     ((mimp_id ((stamp 1719) (name coerceNumberToUint16)))
+      (mimp_mod runtime/numbers.gr) (mimp_name coerceNumberToUint16)
+      (mimp_type (MGlobalImport GrainValue true)) (mimp_kind MImportGrain)
+      (mimp_setup MCallGetter) (mimp_used true))))
+   (exports
+    ((WasmFunctionExport (ex_function_name ^)
+      (ex_function_internal_name ^_1714))
+     (WasmGlobalExport (ex_global_name ^) (ex_global_internal_name ^_1714))
+     (WasmFunctionExport (ex_function_name |)
+      (ex_function_internal_name |_1709))
+     (WasmGlobalExport (ex_global_name |) (ex_global_internal_name |_1709))
+     (WasmFunctionExport (ex_function_name &)
+      (ex_function_internal_name &_1704))
+     (WasmGlobalExport (ex_global_name &) (ex_global_internal_name &_1704))
+     (WasmFunctionExport (ex_function_name lnot)
+      (ex_function_internal_name lnot_1701))
+     (WasmGlobalExport (ex_global_name lnot)
+      (ex_global_internal_name lnot_1701))
+     (WasmFunctionExport (ex_function_name >=)
+      (ex_function_internal_name >=_1696))
+     (WasmGlobalExport (ex_global_name >=) (ex_global_internal_name >=_1696))
+     (WasmFunctionExport (ex_function_name <=)
+      (ex_function_internal_name <=_1691))
+     (WasmGlobalExport (ex_global_name <=) (ex_global_internal_name <=_1691))
+     (WasmFunctionExport (ex_function_name >)
+      (ex_function_internal_name >_1686))
+     (WasmGlobalExport (ex_global_name >) (ex_global_internal_name >_1686))
+     (WasmFunctionExport (ex_function_name <)
+      (ex_function_internal_name <_1681))
+     (WasmGlobalExport (ex_global_name <) (ex_global_internal_name <_1681))
+     (WasmFunctionExport (ex_function_name !=)
+      (ex_function_internal_name !=_1676))
+     (WasmGlobalExport (ex_global_name !=) (ex_global_internal_name !=_1676))
+     (WasmFunctionExport (ex_function_name ==)
+      (ex_function_internal_name ==_1671))
+     (WasmGlobalExport (ex_global_name ==) (ex_global_internal_name ==_1671))
+     (WasmFunctionExport (ex_function_name >>>)
+      (ex_function_internal_name >>>_1666))
+     (WasmGlobalExport (ex_global_name >>>)
+      (ex_global_internal_name >>>_1666))
+     (WasmFunctionExport (ex_function_name <<)
+      (ex_function_internal_name <<_1661))
+     (WasmGlobalExport (ex_global_name <<) (ex_global_internal_name <<_1661))
+     (WasmFunctionExport (ex_function_name rem)
+      (ex_function_internal_name rem_1655))
+     (WasmGlobalExport (ex_global_name rem)
+      (ex_global_internal_name rem_1655))
+     (WasmFunctionExport (ex_function_name /)
+      (ex_function_internal_name /_1650))
+     (WasmGlobalExport (ex_global_name /) (ex_global_internal_name /_1650))
+     (WasmFunctionExport (ex_function_name *)
+      (ex_function_internal_name *_1645))
+     (WasmGlobalExport (ex_global_name *) (ex_global_internal_name *_1645))
+     (WasmFunctionExport (ex_function_name -)
+      (ex_function_internal_name -_1640))
+     (WasmGlobalExport (ex_global_name -) (ex_global_internal_name -_1640))
+     (WasmFunctionExport (ex_function_name +)
+      (ex_function_internal_name +_1635))
+     (WasmGlobalExport (ex_global_name +) (ex_global_internal_name +_1635))
+     (WasmFunctionExport (ex_function_name decr)
+      (ex_function_internal_name decr_1632))
+     (WasmGlobalExport (ex_global_name decr)
+      (ex_global_internal_name decr_1632))
+     (WasmFunctionExport (ex_function_name incr)
+      (ex_function_internal_name incr_1629))
+     (WasmGlobalExport (ex_global_name incr)
+      (ex_global_internal_name incr_1629))
+     (WasmFunctionExport (ex_function_name fromInt16)
+      (ex_function_internal_name fromInt16_1626))
+     (WasmGlobalExport (ex_global_name fromInt16)
+      (ex_global_internal_name fromInt16_1626))
+     (WasmFunctionExport (ex_function_name toNumber)
+      (ex_function_internal_name coerceUint16ToNumber_1720))
+     (WasmGlobalExport (ex_global_name toNumber)
+      (ex_global_internal_name coerceUint16ToNumber_1720))
+     (WasmFunctionExport (ex_function_name fromNumber)
+      (ex_function_internal_name coerceNumberToUint16_1719))
+     (WasmGlobalExport (ex_global_name fromNumber)
+      (ex_global_internal_name coerceNumberToUint16_1719))))
+   (main_body
+    (((instr_desc
+       (MStore
+        (((MGlobalBind fromInt16_1626 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 55) (col 958) (bol 934)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 58) (col 1037) (bol 1036)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 55) (col 958) (bol 934)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 58) (col 1037) (bol 1036)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind incr_1629 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 71) (col 1242) (bol 1223)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 74) (col 1334) (bol 1333)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 71) (col 1242) (bol 1223)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 74) (col 1334) (bol 1333)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind decr_1632 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 88) (col 1579) (bol 1560)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 91) (col 1671) (bol 1670)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 88) (col 1579) (bol 1560)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 91) (col 1671) (bol 1670)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind +_1635 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 107) (col 1934) (bol 1916)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 111) (col 2045) (bol 2044)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 107) (col 1934) (bol 1916)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 111) (col 2045) (bol 2044)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind -_1640 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 127) (col 2322) (bol 2304)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 131) (col 2433) (bol 2432)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 127) (col 2322) (bol 2304)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 131) (col 2433) (bol 2432)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind *_1645 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 147) (col 2704) (bol 2686)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 151) (col 2815) (bol 2814)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 147) (col 2704) (bol 2686)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 151) (col 2815) (bol 2814)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind /_1650 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 167) (col 3084) (bol 3066)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 171) (col 3195) (bol 3194)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 167) (col 3084) (bol 3066)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 171) (col 3195) (bol 3194)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind rem_1655 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 185) (col 3461) (bol 3443)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 190) (col 3588) (bol 3587)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 185) (col 3461) (bol 3443)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 190) (col 3588) (bol 3587)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind <<_1661 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 206) (col 3898) (bol 3879)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 210) (col 4046) (bol 4045)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 206) (col 3898) (bol 3879)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 210) (col 4046) (bol 4045)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind >>>_1666 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 226) (col 4351) (bol 4331)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 230) (col 4500) (bol 4499)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 226) (col 4351) (bol 4331)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 230) (col 4500) (bol 4499)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind ==_1671 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 246) (col 4825) (bol 4806)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 250) (col 4913) (bol 4912)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 246) (col 4825) (bol 4806)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 250) (col 4913) (bol 4912)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind !=_1676 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 266) (col 5246) (bol 5227)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 270) (col 5334) (bol 5333)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 266) (col 5246) (bol 5227)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 270) (col 5334) (bol 5333)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind <_1681 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 286) (col 5658) (bol 5640)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 290) (col 5745) (bol 5744)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 286) (col 5658) (bol 5640)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 290) (col 5745) (bol 5744)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind >_1686 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 306) (col 6075) (bol 6057)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 310) (col 6162) (bol 6161)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 306) (col 6075) (bol 6057)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 310) (col 6162) (bol 6161)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind <=_1691 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 329) (col 6569) (bol 6550)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 333) (col 6657) (bol 6656)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 329) (col 6569) (bol 6550)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 333) (col 6657) (bol 6656)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind >=_1696 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 352) (col 7070) (bol 7051)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 356) (col 7158) (bol 7157)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 352) (col 7070) (bol 7051)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 356) (col 7158) (bol 7157)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind lnot_1701 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 369) (col 7402) (bol 7383)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 372) (col 7505) (bol 7504)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 369) (col 7402) (bol 7383)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 372) (col 7505) (bol 7504)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind &_1704 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 388) (col 7858) (bol 7840)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 392) (col 7956) (bol 7955)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 388) (col 7858) (bol 7840)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 392) (col 7956) (bol 7955)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind |_1709 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 408) (col 8318) (bol 8300)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 412) (col 8416) (bol 8415)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 408) (col 8318) (bol 8300)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 412) (col 8416) (bol 8415)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind ^_1714 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 428) (col 8784) (bol 8766)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+               (line 432) (col 8882) (bol 8881)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 428) (col 8784) (bol 8766)))
+        (loc_end
+         (position
+          (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+          (line 432) (col 8882) (bol 8881)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MImmediate
+        ((immediate_desc (MImmConst MConstVoid))
+         (immediate_analyses ((last_usage Unknown))))))
+      (instr_loc dummy_loc))))
+   (main_body_stack_size
+    ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+     (stack_size_f32 0) (stack_size_f64 0)))
+   (globals
+    (((id ((stamp 1704) (name &))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1676) (name !=))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1635) (name +))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1645) (name *))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1681) (name <))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1650) (name /))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1640) (name -))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1691) (name <=))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1671) (name ==))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1696) (name >=))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1714) (name ^))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1632) (name decr))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1666) (name >>>))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1686) (name >))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1629) (name incr))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1709) (name |))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1655) (name rem))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1701) (name lnot))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1626) (name fromInt16))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1661) (name <<))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))))
+   (compilation_mode Normal) (type_metadata <opaque>)
+   (prog_loc
+    ((loc_start
+      (position
+       (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+       (line 1) (col 0) (bol 0)))
+     (loc_end
+      (position
+       (file /Users/spotandjake/Documents/github/grain/stdlib/uint16.gr)
+       (line 433) (col 8883) (bol 8883)))
+     (loc_ghost false)))))
+ (signature <opaque>))

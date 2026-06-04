@@ -1,0 +1,38 @@
+@runtimeMode
+module WasmF64
+
+// WebAssembly Memory Instructions
+provide primitive load = "@wasm.load_float64"
+provide primitive store = "@wasm.store_float64"
+
+// WebAssembly Unary Instructions
+provide primitive neg = "@wasm.neg_float64"
+provide primitive abs = "@wasm.abs_float64"
+provide primitive ceil = "@wasm.ceil_float64"
+provide primitive floor = "@wasm.floor_float64"
+provide primitive trunc = "@wasm.trunc_float64"
+provide primitive nearest = "@wasm.nearest_float64"
+provide primitive sqrt = "@wasm.sqrt_float64"
+
+// WebAssembly Binary Instructions
+provide primitive (+) = "@wasm.add_float64"
+provide primitive (-) = "@wasm.sub_float64"
+provide primitive (*) = "@wasm.mul_float64"
+provide primitive (/) = "@wasm.div_float64"
+provide primitive copySign = "@wasm.copy_sign_float64"
+provide primitive min = "@wasm.min_float64"
+provide primitive max = "@wasm.max_float64"
+provide primitive (==) = "@wasm.eq_float64"
+provide primitive (!=) = "@wasm.ne_float64"
+provide primitive (<) = "@wasm.lt_float64"
+provide primitive (<=) = "@wasm.le_float64"
+provide primitive (>) = "@wasm.gt_float64"
+provide primitive (>=) = "@wasm.ge_float64"
+
+// WebAssembly Conversion instructions
+provide primitive reinterpretI64 = "@wasm.reinterpret_int64"
+provide primitive convertI32S = "@wasm.convert_s_int32_to_float64"
+provide primitive convertI32U = "@wasm.convert_u_int32_to_float64"
+provide primitive convertI64S = "@wasm.convert_s_int64_to_float64"
+provide primitive convertI64U = "@wasm.convert_u_int64_to_float64"
+provide primitive promoteF32 = "@wasm.promote_float32"

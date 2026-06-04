@@ -1,15 +1,16 @@
-import { Command } from "@cliffy/command";
+import { type Command } from 'commander';
 
-import { runCommand, optionsToArgs } from "../utils.ts";
+import { runCommand, optionsToFlags, type Options } from "../utils.ts";
 
+export const lsp = async (opts: Options, program: Command) => {
+  return await runCommand("grainlsp", optionsToFlags(program, opts, []));
+}
 // Setup the command
-export default (cli: Command) => {
+export default (cli: Command, unprocessedArgs: string[]) => {
   cli.command("lsp")
     .description("start the Grain LSP server")
-    .action((opts) => {
-      console.log(opts);
-      // runCommand("grainlsp", optionsToArgs(opts, {}));
+    .action(async (opts: Options, program: Command) => {
+      await lsp(opts, program);
     });
-
   return cli;
 };

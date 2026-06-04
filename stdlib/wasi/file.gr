@@ -1,0 +1,2183 @@
+/**
+ * Utilities for accessing the filesystem & working with files.
+ *
+ * Many of the functions in this module are not intended to be used directly, but rather for other libraries to be built on top of them.
+ *
+ * @example from "wasi/file" include File
+ */
+module File
+
+from "runtime/unsafe/wasmref" include WasmRef
+use WasmRef.{ module WasmArrayRef }
+from "runtime/unsafe/wasmi32" include WasmI32
+use WasmI32.{
+  (+),
+  (-),
+  (*),
+  (<<),
+  (>>),
+  (>>>),
+  (==),
+  (!=),
+  (<),
+  (<=),
+  (>),
+  (>=),
+  (&),
+  (|),
+}
+from "runtime/unsafe/wasmi64" include WasmI64
+from "runtime/wasi" include Wasi
+from "runtime/malloc" include Malloc
+from "runtime/unsafe/memory" include Memory
+from "runtime/dataStructures" include DataStructures
+use DataStructures.{
+  tagSimpleNumber,
+  untagSimpleNumber,
+  allocateArray,
+  allocateBytes,
+  getBytesSize,
+  getBytesArrayRef,
+  allocateString,
+  getStringSize,
+  getStringArrayRef,
+  newInt32,
+  newInt64,
+}
+from "runtime/unsafe/conv" include Conv
+
+from "list" include List
+
+/**
+ * Represents a handle to an open file on the system.
+ */
+provide enum FileDescriptor {
+  FileDescriptor(Number),
+}
+
+@unsafe
+let getRawFileDescriptor = (FileDescriptor(fd)) => untagSimpleNumber(fd)
+
+/**
+ * Flags that determine how paths should be resolved when looking up a file or directory.
+ */
+provide enum LookupFlag {
+  /**
+   * Follow symlinks
+   */
+  SymlinkFollow,
+}
+
+// TODO(#775): This has specific ordering requirements because of ambiguous type inference
+@unsafe
+let rec combineLookupFlagsHelp = (acc, dirflags) => {
+  match (dirflags) {
+    [hd, ...tl] => {
+      let flag = match (hd) {
+        SymlinkFollow => Wasi._LOOKUP_FLAG_SYMLINK_FOLLOW,
+      }
+      combineLookupFlagsHelp(acc | flag, tl)
+    },
+    [] => acc,
+  }
+}
+@unsafe
+let combineLookupFlags = dirflags => {
+  combineLookupFlagsHelp(0n, dirflags)
+}
+
+/**
+ * Flags that determine how a file or directory should be opened.
+ */
+provide enum OpenFlag {
+  /**
+   * Create file if it does not exist.
+   */
+  Create,
+  /**
+   * Fail if not a directory.
+   */
+  Directory,
+  /**
+   * Fail if file already exists.
+   */
+  Exclusive,
+  /**
+   * Truncate file to size 0.
+   */
+  Truncate,
+}
+
+// TODO(#775): This has specific ordering requirements because of ambiguous type inference
+@unsafe
+let rec combineOpenFlagsHelp = (acc, dirflags) => {
+  match (dirflags) {
+    [hd, ...tl] => {
+      let flag = match (hd) {
+        Create => Wasi._OPEN_FLAG_CREAT,
+        Directory => Wasi._OPEN_FLAG_DIRECTORY,
+        Exclusive => Wasi._OPEN_FLAG_EXCL,
+        Truncate => Wasi._OPEN_FLAG_TRUNC,
+      }
+      combineOpenFlagsHelp(acc | flag, tl)
+    },
+    [] => acc,
+  }
+}
+@unsafe
+let combineOpenFlags = dirflags => {
+  combineOpenFlagsHelp(0n, dirflags)
+}
+
+/**
+ * Flags that determine which rights a `FileDescriptor` should have
+ * and which rights new `FileDescriptor`s should inherit from it.
+ */
+provide enum Rights {
+  /**
+   * The right to invoke `fdDatasync`.
+   * If `PathOpen` is set, includes the right to invoke
+   * `pathOpen` with `FdFlag::Dsync`.
+   */
+  FdDatasync,
+  /**
+   * The right to invoke `fdRead`.
+   * If `Rights::FdSeek` is set, includes the right to invoke `fdPread`.
+   */
+  FdRead,
+  /**
+   * The right to invoke `fdSeek`. This flag implies `Rights::FdTell`.
+   */
+  FdSeek,
+  /**
+   * The right to invoke `fdSetFlags`.
+   */
+  FdSetFlags,
+  /**
+   * The right to invoke `fdSync`.
+   * If `PathOpen` is set, includes the right to invoke
+   * `pathOpen` with `FdFlag::Rsync` and `FdFlag::Dsync`.
+   */
+  FdSync,
+  /**
+   * The right to invoke `fdSeek` in such a way that the file offset
+   * remains unaltered (i.e., `Whence::Current` with offset zero), or to
+   * invoke `fdTell`.
+   */
+  FdTell,
+  /**
+   * The right to invoke `fdWrite`.
+   * If `Rights::FdSeek` is set, includes the right to invoke `fdPwrite`.
+   */
+  FdWrite,
+  /**
+   * The right to invoke `fdAdvise`.
+   */
+  FdAdvise,
+  /**
+   * The right to invoke `fdAllocate`.
+   */
+  FdAllocate,
+  /**
+   * The right to invoke `pathCreateDirectory`.
+   */
+  PathCreateDirectory,
+  /**
+   * If `PathOpen` is set, the right to invoke `pathOpen` with `OpenFlag::Create`.
+   */
+  PathCreateFile,
+  /**
+   * The right to invoke `pathLink` with the file descriptor as the
+   * source directory.
+   */
+  PathLinkSource,
+  /**
+   * The right to invoke `pathLink` with the file descriptor as the
+   * target directory.
+   */
+  PathLinkTarget,
+  /**
+   * The right to invoke `pathOpen`.
+   */
+  PathOpen,
+  /**
+   * The right to invoke `fdReaddir`.
+   */
+  FdReaddir,
+  /**
+   * The right to invoke `pathReadlink`.
+   */
+  PathReadlink,
+  /**
+   * The right to invoke `pathRename` with the file descriptor as the source directory.
+   */
+  PathRenameSource,
+  /**
+   * The right to invoke `pathRename` with the file descriptor as the target directory.
+   */
+  PathRenameTarget,
+  /**
+   * The right to invoke `pathFilestats`.
+   */
+  PathFilestats,
+  /**
+   * The right to change a file's size (there's no `pathSetSize`).
+   * If `PathOpen` is set, includes the right to invoke `pathOpen` with `OpenFlag::Truncate`.
+   */
+  PathSetSize,
+  /**
+   * The right to invoke `pathSetAccessTime`, `pathSetAccessTimeNow`, `pathSetModifiedTime`, or `pathSetModifiedTimeNow`.
+   */
+  PathSetTimes,
+  /**
+   * The right to invoke `fdFilestats`.
+   */
+  FdFilestats,
+  /**
+   * The right to invoke `fdSetSize`.
+   */
+  FdSetSize,
+  /**
+   * The right to invoke `fdSetAccessTime`, `fdSetAccessTimeNow`, `fdSetModifiedTime`, or `fdSetModifiedTimeNow`.
+   */
+  FdSetTimes,
+  /**
+   * The right to invoke `pathSymlink`.
+   */
+  PathSymlink,
+  /**
+   * The right to invoke `pathRemoveDirectory`.
+   */
+  PathRemoveDirectory,
+  /**
+   * The right to invoke `pathUnlinkFile`.
+   */
+  PathUnlinkFile,
+  /**
+   * If `Rights::FdRead` is set, includes the right to invoke `pollOneoff` (not yet implemented) to subscribe to `EventType::FdRead`.
+   * If `Rights::FdWrite` is set, includes the right to invoke `pollOneoff` (not yet implemented) to subscribe to `EventType::FdWrite`.
+   */
+  PollFdReadwrite,
+  /**
+   * The right to invoke `sockShutdown` (not yet implemented).
+   */
+  SockShutdown,
+}
+
+// Grain currently cannot close over unsafe wasm i64s, so these are here in
+// module so they get inlined
+@unsafe
+let _RIGHT_FD_DATASYNC = 1N
+@unsafe
+let _RIGHT_FD_READ = 2N
+@unsafe
+let _RIGHT_FD_SEEK = 4N
+@unsafe
+let _RIGHT_FD_FDSTAT_SET_FLAGS = 8N
+@unsafe
+let _RIGHT_FD_SYNC = 16N
+@unsafe
+let _RIGHT_FD_TELL = 32N
+@unsafe
+let _RIGHT_FD_WRITE = 64N
+@unsafe
+let _RIGHT_FD_ADVISE = 128N
+@unsafe
+let _RIGHT_FD_ALLOCATE = 256N
+@unsafe
+let _RIGHT_PATH_CREATE_DIRECTORY = 512N
+@unsafe
+let _RIGHT_PATH_CREATE_FILE = 1024N
+@unsafe
+let _RIGHT_PATH_LINK_SOURCE = 2048N
+@unsafe
+let _RIGHT_PATH_LINK_TARGET = 4096N
+@unsafe
+let _RIGHT_PATH_OPEN = 8192N
+@unsafe
+let _RIGHT_FD_READDIR = 16384N
+@unsafe
+let _RIGHT_PATH_READLINK = 32768N
+@unsafe
+let _RIGHT_PATH_RENAME_SOURCE = 65536N
+@unsafe
+let _RIGHT_PATH_RENAME_TARGET = 131072N
+@unsafe
+let _RIGHT_PATH_FILESTAT_GET = 262144N
+@unsafe
+let _RIGHT_PATH_FILESTAT_SET_SIZE = 524288N
+@unsafe
+let _RIGHT_PATH_FILESTAT_SET_TIMES = 1048576N
+@unsafe
+let _RIGHT_FD_FILESTAT_GET = 2097152N
+@unsafe
+let _RIGHT_FD_FILESTAT_SET_SIZE = 4194304N
+@unsafe
+let _RIGHT_FD_FILESTAT_SET_TIMES = 8388608N
+@unsafe
+let _RIGHT_PATH_SYMLINK = 16777216N
+@unsafe
+let _RIGHT_PATH_REMOVE_DIRECTORY = 33554432N
+@unsafe
+let _RIGHT_PATH_UNLINK_FILE = 67108864N
+@unsafe
+let _RIGHT_POLL_FD_READWRITE = 134217728N
+@unsafe
+let _RIGHT_SOCK_SHUTDOWN = 268435456N
+
+// TODO(#775): This has specific ordering requirements because of ambiguous type inference
+@unsafe
+let rec combineRightsHelp = (acc, dirflags) => {
+  use WasmI64.{ (|) }
+  match (dirflags) {
+    [] => acc,
+    [hd, ...tl] => {
+      let flag = match (hd) {
+        FdDatasync => _RIGHT_FD_DATASYNC,
+        FdRead => _RIGHT_FD_READ,
+        FdSeek => _RIGHT_FD_SEEK,
+        FdSetFlags => _RIGHT_FD_FDSTAT_SET_FLAGS,
+        FdSync => _RIGHT_FD_SYNC,
+        FdTell => _RIGHT_FD_TELL,
+        FdWrite => _RIGHT_FD_WRITE,
+        FdAdvise => _RIGHT_FD_ADVISE,
+        FdAllocate => _RIGHT_FD_ALLOCATE,
+        PathCreateDirectory => _RIGHT_PATH_CREATE_DIRECTORY,
+        PathCreateFile => _RIGHT_PATH_CREATE_FILE,
+        PathLinkSource => _RIGHT_PATH_LINK_SOURCE,
+        PathLinkTarget => _RIGHT_PATH_LINK_TARGET,
+        PathOpen => _RIGHT_PATH_OPEN,
+        FdReaddir => _RIGHT_FD_READDIR,
+        PathReadlink => _RIGHT_PATH_READLINK,
+        PathRenameSource => _RIGHT_PATH_RENAME_SOURCE,
+        PathRenameTarget => _RIGHT_PATH_RENAME_TARGET,
+        PathFilestats => _RIGHT_PATH_FILESTAT_GET,
+        PathSetSize => _RIGHT_PATH_FILESTAT_SET_SIZE,
+        PathSetTimes => _RIGHT_PATH_FILESTAT_SET_TIMES,
+        FdFilestats => _RIGHT_FD_FILESTAT_GET,
+        FdSetSize => _RIGHT_FD_FILESTAT_SET_SIZE,
+        FdSetTimes => _RIGHT_FD_FILESTAT_SET_TIMES,
+        PathSymlink => _RIGHT_PATH_SYMLINK,
+        PathRemoveDirectory => _RIGHT_PATH_REMOVE_DIRECTORY,
+        PathUnlinkFile => _RIGHT_PATH_UNLINK_FILE,
+        PollFdReadwrite => _RIGHT_POLL_FD_READWRITE,
+        SockShutdown => _RIGHT_SOCK_SHUTDOWN,
+        _ => {
+          ignore(fail "Unknown file right")
+          // `fail` won't allow us to get here, but this is necessary
+          // to make the wasm types work out
+          0N
+        },
+      }
+      combineRightsHelp(flag | acc, tl)
+    },
+  }
+}
+@unsafe
+let combineRights = dirflags => {
+  combineRightsHelp(0N, dirflags)
+}
+
+/**
+ * Flags that determine the mode(s) that a `FileDescriptor` operates in.
+ */
+provide enum FdFlag {
+  /**
+   * Append mode: Data written to the file is always appended to the file's end.
+   */
+  Append,
+  /**
+   * Write according to synchronized I/O data integrity completion. Only the data stored in the file is synchronized.
+   */
+  Dsync,
+  /**
+   * Non-blocking mode.
+   */
+  Nonblock,
+  /**
+   * Synchronized read I/O operations.
+   */
+  Rsync,
+  // Write according to synchronized I/O file integrity completion. In
+  // addition to synchronizing the data stored in the file, the implementation
+  // may also synchronously update the file's metadata.
+  Sync,
+}
+
+// TODO(#775): This has specific ordering requirements because of ambiguous type inference
+@unsafe
+let rec combineFdFlagsHelp = (acc, dirflags) => {
+  match (dirflags) {
+    [hd, ...tl] => {
+      let flag = match (hd) {
+        Append => Wasi._FDFLAG_APPEND,
+        Dsync => Wasi._FDFLAG_DSYNC,
+        Nonblock => Wasi._FDFLAG_NONBLOCK,
+        Rsync => Wasi._FDFLAG_RSYNC,
+        Sync => Wasi._FDFLAG_SYNC,
+      }
+      combineFdFlagsHelp(acc | flag, tl)
+    },
+    [] => acc,
+  }
+}
+@unsafe
+let combineFdFlags = dirflags => {
+  combineFdFlagsHelp(0n, dirflags)
+}
+
+/**
+ * The type of file a `FileDescriptor` refers to.
+ */
+provide enum Filetype {
+  /**
+   * The type of the file descriptor or file is unknown or is different from any of the other types specified.
+   */
+  Unknown,
+  /**
+   * The file descriptor or file refers to a block device inode.
+   */
+  BlockDevice,
+  /**
+   * The file descriptor or file refers to a character device inode.
+   */
+  CharacterDevice,
+  /**
+   * The file descriptor or file refers to a directory inode.
+   */
+  Directory,
+  /**
+   * The file descriptor or file refers to a regular file inode.
+   */
+  RegularFile,
+  /**
+   * The file descriptor or file refers to a datagram socket.
+   */
+  SocketDatagram,
+  /**
+   * The file descriptor or file refers to a byte-stream socket.
+   */
+  SocketStream,
+  /**
+   * The file refers to a symbolic link inode.
+   */
+  SymbolicLink,
+}
+
+// TODO(#775): This has specific ordering requirements because of ambiguous type inference
+@unsafe
+let filetypeFromNumber = filetype => {
+  match (filetype) {
+    0n => Unknown,
+    1n => BlockDevice,
+    2n => CharacterDevice,
+    3n => Directory,
+    4n => RegularFile,
+    5n => SocketDatagram,
+    6n => SocketStream,
+    7n => SymbolicLink,
+    _ => fail "Unknown filetype",
+  }
+}
+
+/**
+ * Flags that determine where seeking should begin in a file.
+ */
+provide enum Whence {
+  /**
+   * Seek relative to start-of-file.
+   */
+  Set,
+  /**
+   * Seek relative to current position.
+   */
+  Current,
+  /**
+   * Seek relative to end-of-file.
+   */
+  End,
+}
+
+/**
+ * Information about a `FileDescriptor`.
+ */
+provide record Stats {
+  filetype: Filetype,
+  flags: List<FdFlag>,
+  rights: List<Rights>,
+  rightsInheriting: List<Rights>,
+}
+
+/**
+ * Information about the file that a `FileDescriptor` refers to.
+ */
+provide record Filestats {
+  device: Int64,
+  inode: Int64,
+  filetype: Filetype,
+  linkcount: Int64,
+  size: Int64,
+  accessed: Int64,
+  modified: Int64,
+  changed: Int64,
+}
+
+@unsafe
+let buildFileStats = (structPtr: WasmI32) => {
+  let device = Conv.toInt64(WasmI64.load(structPtr, 0n))
+  let inode = Conv.toInt64(WasmI64.load(structPtr, 8n))
+  let filetype = filetypeFromNumber(WasmI32.load8U(structPtr, 16n))
+  let linkcount = Conv.toInt64(WasmI64.load(structPtr, 24n))
+  let size = Conv.toInt64(WasmI64.load(structPtr, 32n))
+  let accessed = Conv.toInt64(WasmI64.load(structPtr, 40n))
+  let modified = Conv.toInt64(WasmI64.load(structPtr, 48n))
+  let changed = Conv.toInt64(WasmI64.load(structPtr, 56n))
+  { device, inode, filetype, linkcount, size, accessed, modified, changed }
+}
+
+/**
+ * An entry in a directory.
+ */
+provide record DirectoryEntry {
+  inode: Int64,
+  filetype: Filetype,
+  path: String,
+}
+
+/**
+ * Information about a preopened directory
+ */
+provide enum Prestat {
+  Dir{ prefix: String, fd: FileDescriptor },
+}
+
+/**
+ * The `FileDescriptor` for `stdin`.
+ */
+provide let stdin = FileDescriptor(0)
+/**
+ * The `FileDescriptor` for `stdout`.
+ */
+provide let stdout = FileDescriptor(1)
+/**
+ * The `FileDescriptor` for `stderr`.
+ */
+provide let stderr = FileDescriptor(2)
+
+/**
+ * Open a file or directory.
+ *
+ * @param dirFd: The directory in which path resolution starts
+ * @param dirFlags: Flags which affect path resolution
+ * @param path: The path to the file or directory
+ * @param openFlags: Flags that decide how the path will be opened
+ * @param rights: The rights that dictate what may be done with the returned file descriptor
+ * @param rightsInheriting: The rights that dictate what may be done with file descriptors derived from this file descriptor
+ * @param flags: Flags which affect read/write operations on this file descriptor
+ * @returns `Ok(fd)` of the opened file or directory if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let pathOpen = (
+  dirFd: FileDescriptor,
+  dirFlags: List<LookupFlag>,
+  path: String,
+  openFlags: List<OpenFlag>,
+  rights: List<Rights>,
+  rightsInheriting: List<Rights>,
+  flags: List<FdFlag>,
+) => {
+  let dirFd = getRawFileDescriptor(dirFd)
+
+  let combinedDirFlags = combineLookupFlags(dirFlags)
+
+  let path = WasmRef.fromGrain(path)
+  let pathLength = getStringSize(path)
+  let pathData = getStringArrayRef(path)
+
+  let combinedOFlags = combineOpenFlags(openFlags)
+
+  let rightsBase = combineRights(rights)
+  let rightsInheriting = combineRights(rightsInheriting)
+
+  let combinedFsFlags = combineFdFlags(flags)
+
+  let newFd = Malloc.malloc(4n)
+  let pathStrPtr = Malloc.malloc(pathLength)
+  Memory.copyRefArrayToLinearMemory(pathStrPtr, pathData, pathLength)
+
+  let err = Wasi.path_open(
+    dirFd,
+    combinedDirFlags,
+    pathStrPtr,
+    pathLength,
+    combinedOFlags,
+    rightsBase,
+    rightsInheriting,
+    combinedFsFlags,
+    newFd
+  )
+
+  Malloc.free(pathStrPtr)
+
+  if (err != Wasi._ESUCCESS) {
+    Malloc.free(newFd)
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  let fd = FileDescriptor(tagSimpleNumber(WasmI32.load(newFd, 0n)))
+  Malloc.free(newFd)
+  return Ok(fd)
+}
+
+/**
+ * Read from a file descriptor.
+ *
+ * @param fd: The file descriptor to read from
+ * @param size: The maximum number of bytes to read from the file descriptor
+ * @returns `Ok((contents, numBytes))` of bytes read and the number of bytes read if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let fdRead = (fd: FileDescriptor, size: Number) => {
+  let fdArg = fd
+  let fd = getRawFileDescriptor(fd)
+
+  let n = untagSimpleNumber(size)
+
+  let dataPtr = Malloc.malloc(n)
+  // ptr to buffer (4 bytes) | length of buffer (4 bytes) | bytes written output (4 bytes)
+  let iovs = Malloc.malloc(3n * 4n)
+  WasmI32.store(iovs, dataPtr, 0n)
+  WasmI32.store(iovs, n, 4n)
+  let nreadPtr = iovs + 3n * 4n
+
+  let err = Wasi.fd_read(fd, iovs, 1n, nreadPtr)
+  if (err != Wasi._ESUCCESS) {
+    Malloc.free(iovs)
+    Malloc.free(dataPtr)
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  let nread = WasmI32.load(nreadPtr, 0n)
+  let bytesRef = allocateBytes(nread)
+  Memory.copyLinearMemoryToRefArray(getBytesArrayRef(bytesRef), dataPtr, nread)
+  Malloc.free(iovs)
+  Malloc.free(dataPtr)
+  return Ok((WasmRef.toGrain(bytesRef): Bytes, tagSimpleNumber(nread)))
+}
+
+/**
+ * Read from a file descriptor without updating the file descriptor's offset.
+ *
+ * @param fd: The file descriptor to read from
+ * @param offset: The position within the file to begin reading
+ * @param size: The maximum number of bytes to read from the file descriptor
+ * @returns `Ok((contents, numBytes))` of bytes read and the number of bytes read if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let fdPread = (fd: FileDescriptor, offset: Int64, size: Number) => {
+  let fd = getRawFileDescriptor(fd)
+
+  let offset = Conv.fromInt64(offset)
+
+  let n = untagSimpleNumber(size)
+
+  let dataPtr = Malloc.malloc(n)
+  // ptr to buffer (4 bytes) | length of buffer (4 bytes) | bytes written output (4 bytes)
+  let iovs = Malloc.malloc(3n * 4n)
+  WasmI32.store(iovs, dataPtr, 0n)
+  WasmI32.store(iovs, n, 4n)
+  let nreadPtr = iovs + 3n * 4n
+
+  let err = Wasi.fd_pread(fd, iovs, 1n, offset, nreadPtr)
+  if (err != Wasi._ESUCCESS) {
+    Malloc.free(iovs)
+    Malloc.free(dataPtr)
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  let nread = WasmI32.load(nreadPtr, 0n)
+  let bytesRef = allocateBytes(nread)
+  Memory.copyLinearMemoryToRefArray(getBytesArrayRef(bytesRef), dataPtr, nread)
+  Malloc.free(iovs)
+  Malloc.free(dataPtr)
+  return Ok((WasmRef.toGrain(bytesRef): Bytes, tagSimpleNumber(nread)))
+}
+
+/**
+ * Get information about a preopened directory.
+ *
+ * @param fd: The file descriptor to check
+ * @returns `Ok(Dir{prefix, fd})` if successful or `Err(exception)` otherwise
+ *
+ * @since v0.6.0
+ */
+@unsafe
+provide let fdPrestatGet = (fd: FileDescriptor) => {
+  let fdArg = fd
+  let fd = getRawFileDescriptor(fd)
+
+  let dir = Malloc.malloc(8n)
+  let err = Wasi.fd_prestat_get(fd, dir)
+  if (err != Wasi._ESUCCESS) {
+    Malloc.free(dir)
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  let prefixLen = WasmI32.load(dir, 4n)
+  Malloc.free(dir)
+
+  let prefix = Malloc.malloc(prefixLen)
+  let err = Wasi.fd_prestat_dir_name(fd, prefix, prefixLen)
+  if (err != Wasi._ESUCCESS) {
+    Malloc.free(prefix)
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  let prefixLen = if (
+    prefixLen > 0n
+    && WasmI32.eqz(WasmI32.load8U(prefix, prefixLen - 1n))
+  ) {
+    // in uvwasi environments the string is null-terminated and the size is reported including it
+    // https://github.com/grain-lang/grain/issues/1818
+    prefixLen - 1n
+  } else {
+    prefixLen
+  }
+
+  let prefixRef = allocateString(prefixLen)
+  Memory.copyLinearMemoryToRefArray(
+    getStringArrayRef(prefixRef),
+    prefix,
+    prefixLen
+  )
+  Malloc.free(prefix)
+
+  return Ok(Dir{ prefix: WasmRef.toGrain(prefixRef): String, fd: fdArg })
+}
+
+/**
+ * Write to a file descriptor.
+ *
+ * @param fd: The file descriptor to which data will be written
+ * @param data: The data to be written
+ * @returns `Ok(numBytes)` of the number of bytes written if successful or `Err(Exception)` otherwise
+ */
+@unsafe
+provide let fdWrite = (fd: FileDescriptor, data: Bytes) => {
+  let fd = getRawFileDescriptor(fd)
+
+  let dstRef = WasmRef.fromGrain(data)
+  let dstSize = getBytesSize(dstRef)
+
+  let dataPtr = Malloc.malloc(dstSize)
+  Memory.copyRefArrayToLinearMemory(dataPtr, getBytesArrayRef(dstRef), dstSize)
+  // ptr to buffer (4 bytes) | length of buffer (4 bytes) | bytes written output (4 bytes)
+  let iovs = Malloc.malloc(3n * 4n)
+  WasmI32.store(iovs, dataPtr, 0n)
+  WasmI32.store(iovs, dstSize, 4n)
+
+  let nWrittenPtr = iovs + 3n * 4n
+
+  let err = Wasi.fd_write(fd, iovs, 1n, nWrittenPtr)
+  Malloc.free(dataPtr)
+  if (err != Wasi._ESUCCESS) {
+    Malloc.free(iovs)
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  let nwritten = WasmI32.load(nWrittenPtr, 0n)
+  Malloc.free(iovs)
+  return Ok(tagSimpleNumber(nwritten))
+}
+
+/**
+ * Write to a file descriptor without updating the file descriptor's offset.
+ *
+ * @param fd: The file descriptor to which data will be written
+ * @param data: The data to be written
+ * @param offset: The position within the file to begin writing
+ * @returns `Ok(numBytes)` of the number of bytes written if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let fdPwrite = (fd: FileDescriptor, data: Bytes, offset: Int64) => {
+  let fd = getRawFileDescriptor(fd)
+
+  let dstRef = WasmRef.fromGrain(data)
+  let dstSize = getBytesSize(dstRef)
+  let dstData = getBytesArrayRef(dstRef)
+
+  let dataPtr = Malloc.malloc(dstSize)
+  Memory.copyRefArrayToLinearMemory(dataPtr, dstData, dstSize)
+  // ptr to buffer (4 bytes) | length of buffer (4 bytes) | bytes written output (4 bytes)
+  let iovs = Malloc.malloc(3n * 4n)
+  WasmI32.store(iovs, dataPtr, 0n)
+  WasmI32.store(iovs, dstSize, 4n)
+
+  let offset = Conv.fromInt64(offset)
+
+  let nWrittenPtr = iovs + 3n * 4n
+
+  let err = Wasi.fd_pwrite(fd, iovs, 1n, offset, nWrittenPtr)
+  Malloc.free(dataPtr)
+  if (err != Wasi._ESUCCESS) {
+    Malloc.free(iovs)
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  let nwritten = WasmI32.load(nWrittenPtr, 0n)
+  Malloc.free(iovs)
+  return Ok(tagSimpleNumber(nwritten))
+}
+
+/**
+ * Allocate space within a file.
+ *
+ * @param fd: The file descriptor in which space will be allocated
+ * @param offset: The position within the file to begin writing
+ * @param size: The number of bytes to allocate
+ * @returns `Ok(void)` if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let fdAllocate = (fd: FileDescriptor, offset: Int64, size: Int64) => {
+  let fd = getRawFileDescriptor(fd)
+
+  let offset = Conv.fromInt64(offset)
+  let size = Conv.fromInt64(size)
+
+  let err = Wasi.fd_allocate(fd, offset, size)
+  if (err != Wasi._ESUCCESS) {
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  return Ok(void)
+}
+
+/**
+ * Close a file descriptor.
+ *
+ * @param fd: The file descriptor to close
+ * @returns `Ok(void)` if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let fdClose = (fd: FileDescriptor) => {
+  let fd = getRawFileDescriptor(fd)
+
+  let err = Wasi.fd_close(fd)
+  if (err != Wasi._ESUCCESS) {
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  return Ok(void)
+}
+
+/**
+ * Synchronize the data of a file to disk.
+ *
+ * @param fd: The file descriptor to synchronize
+ * @returns `Ok(void)` if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let fdDatasync = (fd: FileDescriptor) => {
+  let fd = getRawFileDescriptor(fd)
+
+  let err = Wasi.fd_datasync(fd)
+  if (err != Wasi._ESUCCESS) {
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  return Ok(void)
+}
+
+/**
+ * Synchronize the data and metadata of a file to disk.
+ *
+ * @param fd: The file descriptor to synchronize
+ * @returns `Ok(void)` if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let fdSync = (fd: FileDescriptor) => {
+  let fd = getRawFileDescriptor(fd)
+
+  let err = Wasi.fd_sync(fd)
+  if (err != Wasi._ESUCCESS) {
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  return Ok(void)
+}
+
+let orderedFdflags = [Append, Dsync, Nonblock, Rsync, Sync]
+let orderedRights = [
+  FdDatasync,
+  FdRead,
+  FdSeek,
+  FdSetFlags,
+  FdSync,
+  FdTell,
+  FdWrite,
+  FdAdvise,
+  FdAllocate,
+  PathCreateDirectory,
+  PathCreateFile,
+  PathLinkSource,
+  PathLinkTarget,
+  PathOpen,
+  FdReaddir,
+  PathReadlink,
+  PathRenameSource,
+  PathRenameTarget,
+  PathFilestats,
+  PathSetSize,
+  PathSetTimes,
+  FdFilestats,
+  FdSetSize,
+  FdSetTimes,
+  PathSymlink,
+  PathRemoveDirectory,
+  PathUnlinkFile,
+  PollFdReadwrite,
+  SockShutdown,
+]
+
+/**
+ * Retrieve information about a file descriptor.
+ *
+ * @param fd: The file descriptor of which to retrieve information
+ * @returns `Ok(stats)` of the `Stats` associated with the file descriptor if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let fdStats = (fd: FileDescriptor) => {
+  let fd = getRawFileDescriptor(fd)
+
+  let structPtr = Malloc.malloc(24n)
+
+  let err = Wasi.fd_fdstat_get(fd, structPtr)
+  if (err != Wasi._ESUCCESS) {
+    Malloc.free(structPtr)
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+  let filetype = filetypeFromNumber(WasmI32.load8U(structPtr, 0n))
+  let fdflags = WasmI32.load16U(structPtr, 4n)
+  let rights = WasmI64.load(structPtr, 8n)
+  let rightsInheriting = WasmI64.load(structPtr, 16n)
+
+  let mut fdflagsList = []
+  let mut orderedFdflags = orderedFdflags
+  let mut i = 0n
+  while (true) {
+    match (orderedFdflags) {
+      [flag, ...rest] => {
+        if (WasmI32.gtU(fdflags & 1n << i, 0n)) {
+          fdflagsList = [flag, ...fdflagsList]
+        }
+        orderedFdflags = rest
+        i += 1n
+      },
+      [] => break,
+    }
+  }
+  use WasmI64.{ (&), gtU as (>), (<<) }
+
+  let mut rightsList = []
+  let mut orderedRights = orderedRights
+  let mut i = 0n
+  while (true) {
+    match (orderedRights) {
+      [flag, ...rest] => {
+        if ((rights & 1N << WasmI64.extendI32U(i)) > 0N) {
+          rightsList = [flag, ...rightsList]
+        }
+        orderedRights = rest
+        i += 1n
+      },
+      [] => break,
+    }
+  }
+
+  let mut rightsInheritingList = []
+  let mut orderedRights = orderedRights
+  let mut i = 0n
+  while (true) {
+    match (orderedRights) {
+      [flag, ...rest] => {
+        if ((rightsInheriting & 1N << WasmI64.extendI32U(i)) > 0N) {
+          rightsInheritingList = [flag, ...rightsInheritingList]
+        }
+        orderedRights = rest
+        i += 1n
+      },
+      [] => break,
+    }
+  }
+
+  Malloc.free(structPtr)
+
+  return Ok(
+    {
+      filetype,
+      flags: fdflagsList,
+      rights: rightsList,
+      rightsInheriting: rightsInheritingList,
+    },
+  )
+}
+
+/**
+ * Update the flags associated with a file descriptor.
+ *
+ * @param fd: The file descriptor to update flags
+ * @param flags: The flags to apply to the file descriptor
+ * @returns `Ok(void)` if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let fdSetFlags = (fd: FileDescriptor, flags: List<FdFlag>) => {
+  let fd = getRawFileDescriptor(fd)
+
+  let flags = combineFdFlags(flags)
+
+  let err = Wasi.fd_fdstat_set_flags(fd, flags)
+  if (err != Wasi._ESUCCESS) {
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  return Ok(void)
+}
+
+/**
+ * Update the rights associated with a file descriptor.
+ *
+ * @param fd: The file descriptor to update rights
+ * @param rights: Rights to apply to the file descriptor
+ * @param rightsInheriting: Inheriting rights to apply to the file descriptor
+ * @returns `Ok(void)` if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let fdSetRights = (
+  fd: FileDescriptor,
+  rights: List<Rights>,
+  rightsInheriting: List<Rights>,
+) => {
+  let fd = getRawFileDescriptor(fd)
+
+  let rights = combineRights(rights)
+  let rightsInheriting = combineRights(rightsInheriting)
+
+  let err = Wasi.fd_fdstat_set_rights(fd, rights, rightsInheriting)
+  if (err != Wasi._ESUCCESS) {
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  return Ok(void)
+}
+
+/**
+ * Retrieve information about a file.
+ *
+ * @param fd: The file descriptor of the file to retrieve information
+ * @returns `Ok(info)` of the `Filestats` associated with the file descriptor if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let fdFilestats = (fd: FileDescriptor) => {
+  let fd = getRawFileDescriptor(fd)
+
+  let fileStatsStruct = Malloc.malloc(64n)
+
+  let err = Wasi.fd_filestat_get(fd, fileStatsStruct)
+  if (err != Wasi._ESUCCESS) {
+    Malloc.free(fileStatsStruct)
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  let fileStats = buildFileStats(fileStatsStruct)
+  Malloc.free(fileStatsStruct)
+  return Ok(fileStats)
+}
+
+/**
+ * Set (truncate) the size of a file.
+ *
+ * @param fd: The file descriptor of the file to truncate
+ * @param size: The number of bytes to retain in the file
+ * @returns `Ok(void)` if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let fdSetSize = (fd: FileDescriptor, size: Int64) => {
+  let fd = getRawFileDescriptor(fd)
+
+  let size = Conv.fromInt64(size)
+
+  let err = Wasi.fd_filestat_set_size(fd, size)
+  if (err != Wasi._ESUCCESS) {
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  return Ok(void)
+}
+
+/**
+ * Set the access (created) time of a file.
+ *
+ * @param fd: The file descriptor of the file to update
+ * @param timestamp: The time to set
+ * @returns `Ok(void)` if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let fdSetAccessTime = (fd: FileDescriptor, timestamp: Int64) => {
+  let fd = getRawFileDescriptor(fd)
+
+  let time = Conv.fromInt64(timestamp)
+
+  let err = Wasi.fd_filestat_set_times(fd, time, 0N, Wasi._TIME_SET_ATIM)
+  if (err != Wasi._ESUCCESS) {
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  return Ok(void)
+}
+
+/**
+ * Set the access (created) time of a file to the current time.
+ *
+ * @param fd: The file descriptor of the file to update
+ * @returns `Ok(void)` if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let fdSetAccessTimeNow = (fd: FileDescriptor) => {
+  let fd = getRawFileDescriptor(fd)
+
+  let err = Wasi.fd_filestat_set_times(fd, 0N, 0N, Wasi._TIME_SET_ATIM_NOW)
+  if (err != Wasi._ESUCCESS) {
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  return Ok(void)
+}
+
+/**
+ * Set the modified time of a file.
+ *
+ * @param fd: The file descriptor of the file to update
+ * @param timestamp: The time to set
+ * @returns `Ok(void)` if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let fdSetModifiedTime = (fd: FileDescriptor, timestamp: Int64) => {
+  let fd = getRawFileDescriptor(fd)
+
+  let time = Conv.fromInt64(timestamp)
+
+  let err = Wasi.fd_filestat_set_times(fd, 0N, time, Wasi._TIME_SET_MTIM)
+  if (err != Wasi._ESUCCESS) {
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  return Ok(void)
+}
+
+/**
+ * Set the modified time of a file to the current time.
+ *
+ * @param fd: The file descriptor of the file to update
+ * @returns `Ok(void)` if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let fdSetModifiedTimeNow = (fd: FileDescriptor) => {
+  let fd = getRawFileDescriptor(fd)
+
+  let err = Wasi.fd_filestat_set_times(fd, 0N, 0N, Wasi._TIME_SET_MTIM_NOW)
+  if (err != Wasi._ESUCCESS) {
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  return Ok(void)
+}
+
+/**
+ * Read the entires of a directory.
+ *
+ * @param fd: The directory to read
+ * @returns `Ok(dirEntries)` of an array of `DirectoryEntry` for each entry in the directory if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let fdReaddir = (fd: FileDescriptor) => {
+  let fd = getRawFileDescriptor(fd)
+
+  let structWidth = 24n
+
+  let bufUsed = Malloc.malloc(4n)
+  let mut cookie = 0N
+
+  let mut buf = Malloc.malloc(structWidth)
+  let mut bufLen = structWidth
+
+  let err = Wasi.fd_readdir(fd, buf, bufLen, cookie, bufUsed)
+  if (err != Wasi._ESUCCESS) {
+    Malloc.free(buf)
+    Malloc.free(bufUsed)
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  let used = WasmI32.load(bufUsed, 0n)
+
+  if (used <= 0n) {
+    Malloc.free(buf)
+    Malloc.free(bufUsed)
+    return Ok([>]: Array<DirectoryEntry>)
+  }
+
+  bufLen = WasmI32.load(buf, 16n) + structWidth * 2n
+
+  Malloc.free(buf)
+
+  // simple linked list
+  // ptr +0n -> current buffer
+  // ptr +4n -> bufs
+  let mut bufs = 0n
+
+  let mut numEntries = 0n
+
+  while (true) {
+    numEntries += 1n
+
+    buf = Malloc.malloc(bufLen)
+    let cons = Malloc.malloc(8n)
+    WasmI32.store(cons, buf, 0n)
+    WasmI32.store(cons, bufs, 4n)
+    bufs = cons
+
+    let err = Wasi.fd_readdir(fd, buf, bufLen, cookie, bufUsed)
+    if (err != Wasi._ESUCCESS) {
+      while (bufs != 0n) {
+        Malloc.free(WasmI32.load(bufs, 0n))
+        let next = WasmI32.load(bufs, 4n)
+        Malloc.free(bufs)
+        bufs = next
+      }
+      Malloc.free(bufUsed)
+      return Err(Wasi.SystemError(tagSimpleNumber(err)))
+    }
+
+    if (WasmI32.load(bufUsed, 0n) != bufLen) {
+      break
+    }
+
+    let curLen = WasmI32.load(buf, 16n)
+    cookie = WasmI64.load(buf, 0n)
+    let nextDirentPtr = buf + structWidth + curLen
+    bufLen = WasmI32.load(nextDirentPtr, 16n) + structWidth * 2n
+  }
+
+  Malloc.free(bufUsed)
+
+  let arrRef = allocateArray(numEntries, WasmRef.fromGrain(void))
+  let arrData = DataStructures.getCompoundValueArrayRef(arrRef)
+
+  for (let mut i = numEntries - 1n; i >= 0n; i -= 1n) {
+    let ent = WasmI32.load(bufs, 0n)
+
+    let inode = Conv.toInt64(WasmI64.load(ent, 8n))
+
+    let dirnameLen = WasmI32.load(ent, 16n)
+    let dirname = allocateString(dirnameLen)
+    let dirnameData = getStringArrayRef(dirname)
+    Memory.copyLinearMemoryToRefArray(
+      dirnameData,
+      ent + structWidth,
+      dirnameLen
+    )
+    let path = WasmRef.toGrain(dirname): String
+
+    let filetype = filetypeFromNumber(WasmI32.load8U(ent, 20n))
+
+    let dirent = WasmRef.fromGrain({ inode, path, filetype })
+
+    WasmArrayRef.setAny(arrData, i, dirent)
+
+    let next = WasmI32.load(bufs, 4n)
+    Malloc.free(bufs)
+    Malloc.free(ent)
+
+    bufs = next
+  }
+
+  return Ok(WasmRef.toGrain(arrRef): Array<DirectoryEntry>)
+}
+
+/**
+ * Atomically replace a file descriptor by renumbering another file descriptor.
+ *
+ * @param fromFd: The file descriptor to renumber
+ * @param toFd: The file descriptor to overwrite
+ * @returns `Ok(void)` if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let fdRenumber = (fromFd: FileDescriptor, toFd: FileDescriptor) => {
+  let fromFd = getRawFileDescriptor(fromFd)
+  let toFd = getRawFileDescriptor(toFd)
+
+  let err = Wasi.fd_renumber(fromFd, toFd)
+  if (err != Wasi._ESUCCESS) {
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  return Ok(void)
+}
+
+/**
+ * Update a file descriptor's offset.
+ *
+ * @param fd: The file descriptor to operate on
+ * @param offset: The number of bytes to move the offset
+ * @param whence: The location from which the offset is relative
+ * @returns `Ok(offset)` of the new offset of the file descriptor, relative to the start of the file, if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let fdSeek = (fd: FileDescriptor, offset: Int64, whence: Whence) => {
+  let fd = getRawFileDescriptor(fd)
+
+  let offset = Conv.fromInt64(offset)
+
+  let whence = match (whence) {
+    Set => Wasi._WHENCE_SET,
+    Current => Wasi._WHENCE_CUR,
+    End => Wasi._WHENCE_END,
+  }
+
+  let newoffsetPtr = Malloc.malloc(8n)
+
+  let err = Wasi.fd_seek(fd, offset, whence, newoffsetPtr)
+  if (err != Wasi._ESUCCESS) {
+    Malloc.free(newoffsetPtr)
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+  let newoffset = Conv.toInt64(WasmI64.load(newoffsetPtr, 0n))
+  Malloc.free(newoffsetPtr)
+
+  return Ok(newoffset)
+}
+
+/**
+ * Read a file descriptor's offset.
+ *
+ * @param fd: The file descriptor to read the offset
+ * @returns `Ok(offset)` of the offset of the file descriptor, relative to the start of the file, if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let fdTell = (fd: FileDescriptor) => {
+  let fd = getRawFileDescriptor(fd)
+
+  let offsetPtr = Malloc.malloc(8n)
+
+  let err = Wasi.fd_tell(fd, offsetPtr)
+  if (err != Wasi._ESUCCESS) {
+    Malloc.free(offsetPtr)
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+  let offset = Conv.toInt64(WasmI64.load(offsetPtr, 0n))
+  Malloc.free(offsetPtr)
+
+  return Ok(offset)
+}
+
+/**
+ * Create a directory.
+ *
+ * @param fd: The file descriptor of the directory in which path resolution starts
+ * @param path: The path to the new directory
+ * @returns `Ok(void)` if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let pathCreateDirectory = (fd: FileDescriptor, path: String) => {
+  let fd = getRawFileDescriptor(fd)
+
+  let stringRef = WasmRef.fromGrain(path)
+  let stringSize = getStringSize(stringRef)
+  let stringPtr = Malloc.malloc(stringSize)
+  Memory.copyRefArrayToLinearMemory(
+    stringPtr,
+    getStringArrayRef(stringRef),
+    stringSize
+  )
+
+  let err = Wasi.path_create_directory(fd, stringPtr + 8n, stringSize)
+  Malloc.free(stringPtr)
+  if (err != Wasi._ESUCCESS) {
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  return Ok(void)
+}
+
+/**
+ * Retrieve information about a file.
+ *
+ * @param fd: The file descriptor of the directory in which path resolution starts
+ * @param dirFlags: Flags which affect path resolution
+ * @param path: The path to retrieve information about
+ * @returns `Ok(info)` of the `Filestats` associated with the file descriptor if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let pathFilestats = (
+  fd: FileDescriptor,
+  dirFlags: List<LookupFlag>,
+  path: String,
+) => {
+  let fd = getRawFileDescriptor(fd)
+
+  let combinedDirFlags = combineLookupFlags(dirFlags)
+
+  let pathRef = WasmRef.fromGrain(path)
+  let pathSize = getStringSize(pathRef)
+  let pathData = getStringArrayRef(pathRef)
+
+  let pathPtr = Malloc.malloc(pathSize)
+  Memory.copyRefArrayToLinearMemory(pathPtr, pathData, pathSize)
+
+  let filestatsStruct = Malloc.malloc(64n)
+
+  let err = Wasi.path_filestat_get(
+    fd,
+    combinedDirFlags,
+    pathPtr,
+    pathSize,
+    filestatsStruct
+  )
+  Malloc.free(pathPtr)
+  if (err != Wasi._ESUCCESS) {
+    Malloc.free(filestatsStruct)
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  let filestats = buildFileStats(filestatsStruct)
+  Malloc.free(filestatsStruct)
+  return Ok(filestats)
+}
+
+/**
+ * Set the access (created) time of a file.
+ *
+ * @param fd: The file descriptor of the directory in which path resolution starts
+ * @param dirFlags: Flags which affect path resolution
+ * @param path: The path to set the time
+ * @param timestamp: The time to set
+ * @returns `Ok(void)` if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let pathSetAccessTime = (
+  fd: FileDescriptor,
+  dirFlags: List<LookupFlag>,
+  path: String,
+  timestamp: Int64,
+) => {
+  let fd = getRawFileDescriptor(fd)
+
+  let combinedDirFlags = combineLookupFlags(dirFlags)
+
+  let pathRef = WasmRef.fromGrain(path)
+  let pathSize = getStringSize(pathRef)
+  let pathData = getStringArrayRef(pathRef)
+
+  let pathPtr = Malloc.malloc(pathSize)
+  Memory.copyRefArrayToLinearMemory(pathPtr, pathData, pathSize)
+
+  let time = Conv.fromInt64(timestamp)
+
+  let err = Wasi.path_filestat_set_times(
+    fd,
+    combinedDirFlags,
+    pathPtr,
+    pathSize,
+    time,
+    0N,
+    Wasi._TIME_SET_ATIM
+  )
+  Malloc.free(pathPtr)
+  if (err != Wasi._ESUCCESS) {
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  return Ok(void)
+}
+
+/**
+ * Set the access (created) time of a file to the current time.
+ *
+ * @param fd: The file descriptor of the directory in which path resolution starts
+ * @param dirFlags: Flags which affect path resolution
+ * @param path: The path to set the time
+ * @returns `Ok(void)` if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let pathSetAccessTimeNow = (
+  fd: FileDescriptor,
+  dirFlags: List<LookupFlag>,
+  path: String,
+) => {
+  let fd = getRawFileDescriptor(fd)
+
+  let combinedDirFlags = combineLookupFlags(dirFlags)
+
+  let pathRef = WasmRef.fromGrain(path)
+  let pathSize = getStringSize(pathRef)
+  let pathData = getStringArrayRef(pathRef)
+
+  let pathPtr = Malloc.malloc(pathSize)
+  Memory.copyRefArrayToLinearMemory(pathPtr, pathData, pathSize)
+
+  let err = Wasi.path_filestat_set_times(
+    fd,
+    combinedDirFlags,
+    pathPtr,
+    pathSize,
+    0N,
+    0N,
+    Wasi._TIME_SET_ATIM_NOW
+  )
+  Malloc.free(pathPtr)
+  if (err != Wasi._ESUCCESS) {
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  return Ok(void)
+}
+
+/**
+ * Set the modified time of a file.
+ *
+ * @param fd: The file descriptor of the directory in which path resolution starts
+ * @param dirFlags: Flags which affect path resolution
+ * @param path: The path to set the time
+ * @param timestamp: The time to set
+ * @returns `Ok(void)` if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let pathSetModifiedTime = (
+  fd: FileDescriptor,
+  dirFlags: List<LookupFlag>,
+  path: String,
+  timestamp: Int64,
+) => {
+  let fd = getRawFileDescriptor(fd)
+
+  let combinedDirFlags = combineLookupFlags(dirFlags)
+
+  let pathRef = WasmRef.fromGrain(path)
+  let pathSize = getStringSize(pathRef)
+  let pathData = getStringArrayRef(pathRef)
+
+  let pathPtr = Malloc.malloc(pathSize)
+  Memory.copyRefArrayToLinearMemory(pathPtr, pathData, pathSize)
+
+  let time = Conv.fromInt64(timestamp)
+
+  let err = Wasi.path_filestat_set_times(
+    fd,
+    combinedDirFlags,
+    pathPtr,
+    pathSize,
+    0N,
+    time,
+    Wasi._TIME_SET_MTIM
+  )
+  Malloc.free(pathPtr)
+  if (err != Wasi._ESUCCESS) {
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  return Ok(void)
+}
+
+/**
+ * Set the modified time of a file to the current time.
+ *
+ * @param fd: The file descriptor of the directory in which path resolution starts
+ * @param dirFlags: Flags which affect path resolution
+ * @param path: The path to set the time
+ * @returns `Ok(void)` if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let pathSetModifiedTimeNow = (
+  fd: FileDescriptor,
+  dirFlags: List<LookupFlag>,
+  path: String,
+) => {
+  let fd = getRawFileDescriptor(fd)
+
+  let combinedDirFlags = combineLookupFlags(dirFlags)
+
+  let pathRef = WasmRef.fromGrain(path)
+  let pathSize = getStringSize(pathRef)
+  let pathData = getStringArrayRef(pathRef)
+
+  let pathPtr = Malloc.malloc(pathSize)
+  Memory.copyRefArrayToLinearMemory(pathPtr, pathData, pathSize)
+
+  let err = Wasi.path_filestat_set_times(
+    fd,
+    combinedDirFlags,
+    pathPtr,
+    pathSize,
+    0N,
+    0N,
+    Wasi._TIME_SET_MTIM_NOW
+  )
+  Malloc.free(pathPtr)
+  if (err != Wasi._ESUCCESS) {
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  return Ok(void)
+}
+
+/**
+ * Create a hard link.
+ *
+ * @param sourceFd: The file descriptor of the directory in which the source path resolution starts
+ * @param dirFlags: Flags which affect path resolution
+ * @param sourcePath: The path to the source of the link
+ * @param targetFd: The file descriptor of the directory in which the target path resolution starts
+ * @param targetPath: The path to the target of the link
+ * @returns `Ok(void)` if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let pathLink = (
+  sourceFd: FileDescriptor,
+  dirFlags: List<LookupFlag>,
+  sourcePath: String,
+  targetFd: FileDescriptor,
+  targetPath: String,
+) => {
+  let sourceFd = getRawFileDescriptor(sourceFd)
+  let targetFd = getRawFileDescriptor(targetFd)
+
+  let combinedDirFlags = combineLookupFlags(dirFlags)
+
+  let sourcePathRef = WasmRef.fromGrain(sourcePath)
+  let sourcePathSize = getStringSize(sourcePathRef)
+  let sourcePathData = getStringArrayRef(sourcePathRef)
+
+  let sourcePathPtr = Malloc.malloc(sourcePathSize)
+  Memory.copyRefArrayToLinearMemory(
+    sourcePathPtr,
+    sourcePathData,
+    sourcePathSize
+  )
+
+  let targetPathRef = WasmRef.fromGrain(targetPath)
+  let targetPathSize = getStringSize(targetPathRef)
+  let targetPathData = getStringArrayRef(targetPathRef)
+
+  let targetPathPtr = Malloc.malloc(targetPathSize)
+  Memory.copyRefArrayToLinearMemory(
+    targetPathPtr,
+    targetPathData,
+    targetPathSize
+  )
+
+  let err = Wasi.path_link(
+    sourceFd,
+    combinedDirFlags,
+    sourcePathPtr,
+    sourcePathSize,
+    targetFd,
+    targetPathPtr,
+    targetPathSize
+  )
+  Malloc.free(sourcePathPtr)
+  Malloc.free(targetPathPtr)
+  if (err != Wasi._ESUCCESS) {
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  return Ok(void)
+}
+
+/**
+ * Create a symlink.
+ *
+ * @param fd: The file descriptor of the directory in which path resolution starts
+ * @param sourcePath: The path to the source of the link
+ * @param targetPath: The path to the target of the link
+ * @returns `Ok(void)` if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let pathSymlink = (
+  fd: FileDescriptor,
+  sourcePath: String,
+  targetPath: String,
+) => {
+  let fd = getRawFileDescriptor(fd)
+
+  let sourcePathRef = WasmRef.fromGrain(sourcePath)
+  let sourcePathSize = getStringSize(sourcePathRef)
+  let sourcePathData = getStringArrayRef(sourcePathRef)
+
+  // TODO this workaround can be deleted once a uvwasi release with PR https://github.com/nodejs/uvwasi/pull/234 is released
+  let sourceBuf = Malloc.malloc(sourcePathSize + 1n)
+  Memory.copyRefArrayToLinearMemory(sourceBuf, sourcePathData, sourcePathSize)
+  WasmI32.store8(sourceBuf + sourcePathSize, 0n, 0n)
+
+  let targetPathRef = WasmRef.fromGrain(targetPath)
+  let targetPathSize = getStringSize(targetPathRef)
+  let targetPathData = getStringArrayRef(targetPathRef)
+
+  let targetPtr = Malloc.malloc(targetPathSize)
+  Memory.copyRefArrayToLinearMemory(targetPtr, targetPathData, targetPathSize)
+
+  let err = Wasi.path_symlink(
+    sourceBuf,
+    sourcePathSize,
+    fd,
+    targetPtr,
+    targetPathSize
+  )
+  Malloc.free(sourceBuf)
+  Malloc.free(targetPtr)
+  if (err != Wasi._ESUCCESS) {
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  return Ok(void)
+}
+
+/**
+ * Unlink a file.
+ *
+ * @param fd: The file descriptor of the directory in which path resolution starts
+ * @param path: The path of the file to unlink
+ * @returns `Ok(void)` if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let pathUnlink = (fd: FileDescriptor, path: String) => {
+  let fd = getRawFileDescriptor(fd)
+
+  let pathRef = WasmRef.fromGrain(path)
+  let pathSize = getStringSize(pathRef)
+  let pathData = getStringArrayRef(pathRef)
+
+  let pathPtr = Malloc.malloc(pathSize)
+  Memory.copyRefArrayToLinearMemory(pathPtr, pathData, pathSize)
+
+  let err = Wasi.path_unlink_file(fd, pathPtr + 8n, pathSize)
+  Malloc.free(pathPtr)
+  if (err != Wasi._ESUCCESS) {
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  return Ok(void)
+}
+
+/**
+ * Read the contents of a symbolic link.
+ *
+ * @param fd: The file descriptor of the directory in which path resolution starts
+ * @param path: The path to the symlink
+ * @param size: The number of bytes to read
+ * @returns `Ok((contents, numBytes))` of the bytes read and the number of bytes read if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let pathReadlink = (fd: FileDescriptor, path: String, size: Number) => {
+  let fd = getRawFileDescriptor(fd)
+
+  let pathRef = WasmRef.fromGrain(path)
+  let pathSize = getStringSize(pathRef)
+  let pathData = getStringArrayRef(pathRef)
+
+  let pathPtr = Malloc.malloc(pathSize)
+  Memory.copyRefArrayToLinearMemory(pathPtr, pathData, pathSize)
+
+  let size = untagSimpleNumber(size)
+
+  let strPtr = Malloc.malloc(size)
+  let nread = Malloc.malloc(4n)
+
+  let err = Wasi.path_readlink(fd, pathPtr + 8n, pathSize, strPtr, size, nread)
+  Malloc.free(pathPtr)
+  if (err != Wasi._ESUCCESS) {
+    Malloc.free(strPtr)
+    Malloc.free(nread)
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  let strRef = allocateString(size)
+  let strData = getStringArrayRef(strRef)
+  Memory.copyLinearMemoryToRefArray(strData, strPtr, size)
+
+  let read = tagSimpleNumber(WasmI32.load(nread, 0n))
+  Malloc.free(strPtr)
+  Malloc.free(nread)
+
+  return Ok((WasmRef.toGrain(strRef): String, read))
+}
+
+/**
+ * Remove a directory.
+ *
+ * @param fd: The file descriptor of the directory in which path resolution starts
+ * @param path: The path to the directory to remove
+ * @returns `Ok(void)` if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let pathRemoveDirectory = (fd: FileDescriptor, path: String) => {
+  let fd = getRawFileDescriptor(fd)
+
+  let pathRef = WasmRef.fromGrain(path)
+  let pathSize = getStringSize(pathRef)
+  let pathData = getStringArrayRef(pathRef)
+
+  let pathPtr = Malloc.malloc(pathSize)
+  Memory.copyRefArrayToLinearMemory(pathPtr, pathData, pathSize)
+
+  let err = Wasi.path_remove_directory(fd, pathPtr, pathSize)
+  Malloc.free(pathPtr)
+  if (err != Wasi._ESUCCESS) {
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  return Ok(void)
+}
+
+/**
+ * Rename a file or directory.
+ *
+ * @param sourceFd: The file descriptor of the directory in which the source path resolution starts
+ * @param sourcePath: The path of the file to rename
+ * @param targetFd: The file descriptor of the directory in which the target path resolution starts
+ * @param targetPath: The new path of the file
+ * @returns `Ok(void)` if successful or `Err(exception)` otherwise
+ */
+@unsafe
+provide let pathRename = (
+  sourceFd: FileDescriptor,
+  sourcePath: String,
+  targetFd: FileDescriptor,
+  targetPath: String,
+) => {
+  let sourceFd = getRawFileDescriptor(sourceFd)
+  let targetFd = getRawFileDescriptor(targetFd)
+
+  let sourcePathRef = WasmRef.fromGrain(sourcePath)
+  let sourcePathSize = getStringSize(sourcePathRef)
+  let sourcePathData = getStringArrayRef(sourcePathRef)
+
+  let sourcePathPtr = Malloc.malloc(sourcePathSize)
+  Memory.copyRefArrayToLinearMemory(
+    sourcePathPtr,
+    sourcePathData,
+    sourcePathSize
+  )
+
+  let targetPathRef = WasmRef.fromGrain(targetPath)
+  let targetPathSize = getStringSize(targetPathRef)
+  let targetPathData = getStringArrayRef(targetPathRef)
+
+  let targetPathPtr = Malloc.malloc(targetPathSize)
+  Memory.copyRefArrayToLinearMemory(
+    targetPathPtr,
+    targetPathData,
+    targetPathSize
+  )
+
+  let err = Wasi.path_rename(
+    sourceFd,
+    sourcePathPtr,
+    sourcePathSize,
+    targetFd,
+    targetPathPtr,
+    targetPathSize
+  )
+  Malloc.free(sourcePathPtr)
+  Malloc.free(targetPathPtr)
+  if (err != Wasi._ESUCCESS) {
+    return Err(Wasi.SystemError(tagSimpleNumber(err)))
+  }
+
+  return Ok(void)
+}
+
+@unsafe
+let _CHAR_SLASH = 0x2fn
+@unsafe
+let _CHAR_DOT = 0x2en
+
+@unsafe
+let stripPrefixes = (path: String) => {
+  let origPathRef = WasmRef.fromGrain(path)
+  let origPathSize = getStringSize(origPathRef)
+  let origPathData = getStringArrayRef(origPathRef)
+
+  let mut ptr = 0n
+  let mut len = origPathSize
+
+  while (ptr < origPathSize) {
+    if (WasmArrayRef.getI8U(origPathData, ptr) == _CHAR_SLASH) {
+      ptr += 1n
+      len -= 1n
+    } else if (
+      WasmArrayRef.getI8U(origPathData, ptr) == _CHAR_DOT
+      && WasmArrayRef.getI8U(origPathData, ptr + 1n) == _CHAR_SLASH
+    ) {
+      ptr += 2n
+      len -= 2n
+    } else if (WasmArrayRef.getI8U(origPathData, ptr) == _CHAR_DOT && len == 1n) {
+      ptr += 1n
+      len -= 1n
+      break
+    } else {
+      break
+    }
+  }
+
+  if (ptr == 0n) {
+    path
+  } else {
+    let strippedPath = allocateString(len)
+    WasmArrayRef.copyI8(
+      getStringArrayRef(strippedPath),
+      0n,
+      origPathData,
+      ptr,
+      len
+    )
+    WasmRef.toGrain(strippedPath): String
+  }
+}
+
+let mut preopens = None
+@unsafe
+let populatePreopens = () => {
+  let mut preopenedDirs = []
+  // Skip stdin, stdout, and stderr.
+  for (let mut fd = 3n; fd != 0n; fd += 1n) {
+    let fd = FileDescriptor(tagSimpleNumber(fd))
+    match (fdPrestatGet(fd)) {
+      Ok(Dir{ prefix, fd }) =>
+        preopenedDirs = [(fd, stripPrefixes(prefix)), ...preopenedDirs],
+      // We've reached a bad file descriptor; we're done.
+      Err(Wasi.SystemError(e)) when untagSimpleNumber(e) == Wasi._EBADF =>
+        break,
+      Err(_) => fail "Failed to populate preopens",
+    }
+  }
+  preopens = Some(preopenedDirs)
+  preopenedDirs
+}
+
+@unsafe
+let prefixMatches = (prefix: String, path: String, pathStart: WasmI32) => {
+  let prefixRef = WasmRef.fromGrain(prefix)
+  let prefixLen = getStringSize(prefixRef)
+  let prefixData = getStringArrayRef(prefixRef)
+
+  let pathRef = WasmRef.fromGrain(path)
+  let pathLen = getStringSize(pathRef)
+  let pathData = getStringArrayRef(pathRef)
+  // Allow an empty string as a prefix of any relative path.
+  if (
+    WasmArrayRef.getI8U(pathData, pathStart) != _CHAR_SLASH
+    && prefixLen == 0n
+  ) {
+    return true
+  }
+
+  // Check whether any bytes of the prefix differ.
+  if (
+    WasmArrayRef.compareI8(pathData, pathStart, prefixData, 0n, prefixLen)
+    != 0n
+  ) {
+    return false
+  }
+
+  // Ignore trailing slashes in directory names.
+  let mut i = prefixLen
+  while (i > 0n && WasmArrayRef.getI8U(prefixData, i - 1n) == _CHAR_SLASH) {
+    i -= 1n
+  }
+
+  // Match only complete path components.
+  let last = WasmArrayRef.getI8U(pathData, pathStart + i)
+  return last == _CHAR_SLASH || i == pathLen
+}
+
+@unsafe
+let rec findPath = (
+  path: String,
+  pathStart: WasmI32,
+  pathLen: WasmI32,
+  preopens: List<(FileDescriptor, String)>,
+  bestMatch: Option<(FileDescriptor, String)>,
+) => {
+  match (preopens) {
+    [(fd, prefix) as preopen, ...preopens] => {
+      let prefixRef = WasmRef.fromGrain(prefix)
+
+      let (hasBestMatch, matchLen) = match (bestMatch) {
+        Some((matchPrefix, _)) =>
+          (true, tagSimpleNumber(getStringSize(WasmRef.fromGrain(matchPrefix)))),
+        None => (false, 0),
+      }
+
+      let bestMatch = if (
+        (!hasBestMatch || pathLen > untagSimpleNumber(matchLen))
+        && prefixMatches(prefix, path, pathStart)
+      ) {
+        Some(preopen)
+      } else {
+        bestMatch
+      }
+
+      findPath(path, pathStart, pathLen, preopens, bestMatch)
+    },
+    [] => {
+      match (bestMatch) {
+        Some((fd, prefix)) => {
+          let matchLen = getStringSize(WasmRef.fromGrain(prefix))
+          let mut computed = matchLen
+          let pathRef = WasmRef.fromGrain(path)
+          let pathData = getStringArrayRef(pathRef)
+          while (
+            WasmArrayRef.getI8U(pathData, pathStart + computed)
+            == _CHAR_SLASH
+          ) {
+            computed += 1n
+          }
+          let computedPath = if (computed == pathLen) {
+            "."
+          } else {
+            let computedLen = pathLen - computed
+            let computedPath = allocateString(computedLen)
+            WasmArrayRef.copyI8(
+              getStringArrayRef(computedPath),
+              0n,
+              pathData,
+              pathStart + computed,
+              computedLen
+            )
+            WasmRef.toGrain(computedPath): String
+          }
+          Ok((fd, computedPath))
+        },
+        None => Err(Wasi.SystemError(tagSimpleNumber(Wasi._ENOENT))),
+      }
+    },
+  }
+}
+
+@unsafe
+let findPath = (path: String) => {
+  let pathRef = WasmRef.fromGrain(path)
+  let pathLen = getStringSize(pathRef)
+  let pathData = getStringArrayRef(pathRef)
+
+  let mut ptr = 0n
+  let mut len = pathLen
+
+  // ignore leading `/` characters
+  while (WasmArrayRef.getI8U(pathData, ptr) == _CHAR_SLASH && ptr < pathLen) {
+    ptr += 1n
+    len -= 1n
+  }
+
+  let preopens = match (preopens) {
+    Some(preopens) => preopens,
+    None => populatePreopens(),
+  }
+
+  findPath(path, ptr, len, preopens, None)
+}
+
+// explicit just in case we ever want to support changing directories
+let cwd = "/"
+
+@unsafe
+let makeAbsolute = (path: String) => {
+  let origPathRef = WasmRef.fromGrain(path)
+  let origPathSize = getStringSize(origPathRef)
+  let origPathData = getStringArrayRef(origPathRef)
+
+  // already absolute
+  if (WasmArrayRef.getI8U(origPathData, 0n) == _CHAR_SLASH) {
+    return path
+  }
+
+  // pointing at the current dirextory
+  if (
+    origPathSize == 0n
+    || origPathSize == 1n && WasmArrayRef.getI8U(origPathData, 0n) == _CHAR_DOT
+    || origPathSize == 2n
+      && WasmArrayRef.getI8U(origPathData, 0n) == _CHAR_DOT
+      && WasmArrayRef.getI8U(origPathData, 1n) == _CHAR_SLASH
+  ) {
+    return cwd
+  }
+
+  let mut ptr = 0n
+  let mut len = origPathSize
+
+  // strip leading ./
+  if (
+    WasmArrayRef.getI8U(origPathData, 0n) == _CHAR_DOT
+    && WasmArrayRef.getI8U(origPathData, 1n) == _CHAR_SLASH
+  ) {
+    ptr += 2n
+    len -= 2n
+  }
+
+  // TODO: Does this litterally just check if the cwd ends with a slash??
+  let cwdRef = WasmRef.fromGrain(cwd)
+  let cwdLen = getStringSize(cwdRef)
+  let cwdData = getStringArrayRef(cwdRef)
+
+  let needSlash = WasmArrayRef.getI8U(cwdData, cwdLen - 1n) != _CHAR_SLASH
+
+  if (needSlash) {
+    let fullPath = allocateString(cwdLen + 1n + len)
+    let fullPathData = getStringArrayRef(fullPath)
+    WasmArrayRef.copyI8(fullPathData, 0n, cwdData, 0n, cwdLen)
+    WasmArrayRef.setI8(fullPathData, cwdLen, _CHAR_SLASH)
+    WasmArrayRef.copyI8(fullPathData, cwdLen + 1n, origPathData, ptr, len)
+    return WasmRef.toGrain(fullPath): String
+  } else {
+    let fullPath = allocateString(cwdLen + len)
+    let fullPathData = getStringArrayRef(fullPath)
+    WasmArrayRef.copyI8(fullPathData, 0n, cwdData, 0n, cwdLen)
+    WasmArrayRef.copyI8(fullPathData, cwdLen, origPathData, ptr, len)
+    return WasmRef.toGrain(fullPath): String
+  }
+}
+
+/**
+ * Similar to `pathOpen`, but resolves the path relative to preopened directories.
+ *
+ * @param path: The path to the file or directory
+ * @param openFlags: Flags that decide how the path will be opened
+ * @param rights: The rights that dictate what may be done with the returned file descriptor
+ * @param rightsInheriting: The rights that dictate what may be done with file descriptors derived from this file descriptor
+ * @param flags: Flags which affect read/write operations on this file descriptor
+ * @returns `Ok(fd)` of the opened file or directory if successful or `Err(exception)` otherwise
+ *
+ * @since v0.6.0
+ */
+@unsafe
+provide let open = (
+  path: String,
+  openFlags: List<OpenFlag>,
+  rights: List<Rights>,
+  rightsInheriting: List<Rights>,
+  flags: List<FdFlag>,
+) => {
+  match (findPath(makeAbsolute(path))) {
+    Ok((fd, relativePath)) => {
+      pathOpen(
+        fd,
+        [SymlinkFollow],
+        relativePath,
+        openFlags,
+        rights,
+        rightsInheriting,
+        flags
+      )
+    },
+    Err(e) => Err(e),
+  }
+}

@@ -1,0 +1,977 @@
+@noPervasives
+module NumberUtils
+
+/*
+ * This file was inspired by AssemblyScript's std/assembly/util/number.ts
+ */
+
+from "runtime/unsafe/wasmi32" include WasmI32
+use WasmI32.{
+  (==),
+  (!=),
+  (+),
+  (-),
+  (<<),
+  (&),
+  (|),
+  // no signed imports, as care should be taken to use signed or unsigned operators
+}
+from "runtime/unsafe/wasmi64" include WasmI64
+from "runtime/unsafe/wasmf64" include WasmF64
+from "runtime/unsafe/wasmref" include WasmRef
+use WasmRef.{ module WasmArrayRef }
+from "runtime/exception" include Exception
+from "runtime/dataStructures" include DataStructures
+use DataStructures.{ allocateString }
+
+primitive (!) = "@not"
+primitive (&&) = "@and"
+primitive (||) = "@or"
+primitive (is) = "@is"
+primitive throw = "@throw"
+
+@unsafe
+provide let _MAX_DOUBLE_LENGTH = 28n
+
+@unsafe
+let _CHAR_CODE_0 = 0x30n
+@unsafe
+let _CHAR_CODE_e = 0x65n
+@unsafe
+let _CHAR_CODE_PLUS = 0x2Bn
+@unsafe
+let _CHAR_CODE_MINUS = 0x2Dn
+@unsafe
+let _CHAR_CODE_DOT = 0x2En
+
+@unsafe
+let _I32_MAX = 0xffffffffN
+
+@unsafe
+let mut tableRef = WasmRef.fromGrain(void)
+@unsafe
+provide let get_POWERS10 = (index: WasmI32) => {
+  if (WasmRef.isRefI31(tableRef)) {
+    tableRef = WasmRef.fromGrain(
+      b"\x01\x00\x00\x00\x0a\x00\x00\x00\x64\x00\x00\x00\xe8\x03\x00\x00\x10\x27\x00\x00\xa0\x86\x01\x00\x40\x42\x0f\x00\x80\x96\x98\x00\x00\xe1\xf5\x05\x00\xca\x9a\x3b"
+    )
+  }
+  let data = DataStructures.getBytesArrayRef(tableRef)
+  use WasmI32.{ (>) }
+  if (index > 36n) {
+    1n
+  } else {
+    WasmArrayRef.getI8U(data, index + 3n) << 24n
+      | WasmArrayRef.getI8U(data, index + 2n) << 16n
+      | WasmArrayRef.getI8U(data, index + 1n) << 8n
+      | WasmArrayRef.getI8U(data, index)
+  }
+}
+
+/*
+  Lookup table for pairwise char codes in range [0-99]
+  "00", "01", "02", "03", "04", "05", "06", "07", "08", "09",
+  "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
+  "20", "21", "22", "23", "24", "25", "26", "27", "28", "29",
+  "30", "31", "32", "33", "34", "35", "36", "37", "38", "39",
+  "40", "41", "42", "43", "44", "45", "46", "47", "48", "49",
+  "50", "51", "52", "53", "54", "55", "56", "57", "58", "59",
+  "60", "61", "62", "63", "64", "65", "66", "67", "68", "69",
+  "70", "71", "72", "73", "74", "75", "76", "77", "78", "79",
+  "80", "81", "82", "83", "84", "85", "86", "87", "88", "89",
+  "90", "91", "92", "93", "94", "95", "96", "97", "98", "99"
+*/
+@unsafe
+let mut tableRef = WasmRef.fromGrain(void)
+@unsafe
+let get_DIGITS = (index: WasmI32) => {
+  if (WasmRef.isRefI31(tableRef)) {
+    tableRef = WasmRef.fromGrain(
+      b"\x30\x30\x31\x30\x32\x30\x33\x30\x34\x30\x35\x30\x36\x30\x37\x30\x38\x30\x39\x30\x30\x31\x31\x31\x32\x31\x33\x31\x34\x31\x35\x31\x36\x31\x37\x31\x38\x31\x39\x31\x30\x32\x31\x32\x32\x32\x33\x32\x34\x32\x35\x32\x36\x32\x37\x32\x38\x32\x39\x32\x30\x33\x31\x33\x32\x33\x33\x33\x34\x33\x35\x33\x36\x33\x37\x33\x38\x33\x39\x33\x30\x34\x31\x34\x32\x34\x33\x34\x34\x34\x35\x34\x36\x34\x37\x34\x38\x34\x39\x34\x30\x35\x31\x35\x32\x35\x33\x35\x34\x35\x35\x35\x36\x35\x37\x35\x38\x35\x39\x35\x30\x36\x31\x36\x32\x36\x33\x36\x34\x36\x35\x36\x36\x36\x37\x36\x38\x36\x39\x36\x30\x37\x31\x37\x32\x37\x33\x37\x34\x37\x35\x37\x36\x37\x37\x37\x38\x37\x39\x37\x30\x38\x31\x38\x32\x38\x33\x38\x34\x38\x35\x38\x36\x38\x37\x38\x38\x38\x39\x38\x30\x39\x31\x39\x32\x39\x33\x39\x34\x39\x35\x39\x36\x39\x37\x39\x38\x39\x39\x39"
+    )
+  }
+  let data = DataStructures.getBytesArrayRef(tableRef)
+  WasmArrayRef.getI8U(data, index) << 8n | WasmArrayRef.getI8U(data, index + 1n)
+}
+
+@unsafe
+let mut tableRef = WasmRef.fromGrain(void)
+@unsafe
+provide let get_HEX_DIGITS = (index: WasmI32) => {
+  if (WasmRef.isRefI31(tableRef)) {
+    // Char code for: 0x00 - 0xff
+    tableRef = WasmRef.fromGrain(
+      b"\x30\x30\x31\x30\x32\x30\x33\x30\x34\x30\x35\x30\x36\x30\x37\x30\x38\x30\x39\x30\x61\x30\x62\x30\x63\x30\x64\x30\x65\x30\x66\x30\x30\x31\x31\x31\x32\x31\x33\x31\x34\x31\x35\x31\x36\x31\x37\x31\x38\x31\x39\x31\x61\x31\x62\x31\x63\x31\x64\x31\x65\x31\x66\x31\x30\x32\x31\x32\x32\x32\x33\x32\x34\x32\x35\x32\x36\x32\x37\x32\x38\x32\x39\x32\x61\x32\x62\x32\x63\x32\x64\x32\x65\x32\x66\x32\x30\x33\x31\x33\x32\x33\x33\x33\x34\x33\x35\x33\x36\x33\x37\x33\x38\x33\x39\x33\x61\x33\x62\x33\x63\x33\x64\x33\x65\x33\x66\x33\x30\x34\x31\x34\x32\x34\x33\x34\x34\x34\x35\x34\x36\x34\x37\x34\x38\x34\x39\x34\x61\x34\x62\x34\x63\x34\x64\x34\x65\x34\x66\x34\x30\x35\x31\x35\x32\x35\x33\x35\x34\x35\x35\x35\x36\x35\x37\x35\x38\x35\x39\x35\x61\x35\x62\x35\x63\x35\x64\x35\x65\x35\x66\x35\x30\x36\x31\x36\x32\x36\x33\x36\x34\x36\x35\x36\x36\x36\x37\x36\x38\x36\x39\x36\x61\x36\x62\x36\x63\x36\x64\x36\x65\x36\x66\x36\x30\x37\x31\x37\x32\x37\x33\x37\x34\x37\x35\x37\x36\x37\x37\x37\x38\x37\x39\x37\x61\x37\x62\x37\x63\x37\x64\x37\x65\x37\x66\x37\x30\x38\x31\x38\x32\x38\x33\x38\x34\x38\x35\x38\x36\x38\x37\x38\x38\x38\x39\x38\x61\x38\x62\x38\x63\x38\x64\x38\x65\x38\x66\x38\x30\x39\x31\x39\x32\x39\x33\x39\x34\x39\x35\x39\x36\x39\x37\x39\x38\x39\x39\x39\x61\x39\x62\x39\x63\x39\x64\x39\x65\x39\x66\x39\x30\x61\x31\x61\x32\x61\x33\x61\x34\x61\x35\x61\x36\x61\x37\x61\x38\x61\x39\x61\x61\x61\x62\x61\x63\x61\x64\x61\x65\x61\x66\x61\x30\x62\x31\x62\x32\x62\x33\x62\x34\x62\x35\x62\x36\x62\x37\x62\x38\x62\x39\x62\x61\x62\x62\x62\x63\x62\x64\x62\x65\x62\x66\x62\x30\x63\x31\x63\x32\x63\x33\x63\x34\x63\x35\x63\x36\x63\x37\x63\x38\x63\x39\x63\x61\x63\x62\x63\x63\x63\x64\x63\x65\x63\x66\x63\x30\x64\x31\x64\x32\x64\x33\x64\x34\x64\x35\x64\x36\x64\x37\x64\x38\x64\x39\x64\x61\x64\x62\x64\x63\x64\x64\x64\x65\x64\x66\x64\x30\x65\x31\x65\x32\x65\x33\x65\x34\x65\x35\x65\x36\x65\x37\x65\x38\x65\x39\x65\x61\x65\x62\x65\x63\x65\x64\x65\x65\x65\x66\x65\x30\x66\x31\x66\x32\x66\x33\x66\x34\x66\x35\x66\x36\x66\x37\x66\x38\x66\x39\x66\x61\x66\x62\x66\x63\x66\x64\x66\x65\x66\x66\x66"
+    )
+  }
+  let data = DataStructures.getBytesArrayRef(tableRef)
+  WasmArrayRef.getI8U(data, index) << 8n | WasmArrayRef.getI8U(data, index + 1n)
+}
+
+@unsafe
+let mut tableRef = WasmRef.fromGrain(void)
+@unsafe
+let get_ANY_DIGITS = (index: WasmI32) => {
+  if (WasmRef.isRefI31(tableRef)) {
+    // Char code for: 0-9, a-z
+    tableRef = WasmRef.fromGrain(
+      b"\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39\x61\x62\x63\x64\x65\x66\x67\x68\x69\x6a\x6b\x6c\x6d\x6e\x6f\x70\x71\x72\x73\x74\x75\x76\x77\x78\x79\x7a"
+    )
+  }
+  let data = DataStructures.getBytesArrayRef(tableRef)
+  WasmArrayRef.getI8U(data, index)
+}
+
+@unsafe
+let mut tableRef = WasmRef.fromGrain(void)
+@unsafe
+let get_EXP_POWERS = (index: WasmI32) => {
+  if (WasmRef.isRefI31(tableRef)) {
+    tableRef = WasmRef.fromGrain(
+      b"\x3c\xfb\x57\xfb\x72\xfb\x8c\xfb\xa7\xfb\xc1\xfb\xdc\xfb\xf6\xfb\x11\xfc\x2c\xfc\x46\xfc\x61\xfc\x7b\xfc\x96\xfc\xb1\xfc\xcb\xfc\xe6\xfc\x00\xfd\x1b\xfd\x35\xfd\x50\xfd\x6b\xfd\x85\xfd\xa0\xfd\xba\xfd\xd5\xfd\xef\xfd\x0a\xfe\x25\xfe\x3f\xfe\x5a\xfe\x74\xfe\x8f\xfe\xa9\xfe\xc4\xfe\xdf\xfe\xf9\xfe\x14\xff\x2e\xff\x49\xff\x63\xff\x7e\xff\x99\xff\xb3\xff\xce\xff\xe8\xff\x03\x00\x1e\x00\x38\x00\x53\x00\x6d\x00\x88\x00\xa2\x00\xbd\x00\xd8\x00\xf2\x00\x0d\x01\x27\x01\x42\x01\x5c\x01\x77\x01\x92\x01\xac\x01\xc7\x01\xe1\x01\xfc\x01\x16\x02\x31\x02\x4c\x02\x66\x02\x81\x02\x9b\x02\xb6\x02\xd0\x02\xeb\x02\x06\x03\x20\x03\x3b\x03\x55\x03\x70\x03\x8b\x03\xa5\x03\xc0\x03\xda\x03\xf5\x03\x0f\x04\x2a\x04"
+    )
+  }
+  let data = DataStructures.getBytesArrayRef(tableRef)
+  let lower = WasmArrayRef.getI8U(data, index)
+  let upper = WasmArrayRef.getI8U(data, index + 1n)
+  WasmI32.extendS16(upper << 8n | lower)
+}
+
+@unsafe
+let mut tableRef = WasmRef.fromGrain(void)
+@unsafe
+let get_FRC_POWERS = (index: WasmI32) => {
+  if (WasmRef.isRefI31(tableRef)) {
+    // 1e-348, 1e-340, ..., 1e340
+    tableRef = WasmRef.fromGrain(
+      b"\x88\x02\x1c\x08\xa0\xd5\x8f\xfa\x76\xbf\x3e\xa2\x7f\xe1\xae\xba\x76\xac\x55\x30\x20\xfb\x16\x8b\xea\x35\xce\x5d\x4a\x89\x42\xcf\x2d\x3b\x65\x55\xaa\xb0\x6b\x9a\xdf\x45\x1a\x3d\x03\xcf\x1a\xe6\xca\xc6\x9a\xc7\x17\xfe\x70\xab\x4f\xdc\xbc\xbe\xfc\xb1\x77\xff\x0c\xd6\x6b\x41\xef\x91\x56\xbe\x3c\xfc\x7f\x90\xad\x1f\xd0\x8d\x83\x9a\x55\x31\x28\x5c\x51\xd3\xb5\xc9\xa6\xad\x8f\xac\x71\x9d\xcb\x8b\xee\x23\x77\x22\x9c\xea\x6d\x53\x78\x40\x91\x49\xcc\xae\x57\xce\xb6\x5d\x79\x12\x3c\x82\x37\x56\xfb\x4d\x36\x94\x10\xc2\x4f\x98\x48\x38\x6f\xea\x96\x90\xc7\x3a\x82\x25\xcb\x85\x74\xd7\xf4\x97\xbf\x97\xcd\xcf\x86\xa0\xe5\xac\x2a\x17\x98\x0a\x34\xef\x8e\xb2\x35\x2a\xfb\x67\x38\xb2\x3b\x3f\xc6\xd2\xdf\xd4\xc8\x84\xba\xcd\xd3\x1a\x27\x44\xdd\xc5\x96\xc9\x25\xbb\xce\x9f\x6b\x93\x84\xa5\x62\x7d\x24\x6c\xac\xdb\xf6\xda\x5f\x0d\x58\x66\xab\xa3\x26\xf1\xc3\xde\x93\xf8\xe2\xf3\xb8\x80\xff\xaa\xa8\xad\xb5\xb5\x8b\x4a\x7c\x6c\x05\x5f\x62\x87\x53\x30\xc1\x34\x60\xff\xbc\xc9\x55\x26\xba\x91\x8c\x85\x4e\x96\xbd\x7e\x29\x70\x24\x77\xf9\xdf\x8f\xb8\xe5\xb8\x9f\xbd\xdf\xa6\x94\x7d\x74\x88\xcf\x5f\xa9\xf8\xcf\x9b\xa8\x8f\x93\x70\x44\xb9\x6b\x15\x0f\xbf\xf8\xf0\x08\x8a\xb6\x31\x31\x65\x55\x25\xb0\xcd\xac\x7f\x7b\xd0\xc6\xe2\x3f\x99\x06\x3b\x2b\x2a\xc4\x10\x5c\xe4\xd3\x92\x73\x69\x99\x24\x24\xaa\x0e\xca\x00\x83\xf2\xb5\x87\xfd\xeb\x1a\x11\x92\x64\x08\xe5\xbc\xcc\x88\x50\x6f\x09\xcc\xbc\x8c\x2c\x65\x19\xe2\x58\x17\xb7\xd1\x00\x00\x00\x00\x00\x00\x40\x9c\x00\x00\x00\x00\x10\xa5\xd4\xe8\x00\x00\x62\xac\xc5\xeb\x78\xad\x84\x09\x94\xf8\x78\x39\x3f\x81\xb3\x15\x07\xc9\x7b\xce\x97\xc0\x70\x5c\xea\x7b\xce\x32\x7e\x8f\x68\x80\xe9\xab\xa4\x38\xd2\xd5\x45\x22\x9a\x17\x26\x27\x4f\x9f\x27\xfb\xc4\xd4\x31\xa2\x63\xed\xa8\xad\xc8\x8c\x38\x65\xde\xb0\xdb\x65\xab\x1a\x8e\x08\xc7\x83\x9a\x1d\x71\x42\xf9\x1d\x5d\xc4\x58\xe7\x1b\xa6\x2c\x69\x4d\x92\xea\x8d\x70\x1a\x64\xee\x01\xda\x4a\x77\xef\x9a\x99\xa3\x6d\xa2\x85\x6b\x7d\xb4\x7b\x78\x09\xf2\x77\x18\xdd\x79\xa1\xe4\x54\xb4\xc2\xc5\x9b\x5b\x92\x86\x5b\x86\x3d\x5d\x96\xc8\xc5\x53\x35\xc8\xb3\xa0\x97\xfa\x5c\xb4\x2a\x95\xe3\x5f\xa0\x99\xbd\x9f\x46\xde\x25\x8c\x39\xdb\x34\xc2\x9b\xa5\x5c\x9f\x98\xa3\x72\x9a\xc6\xf6\xce\xbe\xe9\x54\x53\xbf\xdc\xb7\xe2\x41\x22\xf2\x17\xf3\xfc\x88\xa5\x78\x5c\xd3\x9b\xce\x20\xcc\xdf\x53\x21\x7b\xf3\x5a\x16\x98\x3a\x30\x1f\x97\xdc\xb5\xa0\xe2\x96\xb3\xe3\x5c\x53\xd1\xd9\xa8\x3c\x44\xa7\xa4\xd9\x7c\x9b\xfb\x10\x44\xa4\xa7\x4c\x4c\x76\xbb\x1a\x9c\x40\xb6\xef\x8e\xab\x8b\x2c\x84\x57\xa6\x10\xef\x1f\xd0\x29\x31\x91\xe9\xe5\xa4\x10\x9b\x9d\x0c\x9c\xa1\xfb\x9b\x10\xe7\x29\xf4\x3b\x62\xd9\x20\x28\xac\x85\xcf\xa7\x7a\x5e\x4b\x44\x80\x2d\xdd\xac\x03\x40\xe4\x21\xbf\x8f\xff\x44\x5e\x2f\x9c\x67\x8e\x41\xb8\x8c\x9c\x9d\x17\x33\xd4\xa9\x1b\xe3\xb4\x92\xdb\x19\x9e\xd9\x77\xdf\xba\x6e\xbf\x96\xeb\x6b\xee\xf0\x9b\x3b\x02\x87\xaf"
+    )
+  }
+  let data = DataStructures.getBytesArrayRef(tableRef)
+  let lo = WasmArrayRef.getI8U(data, index + 3n) << 24n
+    | WasmArrayRef.getI8U(data, index + 2n) << 16n
+    | WasmArrayRef.getI8U(data, index + 1n) << 8n
+    | WasmArrayRef.getI8U(data, index)
+  let hi = WasmArrayRef.getI8U(data, index + 7n) << 24n
+    | WasmArrayRef.getI8U(data, index + 6n) << 16n
+    | WasmArrayRef.getI8U(data, index + 5n) << 8n
+    | WasmArrayRef.getI8U(data, index + 4n)
+  use WasmI64.{ (<<), (|) }
+  WasmI64.extendI32U(hi) << 32N | WasmI64.extendI32U(lo)
+}
+
+@unsafe
+let isPowerOf2 = value => {
+  WasmI32.popcnt(value) == 1n
+}
+
+// Count number of decimals for u32 values
+// In our case input value always non-zero so we can simplify some parts
+@unsafe
+provide let decimalCount32 = value => {
+  if (WasmI32.ltU(value, 100000n)) {
+    if (WasmI32.ltU(value, 100n)) {
+      1n + (if (WasmI32.geU(value, 10n)) 1n else 0n)
+    } else {
+      3n
+        + (if (WasmI32.geU(value, 10000n)) 1n else 0n)
+        + (if (WasmI32.geU(value, 1000n)) 1n else 0n)
+    }
+  } else {
+    if (WasmI32.ltU(value, 10000000n)) {
+      6n + (if (WasmI32.geU(value, 1000000n)) 1n else 0n)
+    } else {
+      8n
+        + (if (WasmI32.geU(value, 1000000000n)) 1n else 0n)
+        + (if (WasmI32.geU(value, 100000000n)) 1n else 0n)
+    }
+  }
+}
+
+// Count number of decimals for u64 values
+// In our case input value always greater than 2^32-1 so we can skip some parts
+@unsafe
+let decimalCount64High = value => {
+  if (WasmI64.ltU(value, 1000000000000000N)) {
+    if (WasmI64.ltU(value, 1000000000000N)) {
+      10n
+        + (if (WasmI64.geU(value, 100000000000N)) 1n else 0n)
+        + (if (WasmI64.geU(value, 10000000000N)) 1n else 0n)
+    } else {
+      13n
+        + (if (WasmI64.geU(value, 100000000000000N)) 1n else 0n)
+        + (if (WasmI64.geU(value, 10000000000000N)) 1n else 0n)
+    }
+  } else {
+    if (WasmI64.ltU(value, 100000000000000000N)) {
+      16n + (if (WasmI64.geU(value, 10000000000000000N)) 1n else 0n)
+    } else {
+      18n
+        + (if (WasmI64.geU(value, 0x8AC7230489E80000N)) 1n else 0n)
+        + (if (WasmI64.geU(value, 1000000000000000000N)) 1n else 0n)
+    }
+  }
+}
+
+@unsafe
+let ulog_base = (num, base) => {
+  use WasmI32.{ (<<) }
+  use WasmI64.{ (*) }
+  if (isPowerOf2(base)) {
+    WasmI32.divU(
+      63n - WasmI32.wrapI64(WasmI64.clz(num)),
+      31n - WasmI32.clz(base)
+    )
+      + 1n
+  } else {
+    let b64 = WasmI64.extendI32U(base)
+    let mut b = b64
+    let mut e = 1n
+    let mut num = num
+    while (WasmI64.geU(num, b)) {
+      num = WasmI64.divU(num, b)
+      b *= b
+      e = e << 1n
+    }
+    while (WasmI64.geU(num, 1N)) {
+      num = WasmI64.divU(num, b64)
+      e += 1n
+    }
+    e - 1n
+  }
+}
+
+@unsafe
+let utoa32_dec_lut = (buffer, num, offset) => {
+  use WasmI32.{ (>>>) }
+  let mut num = num
+  let mut offset = offset
+  while (WasmI32.geU(num, 10000n)) {
+    // in most VMs i32/u32 div and modulo by constant can be shared
+    let t = WasmI32.divU(num, 10000n)
+    let r = WasmI32.remU(num, 10000n)
+    num = t
+
+    let d1 = WasmI32.divU(r, 100n)
+    let d2 = WasmI32.remU(r, 100n)
+
+    let digits1 = get_DIGITS(d1 << 1n)
+    let digits2 = get_DIGITS(d2 << 1n)
+
+    offset -= 4n
+    WasmArrayRef.setI8(buffer, offset, digits1 & 0xFFn)
+    WasmArrayRef.setI8(buffer, offset + 1n, digits1 >>> 8n)
+    WasmArrayRef.setI8(buffer, offset + 2n, digits2 & 0xFFn)
+    WasmArrayRef.setI8(buffer, offset + 3n, digits2 >>> 8n)
+  }
+
+  if (WasmI32.geU(num, 100n)) {
+    let t = WasmI32.divU(num, 100n)
+    let d1 = WasmI32.remU(num, 100n)
+    num = t
+    offset -= 2n
+    let digits = get_DIGITS(d1 << 1n)
+    WasmArrayRef.setI8(buffer, offset, digits & 0xFFn)
+    WasmArrayRef.setI8(buffer, offset + 1n, digits >>> 8n)
+  }
+
+  if (WasmI32.geU(num, 10n)) {
+    offset -= 2n
+    let digits = get_DIGITS(num << 1n)
+    WasmArrayRef.setI8(buffer, offset, digits & 0xFFn)
+    WasmArrayRef.setI8(buffer, offset + 1n, digits >>> 8n)
+  } else {
+    offset -= 1n
+    let digit = _CHAR_CODE_0 + num
+    WasmArrayRef.setI8(buffer, offset, digit)
+  }
+}
+
+@unsafe
+let utoa64_dec_lut = (buffer, num, offset) => {
+  let mut num = num
+  let mut offset = offset
+  while (WasmI64.geU(num, 100000000N)) {
+    let t = WasmI64.divU(num, 100000000N)
+    use WasmI64.{ (-), (*) }
+    let r = WasmI32.wrapI64(num - t * 100000000N)
+    use WasmI32.{ (-), (>>>) }
+    num = t
+
+    let b = WasmI32.divU(r, 10000n)
+    let c = WasmI32.remU(r, 10000n)
+
+    let b1 = WasmI32.divU(b, 100n)
+    let b2 = WasmI32.remU(b, 100n)
+    let c1 = WasmI32.divU(c, 100n)
+    let c2 = WasmI32.remU(c, 100n)
+
+    let digits1 = get_DIGITS(c1 << 1n)
+    let digits2 = get_DIGITS(c2 << 1n)
+
+    offset -= 4n
+    WasmArrayRef.setI8(buffer, offset, digits1 & 0xFFn)
+    WasmArrayRef.setI8(buffer, offset + 1n, digits1 >>> 8n)
+    WasmArrayRef.setI8(buffer, offset + 2n, digits2 & 0xFFn)
+    WasmArrayRef.setI8(buffer, offset + 3n, digits2 >>> 8n)
+
+    let digits1 = get_DIGITS(b1 << 1n)
+    let digits2 = get_DIGITS(b2 << 1n)
+
+    offset -= 4n
+    WasmArrayRef.setI8(buffer, offset, digits1 & 0xFFn)
+    WasmArrayRef.setI8(buffer, offset + 1n, digits1 >>> 8n)
+    WasmArrayRef.setI8(buffer, offset + 2n, digits2 & 0xFFn)
+    WasmArrayRef.setI8(buffer, offset + 3n, digits2 >>> 8n)
+  }
+
+  utoa32_dec_lut(buffer, WasmI32.wrapI64(num), offset)
+}
+
+@unsafe
+let utoa_hex_lut = (buffer, num, offset) => {
+  use WasmI32.{ (>>>) }
+  let mut num = num
+  let mut offset = offset
+  while (WasmI32.geU(offset, 2n)) {
+    offset -= 2n
+    let digits = get_HEX_DIGITS(WasmI32.wrapI64(num) & 0xFFn)
+    WasmArrayRef.setI8(buffer, offset, digits & 0xFFn)
+    WasmArrayRef.setI8(buffer, offset + 1n, digits >>> 8n)
+    use WasmI64.{ (>>>) }
+    num = num >>> 8N
+  }
+  if ((offset & 1n) != 0n) {
+    let digits = get_HEX_DIGITS(WasmI32.wrapI64(num) << 5n)
+    WasmArrayRef.setI8(buffer, 0n, digits)
+  }
+}
+
+@unsafe
+let utoa32_dec_core = (buffer, num, offset) => {
+  utoa32_dec_lut(buffer, num, offset)
+}
+
+@unsafe
+let utoa32_hex_core = (buffer, num, offset) => {
+  utoa_hex_lut(buffer, WasmI64.extendI32U(num), offset)
+}
+
+@unsafe
+let utoa64_dec_core = (buffer, num, offset) => {
+  utoa64_dec_lut(buffer, num, offset)
+}
+
+@unsafe
+let utoa64_hex_core = (buffer, num, offset) => {
+  utoa_hex_lut(buffer, num, offset)
+}
+
+@unsafe
+let utoa64_any_core = (buffer, num, offset, radix) => {
+  use WasmI64.{ (>>>) }
+  let base = WasmI64.extendI32U(radix)
+  let mut num = num
+  let mut offset = offset
+  if ((radix & radix - 1n) == 0n) { // for radix which pow of two
+    let shift = WasmI64.extendI32U(WasmI32.ctz(radix) & 7n)
+    use WasmI64.{ (-), (&) }
+    let mask = base - 1N
+    for (;;) {
+      use WasmI32.{ (-) }
+      offset -= 1n
+      let digits = get_ANY_DIGITS(WasmI32.wrapI64(num & mask))
+      WasmArrayRef.setI8(buffer, offset, digits)
+      num = num >>> shift
+      if (WasmI64.eqz(num)) break
+    }
+  } else {
+    for (;;) {
+      offset -= 1n
+      use WasmI64.{ (-), (*) }
+      let q = WasmI64.divU(num, base)
+      let digits = get_ANY_DIGITS(WasmI32.wrapI64(num - q * base))
+      WasmArrayRef.setI8(buffer, offset, digits)
+      num = q
+      if (WasmI64.eqz(num)) break
+    }
+  }
+}
+
+@unsafe
+provide let utoa32Buffered = (buf, value, radix) => {
+  use WasmI32.{ (>>>), (<), (>) }
+  if (radix < 2n || radix > 36n) {
+    throw Exception.InvalidArgument(
+      "toString() radix argument must be between 2 and 36",
+    )
+  }
+  if (WasmI32.eqz(value)) {
+    WasmArrayRef.setI8(buf, 0n, _CHAR_CODE_0)
+  } else if (radix == 10n) {
+    let decimals = decimalCount32(value)
+    utoa32_dec_core(buf, value, decimals)
+  } else if (radix == 16n) {
+    let decimals = ((31n - WasmI32.clz(value)) >>> 2n) + 1n
+    utoa32_hex_core(buf, value, decimals)
+  } else {
+    let decimals = ulog_base(WasmI64.extendI32U(value), radix)
+    let out = allocateString(decimals)
+    utoa64_any_core(buf, WasmI64.extendI32U(value), decimals, radix)
+  }
+}
+
+@unsafe
+provide let utoa32 = (value, radix) => {
+  use WasmI32.{ (>>>), (<), (>) }
+  if (radix < 2n || radix > 36n) {
+    throw Exception.InvalidArgument(
+      "toString() radix argument must be between 2 and 36",
+    )
+  }
+  if (WasmI32.eqz(value)) {
+    "0"
+  } else if (radix == 10n) {
+    let decimals = decimalCount32(value)
+    let out = allocateString(decimals)
+    let buf = DataStructures.getStringArrayRef(out)
+    utoa32_dec_core(buf, value, decimals)
+    WasmRef.toGrain(out): String
+  } else if (radix == 16n) {
+    let decimals = ((31n - WasmI32.clz(value)) >>> 2n) + 1n
+    let out = allocateString(decimals)
+    let buf = DataStructures.getStringArrayRef(out)
+    utoa32_hex_core(buf, value, decimals)
+    WasmRef.toGrain(out): String
+  } else {
+    let val64 = WasmI64.extendI32U(value)
+    let decimals = ulog_base(val64, radix)
+    let out = allocateString(decimals)
+    let buf = DataStructures.getStringArrayRef(out)
+    utoa64_any_core(buf, val64, decimals, radix)
+    WasmRef.toGrain(out): String
+  }
+}
+
+@unsafe
+provide let itoa32 = (value, radix) => {
+  use WasmI32.{ (>>>), (<), (>) }
+  let mut value = value
+  if (radix < 2n || radix > 36n) {
+    throw Exception.InvalidArgument(
+      "toString() radix argument must be between 2 and 36",
+    )
+  }
+  let sign = value >>> 31n
+
+  if (sign != 0n) value = 0n - value
+
+  let out = if (WasmI32.eqz(value)) {
+    "0"
+  } else if (radix == 10n) {
+    let decimals = decimalCount32(value) + sign
+    let out = allocateString(decimals)
+    let buf = DataStructures.getStringArrayRef(out)
+    utoa32_dec_core(buf, value, decimals)
+    WasmRef.toGrain(out): String
+  } else if (radix == 16n) {
+    let decimals = ((31n - WasmI32.clz(value)) >>> 2n) + 1n + sign
+    let out = allocateString(decimals)
+    let buf = DataStructures.getStringArrayRef(out)
+    utoa32_hex_core(buf, value, decimals)
+    WasmRef.toGrain(out): String
+  } else {
+    let val64 = WasmI64.extendI32U(value)
+    let decimals = ulog_base(val64, radix) + sign
+    let out = allocateString(decimals)
+    let buf = DataStructures.getStringArrayRef(out)
+    utoa64_any_core(buf, val64, decimals, radix)
+    WasmRef.toGrain(out): String
+  }
+  if (sign != 0n) {
+    WasmArrayRef.setI8(
+      DataStructures.getStringArrayRef(WasmRef.fromGrain(out)),
+      0n,
+      _CHAR_CODE_MINUS
+    )
+  }
+  out
+}
+
+@unsafe
+provide let utoa64 = (value, radix) => {
+  use WasmI32.{ (>>>), (<), (>) }
+  if (radix < 2n || radix > 36n) {
+    throw Exception.InvalidArgument(
+      "toString() radix argument must be between 2 and 36",
+    )
+  }
+  if (WasmI64.eqz(value)) {
+    "0"
+  } else if (radix == 10n) {
+    if (WasmI64.leU(value, _I32_MAX)) {
+      let val32 = WasmI32.wrapI64(value)
+      let decimals = decimalCount32(val32)
+      let out = allocateString(decimals)
+      let buf = DataStructures.getStringArrayRef(out)
+      utoa32_dec_core(buf, val32, decimals)
+      WasmRef.toGrain(out): String
+    } else {
+      let decimals = decimalCount64High(value)
+      let out = allocateString(decimals)
+      let buf = DataStructures.getStringArrayRef(out)
+      utoa64_dec_core(buf, value, decimals)
+      WasmRef.toGrain(out): String
+    }
+  } else if (radix == 16n) {
+    let decimals = ((63n - WasmI32.wrapI64(WasmI64.clz(value))) >>> 2n) + 1n
+    let out = allocateString(decimals)
+    let buf = DataStructures.getStringArrayRef(out)
+    utoa64_hex_core(buf, value, decimals)
+    WasmRef.toGrain(out): String
+  } else {
+    let decimals = ulog_base(value, radix)
+    let out = allocateString(decimals)
+    let buf = DataStructures.getStringArrayRef(out)
+    utoa64_any_core(buf, value, decimals, radix)
+    WasmRef.toGrain(out): String
+  }
+}
+
+@unsafe
+provide let itoa64 = (value, radix) => {
+  use WasmI32.{ (<), (>) }
+  use WasmI64.{ (>>>) }
+  if (radix < 2n || radix > 36n) {
+    throw Exception.InvalidArgument(
+      "toString() radix argument must be between 2 and 36",
+    )
+  }
+
+  let mut value = value
+
+  let sign = WasmI32.wrapI64(value >>> 63N)
+  if (sign != 0n) {
+    use WasmI64.{ (-) }
+    value = 0N - value
+  }
+  use WasmI32.{ (>>>) }
+  let out = if (WasmI64.eqz(value)) {
+    "0"
+  } else if (radix == 10n) {
+    if (WasmI64.leU(value, _I32_MAX)) {
+      let val32 = WasmI32.wrapI64(value)
+      let decimals = decimalCount32(val32) + sign
+      let out = allocateString(decimals)
+      let buf = DataStructures.getStringArrayRef(out)
+      utoa32_dec_core(buf, val32, decimals)
+      WasmRef.toGrain(out): String
+    } else {
+      let decimals = decimalCount64High(value) + sign
+      let out = allocateString(decimals)
+      let buf = DataStructures.getStringArrayRef(out)
+      utoa64_dec_core(buf, value, decimals)
+      WasmRef.toGrain(out): String
+    }
+  } else if (radix == 16n) {
+    let decimals = ((63n - WasmI32.wrapI64(WasmI64.clz(value))) >>> 2n)
+      + 1n
+      + sign
+    let out = allocateString(decimals)
+    let buf = DataStructures.getStringArrayRef(out)
+    utoa64_hex_core(buf, value, decimals)
+    WasmRef.toGrain(out): String
+  } else {
+    let decimals = ulog_base(value, radix) + sign
+    let out = allocateString(decimals)
+    let buf = DataStructures.getStringArrayRef(out)
+    utoa64_any_core(buf, value, decimals, radix)
+    WasmRef.toGrain(out): String
+  }
+  if (sign != 0n) {
+    WasmArrayRef.setI8(
+      DataStructures.getStringArrayRef(WasmRef.fromGrain(out)),
+      0n,
+      _CHAR_CODE_MINUS
+    )
+  }
+  out
+}
+
+@unsafe
+let mut _K = 0n
+
+@unsafe
+let umul64f = (u, v) => {
+  use WasmI64.{ (>>>) }
+  use WasmI64.{ (+), (*), (&) }
+  let u0 = u & 0xFFFFFFFFN
+  let v0 = v & 0xFFFFFFFFN
+
+  let u1 = u >>> 32N
+  let v1 = v >>> 32N
+
+  let l = u0 * v0
+  let mut t = u1 * v0 + (l >>> 32N)
+  let mut w = u0 * v1 + (t & 0xFFFFFFFFN)
+
+  w += 0x7FFFFFFFN // rounding
+
+  t = t >>> 32N
+  w = w >>> 32N
+
+  u1 * v1 + t + w
+}
+
+@unsafe
+let umul64e = (e1, e2) => {
+  e1 + e2 + 64n // where 64 is significand size
+}
+
+@unsafe
+let grisuRound = (buffer, len, delta, rest, ten_kappa, wp_w) => {
+  let mut lastp = len - 1n
+  let mut digit = WasmArrayRef.getI8U(buffer, lastp)
+  let mut rest = rest
+  use WasmI64.{ (+), (-) }
+  while (
+    WasmI64.ltU(rest, wp_w)
+    && WasmI64.geU(delta - rest, ten_kappa)
+    && (
+      WasmI64.ltU(rest + ten_kappa, wp_w)
+      || WasmI64.gtU(wp_w - rest, rest + ten_kappa - wp_w)
+    )
+  ) {
+    use WasmI32.{ (-) }
+    digit -= 1n
+    rest += ten_kappa
+  }
+  WasmArrayRef.setI8(buffer, lastp, digit)
+}
+
+@unsafe
+let genDigits = (buffer, w_frc, mp_frc, mp_exp, delta, sign) => {
+  use WasmI32.{ (>) }
+  use WasmI64.{
+    (+) as addWasmI64,
+    (-) as subWasmI64,
+    (&) as andWasmI64,
+    (<<),
+    (>>>),
+  }
+  let mut delta = delta
+  let one_exp = 0n - mp_exp
+  let one_frc = 1N << WasmI64.extendI32U(one_exp)
+  let mask = subWasmI64(one_frc, 1N)
+
+  let mut wp_w_frc = subWasmI64(mp_frc, w_frc)
+
+  let mut p1 = WasmI32.wrapI64(mp_frc >>> WasmI64.extendI32U(one_exp))
+  let mut p2 = andWasmI64(mp_frc, mask)
+
+  let mut kappa = decimalCount32(p1)
+  let mut len = sign
+
+  let mut done = false
+
+  while (kappa > 0n) {
+    let mut d = 0n
+    match (kappa) {
+      10n => {
+        d = WasmI32.divU(p1, 1000000000n)
+        p1 = WasmI32.remU(p1, 1000000000n)
+      },
+      9n => {
+        d = WasmI32.divU(p1, 100000000n)
+        p1 = WasmI32.remU(p1, 100000000n)
+      },
+      8n => {
+        d = WasmI32.divU(p1, 10000000n)
+        p1 = WasmI32.remU(p1, 10000000n)
+      },
+      7n => {
+        d = WasmI32.divU(p1, 1000000n)
+        p1 = WasmI32.remU(p1, 1000000n)
+      },
+      6n => {
+        d = WasmI32.divU(p1, 100000n)
+        p1 = WasmI32.remU(p1, 100000n)
+      },
+      5n => {
+        d = WasmI32.divU(p1, 10000n)
+        p1 = WasmI32.remU(p1, 10000n)
+      },
+      4n => {
+        d = WasmI32.divU(p1, 1000n)
+        p1 = WasmI32.remU(p1, 1000n)
+      },
+      3n => {
+        d = WasmI32.divU(p1, 100n)
+        p1 = WasmI32.remU(p1, 100n)
+      },
+      2n => {
+        d = WasmI32.divU(p1, 10n)
+        p1 = WasmI32.remU(p1, 10n)
+      },
+      1n => {
+        d = p1
+        p1 = 0n
+      },
+      _ => {
+        d = 0n
+      },
+    }
+
+    if ((d | len) != 0n) {
+      WasmArrayRef.setI8(buffer, len, _CHAR_CODE_0 + (d & 0xffn))
+      len += 1n
+    }
+
+    kappa -= 1n
+    let tmp = addWasmI64(
+      WasmI64.extendI32U(p1) << WasmI64.extendI32U(one_exp),
+      p2
+    )
+    if (WasmI64.leU(tmp, delta)) {
+      use WasmI32.{ (<<) as shlWasmI32 }
+      _K += kappa
+      grisuRound(
+        buffer,
+        len,
+        delta,
+        tmp,
+        WasmI64.extendI32U(get_POWERS10(shlWasmI32(kappa, 2n)))
+          << WasmI64.extendI32U(one_exp),
+        wp_w_frc
+      )
+      done = true
+      break
+    }
+  }
+  if (!done) while (true) {
+    use WasmI64.{ (!=), (*), (|), (>>>) }
+    p2 *= 10N
+    delta *= 10N
+
+    let d = p2 >>> WasmI64.extendI32U(one_exp)
+    if ((d | WasmI64.extendI32U(len)) != 0N) {
+      WasmArrayRef.setI8(
+        buffer,
+        len,
+        _CHAR_CODE_0 + (WasmI32.wrapI64(d) & 0xffn)
+      )
+      len += 1n
+    }
+
+    p2 = andWasmI64(p2, mask)
+    kappa -= 1n
+    if (WasmI64.ltU(p2, delta)) {
+      use WasmI32.{ (<<) }
+      _K += kappa
+      wp_w_frc *= WasmI64.extendI32U(get_POWERS10((0n - kappa) << 2n))
+      grisuRound(buffer, len, delta, p2, one_frc, wp_w_frc)
+      break
+    }
+  }
+  len
+}
+
+@unsafe
+let genExponent = (buffer, offset, k) => {
+  use WasmI32.{ (<) }
+  let mut k = k
+  let sign = k < 0n
+  if (sign) k = 0n - k
+  let decimals = decimalCount32(k) + 1n
+  utoa32_dec_core(buffer, k, decimals + offset)
+  WasmArrayRef.setI8(
+    buffer,
+    offset,
+    if (sign) _CHAR_CODE_MINUS else _CHAR_CODE_PLUS
+  )
+  decimals
+}
+
+@unsafe
+let grisu2 = (value, buffer, sign) => {
+  use WasmI32.{ (>>) }
+  use WasmI64.{ (==), (+) as addWasmI64, (-) as subWasmI64, (&), (<<), (>>>) }
+  // frexp routine
+  let uv = WasmI64.reinterpretF64(value)
+  let mut exp = WasmI32.wrapI64((uv & 0x7FF0000000000000N) >>> 52N)
+  let sid = uv & 0x000FFFFFFFFFFFFFN
+  let mut frc = addWasmI64((if (WasmI32.eqz(exp)) 0N else 1N) << 52N, sid)
+  exp = (if (WasmI32.eqz(exp)) 1n else exp) - (0x3FFn + 52n)
+
+  // normalize boundaries
+  let mut frc_norm = addWasmI64(frc << 1N, 1N)
+  let mut exp_norm = exp - 1n
+  let off_norm = WasmI64.clz(frc_norm)
+  frc_norm = frc_norm << off_norm
+  exp_norm -= WasmI32.wrapI64(off_norm)
+
+  let m_norm = 1n + (if (frc == 0x0010000000000000N) 1n else 0n)
+
+  let _frc_plus = frc_norm
+  let _frc_minus = subWasmI64(frc << WasmI64.extendI32U(m_norm), 1N)
+    << WasmI64.extendI32U(exp - m_norm - exp_norm)
+  let _exp = exp_norm
+
+  // get cached power
+  let c = WasmF64.reinterpretI64(0x3FD34413509F79FEN) // 1 / lg(10) = 0.30102999566398114
+  use WasmF64.{ (+) as addWasmF64, (*) as mulWasmF64, (!=) as neWasmF64 }
+  let dk = addWasmF64(mulWasmF64(WasmF64.convertI32S(-61n - _exp), c), 347.0W) // dk must be positive, so can do ceiling in positive
+  let mut k = WasmI32.truncF64S(dk)
+  k += if (neWasmF64(WasmF64.convertI32S(k), dk)) 1n else 0n // conversion with ceil
+
+  let index = (k >> 3n) + 1n
+  use WasmI32.{ (<<) }
+  _K = 348n - (index << 3n) // decimal exponent doesn't need lookup table
+  let _frc_pow = get_FRC_POWERS(index << 3n)
+  let _exp_pow = get_EXP_POWERS(index << 1n)
+  use WasmI64.{ (<<) }
+  // normalize
+  let off = WasmI32.wrapI64(WasmI64.clz(frc))
+  frc = frc << WasmI64.extendI32U(off)
+  exp -= off
+
+  let frc_pow = _frc_pow
+  let exp_pow = _exp_pow
+
+  let w_frc = umul64f(frc, frc_pow)
+
+  let wp_frc = subWasmI64(umul64f(_frc_plus, frc_pow), 1N)
+  let wp_exp = umul64e(_exp, exp_pow)
+
+  let wm_frc = addWasmI64(umul64f(_frc_minus, frc_pow), 1N)
+  let delta = subWasmI64(wp_frc, wm_frc)
+
+  genDigits(buffer, w_frc, wp_frc, wp_exp, delta, sign)
+}
+
+@unsafe
+let prettify = (buffer, bufferOffset, length, k) => {
+  use WasmI32.{ (<), (<=), (>) }
+  let mut length = length
+  let kk = length + k
+  if (WasmI32.eqz(k)) {
+    WasmArrayRef.setI8(buffer, bufferOffset + length, _CHAR_CODE_DOT)
+    WasmArrayRef.setI8(buffer, bufferOffset + length + 1n, _CHAR_CODE_0)
+    length + 2n
+  } else if (length <= kk && kk <= 21n) {
+    // 1234e7 -> 12340000000
+    for (let mut i = length; i < kk; i += 1n) {
+      WasmArrayRef.setI8(buffer, bufferOffset + i, _CHAR_CODE_0)
+    }
+    WasmArrayRef.setI8(buffer, bufferOffset + kk, _CHAR_CODE_DOT)
+    WasmArrayRef.setI8(buffer, bufferOffset + kk + 1n, _CHAR_CODE_0)
+    kk + 2n
+  } else if (kk > 0n && kk <= 21n) {
+    // 1234e-2 -> 12.34
+    WasmArrayRef.copyI8(
+      buffer,
+      bufferOffset + kk + 1n,
+      buffer,
+      bufferOffset + kk,
+      0n - k
+    )
+    WasmArrayRef.setI8(buffer, bufferOffset + kk, _CHAR_CODE_DOT)
+    length + 1n
+  } else if (-6n < kk && kk <= 0n) {
+    // 1234e-6 -> 0.001234
+    let offset = 2n - kk
+    WasmArrayRef.copyI8(
+      buffer,
+      bufferOffset + offset,
+      buffer,
+      bufferOffset,
+      length
+    )
+    WasmArrayRef.setI8(buffer, bufferOffset, _CHAR_CODE_0)
+    WasmArrayRef.setI8(buffer, bufferOffset + 1n, _CHAR_CODE_DOT)
+    for (let mut i = 2n; i < offset; i += 1n) {
+      WasmArrayRef.setI8(buffer, bufferOffset + i, _CHAR_CODE_0)
+    }
+    length + offset
+  } else if (length == 1n) {
+    // 1e30
+    WasmArrayRef.setI8(buffer, bufferOffset + 1n, _CHAR_CODE_e)
+    length = genExponent(buffer, bufferOffset + 2n, kk - 1n)
+    length + 2n
+  } else {
+    let len = length
+    WasmArrayRef.copyI8(
+      buffer,
+      bufferOffset + 2n,
+      buffer,
+      bufferOffset + 1n,
+      len - 1n
+    )
+    WasmArrayRef.setI8(buffer, bufferOffset + 1n, _CHAR_CODE_DOT)
+    WasmArrayRef.setI8(buffer, bufferOffset + len + 1n, _CHAR_CODE_e)
+    length += genExponent(buffer, bufferOffset + len + 2n, kk - 1n)
+    length + 2n
+  }
+}
+
+@unsafe
+let dtoa_core = (buffer, value) => {
+  use WasmF64.{ (<) }
+  let mut value = value
+  let hasSign = value < 0.0W
+  if (hasSign) {
+    value = WasmF64.neg(value)
+    WasmArrayRef.setI8(buffer, 0n, _CHAR_CODE_MINUS)
+  }
+  let sign = if (hasSign) 1n else 0n
+  let len = grisu2(value, buffer, sign)
+  let len = prettify(buffer, sign, len - sign, _K)
+  len + sign
+}
+
+@unsafe
+let mut _dtoa_buf = WasmRef.fromGrain(void)
+
+@unsafe
+let get_dtoa_buf = () => {
+  if (_dtoa_buf is WasmRef.fromGrain(void)) {
+    _dtoa_buf = WasmRef.toGrain(allocateString(_MAX_DOUBLE_LENGTH))
+  }
+  DataStructures.getStringArrayRef(_dtoa_buf)
+}
+
+@unsafe
+provide let isFinite = value => {
+  use WasmF64.{ (==), (-) }
+  value - value == 0.0W
+}
+
+@unsafe
+provide let isNaN = value => {
+  use WasmF64.{ (!=) }
+  value != value
+}
+
+@unsafe
+provide let dtoa = value => {
+  use WasmF64.{ (==) }
+  if (value == 0.0W) {
+    "0.0"
+  } else if (!isFinite(value)) {
+    use WasmF64.{ (<) }
+    if (isNaN(value)) {
+      "NaN"
+    } else if (value < 0.0W) {
+      "-Infinity"
+    } else {
+      "Infinity"
+    }
+  } else {
+    let buf = get_dtoa_buf()
+    let size = dtoa_core(buf, value)
+    let result = allocateString(size)
+    let resultData = DataStructures.getStringArrayRef(result)
+    WasmArrayRef.copyI8(resultData, 0n, buf, 0n, size)
+    WasmRef.toGrain(result)
+  }
+}

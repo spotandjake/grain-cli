@@ -1,0 +1,109 @@
+@noPervasives
+// Prevent this module from depending on itself
+@noExceptions
+module Exception
+
+from "runtime/unsafe/panic" include Panic
+
+let _GENERIC_EXCEPTION_NAME = "GrainException"
+let mut basePrinter = None
+let mut printers = []
+
+/**
+ * Registers a base exception printer. If no other exception printers are
+ * registered, the base printer is used to convert an exception to a string.
+ *
+ * @param printer: The base exception printer to register
+ *
+ * @since v0.7.0
+ */
+provide let registerBasePrinter = (printer: Exception => String) =>
+  basePrinter = Some(printer)
+
+/**
+ * Registers an exception printer. When an exception is thrown, all registered
+ * printers are called in order from the most recently registered printer to
+ * the least recently registered printer. The first `Some` value returned is
+ * used as the exception's string value.
+ *
+ * @param printer: The exception printer to register
+ *
+ * @since v0.7.0
+ */
+provide let registerPrinter = (printer: Exception => Option<String>) =>
+  printers = [printer, ...printers]
+
+/**
+ * Gets the string representation of the given exception.
+ *
+ * @param e: The exception to stringify
+ *
+ * @returns The string representation of the exception
+ *
+ * @since v0.7.0
+ */
+provide let toString = (e: Exception) => {
+  let rec exceptionToString = (e, printers) => {
+    match (printers) {
+      [] => match (basePrinter) {
+        Some(f) => f(e),
+        None => _GENERIC_EXCEPTION_NAME,
+      },
+      [printer, ...rest] => {
+        match (printer(e)) {
+          Some(s) => s,
+          None => exceptionToString(e, rest),
+        }
+      },
+    }
+  }
+  exceptionToString(e, printers)
+}
+
+/**
+ * Throws an uncatchable exception and traps.
+ *
+ * @param e: The exception to throw
+ */
+provide let panicWithException = (e: Exception) => {
+  Panic.panic(toString(e))
+}
+
+// Runtime exceptions
+
+provide exception DivisionByZero
+provide exception ModuloByZero
+provide exception Overflow
+provide exception NumberNotIntlike
+provide exception NumberNotRational
+provide exception MatchFailure
+/*
+ * `assert <condition>` is essentially syntactic sugar for:
+ * `if (!<condition>) throw AssertionError(<message>)`
+ * where <message> is a string injected by the compiler, containing file and line information.
+ * This would be better as `AssertionError(String, Number)` to allow the exception printer in
+ * this file to construct the error, but constructing a string in this module is impractical as we
+ * don't have access to memory allocation since malloc.gr depends on this module.
+ */
+
+provide exception InvalidArgument(String)
+
+let runtimeErrorPrinter = e => {
+  match (e) {
+    IndexOutOfBounds => Some("IndexOutOfBounds: Index out of bounds"),
+    IndexNonInteger => Some("IndexNonInteger: Index not an integer"),
+    DivisionByZero => Some("DivisionByZero: Division by zero"),
+    ModuloByZero => Some("ModuloByZero: Modulo by zero"),
+    Overflow => Some("Overflow: Number overflow"),
+    NumberNotIntlike =>
+      Some("NumberNotIntlike: Can't coerce number to integer"),
+    NumberNotRational =>
+      Some("NumberNotRational: Can't coerce number to rational"),
+    MatchFailure => Some("MatchFailure: No matching pattern"),
+    AssertionError(s) => Some(s),
+    InvalidArgument(msg) => Some(msg),
+    _ => None,
+  }
+}
+
+registerPrinter(runtimeErrorPrinter)

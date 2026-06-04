@@ -1,0 +1,926 @@
+((mash_code
+  ((functions
+    (((id ((stamp 1076) (name umuldi))) (name (umuldi))
+      (args (GrainValue (WasmValue WasmI64) (WasmValue WasmI64)))
+      (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI64 (wasm_op Op_and_int64)
+                 (arg_types (Wasm_int64 Wasm_int64)) (ret_type Wasm_int64))
+                ((immediate_desc
+                  (MImmBinding (MArgBind 1 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI64 4294967295)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 10) (col 302) (bol 291)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 10) (col 317) (bol 291)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 10) (col 302) (bol 291)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 10) (col 317) (bol 291)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmI64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI64 (wasm_op Op_and_int64)
+                 (arg_types (Wasm_int64 Wasm_int64)) (ret_type Wasm_int64))
+                ((immediate_desc
+                  (MImmBinding (MArgBind 2 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI64 4294967295)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 11) (col 329) (bol 318)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 11) (col 344) (bol 318)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 11) (col 329) (bol 318)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 11) (col 344) (bol 318)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 (WasmValue WasmI64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI64 (wasm_op Op_shr_u_int64)
+                 (arg_types (Wasm_int64 Wasm_int64)) (ret_type Wasm_int64))
+                ((immediate_desc
+                  (MImmBinding (MArgBind 1 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI64 32)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 13) (col 357) (bol 346)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 13) (col 366) (bol 346)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 13) (col 357) (bol 346)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 13) (col 366) (bol 346)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 (WasmValue WasmI64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI64 (wasm_op Op_shr_u_int64)
+                 (arg_types (Wasm_int64 Wasm_int64)) (ret_type Wasm_int64))
+                ((immediate_desc
+                  (MImmBinding (MArgBind 2 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI64 32)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 14) (col 378) (bol 367)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 14) (col 387) (bol 367)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 14) (col 378) (bol 367)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 14) (col 387) (bol 367)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 4 (WasmValue WasmI64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI64 (wasm_op Op_mul_int64)
+                 (arg_types (Wasm_int64 Wasm_int64)) (ret_type Wasm_int64))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 1 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 16) (col 399) (bol 389)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 16) (col 406) (bol 389)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 16) (col 399) (bol 389)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 16) (col 406) (bol 389)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 5 (WasmValue WasmI64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI64 (wasm_op Op_and_int64)
+                 (arg_types (Wasm_int64 Wasm_int64)) (ret_type Wasm_int64))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 4 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI64 4294967295)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 17) (col 418) (bol 407)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 17) (col 433) (bol 407)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 17) (col 418) (bol 407)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 17) (col 433) (bol 407)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 6 (WasmValue WasmI64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI64 (wasm_op Op_mul_int64)
+                 (arg_types (Wasm_int64 Wasm_int64)) (ret_type Wasm_int64))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 2 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 1 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 18) (col 444) (bol 434)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 18) (col 451) (bol 434)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 18) (col 444) (bol 434)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 18) (col 451) (bol 434)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 7 (WasmValue WasmI64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI64 (wasm_op Op_shr_u_int64)
+                 (arg_types (Wasm_int64 Wasm_int64)) (ret_type Wasm_int64))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 4 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI64 32)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 18) (col 455) (bol 434)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 18) (col 464) (bol 434)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 18) (col 455) (bol 434)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 18) (col 464) (bol 434)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 8 (WasmValue WasmI64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI64 (wasm_op Op_add_int64)
+                 (arg_types (Wasm_int64 Wasm_int64)) (ret_type Wasm_int64))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 6 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 7 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 18) (col 444) (bol 434)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 18) (col 464) (bol 434)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 18) (col 444) (bol 434)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 18) (col 464) (bol 434)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 9 (WasmValue WasmI64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI64 (wasm_op Op_shr_u_int64)
+                 (arg_types (Wasm_int64 Wasm_int64)) (ret_type Wasm_int64))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 8 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI64 32)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 19) (col 477) (bol 466)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 19) (col 486) (bol 466)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 19) (col 477) (bol 466)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 19) (col 486) (bol 466)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 10 (WasmValue WasmI64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI64 (wasm_op Op_mul_int64)
+                 (arg_types (Wasm_int64 Wasm_int64)) (ret_type Wasm_int64))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 3 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 20) (col 497) (bol 487)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 20) (col 504) (bol 487)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 20) (col 497) (bol 487)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 20) (col 504) (bol 487)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 11 (WasmValue WasmI64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI64 (wasm_op Op_and_int64)
+                 (arg_types (Wasm_int64 Wasm_int64)) (ret_type Wasm_int64))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 8 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI64 4294967295)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 20) (col 508) (bol 487)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 20) (col 523) (bol 487)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 20) (col 508) (bol 487)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 20) (col 523) (bol 487)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 12 (WasmValue WasmI64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI64 (wasm_op Op_add_int64)
+                 (arg_types (Wasm_int64 Wasm_int64)) (ret_type Wasm_int64))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 10 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 11 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 20) (col 497) (bol 487)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 20) (col 523) (bol 487)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 20) (col 497) (bol 487)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 20) (col 523) (bol 487)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 13 (WasmValue WasmI64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI64 (wasm_op Op_shl_int64)
+                 (arg_types (Wasm_int64 Wasm_int64)) (ret_type Wasm_int64))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 12 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI64 32)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 22) (col 542) (bol 526)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 22) (col 550) (bol 526)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 22) (col 542) (bol 526)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 22) (col 550) (bol 526)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 14 (WasmValue WasmI64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI64 (wasm_op Op_add_int64)
+                 (arg_types (Wasm_int64 Wasm_int64)) (ret_type Wasm_int64))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 13 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 5 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 22) (col 542) (bol 526)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 22) (col 556) (bol 526)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 22) (col 542) (bol 526)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 22) (col 556) (bol 526)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 15 (WasmValue WasmI64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI64 (wasm_op Op_mul_int64)
+                 (arg_types (Wasm_int64 Wasm_int64)) (ret_type Wasm_int64))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 2 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 3 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 23) (col 575) (bol 557)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 23) (col 582) (bol 557)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 23) (col 575) (bol 557)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 23) (col 582) (bol 557)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 16 (WasmValue WasmI64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI64 (wasm_op Op_add_int64)
+                 (arg_types (Wasm_int64 Wasm_int64)) (ret_type Wasm_int64))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 15 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 9 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 23) (col 575) (bol 557)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 23) (col 587) (bol 557)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 23) (col 575) (bol 557)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 23) (col 587) (bol 557)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 17 (WasmValue WasmI64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI64 (wasm_op Op_shr_u_int64)
+                 (arg_types (Wasm_int64 Wasm_int64)) (ret_type Wasm_int64))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 12 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI64 32)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 23) (col 591) (bol 557)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 23) (col 600) (bol 557)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 23) (col 591) (bol 557)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 23) (col 600) (bol 557)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 18 (WasmValue WasmI64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI64 (wasm_op Op_add_int64)
+                 (arg_types (Wasm_int64 Wasm_int64)) (ret_type Wasm_int64))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 16 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 17 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 23) (col 575) (bol 557)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 23) (col 600) (bol 557)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 23) (col 575) (bol 557)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 23) (col 600) (bol 557)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 0 GrainValue)
+             ((instr_desc
+               (MCallKnown (func toUint64_1150)
+                (closure
+                 ((immediate_desc
+                   (MImmBinding (MGlobalBind toUint64_1150 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown)))))
+                (func_type (((WasmValue WasmI64)) (GrainValue)))
+                (args
+                 (((immediate_desc
+                    (MImmBinding (MLocalBind 14 (WasmValue WasmI64))))
+                   (immediate_analyses ((last_usage Unknown))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 24) (col 612) (bol 602)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 24) (col 628) (bol 602)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 24) (col 612) (bol 602)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 24) (col 628) (bol 602)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 GrainValue)
+             ((instr_desc
+               (MCallKnown (func toUint64_1150)
+                (closure
+                 ((immediate_desc
+                   (MImmBinding (MGlobalBind toUint64_1150 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown)))))
+                (func_type (((WasmValue WasmI64)) (GrainValue)))
+                (args
+                 (((immediate_desc
+                    (MImmBinding (MLocalBind 18 (WasmValue WasmI64))))
+                   (immediate_analyses ((last_usage Unknown))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 24) (col 630) (bol 602)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 24) (col 649) (bol 602)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 24) (col 630) (bol 602)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 24) (col 649) (bol 602)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 GrainValue)
+             ((instr_desc
+               (MAllocate
+                (MTuple
+                 (((immediate_desc (MImmBinding (MLocalBind 0 GrainValue)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmBinding (MLocalBind 1 GrainValue)))
+                   (immediate_analyses ((last_usage Unknown))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 24) (col 611) (bol 602)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+                  (line 24) (col 650) (bol 602)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 24) (col 611) (bol 602)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 24) (col 650) (bol 602)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MReturn
+           (((immediate_desc (MImmBinding (MLocalBind 2 GrainValue)))
+             (immediate_analyses ((last_usage Unknown)))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 24) (col 604) (bol 602)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 24) (col 650) (bol 602)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 3) (stack_size_i32 0) (stack_size_i64 19)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs
+       (((txt Unsafe)
+         (loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 7) (col 125) (bol 124)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+             (line 7) (col 131) (bol 124)))
+           (loc_ghost false))))))
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+          (line 8) (col 153) (bol 132)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+          (line 25) (col 652) (bol 651)))
+        (loc_ghost false))))))
+   (imports
+    (((mimp_id ((stamp 1150) (name toUint64)))
+      (mimp_mod runtime/unsafe/conv.gr) (mimp_name toUint64)
+      (mimp_type
+       (MFuncImport (GrainValue (WasmValue WasmI64)) ((WasmValue WasmRef))))
+      (mimp_kind MImportGrain) (mimp_setup MSetupNone) (mimp_used true))
+     ((mimp_id ((stamp 1150) (name toUint64)))
+      (mimp_mod runtime/unsafe/conv.gr) (mimp_name toUint64)
+      (mimp_type (MGlobalImport GrainValue true)) (mimp_kind MImportGrain)
+      (mimp_setup MCallGetter) (mimp_used true))))
+   (exports
+    ((WasmFunctionExport (ex_function_name umuldi)
+      (ex_function_internal_name umuldi_1076))
+     (WasmGlobalExport (ex_global_name umuldi)
+      (ex_global_internal_name umuldi_1076))))
+   (main_body
+    (((instr_desc
+       (MStore
+        (((MGlobalBind umuldi_1076 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+               (line 8) (col 153) (bol 132)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+               (line 25) (col 652) (bol 651)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+          (line 8) (col 153) (bol 132)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+          (line 25) (col 652) (bol 651)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MImmediate
+        ((immediate_desc (MImmConst MConstVoid))
+         (immediate_analyses ((last_usage Unknown))))))
+      (instr_loc dummy_loc))))
+   (main_body_stack_size
+    ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+     (stack_size_f32 0) (stack_size_f64 0)))
+   (globals
+    (((id ((stamp 1076) (name umuldi))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))))
+   (compilation_mode Normal) (type_metadata <opaque>)
+   (prog_loc
+    ((loc_start
+      (position
+       (file
+        /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+       (line 1) (col 0) (bol 0)))
+     (loc_end
+      (position
+       (file
+        /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/umuldi.gr)
+       (line 26) (col 653) (bol 653)))
+     (loc_ghost false)))))
+ (signature <opaque>))

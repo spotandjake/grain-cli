@@ -4,6 +4,7 @@ const internalFlag = Deno.env.get("GRAIN_INTERNAL"); // This is set by `utils.ru
 if (internalFlag == undefined) {
   await import("./cli.ts");
 } else {
+  // The internal flag is a JSON string containing the information required to run the command.
   const internalConfig = JSON.parse(internalFlag);
   globalThis.process.argv = ["", internalConfig.script, ...internalConfig.args];
   await import(internalConfig.script);

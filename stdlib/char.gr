@@ -1,0 +1,478 @@
+/**
+ * Utilities for working with the Char type.
+ *
+ * The Char type represents a single [Unicode scalar value](https://www.unicode.org/glossary/#unicode_scalar_value).
+ *
+ * @example from "char" include Char
+ *
+ * @example 'a'
+ * @example '1'
+ * @example '🌾'
+ *
+ * @since v0.3.0
+ */
+module Char
+
+from "runtime/unsafe/wasmi32" include WasmI32
+from "runtime/unsafe/wasmref" include WasmRef
+from "runtime/dataStructures" include DataStructures
+use DataStructures.{
+  tagSimpleNumber,
+  untagSimpleNumber,
+  tagChar,
+  untagChar,
+  allocateString,
+  getStringArrayRef,
+}
+from "runtime/utf8" include Utf8
+use Utf8.{ usvEncodeLength, writeUtf8CodePoint }
+
+/**
+ * The minimum valid Unicode scalar value.
+ *
+ * @since v0.3.0
+ */
+provide let min = 0x0000
+/**
+ * The maximum valid Unicode scalar value.
+ *
+ * @since v0.3.0
+ */
+provide let max = 0x10FFFF
+
+/**
+ * Determines whether the given character code is a valid Unicode scalar value.
+ *
+ * @param charCode: The number to check
+ * @returns `true` if the number refers to a valid Unicode scalar value or `false` otherwise
+ *
+ * @example Char.isValid(0) == true
+ * @example Char.isValid(-1) == false
+ *
+ * @since v0.3.0
+ */
+provide let isValid = charCode => {
+  charCode >= min
+    && (charCode <= 0xD7FF || charCode >= 0xE000)
+    && charCode <= max
+}
+
+/**
+ * Determines the Unicode scalar value for a character.
+ *
+ * @param char: The character
+ * @returns The Unicode scalar value for the given character
+ *
+ * @example Char.code('a') == 97
+ * @example Char.code('🌾') == 127806
+ *
+ * @since v0.3.0
+ */
+@unsafe
+provide let code = (char: Char) => {
+  let usv = untagChar(char)
+
+  // This could save an instruction by combining the two tagging operations,
+  // though we stick with tagSimpleNumber for simplicity.
+  tagSimpleNumber(usv)
+}
+
+/**
+ * Creates a character from the given Unicode scalar value.
+ *
+ * @param usv: The Unicode scalar value
+ * @returns The character for the given Unicode scalar value
+ *
+ * @throws InvalidArgument(String): When the Unicode scalar value is invalid
+ *
+ * @example Char.fromCode(97) == 'a'
+ * @example Char.fromCode(127806) == '🌾'
+ *
+ * @since v0.3.0
+ */
+@unsafe
+provide let fromCode = (usv: Number) => {
+  use WasmI32.{ (-), (<<) }
+
+  if (!isValid(usv)) {
+    throw InvalidArgument("Invalid character code")
+  }
+
+  // usv is now guaranteed to be a simple number
+  tagChar(untagSimpleNumber(usv))
+}
+
+/**
+ * Returns the next valid character by Unicode scalar value.
+ *
+ * @param char: The character
+ * @returns The next valid character by Unicode scalar value
+ *
+ * @throws Failure(String): When the input character is the maximum valid Unicode scalar value
+ *
+ * @example Char.succ('a') == 'b'
+ * @example Char.succ('1') == '2'
+ *
+ * @since v0.3.0
+ */
+provide let succ = char => {
+  let codePoint = code(char)
+  if (codePoint == max) {
+    fail "no valid Unicode scalar value past U+10FFF"
+  } else if (codePoint == 0xD7FF) {
+    fromCode(0xE000)
+  } else {
+    fromCode(codePoint + 1)
+  }
+}
+
+/**
+ * Returns the previous valid character by Unicode scalar value.
+ *
+ * @param char: The character
+ * @returns The previous valid character by Unicode scalar value
+ *
+ * @throws Failure(String): When the input character is the minimum valid Unicode scalar value
+ *
+ * @example Char.pred('b') == 'a'
+ * @example Char.pred('2') == '1'
+ *
+ * @since v0.3.0
+ */
+provide let pred = char => {
+  let codePoint = code(char)
+  if (codePoint == min) {
+    fail "no valid Unicode scalar value below U+0000"
+  } else if (codePoint == 0xE000) {
+    fromCode(0xD7FF)
+  } else {
+    fromCode(codePoint - 1)
+  }
+}
+
+/**
+ * Converts the given character to a string.
+ *
+ * @param char: The character to convert
+ * @returns A string containing the given character
+ *
+ * @example Char.toString('a') == "a"
+ * @example Char.toString('🌾') == "🌾"
+ *
+ * @since v0.3.0
+ */
+@unsafe
+provide let toString = (char: Char) => {
+  let usv = untagChar(char)
+  let byteCount = usvEncodeLength(usv)
+  let string = allocateString(byteCount)
+  writeUtf8CodePoint(getStringArrayRef(string), 0n, usv)
+  WasmRef.toGrain(string): String
+}
+
+/**
+ * Byte encodings
+ *
+ * @since v0.7.0
+ */
+provide enum Encoding {
+  UTF8,
+  UTF16,
+  UTF32,
+}
+
+/**
+ * Returns the byte count of a character if encoded in the given encoding.
+ *
+ * @param encoding: The encoding to check
+ * @param char: The character
+ * @returns The byte count of the character in the given encoding
+ *
+ * @example Char.encodedLength(Char.UTF8, 'a') == 1
+ * @example Char.encodedLength(Char.UTF8, '🌾') == 4
+ * @example Char.encodedLength(Char.UTF16, '©') == 1
+ *
+ * @since v0.7.0
+ */
+@unsafe
+provide let encodedLength = (encoding, char: Char) => {
+  let usv = untagChar(char)
+  let utf8ByteCount = usvEncodeLength(usv)
+  let utf8ByteCount = tagSimpleNumber(utf8ByteCount)
+  match (encoding) {
+    UTF32 => 4,
+    UTF16 => if (utf8ByteCount == 4) 2 else 1,
+    UTF8 => utf8ByteCount,
+  }
+}
+
+/**
+ * Checks if the first character is less than the second character by Unicode scalar value.
+ *
+ * @param x: The first character
+ * @param y: The second character
+ * @returns `true` if the first character is less than the second character or `false` otherwise
+ *
+ * @example
+ * use Char.{ (<) }
+ * assert 'a' < 'b'
+ * @example
+ * use Char.{ (<) }
+ * assert '1' < '2'
+ *
+ * @since v0.6.0
+ */
+@unsafe
+provide let (<) = (x: Char, y: Char) => {
+  use WasmI32.{ (<) }
+  let x = untagChar(x)
+  let y = untagChar(y)
+  x < y
+}
+
+/**
+ * Checks if the first character is less than or equal to the second character by Unicode scalar value.
+ *
+ * @param x: The first character
+ * @param y: The second character
+ * @returns `true` if the first character is less than or equal to the second character or `false` otherwise
+ *
+ * @example
+ * use Char.{ (<=) }
+ * assert 'a' <= 'b'
+ * @example
+ * use Char.{ (<=) }
+ * assert '1' <= '2'
+ * @example
+ * use Char.{ (<=) }
+ * assert 'a' <= 'a'
+ *
+ * @since v0.6.0
+ */
+@unsafe
+provide let (<=) = (x: Char, y: Char) => {
+  use WasmI32.{ (<=) }
+  let x = untagChar(x)
+  let y = untagChar(y)
+  x <= y
+}
+
+/**
+ * Checks if the first character is greater than the second character by Unicode scalar value.
+ *
+ * @param x: The first character
+ * @param y: The second character
+ * @returns `true` if the first character is greater than the second character or `false` otherwise
+ *
+ * @example
+ * use Char.{ (>) }
+ * assert 'b' > 'a'
+ * @example
+ * use Char.{ (>) }
+ * assert '2' > '1'
+ *
+ * @since v0.6.0
+ */
+@unsafe
+provide let (>) = (x: Char, y: Char) => {
+  use WasmI32.{ (>) }
+  let x = untagChar(x)
+  let y = untagChar(y)
+  x > y
+}
+
+/**
+ * Checks if the first character is greater than or equal to the second character by Unicode scalar value.
+ *
+ * @param x: The first character
+ * @param y: The second character
+ * @returns `true` if the first character is greater than or equal to the second character or `false` otherwise
+ *
+ * @example
+ * use Char.{ (>=) }
+ * assert 'b' >= 'a'
+ * @example
+ * use Char.{ (>=) }
+ * assert '2' >= '1'
+ * @example
+ * use Char.{ (>=) }
+ * assert 'a' >= 'a'
+ *
+ * @since v0.6.0
+ */
+@unsafe
+provide let (>=) = (x: Char, y: Char) => {
+  use WasmI32.{ (>=) }
+  let x = untagChar(x)
+  let y = untagChar(y)
+  x >= y
+}
+
+/**
+ * Utilities for working with ASCII characters.
+ *
+ * @example Char.Ascii.isAscii('1')
+ *
+ * @since v0.7.0
+ */
+provide module Ascii {
+  /**
+   * The minimum valid ASCII character code.
+   *
+   * @since v0.7.0
+   */
+  provide let min = 0x00
+
+  /**
+   * The maximum valid ASCII character code.
+   *
+   * @since v0.7.0
+   */
+  provide let max = 0x7F
+
+  /**
+   * Checks if the character is a valid ASCII character.
+   *
+   * @param char: The character to check
+   * @returns `true` if the character is an ASCII character or `false` otherwise
+   *
+   * @example assert Char.Ascii.isValid('1')
+   * @example assert Char.Ascii.isValid('a')
+   * @example assert !Char.Ascii.isValid('🌾')
+   *
+   * @since v0.7.0
+   */
+  provide let isValid = char => char <= '\u{007F}'
+
+  /**
+   * Checks if the character is an ASCII digit.
+   *
+   * @param char: The character to check
+   * @returns `true` if the character is an ASCII digit or `false` otherwise
+   *
+   * @example assert Char.Ascii.isDigit('1')
+   * @example assert !Char.Ascii.isDigit('a')
+   *
+   * @since v0.7.0
+   * @history v0.6.0: Originally `Char.isAsciiDigit`
+   */
+  provide let isDigit = char => char >= '0' && char <= '9'
+
+  /**
+   * Checks if the character is an ASCII alphabetical character.
+   *
+   * @param char: The character to check
+   * @returns `true` if the character is an ASCII alphabetical or `false` otherwise
+   *
+   * @example assert Char.Ascii.isAlpha('a')
+   * @example assert !Char.Ascii.isAlpha('1')
+   *
+   * @since v0.7.0
+   * @history v0.6.0: Originally `Char.isAsciiAlpha`
+   */
+  provide let isAlpha = char =>
+    char >= 'a' && char <= 'z' || char >= 'A' && char <= 'Z'
+
+  /**
+  * Checks if the character is an ASCII control character.
+  *
+  * @param char: The character to check
+  * @returns `true` if the character is an ASCII control character or `false` otherwise
+  *
+  * @example assert Char.Ascii.isControl('\t')
+  * @example assert Char.Ascii.isControl('\n')
+  * @example assert !Char.Ascii.isControl('1')
+  * @example assert !Char.Ascii.isControl('a')
+  *
+  * @since v0.7.0
+  */
+  provide let isControl = char => char <= '\u{001F}' || char == '\u{007F}'
+
+  /**
+   * Checks if the character is an ASCII whitespace character.
+   *
+   * @param char: The character to check
+   * @returns `true` if the character is an ASCII whitespace character or `false` otherwise
+   *
+   * @example assert Char.isWhitespace('\t')
+   * @example assert Char.isWhitespace('\n')
+   * @example assert !Char.isWhitespace('1')
+   * @example assert !Char.isWhitespace('a')
+   *
+   * @since v0.7.0
+   */
+  provide let isWhitespace = char => {
+    match (char) {
+      '\t' | '\n' | '\x0C' | '\r' | ' ' => true,
+      _ => false,
+    }
+  }
+
+  /**
+   * Checks if the character is an ASCII punctuation character.
+   *
+   * @param char: The character to check
+   * @returns `true` if the character is an ASCII punctuation character or `false` otherwise
+   *
+   * @example assert Char.Ascii.isPunctuation('!')
+   * @example assert !Char.Ascii.isPunctuation('1')
+   *
+   * @since v0.7.0
+   */
+  provide let isPunctuation = char =>
+    char >= '!' && char <= '/'
+      || char >= ':' && char <= '@'
+      || char >= '[' && char <= '`'
+      || char >= '{' && char <= '~'
+
+  /**
+   * Checks if the character is an ASCII graphic character.
+   *
+   * @param char: The character to check
+   * @returns `true` if the character is an ASCII graphic character or `false` otherwise
+   *
+   * @example assert Char.Ascii.isGraphic('!')
+   * @example assert !Char.Ascii.isGraphic('\t')
+   *
+   * @since v0.7.0
+   */
+  provide let isGraphic = char => char >= '!' && char <= '~'
+
+  /**
+   * Converts the character to ASCII lowercase if it is an ASCII uppercase character.
+   *
+   * @param char: The character to convert
+   * @returns The lowercased character
+   *
+   * @example assert Char.Ascii.toLowercase('B') == 'b'
+   *
+   * @since v0.7.0
+   * @history v0.6.0: Originally `Char.toAsciiLowercase`
+   */
+  provide let toLowercase = char => {
+    if (char >= 'A' && char <= 'Z') {
+      fromCode(code(char) + 0x20)
+    } else {
+      char
+    }
+  }
+
+  /**
+   * Converts the character to ASCII uppercase if it is an ASCII lowercase character.
+   *
+   * @param char: The character to convert
+   * @returns The uppercased character
+   *
+   * @example assert Char.Ascii.toUppercase('b') == 'B'
+   *
+   * @since v0.7.0
+   * @history v0.6.0: Originally `Char.toAsciiUppercase`
+   */
+  provide let toUppercase = char => {
+    if (char >= 'a' && char <= 'z') {
+      fromCode(code(char) - 0x20)
+    } else {
+      char
+    }
+  }
+}

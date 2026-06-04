@@ -1,0 +1,286 @@
+@noPervasives
+module Equal
+
+from "runtime/unsafe/wasmi32" include WasmI32
+use WasmI32.{
+  (==),
+  (!=),
+  (&),
+  (^),
+  (+),
+  (-),
+  (*),
+  (<),
+  remS as (%),
+  (<<),
+  (>>),
+}
+from "runtime/unsafe/wasmi64" include WasmI64
+from "runtime/unsafe/wasmf32" include WasmF32
+from "runtime/unsafe/wasmref" include WasmRef
+use WasmRef.{ module WasmArrayRef }
+from "runtime/unsafe/tags" include Tags
+from "runtime/dataStructures" include DataStructures
+use DataStructures.{ tagSimpleNumber, untagSimpleNumber }
+from "runtime/numbers" include Numbers
+use Numbers.{ isNumber, numberEqual }
+
+primitive (!) = "@not"
+primitive (||) = "@or"
+primitive (&&) = "@and"
+primitive (is) = "@is"
+primitive builtinId = "@builtin.id"
+
+@unsafe
+let _LIST_ID = builtinId("List")
+
+@unsafe
+let cycleMarker = 0x1n
+
+@unsafe
+let rec heapEqualHelp = (heapTag, xRef, yRef) => {
+  match (heapTag) {
+    t when t == Tags._GRAIN_ADT_HEAP_TAG => {
+      // Check if the same constructor variant
+      let xVariantTag = untagSimpleNumber(DataStructures.loadAdtVariant(xRef))
+      let yVariantTag = untagSimpleNumber(DataStructures.loadAdtVariant(yRef))
+      if (xVariantTag != yVariantTag) {
+        return false
+      }
+
+      let xarray = DataStructures.getCompoundValueArrayRef(xRef)
+      let yarray = DataStructures.getCompoundValueArrayRef(yRef)
+
+      // Handle lists separately to avoid stack overflow
+      if (DataStructures.loadVariantTypeId(xRef) is _LIST_ID) {
+        if (xVariantTag == 1n) return true // End of list
+
+        if (
+          !equalHelp(
+            WasmArrayRef.getAny(xarray, 0n),
+            WasmArrayRef.getAny(yarray, 0n)
+          )
+        ) {
+          return false
+        }
+
+        return equalHelp(
+          WasmArrayRef.getAny(xarray, 1n),
+          WasmArrayRef.getAny(yarray, 1n)
+        )
+      } else {
+        let xarity = WasmArrayRef.length(xarray)
+        let yarity = WasmArrayRef.length(yarray)
+
+        // Cycle check
+        if (DataStructures.loadCycleMarker(xRef) == cycleMarker) {
+          return true
+        }
+
+        DataStructures.storeCycleMarker(xRef, cycleMarker)
+        DataStructures.storeCycleMarker(yRef, cycleMarker)
+
+        for (let mut i = 0n; i < xarity; i += 1n) {
+          if (
+            !equalHelp(
+              WasmArrayRef.getAny(xarray, i),
+              WasmArrayRef.getAny(yarray, i)
+            )
+          ) {
+            DataStructures.storeCycleMarker(xRef, 0n)
+            DataStructures.storeCycleMarker(yRef, 0n)
+            return false
+          }
+        }
+
+        DataStructures.storeCycleMarker(xRef, 0n)
+        DataStructures.storeCycleMarker(yRef, 0n)
+
+        return true
+      }
+    },
+    t when t == Tags._GRAIN_RECORD_HEAP_TAG => {
+      let xarray = DataStructures.getCompoundValueArrayRef(xRef)
+      let yarray = DataStructures.getCompoundValueArrayRef(yRef)
+
+      let xlength = WasmArrayRef.length(xarray)
+      let ylength = WasmArrayRef.length(yarray)
+
+      // Cycle check
+      if (DataStructures.loadCycleMarker(xRef) == cycleMarker) {
+        return true
+      }
+
+      DataStructures.storeCycleMarker(xRef, cycleMarker)
+      DataStructures.storeCycleMarker(yRef, cycleMarker)
+
+      for (let mut i = 0n; i < xlength; i += 1n) {
+        if (
+          !equalHelp(
+            WasmArrayRef.getAny(xarray, i),
+            WasmArrayRef.getAny(yarray, i)
+          )
+        ) {
+          DataStructures.storeCycleMarker(xRef, 0n)
+          DataStructures.storeCycleMarker(yRef, 0n)
+          return false
+        }
+      }
+
+      DataStructures.storeCycleMarker(xRef, 0n)
+      DataStructures.storeCycleMarker(yRef, 0n)
+
+      return true
+    },
+    t when t == Tags._GRAIN_ARRAY_HEAP_TAG => {
+      let xarray = DataStructures.getCompoundValueArrayRef(xRef)
+      let yarray = DataStructures.getCompoundValueArrayRef(yRef)
+
+      let xlength = WasmArrayRef.length(xarray)
+      let ylength = WasmArrayRef.length(yarray)
+
+      // Check if the same length
+      if (xlength != ylength) {
+        return false
+      }
+
+      // Cycle check
+      if (DataStructures.loadCycleMarker(xRef) == cycleMarker) {
+        return true
+      }
+
+      DataStructures.storeCycleMarker(xRef, cycleMarker)
+      DataStructures.storeCycleMarker(yRef, cycleMarker)
+
+      for (let mut i = 0n; i < xlength; i += 1n) {
+        if (
+          !equalHelp(
+            WasmArrayRef.getAny(xarray, i),
+            WasmArrayRef.getAny(yarray, i)
+          )
+        ) {
+          DataStructures.storeCycleMarker(xRef, 0n)
+          DataStructures.storeCycleMarker(yRef, 0n)
+          return false
+        }
+      }
+
+      DataStructures.storeCycleMarker(xRef, 0n)
+      DataStructures.storeCycleMarker(yRef, 0n)
+
+      return true
+    },
+    t when t == Tags._GRAIN_STRING_HEAP_TAG => {
+      let xlength = DataStructures.getStringSize(xRef)
+      let ylength = DataStructures.getStringSize(yRef)
+
+      // Check if the same length
+      return if (xlength != ylength) {
+        false
+      } else {
+        let xarray = DataStructures.getStringArrayRef(xRef)
+        let yarray = DataStructures.getStringArrayRef(yRef)
+        WasmArrayRef.compareI8(xarray, 0n, yarray, 0n, xlength) == 0n
+      }
+    },
+    t when t == Tags._GRAIN_BYTES_HEAP_TAG => {
+      let xlength = DataStructures.getBytesSize(xRef)
+      let ylength = DataStructures.getBytesSize(yRef)
+
+      // Check if the same length
+      return if (xlength != ylength) {
+        false
+      } else {
+        let xarray = DataStructures.getBytesArrayRef(xRef)
+        let yarray = DataStructures.getBytesArrayRef(yRef)
+        WasmArrayRef.compareI8(xarray, 0n, yarray, 0n, xlength) == 0n
+      }
+    },
+    t when t == Tags._GRAIN_TUPLE_HEAP_TAG => {
+      let xarray = DataStructures.getCompoundValueArrayRef(xRef)
+      let yarray = DataStructures.getCompoundValueArrayRef(yRef)
+
+      let xsize = WasmArrayRef.length(xarray)
+      let ysize = WasmArrayRef.length(yarray)
+
+      // Cycle check
+      if (DataStructures.loadCycleMarker(xRef) == cycleMarker) {
+        return true
+      }
+
+      DataStructures.storeCycleMarker(xRef, cycleMarker)
+      DataStructures.storeCycleMarker(yRef, cycleMarker)
+
+      for (let mut i = 0n; i < xsize; i += 1n) {
+        if (
+          !equalHelp(
+            WasmArrayRef.getAny(xarray, i),
+            WasmArrayRef.getAny(yarray, i)
+          )
+        ) {
+          DataStructures.storeCycleMarker(xRef, 0n)
+          DataStructures.storeCycleMarker(yRef, 0n)
+          return false
+        }
+      }
+
+      DataStructures.storeCycleMarker(xRef, 0n)
+      DataStructures.storeCycleMarker(yRef, 0n)
+
+      return true
+    },
+    t when t == Tags._GRAIN_INT32_HEAP_TAG => {
+      let xval = DataStructures.getInt32Value(xRef)
+      let yval = DataStructures.getInt32Value(yRef)
+      return xval == yval
+    },
+    t when t == Tags._GRAIN_UINT32_HEAP_TAG => {
+      let xval = DataStructures.getUint32Value(xRef)
+      let yval = DataStructures.getUint32Value(yRef)
+      return xval == yval
+    },
+    // Float32 is handled by equalHelp directly
+    t when t == Tags._GRAIN_UINT64_HEAP_TAG => {
+      use WasmI64.{ (==) }
+      let xval = DataStructures.getUint64Value(xRef)
+      let yval = DataStructures.getUint64Value(yRef)
+      return xval == yval
+    },
+    // No other implementation
+    _ => return xRef is yRef,
+  }
+}
+and equalHelp = (x, y) => {
+  if (WasmRef.isRefI31(x) && WasmRef.isRefI31(y)) {
+    // Short circuit for non-reference values
+    x is y
+  } else if (isNumber(x)) {
+    // Numbers have special equality rules, e.g. NaN != NaN
+    numberEqual(x, y)
+  } else if (DataStructures.loadValueTag(x) == Tags._GRAIN_FLOAT32_HEAP_TAG) {
+    // Short circuit for Float32 to correctly handle NaN != NaN
+    let xval = DataStructures.getFloat32Value(x)
+    let yval = DataStructures.getFloat32Value(y)
+    use WasmF32.{ (==) }
+    xval == yval
+  } else {
+    // Handle all other heap allocated things
+    // Can short circuit if references are the same
+    x is y || heapEqualHelp(DataStructures.loadValueTag(x), x, y)
+  }
+}
+
+/**
+ * Check that two values are equal. This checks for structural equality,
+ * so it also works for comparing things like tuples and lists.
+ *
+ * @param value1: The first operand
+ * @param value2: The second operand
+ * @returns `true` if the values are structurally equal or `false` otherwise
+ *
+ * @since v0.1.0
+ */
+@unsafe
+provide let equal = (value1: a, value2: a) => {
+  equalHelp(WasmRef.fromGrain(value1), WasmRef.fromGrain(value2))
+}

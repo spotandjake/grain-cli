@@ -1,0 +1,1628 @@
+((mash_code
+  ((functions
+    (((id ((stamp 1100) (name fd_write))) (name (fd_write))
+      (args
+       (GrainValue (WasmValue WasmI32) (WasmValue WasmI32)
+        (WasmValue WasmI32) (WasmValue WasmI32)))
+      (return_type ((WasmValue WasmI32))) (closure (0))
+      (body
+       (((instr_desc
+          (MCallRaw (func wimport_wasi_snapshot_preview1_fd_write_1225)
+           (func_type
+            (((WasmValue WasmI32) (WasmValue WasmI32) (WasmValue WasmI32)
+              (WasmValue WasmI32))
+             ((WasmValue WasmI32))))
+           (args
+            (((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmI32))))
+              (immediate_analyses ((last_usage Unknown))))
+             ((immediate_desc (MImmBinding (MArgBind 2 (WasmValue WasmI32))))
+              (immediate_analyses ((last_usage Unknown))))
+             ((immediate_desc (MImmBinding (MArgBind 3 (WasmValue WasmI32))))
+              (immediate_analyses ((last_usage Unknown))))
+             ((immediate_desc (MImmBinding (MArgBind 4 (WasmValue WasmI32))))
+              (immediate_analyses ((last_usage Unknown))))))))
+         (instr_loc dummy_loc))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ()) (func_loc dummy_loc))
+     ((id ((stamp 1101) (name concat))) (name (concat))
+      (args (GrainValue GrainValue GrainValue)) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmRef))
+             ((instr_desc
+               (MPrim1 WasmFromGrain
+                ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 31) (col 822) (bol 809)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 31) (col 845) (bol 809)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 31) (col 822) (bol 809)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 31) (col 845) (bol 809)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmRef))
+             ((instr_desc
+               (MPrim1 WasmFromGrain
+                ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 32) (col 859) (bol 846)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 32) (col 882) (bol 846)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 32) (col 859) (bol 846)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 32) (col 882) (bol 846)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 StringSize
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmRef))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 34) (col 898) (bol 884)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 34) (col 932) (bol 884)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 34) (col 898) (bol 884)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 34) (col 932) (bol 884)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1 StringSize
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 1 (WasmValue WasmRef))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 35) (col 947) (bol 933)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 35) (col 981) (bol 933)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 35) (col 947) (bol 933)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 35) (col 981) (bol 933)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_add_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 1 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 37) (col 1016) (bol 983)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 37) (col 1029) (bol 983)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 37) (col 1016) (bol 983)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 37) (col 1029) (bol 983)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 (WasmValue WasmRef))
+             ((instr_desc
+               (MPrim1 AllocateString
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 2 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 37) (col 1001) (bol 983)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 37) (col 1030) (bol 983)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 37) (col 1001) (bol 983)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 37) (col 1030) (bol 983)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 GrainValue)
+             ((instr_desc
+               (MCallKnown (func getStringArrayRef_1199)
+                (closure
+                 ((immediate_desc
+                   (MImmBinding
+                    (MGlobalBind getStringArrayRef_1199 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown)))))
+                (func_type (((WasmValue WasmRef)) (GrainValue)))
+                (args
+                 (((immediate_desc
+                    (MImmBinding (MLocalBind 2 (WasmValue WasmRef))))
+                   (immediate_analyses ((last_usage Unknown))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 40) (col 1059) (bol 1055)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 40) (col 1087) (bol 1055)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 40) (col 1059) (bol 1055)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 40) (col 1087) (bol 1055)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 4 GrainValue)
+             ((instr_desc
+               (MCallKnown (func getStringArrayRef_1199)
+                (closure
+                 ((immediate_desc
+                   (MImmBinding
+                    (MGlobalBind getStringArrayRef_1199 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown)))))
+                (func_type (((WasmValue WasmRef)) (GrainValue)))
+                (args
+                 (((immediate_desc
+                    (MImmBinding (MLocalBind 0 (WasmValue WasmRef))))
+                   (immediate_analyses ((last_usage Unknown))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 42) (col 1101) (bol 1097)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 42) (col 1124) (bol 1097)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 42) (col 1101) (bol 1097)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 42) (col 1124) (bol 1097)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MDrop
+           ((instr_desc
+             (MCallKnown (func copyI8_1197)
+              (closure
+               ((immediate_desc
+                 (MImmBinding (MGlobalBind copyI8_1197 GrainValue)))
+                (immediate_analyses ((last_usage Unknown)))))
+              (func_type
+               ((GrainValue (WasmValue WasmI32) GrainValue
+                 (WasmValue WasmI32) (WasmValue WasmI32))
+                (GrainValue)))
+              (args
+               (((immediate_desc (MImmBinding (MLocalBind 3 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 0)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmBinding (MLocalBind 4 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 0)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))))))
+            (instr_loc
+             ((loc_start
+               (position
+                (file
+                 /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                (line 39) (col 1034) (bol 1032)))
+              (loc_end
+               (position
+                (file
+                 /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                (line 45) (col 1147) (bol 1144)))
+              (loc_ghost false))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 39) (col 1034) (bol 1032)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 45) (col 1147) (bol 1144)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 5 GrainValue)
+             ((instr_desc
+               (MCallKnown (func getStringArrayRef_1199)
+                (closure
+                 ((immediate_desc
+                   (MImmBinding
+                    (MGlobalBind getStringArrayRef_1199 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown)))))
+                (func_type (((WasmValue WasmRef)) (GrainValue)))
+                (args
+                 (((immediate_desc
+                    (MImmBinding (MLocalBind 2 (WasmValue WasmRef))))
+                   (immediate_analyses ((last_usage Unknown))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 47) (col 1175) (bol 1171)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 47) (col 1203) (bol 1171)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 47) (col 1175) (bol 1171)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 47) (col 1203) (bol 1171)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 6 GrainValue)
+             ((instr_desc
+               (MCallKnown (func getStringArrayRef_1199)
+                (closure
+                 ((immediate_desc
+                   (MImmBinding
+                    (MGlobalBind getStringArrayRef_1199 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown)))))
+                (func_type (((WasmValue WasmRef)) (GrainValue)))
+                (args
+                 (((immediate_desc
+                    (MImmBinding (MLocalBind 1 (WasmValue WasmRef))))
+                   (immediate_analyses ((last_usage Unknown))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 49) (col 1220) (bol 1216)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 49) (col 1243) (bol 1216)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 49) (col 1220) (bol 1216)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 49) (col 1243) (bol 1216)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MDrop
+           ((instr_desc
+             (MCallKnown (func copyI8_1197)
+              (closure
+               ((immediate_desc
+                 (MImmBinding (MGlobalBind copyI8_1197 GrainValue)))
+                (immediate_analyses ((last_usage Unknown)))))
+              (func_type
+               ((GrainValue (WasmValue WasmI32) GrainValue
+                 (WasmValue WasmI32) (WasmValue WasmI32))
+                (GrainValue)))
+              (args
+               (((immediate_desc (MImmBinding (MLocalBind 5 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmBinding (MLocalBind 6 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 0)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 1 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))))))
+            (instr_loc
+             ((loc_start
+               (position
+                (file
+                 /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                (line 46) (col 1150) (bol 1148)))
+              (loc_end
+               (position
+                (file
+                 /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                (line 52) (col 1266) (bol 1263)))
+              (loc_ghost false))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 46) (col 1150) (bol 1148)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 52) (col 1266) (bol 1263)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MPrim1 WasmToGrain
+           ((immediate_desc (MImmBinding (MLocalBind 2 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 54) (col 1270) (bol 1268)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 54) (col 1296) (bol 1268)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 7) (stack_size_i32 3) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs
+       (((txt Unsafe)
+         (loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 28) (col 725) (bol 724)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 28) (col 731) (bol 724)))
+           (loc_ghost false))))))
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+          (line 29) (col 753) (bol 732)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+          (line 55) (col 1306) (bol 1305)))
+        (loc_ghost false))))
+     ((id ((stamp 1173) (name print))) (name (print))
+      (args (GrainValue GrainValue GrainValue)) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 GrainValue)
+             ((instr_desc
+               (MImmediate
+                ((immediate_desc (MImmConst MConstVoid))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 GrainValue)
+             ((instr_desc
+               (MAdtOp MAdtGetTag
+                ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 GrainValue)
+             ((instr_desc
+               (MPrim2 Is
+                ((immediate_desc (MImmBinding (MLocalBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 GrainValue)
+             ((instr_desc
+               (MIf
+                ((immediate_desc (MImmBinding (MLocalBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                (((instr_desc
+                   (MImmediate
+                    ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                     (immediate_analyses ((last_usage Unknown))))))
+                  (instr_loc dummy_loc)))
+                (((instr_desc
+                   (MStore
+                    (((MLocalBind 4 GrainValue)
+                      ((instr_desc
+                        (MPrim2 Is
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 1 GrainValue)))
+                          (immediate_analyses ((last_usage Unknown))))
+                         ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                          (immediate_analyses ((last_usage Unknown))))))
+                       (instr_loc dummy_loc))))))
+                  (instr_loc dummy_loc))
+                 ((instr_desc
+                   (MIf
+                    ((immediate_desc (MImmBinding (MLocalBind 4 GrainValue)))
+                     (immediate_analyses ((last_usage Unknown))))
+                    (((instr_desc
+                       (MStore
+                        (((MLocalBind 5 GrainValue)
+                          ((instr_desc
+                            (MAdtOp (MAdtGet 0)
+                             ((immediate_desc
+                               (MImmBinding (MArgBind 2 GrainValue)))
+                              (immediate_analyses ((last_usage Unknown))))))
+                           (instr_loc dummy_loc))))))
+                      (instr_loc dummy_loc))
+                     ((instr_desc
+                       (MDrop
+                        ((instr_desc
+                          (MSet (MLocalBind 0 GrainValue)
+                           ((instr_desc
+                             (MImmediate
+                              ((immediate_desc
+                                (MImmBinding (MLocalBind 5 GrainValue)))
+                               (immediate_analyses ((last_usage Unknown))))))
+                            (instr_loc dummy_loc))))
+                         (instr_loc dummy_loc))))
+                      (instr_loc dummy_loc))
+                     ((instr_desc
+                       (MImmediate
+                        ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                         (immediate_analyses ((last_usage Unknown))))))
+                      (instr_loc dummy_loc)))
+                    (((instr_desc
+                       (MImmediate
+                        ((immediate_desc MImmTrap)
+                         (immediate_analyses ((last_usage Unknown))))))
+                      (instr_loc dummy_loc)))))
+                  (instr_loc dummy_loc)))))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 6 GrainValue)
+             ((instr_desc
+               (MSwitch
+                ((immediate_desc (MImmBinding (MLocalBind 3 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((0
+                  (((instr_desc
+                     (MImmediate
+                      ((immediate_desc
+                        (MImmBinding (MLocalBind 0 GrainValue)))
+                       (immediate_analyses ((last_usage Unknown))))))
+                    (instr_loc
+                     ((loc_start
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                        (line 71) (col 1760) (bol 1725)))
+                      (loc_end
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                        (line 71) (col 1764) (bol 1725)))
+                      (loc_ghost false))))))
+                 (1
+                  (((instr_desc (MAllocate (MString "\n")))
+                    (instr_loc
+                     ((loc_start
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                        (line 71) (col 1760) (bol 1725)))
+                      (loc_end
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                        (line 71) (col 1764) (bol 1725)))
+                      (loc_ghost false)))))))
+                (((instr_desc
+                   (MImmediate
+                    ((immediate_desc MImmTrap)
+                     (immediate_analyses ((last_usage Unknown))))))
+                  (instr_loc dummy_loc)))
+                GrainValue))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 7 GrainValue)
+             ((instr_desc
+               (MCallKnown (func toString_1205)
+                (closure
+                 ((immediate_desc
+                   (MImmBinding (MGlobalBind toString_1205 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown)))))
+                (func_type ((GrainValue) (GrainValue)))
+                (args
+                 (((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                   (immediate_analyses ((last_usage Unknown))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 74) (col 1911) (bol 1858)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 74) (col 1926) (bol 1858)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 74) (col 1911) (bol 1858)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 74) (col 1926) (bol 1858)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 8 (WasmValue WasmRef))
+             ((instr_desc
+               (MPrim1 WasmFromGrain
+                ((immediate_desc (MImmBinding (MLocalBind 7 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 74) (col 1893) (bol 1858)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 74) (col 1927) (bol 1858)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 74) (col 1893) (bol 1858)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 74) (col 1927) (bol 1858)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 9 GrainValue)
+             ((instr_desc
+               (MCallKnown (func getStringArrayRef_1199)
+                (closure
+                 ((immediate_desc
+                   (MImmBinding
+                    (MGlobalBind getStringArrayRef_1199 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown)))))
+                (func_type (((WasmValue WasmRef)) (GrainValue)))
+                (args
+                 (((immediate_desc
+                    (MImmBinding (MLocalBind 8 (WasmValue WasmRef))))
+                   (immediate_analyses ((last_usage Unknown))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 74) (col 1875) (bol 1858)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 74) (col 1928) (bol 1858)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 74) (col 1875) (bol 1858)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 74) (col 1928) (bol 1858)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 10 (WasmValue WasmRef))
+             ((instr_desc
+               (MPrim1 WasmFromGrain
+                ((immediate_desc (MImmBinding (MLocalBind 6 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 75) (col 1965) (bol 1929)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 75) (col 1990) (bol 1929)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 75) (col 1965) (bol 1929)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 75) (col 1990) (bol 1929)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 11 GrainValue)
+             ((instr_desc
+               (MCallKnown (func getStringArrayRef_1199)
+                (closure
+                 ((immediate_desc
+                   (MImmBinding
+                    (MGlobalBind getStringArrayRef_1199 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown)))))
+                (func_type (((WasmValue WasmRef)) (GrainValue)))
+                (args
+                 (((immediate_desc
+                    (MImmBinding (MLocalBind 10 (WasmValue WasmRef))))
+                   (immediate_analyses ((last_usage Unknown))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 75) (col 1947) (bol 1929)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 75) (col 1991) (bol 1929)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 75) (col 1947) (bol 1929)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 75) (col 1991) (bol 1929)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI32))
+             ((instr_desc
+               (MCallKnown (func length_1216)
+                (closure
+                 ((immediate_desc
+                   (MImmBinding (MGlobalBind length_1216 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown)))))
+                (func_type ((GrainValue) ((WasmValue WasmI32))))
+                (args
+                 (((immediate_desc (MImmBinding (MLocalBind 9 GrainValue)))
+                   (immediate_analyses ((last_usage Unknown))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 76) (col 2012) (bol 1992)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 76) (col 2041) (bol 1992)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 76) (col 2012) (bol 1992)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 76) (col 2041) (bol 1992)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmI32))
+             ((instr_desc
+               (MCallKnown (func length_1216)
+                (closure
+                 ((immediate_desc
+                   (MImmBinding (MGlobalBind length_1216 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown)))))
+                (func_type ((GrainValue) ((WasmValue WasmI32))))
+                (args
+                 (((immediate_desc (MImmBinding (MLocalBind 11 GrainValue)))
+                   (immediate_analyses ((last_usage Unknown))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 77) (col 2063) (bol 2042)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 77) (col 2093) (bol 2042)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 77) (col 2063) (bol 2042)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 77) (col 2093) (bol 2042)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_add_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 1 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 78) (col 2109) (bol 2094)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 78) (col 2135) (bol 2094)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 78) (col 2109) (bol 2094)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 78) (col 2135) (bol 2094)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 (WasmValue WasmI32))
+             ((instr_desc
+               (MCallKnown (func malloc_1217)
+                (closure
+                 ((immediate_desc
+                   (MImmBinding (MGlobalBind malloc_1217 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown)))))
+                (func_type (((WasmValue WasmI32)) ((WasmValue WasmI32))))
+                (args
+                 (((immediate_desc
+                    (MImmBinding (MLocalBind 2 (WasmValue WasmI32))))
+                   (immediate_analyses ((last_usage Unknown))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 79) (col 2148) (bol 2136)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 79) (col 2169) (bol 2136)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 79) (col 2148) (bol 2136)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 79) (col 2169) (bol 2136)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MDrop
+           ((instr_desc
+             (MCallKnown (func copyRefArrayToLinearMemory_1218)
+              (closure
+               ((immediate_desc
+                 (MImmBinding
+                  (MGlobalBind copyRefArrayToLinearMemory_1218 GrainValue)))
+                (immediate_analyses ((last_usage Unknown)))))
+              (func_type
+               (((WasmValue WasmI32) GrainValue (WasmValue WasmI32))
+                (GrainValue)))
+              (args
+               (((immediate_desc
+                  (MImmBinding (MLocalBind 3 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmBinding (MLocalBind 9 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))))))
+            (instr_loc
+             ((loc_start
+               (position
+                (file
+                 /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                (line 80) (col 2172) (bol 2170)))
+              (loc_end
+               (position
+                (file
+                 /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                (line 80) (col 2233) (bol 2170)))
+              (loc_ghost false))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 80) (col 2172) (bol 2170)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 80) (col 2233) (bol 2170)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 4 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_add_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 3 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 81) (col 2270) (bol 2234)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 81) (col 2287) (bol 2234)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 81) (col 2270) (bol 2234)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 81) (col 2287) (bol 2234)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MDrop
+           ((instr_desc
+             (MCallKnown (func copyRefArrayToLinearMemory_1218)
+              (closure
+               ((immediate_desc
+                 (MImmBinding
+                  (MGlobalBind copyRefArrayToLinearMemory_1218 GrainValue)))
+                (immediate_analyses ((last_usage Unknown)))))
+              (func_type
+               (((WasmValue WasmI32) GrainValue (WasmValue WasmI32))
+                (GrainValue)))
+              (args
+               (((immediate_desc
+                  (MImmBinding (MLocalBind 4 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmBinding (MLocalBind 11 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 1 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))))))
+            (instr_loc
+             ((loc_start
+               (position
+                (file
+                 /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                (line 81) (col 2236) (bol 2234)))
+              (loc_end
+               (position
+                (file
+                 /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                (line 81) (col 2313) (bol 2234)))
+              (loc_ghost false))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 81) (col 2236) (bol 2234)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 81) (col 2313) (bol 2234)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 5 (WasmValue WasmI32))
+             ((instr_desc
+               (MCallKnown (func malloc_1217)
+                (closure
+                 ((immediate_desc
+                   (MImmBinding (MGlobalBind malloc_1217 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown)))))
+                (func_type (((WasmValue WasmI32)) ((WasmValue WasmI32))))
+                (args
+                 (((immediate_desc (MImmConst (MConstWasmI32 12)))
+                   (immediate_analyses ((last_usage Unknown))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 86) (col 2450) (bol 2438)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 86) (col 2468) (bol 2438)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 86) (col 2450) (bol 2438)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 86) (col 2468) (bol 2438)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 6 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_add_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 5 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 8)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 88) (col 2501) (bol 2485)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 88) (col 2509) (bol 2485)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 88) (col 2501) (bol 2485)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 88) (col 2509) (bol 2485)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 12 GrainValue)
+             ((instr_desc
+               (MPrimN (WasmStoreI32 (sz 4))
+                (((immediate_desc
+                   (MImmBinding (MLocalBind 5 (WasmValue WasmI32))))
+                  (immediate_analyses ((last_usage Unknown))))
+                 ((immediate_desc
+                   (MImmBinding (MLocalBind 3 (WasmValue WasmI32))))
+                  (immediate_analyses ((last_usage Unknown))))
+                 ((immediate_desc (MImmConst (MConstWasmI32 0)))
+                  (immediate_analyses ((last_usage Unknown)))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 89) (col 2512) (bol 2510)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 89) (col 2539) (bol 2510)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 89) (col 2512) (bol 2510)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 89) (col 2539) (bol 2510)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 13 GrainValue)
+             ((instr_desc
+               (MPrimN (WasmStoreI32 (sz 4))
+                (((immediate_desc
+                   (MImmBinding (MLocalBind 5 (WasmValue WasmI32))))
+                  (immediate_analyses ((last_usage Unknown))))
+                 ((immediate_desc
+                   (MImmBinding (MLocalBind 2 (WasmValue WasmI32))))
+                  (immediate_analyses ((last_usage Unknown))))
+                 ((immediate_desc (MImmConst (MConstWasmI32 4)))
+                  (immediate_analyses ((last_usage Unknown)))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 90) (col 2542) (bol 2540)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                  (line 90) (col 2572) (bol 2540)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 90) (col 2542) (bol 2540)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 90) (col 2572) (bol 2540)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MDrop
+           ((instr_desc
+             (MCallKnown (func fd_write_1100)
+              (closure
+               ((immediate_desc
+                 (MImmBinding (MGlobalBind fd_write_1100 GrainValue)))
+                (immediate_analyses ((last_usage Unknown)))))
+              (func_type
+               (((WasmValue WasmI32) (WasmValue WasmI32) (WasmValue WasmI32)
+                 (WasmValue WasmI32))
+                ((WasmValue WasmI32))))
+              (args
+               (((immediate_desc (MImmConst (MConstWasmI32 1)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 5 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 1)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 6 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))))))
+            (instr_loc
+             ((loc_start
+               (position
+                (file
+                 /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                (line 92) (col 2576) (bol 2574)))
+              (loc_end
+               (position
+                (file
+                 /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                (line 92) (col 2606) (bol 2574)))
+              (loc_ghost false))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 92) (col 2576) (bol 2574)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 92) (col 2606) (bol 2574)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MDrop
+           ((instr_desc
+             (MCallKnown (func free_1222)
+              (closure
+               ((immediate_desc
+                 (MImmBinding (MGlobalBind free_1222 GrainValue)))
+                (immediate_analyses ((last_usage Unknown)))))
+              (func_type (((WasmValue WasmI32)) (GrainValue)))
+              (args
+               (((immediate_desc
+                  (MImmBinding (MLocalBind 5 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))))))
+            (instr_loc
+             ((loc_start
+               (position
+                (file
+                 /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                (line 94) (col 2610) (bol 2608)))
+              (loc_end
+               (position
+                (file
+                 /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                (line 94) (col 2626) (bol 2608)))
+              (loc_ghost false))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 94) (col 2610) (bol 2608)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 94) (col 2626) (bol 2608)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MDrop
+           ((instr_desc
+             (MCallKnown (func free_1222)
+              (closure
+               ((immediate_desc
+                 (MImmBinding (MGlobalBind free_1222 GrainValue)))
+                (immediate_analyses ((last_usage Unknown)))))
+              (func_type (((WasmValue WasmI32)) (GrainValue)))
+              (args
+               (((immediate_desc
+                  (MImmBinding (MLocalBind 3 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))))))
+            (instr_loc
+             ((loc_start
+               (position
+                (file
+                 /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                (line 95) (col 2629) (bol 2627)))
+              (loc_end
+               (position
+                (file
+                 /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+                (line 95) (col 2645) (bol 2627)))
+              (loc_ghost false))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 95) (col 2629) (bol 2627)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 95) (col 2645) (bol 2627)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MImmediate
+           ((immediate_desc (MImmConst MConstVoid))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 97) (col 2649) (bol 2647)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 97) (col 2653) (bol 2647)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 14) (stack_size_i32 7) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs
+       (((txt Unsafe)
+         (loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 70) (col 1718) (bol 1717)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+             (line 70) (col 1724) (bol 1717)))
+           (loc_ghost false))))))
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+          (line 71) (col 1745) (bol 1725)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+          (line 98) (col 2655) (bol 2654)))
+        (loc_ghost false))))))
+   (imports
+    (((mimp_id ((stamp 1225) (name wimport_wasi_snapshot_preview1_fd_write)))
+      (mimp_mod wasi_snapshot_preview1) (mimp_name fd_write)
+      (mimp_type
+       (MFuncImport
+        ((WasmValue WasmI32) (WasmValue WasmI32) (WasmValue WasmI32)
+         (WasmValue WasmI32))
+        ((WasmValue WasmI32))))
+      (mimp_kind MImportWasm) (mimp_setup (MWrap 0)) (mimp_used true))
+     ((mimp_id ((stamp 1222) (name free))) (mimp_mod runtime/malloc.gr)
+      (mimp_name free)
+      (mimp_type (MFuncImport (GrainValue (WasmValue WasmI32)) (GrainValue)))
+      (mimp_kind MImportGrain) (mimp_setup MSetupNone) (mimp_used true))
+     ((mimp_id ((stamp 1222) (name free))) (mimp_mod runtime/malloc.gr)
+      (mimp_name free) (mimp_type (MGlobalImport GrainValue true))
+      (mimp_kind MImportGrain) (mimp_setup MCallGetter) (mimp_used true))
+     ((mimp_id ((stamp 1218) (name copyRefArrayToLinearMemory)))
+      (mimp_mod runtime/unsafe/memory.gr)
+      (mimp_name copyRefArrayToLinearMemory)
+      (mimp_type
+       (MFuncImport
+        (GrainValue (WasmValue WasmI32) (WasmValue WasmRef)
+         (WasmValue WasmI32))
+        (GrainValue)))
+      (mimp_kind MImportGrain) (mimp_setup MSetupNone) (mimp_used true))
+     ((mimp_id ((stamp 1218) (name copyRefArrayToLinearMemory)))
+      (mimp_mod runtime/unsafe/memory.gr)
+      (mimp_name copyRefArrayToLinearMemory)
+      (mimp_type (MGlobalImport GrainValue true)) (mimp_kind MImportGrain)
+      (mimp_setup MCallGetter) (mimp_used true))
+     ((mimp_id ((stamp 1217) (name malloc))) (mimp_mod runtime/malloc.gr)
+      (mimp_name malloc)
+      (mimp_type
+       (MFuncImport (GrainValue (WasmValue WasmI32)) ((WasmValue WasmI32))))
+      (mimp_kind MImportGrain) (mimp_setup MSetupNone) (mimp_used true))
+     ((mimp_id ((stamp 1217) (name malloc))) (mimp_mod runtime/malloc.gr)
+      (mimp_name malloc) (mimp_type (MGlobalImport GrainValue true))
+      (mimp_kind MImportGrain) (mimp_setup MCallGetter) (mimp_used true))
+     ((mimp_id ((stamp 1216) (name length)))
+      (mimp_mod runtime/unsafe/wasmref.gr) (mimp_name WasmArrayRef.length)
+      (mimp_type
+       (MFuncImport (GrainValue (WasmValue WasmRef)) ((WasmValue WasmI32))))
+      (mimp_kind MImportGrain) (mimp_setup MSetupNone) (mimp_used true))
+     ((mimp_id ((stamp 1216) (name length)))
+      (mimp_mod runtime/unsafe/wasmref.gr) (mimp_name WasmArrayRef.length)
+      (mimp_type (MGlobalImport GrainValue true)) (mimp_kind MImportGrain)
+      (mimp_setup MCallGetter) (mimp_used true))
+     ((mimp_id ((stamp 1205) (name toString))) (mimp_mod runtime/toString.gr)
+      (mimp_name toString)
+      (mimp_type
+       (MFuncImport (GrainValue (WasmValue WasmRef)) ((WasmValue WasmRef))))
+      (mimp_kind MImportGrain) (mimp_setup MSetupNone) (mimp_used true))
+     ((mimp_id ((stamp 1205) (name toString))) (mimp_mod runtime/toString.gr)
+      (mimp_name toString) (mimp_type (MGlobalImport GrainValue true))
+      (mimp_kind MImportGrain) (mimp_setup MCallGetter) (mimp_used true))
+     ((mimp_id ((stamp 1199) (name getStringArrayRef)))
+      (mimp_mod runtime/dataStructures.gr) (mimp_name getStringArrayRef)
+      (mimp_type
+       (MFuncImport (GrainValue (WasmValue WasmRef)) ((WasmValue WasmRef))))
+      (mimp_kind MImportGrain) (mimp_setup MSetupNone) (mimp_used true))
+     ((mimp_id ((stamp 1199) (name getStringArrayRef)))
+      (mimp_mod runtime/dataStructures.gr) (mimp_name getStringArrayRef)
+      (mimp_type (MGlobalImport GrainValue true)) (mimp_kind MImportGrain)
+      (mimp_setup MCallGetter) (mimp_used true))
+     ((mimp_id ((stamp 1197) (name copyI8)))
+      (mimp_mod runtime/unsafe/wasmref.gr) (mimp_name WasmArrayRef.copyI8)
+      (mimp_type
+       (MFuncImport
+        (GrainValue (WasmValue WasmRef) (WasmValue WasmI32)
+         (WasmValue WasmRef) (WasmValue WasmI32) (WasmValue WasmI32))
+        (GrainValue)))
+      (mimp_kind MImportGrain) (mimp_setup MSetupNone) (mimp_used true))
+     ((mimp_id ((stamp 1197) (name copyI8)))
+      (mimp_mod runtime/unsafe/wasmref.gr) (mimp_name WasmArrayRef.copyI8)
+      (mimp_type (MGlobalImport GrainValue true)) (mimp_kind MImportGrain)
+      (mimp_setup MCallGetter) (mimp_used true))))
+   (exports
+    ((WasmFunctionExport (ex_function_name print)
+      (ex_function_internal_name print_1173))
+     (WasmGlobalExport (ex_global_name print)
+      (ex_global_internal_name print_1173))
+     (WasmFunctionExport (ex_function_name toString)
+      (ex_function_internal_name toString_1205))
+     (WasmGlobalExport (ex_global_name toString)
+      (ex_global_internal_name toString_1205))
+     (WasmFunctionExport (ex_function_name concat)
+      (ex_function_internal_name concat_1101))
+     (WasmGlobalExport (ex_global_name concat)
+      (ex_global_internal_name concat_1101))))
+   (main_body
+    (((instr_desc
+       (MStore
+        (((MGlobalBind fd_write_1100 GrainValue)
+          ((instr_desc
+            (MAllocate
+             (MClosure
+              ((func_id ())
+               (arg_types
+                (GrainValue (WasmValue WasmI32) (WasmValue WasmI32)
+                 (WasmValue WasmI32) (WasmValue WasmI32)))
+               (ret_types ((WasmValue WasmI32))) (variables ())))))
+           (instr_loc dummy_loc))))))
+      (instr_loc dummy_loc))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind concat_1101 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+               (line 29) (col 753) (bol 732)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+               (line 55) (col 1306) (bol 1305)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+          (line 29) (col 753) (bol 732)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+          (line 55) (col 1306) (bol 1305)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind print_1173 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+               (line 71) (col 1745) (bol 1725)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+               (line 98) (col 2655) (bol 2654)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+          (line 71) (col 1745) (bol 1725)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+          (line 98) (col 2655) (bol 2654)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MImmediate
+        ((immediate_desc (MImmConst MConstVoid))
+         (immediate_analyses ((last_usage Unknown))))))
+      (instr_loc dummy_loc))))
+   (main_body_stack_size
+    ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+     (stack_size_f32 0) (stack_size_f64 0)))
+   (globals
+    (((id ((stamp 1101) (name concat))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1173) (name print))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1100) (name fd_write))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))))
+   (compilation_mode Normal) (type_metadata <opaque>)
+   (prog_loc
+    ((loc_start
+      (position
+       (file
+        /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+       (line 1) (col 0) (bol 0)))
+     (loc_end
+      (position
+       (file
+        /Users/spotandjake/Documents/github/grain/stdlib/runtime/string.gr)
+       (line 99) (col 2656) (bol 2656)))
+     (loc_ghost false)))))
+ (signature <opaque>))

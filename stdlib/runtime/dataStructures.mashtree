@@ -1,0 +1,4014 @@
+((mash_code
+  ((functions
+    (((id ((stamp 1100) (name allocateArray))) (name (allocateArray))
+      (args (GrainValue (WasmValue WasmI32) (WasmValue WasmRef)))
+      (return_type ((WasmValue WasmRef))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim2 AllocateArray
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))
+           ((immediate_desc (MImmBinding (MArgBind 2 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 14) (col 338) (bol 330)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 14) (col 381) (bol 330)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 14) (col 338) (bol 330)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 14) (col 381) (bol 330)))
+        (loc_ghost false))))
+     ((id ((stamp 1544) (name allocateTuple))) (name (allocateTuple))
+      (args (GrainValue (WasmValue WasmI32)))
+      (return_type ((WasmValue WasmRef))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 AllocateTuple
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 22) (col 542) (bol 534)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 22) (col 585) (bol 534)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 22) (col 542) (bol 534)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 22) (col 585) (bol 534)))
+        (loc_ghost false))))
+     ((id ((stamp 1546) (name allocateBytes))) (name (allocateBytes))
+      (args (GrainValue (WasmValue WasmI32)))
+      (return_type ((WasmValue WasmRef))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 AllocateBytes
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 30) (col 744) (bol 736)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 30) (col 787) (bol 736)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 30) (col 744) (bol 736)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 30) (col 787) (bol 736)))
+        (loc_ghost false))))
+     ((id ((stamp 1550) (name getBytesArrayRef))) (name (getBytesArrayRef))
+      (args (GrainValue (WasmValue WasmRef))) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmRef))
+             ((instr_desc
+               (MPrim1 BytesArrayRef
+                ((immediate_desc
+                  (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+                  (line 40) (col 1021) (bol 994)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+                  (line 40) (col 1042) (bol 994)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 40) (col 1021) (bol 994)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 40) (col 1042) (bol 994)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MReturnCallKnown (func fromWasmRef_1685)
+           (closure
+            ((immediate_desc
+              (MImmBinding (MGlobalBind fromWasmRef_1685 GrainValue)))
+             (immediate_analyses ((last_usage Unknown)))))
+           (func_type (((WasmValue WasmRef)) (GrainValue)))
+           (args
+            (((immediate_desc
+               (MImmBinding (MLocalBind 0 (WasmValue WasmRef))))
+              (immediate_analyses ((last_usage Unknown))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 40) (col 996) (bol 994)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 40) (col 1043) (bol 994)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 1) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 39) (col 987) (bol 956)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 40) (col 1043) (bol 994)))
+        (loc_ghost false))))
+     ((id ((stamp 1570) (name getBytesSize))) (name (getBytesSize))
+      (args (GrainValue (WasmValue WasmRef)))
+      (return_type ((WasmValue WasmI32))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 BytesSize
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 48) (col 1176) (bol 1168)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 48) (col 1214) (bol 1168)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 48) (col 1176) (bol 1168)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 48) (col 1214) (bol 1168)))
+        (loc_ghost false))))
+     ((id ((stamp 1572) (name allocateString))) (name (allocateString))
+      (args (GrainValue (WasmValue WasmI32)))
+      (return_type ((WasmValue WasmRef))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 AllocateString
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 56) (col 1370) (bol 1362)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 56) (col 1415) (bol 1362)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 56) (col 1370) (bol 1362)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 56) (col 1415) (bol 1362)))
+        (loc_ghost false))))
+     ((id ((stamp 1576) (name getStringArrayRef))) (name (getStringArrayRef))
+      (args (GrainValue (WasmValue WasmRef))) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmRef))
+             ((instr_desc
+               (MPrim1 StringArrayRef
+                ((immediate_desc
+                  (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+                  (line 66) (col 1654) (bol 1627)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+                  (line 66) (col 1676) (bol 1627)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 66) (col 1654) (bol 1627)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 66) (col 1676) (bol 1627)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MReturnCallKnown (func fromWasmRef_1685)
+           (closure
+            ((immediate_desc
+              (MImmBinding (MGlobalBind fromWasmRef_1685 GrainValue)))
+             (immediate_analyses ((last_usage Unknown)))))
+           (func_type (((WasmValue WasmRef)) (GrainValue)))
+           (args
+            (((immediate_desc
+               (MImmBinding (MLocalBind 0 (WasmValue WasmRef))))
+              (immediate_analyses ((last_usage Unknown))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 66) (col 1629) (bol 1627)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 66) (col 1677) (bol 1627)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 1) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 65) (col 1620) (bol 1588)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 66) (col 1677) (bol 1627)))
+        (loc_ghost false))))
+     ((id ((stamp 1578) (name getStringSize))) (name (getStringSize))
+      (args (GrainValue (WasmValue WasmRef)))
+      (return_type ((WasmValue WasmI32))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 StringSize
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 74) (col 1813) (bol 1805)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 74) (col 1853) (bol 1805)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 74) (col 1813) (bol 1805)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 74) (col 1853) (bol 1805)))
+        (loc_ghost false))))
+     ((id ((stamp 1582) (name getCompoundValueArrayRef)))
+      (name (getCompoundValueArrayRef))
+      (args (GrainValue (WasmValue WasmRef))) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmRef))
+             ((instr_desc
+               (MPrim1 CompoundValueArrayRef
+                ((immediate_desc
+                  (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+                  (line 84) (col 2121) (bol 2094)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+                  (line 84) (col 2150) (bol 2094)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 84) (col 2121) (bol 2094)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 84) (col 2150) (bol 2094)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MReturnCallKnown (func fromWasmRef_1685)
+           (closure
+            ((immediate_desc
+              (MImmBinding (MGlobalBind fromWasmRef_1685 GrainValue)))
+             (immediate_analyses ((last_usage Unknown)))))
+           (func_type (((WasmValue WasmRef)) (GrainValue)))
+           (args
+            (((immediate_desc
+               (MImmBinding (MLocalBind 0 (WasmValue WasmRef))))
+              (immediate_analyses ((last_usage Unknown))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 84) (col 2096) (bol 2094)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 84) (col 2151) (bol 2094)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 1) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 83) (col 2087) (bol 2048)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 84) (col 2151) (bol 2094)))
+        (loc_ghost false))))
+     ((id ((stamp 1584) (name loadCycleMarker))) (name (loadCycleMarker))
+      (args (GrainValue (WasmValue WasmRef)))
+      (return_type ((WasmValue WasmI32))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 LoadCycleMarker
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 92) (col 2277) (bol 2269)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 92) (col 2337) (bol 2269)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 92) (col 2277) (bol 2269)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 92) (col 2337) (bol 2269)))
+        (loc_ghost false))))
+     ((id ((stamp 1586) (name storeCycleMarker))) (name (storeCycleMarker))
+      (args (GrainValue (WasmValue WasmRef) (WasmValue WasmI32)))
+      (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MPrim2 StoreCycleMarker
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))
+           ((immediate_desc (MImmBinding (MArgBind 2 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 100) (col 2475) (bol 2467)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 100) (col 2537) (bol 2467)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 100) (col 2475) (bol 2467)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 100) (col 2537) (bol 2467)))
+        (loc_ghost false))))
+     ((id ((stamp 1589) (name loadRecordTypeHash)))
+      (name (loadRecordTypeHash)) (args (GrainValue (WasmValue WasmRef)))
+      (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 LoadRecordTypeHash
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 108) (col 2644) (bol 2636)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 108) (col 2698) (bol 2636)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 108) (col 2644) (bol 2636)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 108) (col 2698) (bol 2636)))
+        (loc_ghost false))))
+     ((id ((stamp 1591) (name loadVariantTypeHash)))
+      (name (loadVariantTypeHash)) (args (GrainValue (WasmValue WasmRef)))
+      (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 LoadVariantTypeHash
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 116) (col 2806) (bol 2798)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 116) (col 2858) (bol 2798)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 116) (col 2806) (bol 2798)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 116) (col 2858) (bol 2798)))
+        (loc_ghost false))))
+     ((id ((stamp 1593) (name loadRecordTypeId))) (name (loadRecordTypeId))
+      (args (GrainValue (WasmValue WasmRef))) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 LoadRecordTypeId
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 124) (col 2961) (bol 2953)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 124) (col 3011) (bol 2953)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 124) (col 2961) (bol 2953)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 124) (col 3011) (bol 2953)))
+        (loc_ghost false))))
+     ((id ((stamp 1595) (name loadVariantTypeId))) (name (loadVariantTypeId))
+      (args (GrainValue (WasmValue WasmRef))) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 LoadVariantTypeId
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 132) (col 3115) (bol 3107)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 132) (col 3163) (bol 3107)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 132) (col 3115) (bol 3107)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 132) (col 3163) (bol 3107)))
+        (loc_ghost false))))
+     ((id ((stamp 1597) (name allocateAdt))) (name (allocateAdt))
+      (args
+       (GrainValue (WasmValue WasmRef) (WasmValue WasmRef)
+        (WasmValue WasmRef) (WasmValue WasmRef)))
+      (return_type ((WasmValue WasmRef))) (closure ())
+      (body
+       (((instr_desc
+          (MPrimN AllocateAdt
+           (((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 2 (WasmValue WasmRef))))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 3 (WasmValue WasmRef))))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 4 (WasmValue WasmRef))))
+             (immediate_analyses ((last_usage Unknown)))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 145) (col 3446) (bol 3438)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 145) (col 3485) (bol 3438)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 145) (col 3446) (bol 3438)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 145) (col 3485) (bol 3438)))
+        (loc_ghost false))))
+     ((id ((stamp 1602) (name allocateRecord))) (name (allocateRecord))
+      (args
+       (GrainValue (WasmValue WasmRef) (WasmValue WasmRef)
+        (WasmValue WasmRef)))
+      (return_type ((WasmValue WasmRef))) (closure ())
+      (body
+       (((instr_desc
+          (MPrimN AllocateRecord
+           (((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 2 (WasmValue WasmRef))))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 3 (WasmValue WasmRef))))
+             (immediate_analyses ((last_usage Unknown)))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 155) (col 3711) (bol 3703)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 155) (col 3756) (bol 3703)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 155) (col 3711) (bol 3703)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 155) (col 3756) (bol 3703)))
+        (loc_ghost false))))
+     ((id ((stamp 1606) (name newInt32))) (name (newInt32))
+      (args (GrainValue (WasmValue WasmI32)))
+      (return_type ((WasmValue WasmRef))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 NewInt32
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 165) (col 3917) (bol 3909)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 165) (col 3950) (bol 3909)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 165) (col 3917) (bol 3909)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 165) (col 3950) (bol 3909)))
+        (loc_ghost false))))
+     ((id ((stamp 1608) (name newUint32))) (name (newUint32))
+      (args (GrainValue (WasmValue WasmI32)))
+      (return_type ((WasmValue WasmRef))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 NewUint32
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 173) (col 4097) (bol 4089)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 173) (col 4132) (bol 4089)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 173) (col 4097) (bol 4089)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 173) (col 4132) (bol 4089)))
+        (loc_ghost false))))
+     ((id ((stamp 1610) (name newInt64))) (name (newInt64))
+      (args (GrainValue (WasmValue WasmI64)))
+      (return_type ((WasmValue WasmRef))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 NewInt64
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmI64))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 181) (col 4277) (bol 4269)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 181) (col 4310) (bol 4269)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 181) (col 4277) (bol 4269)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 181) (col 4310) (bol 4269)))
+        (loc_ghost false))))
+     ((id ((stamp 1612) (name newUint64))) (name (newUint64))
+      (args (GrainValue (WasmValue WasmI64)))
+      (return_type ((WasmValue WasmRef))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 NewUint64
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmI64))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 189) (col 4457) (bol 4449)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 189) (col 4492) (bol 4449)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 189) (col 4457) (bol 4449)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 189) (col 4492) (bol 4449)))
+        (loc_ghost false))))
+     ((id ((stamp 1614) (name newFloat32))) (name (newFloat32))
+      (args (GrainValue (WasmValue WasmF32)))
+      (return_type ((WasmValue WasmRef))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 NewFloat32
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmF32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 199) (col 4654) (bol 4646)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 199) (col 4691) (bol 4646)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 199) (col 4654) (bol 4646)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 199) (col 4691) (bol 4646)))
+        (loc_ghost false))))
+     ((id ((stamp 1616) (name newFloat64))) (name (newFloat64))
+      (args (GrainValue (WasmValue WasmF64)))
+      (return_type ((WasmValue WasmRef))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 NewFloat64
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmF64))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 207) (col 4842) (bol 4834)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 207) (col 4879) (bol 4834)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 207) (col 4842) (bol 4834)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 207) (col 4879) (bol 4834)))
+        (loc_ghost false))))
+     ((id ((stamp 1618) (name newRational))) (name (newRational))
+      (args (GrainValue (WasmValue WasmRef) (WasmValue WasmRef)))
+      (return_type ((WasmValue WasmRef))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim2 NewRational
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))
+           ((immediate_desc (MImmBinding (MArgBind 2 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 218) (col 5114) (bol 5106)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 218) (col 5153) (bol 5106)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 218) (col 5114) (bol 5106)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 218) (col 5153) (bol 5106)))
+        (loc_ghost false))))
+     ((id ((stamp 1621) (name allocateBigInt))) (name (allocateBigInt))
+      (args (GrainValue (WasmValue WasmI32)))
+      (return_type ((WasmValue WasmRef))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 AllocateBigInt
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 228) (col 5323) (bol 5315)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 228) (col 5368) (bol 5315)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 228) (col 5323) (bol 5315)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 228) (col 5368) (bol 5315)))
+        (loc_ghost false))))
+     ((id ((stamp 1623) (name getBigIntSize))) (name (getBigIntSize))
+      (args (GrainValue (WasmValue WasmRef)))
+      (return_type ((WasmValue WasmI32))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 BigIntSize
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 236) (col 5495) (bol 5487)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 236) (col 5535) (bol 5487)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 236) (col 5495) (bol 5487)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 236) (col 5535) (bol 5487)))
+        (loc_ghost false))))
+     ((id ((stamp 1625) (name getBigIntFlags))) (name (getBigIntFlags))
+      (args (GrainValue (WasmValue WasmRef)))
+      (return_type ((WasmValue WasmI32))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 BigIntFlags
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 244) (col 5641) (bol 5633)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 244) (col 5683) (bol 5633)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 244) (col 5641) (bol 5633)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 244) (col 5683) (bol 5633)))
+        (loc_ghost false))))
+     ((id ((stamp 1627) (name setBigIntFlags))) (name (setBigIntFlags))
+      (args (GrainValue (WasmValue WasmRef) (WasmValue WasmI32)))
+      (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MPrim2 BigIntSetFlags
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))
+           ((immediate_desc (MImmBinding (MArgBind 2 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 252) (col 5801) (bol 5793)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 252) (col 5847) (bol 5793)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 252) (col 5801) (bol 5793)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 252) (col 5847) (bol 5793)))
+        (loc_ghost false))))
+     ((id ((stamp 1632) (name getBigIntArrayRef))) (name (getBigIntArrayRef))
+      (args (GrainValue (WasmValue WasmRef))) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmRef))
+             ((instr_desc
+               (MPrim1 BigIntArrayRef
+                ((immediate_desc
+                  (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+                  (line 262) (col 6087) (bol 6060)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+                  (line 262) (col 6109) (bol 6060)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 262) (col 6087) (bol 6060)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 262) (col 6109) (bol 6060)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MReturnCallKnown (func fromWasmRef_1685)
+           (closure
+            ((immediate_desc
+              (MImmBinding (MGlobalBind fromWasmRef_1685 GrainValue)))
+             (immediate_analyses ((last_usage Unknown)))))
+           (func_type (((WasmValue WasmRef)) (GrainValue)))
+           (args
+            (((immediate_desc
+               (MImmBinding (MLocalBind 0 (WasmValue WasmRef))))
+              (immediate_analyses ((last_usage Unknown))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 262) (col 6062) (bol 6060)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 262) (col 6110) (bol 6060)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 1) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 261) (col 6053) (bol 6021)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 262) (col 6110) (bol 6060)))
+        (loc_ghost false))))
+     ((id ((stamp 1634) (name getNumberTag))) (name (getNumberTag))
+      (args (GrainValue (WasmValue WasmRef)))
+      (return_type ((WasmValue WasmI32))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 BoxedNumberTag
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 272) (col 6241) (bol 6233)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 272) (col 6289) (bol 6233)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 272) (col 6241) (bol 6233)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 272) (col 6289) (bol 6233)))
+        (loc_ghost false))))
+     ((id ((stamp 1636) (name getInt32Value))) (name (getInt32Value))
+      (args (GrainValue (WasmValue WasmRef)))
+      (return_type ((WasmValue WasmI32))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 BoxedInt32Value
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 280) (col 6401) (bol 6393)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 280) (col 6452) (bol 6393)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 280) (col 6401) (bol 6393)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 280) (col 6452) (bol 6393)))
+        (loc_ghost false))))
+     ((id ((stamp 1638) (name getUint32Value))) (name (getUint32Value))
+      (args (GrainValue (WasmValue WasmRef)))
+      (return_type ((WasmValue WasmI32))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 BoxedUint32Value
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 288) (col 6565) (bol 6557)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 288) (col 6618) (bol 6557)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 288) (col 6565) (bol 6557)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 288) (col 6618) (bol 6557)))
+        (loc_ghost false))))
+     ((id ((stamp 1640) (name getFloat32Value))) (name (getFloat32Value))
+      (args (GrainValue (WasmValue WasmRef)))
+      (return_type ((WasmValue WasmF32))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 BoxedFloat32Value
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 296) (col 6732) (bol 6724)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 296) (col 6787) (bol 6724)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 296) (col 6732) (bol 6724)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 296) (col 6787) (bol 6724)))
+        (loc_ghost false))))
+     ((id ((stamp 1642) (name getInt64Value))) (name (getInt64Value))
+      (args (GrainValue (WasmValue WasmRef)))
+      (return_type ((WasmValue WasmI64))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 BoxedInt64Value
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 304) (col 6899) (bol 6891)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 304) (col 6950) (bol 6891)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 304) (col 6899) (bol 6891)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 304) (col 6950) (bol 6891)))
+        (loc_ghost false))))
+     ((id ((stamp 1644) (name getUint64Value))) (name (getUint64Value))
+      (args (GrainValue (WasmValue WasmRef)))
+      (return_type ((WasmValue WasmI64))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 BoxedUint64Value
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 311) (col 7062) (bol 7054)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 311) (col 7115) (bol 7054)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 311) (col 7062) (bol 7054)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 311) (col 7115) (bol 7054)))
+        (loc_ghost false))))
+     ((id ((stamp 1646) (name getFloat64Value))) (name (getFloat64Value))
+      (args (GrainValue (WasmValue WasmRef)))
+      (return_type ((WasmValue WasmF64))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 BoxedFloat64Value
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 319) (col 7229) (bol 7221)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 319) (col 7284) (bol 7221)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 319) (col 7229) (bol 7221)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 319) (col 7284) (bol 7221)))
+        (loc_ghost false))))
+     ((id ((stamp 1648) (name getRationalNumerator)))
+      (name (getRationalNumerator)) (args (GrainValue (WasmValue WasmRef)))
+      (return_type ((WasmValue WasmRef))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 BoxedRationalNumerator
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 327) (col 7412) (bol 7404)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 327) (col 7483) (bol 7404)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 327) (col 7412) (bol 7404)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 327) (col 7483) (bol 7404)))
+        (loc_ghost false))))
+     ((id ((stamp 1650) (name getRationalDenominator)))
+      (name (getRationalDenominator)) (args (GrainValue (WasmValue WasmRef)))
+      (return_type ((WasmValue WasmRef))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 BoxedRationalDenominator
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 335) (col 7615) (bol 7607)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 335) (col 7690) (bol 7607)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 335) (col 7615) (bol 7607)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 335) (col 7690) (bol 7607)))
+        (loc_ghost false))))
+     ((id ((stamp 1652) (name loadAdtVariant))) (name (loadAdtVariant))
+      (args (GrainValue (WasmValue WasmRef))) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 LoadAdtVariant
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 343) (col 7816) (bol 7808)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 343) (col 7862) (bol 7808)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 343) (col 7816) (bol 7808)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 343) (col 7862) (bol 7808)))
+        (loc_ghost false))))
+     ((id ((stamp 1654) (name loadValueTag))) (name (loadValueTag))
+      (args (GrainValue (WasmValue WasmRef)))
+      (return_type ((WasmValue WasmI32))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 LoadValueTag
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 351) (col 7983) (bol 7975)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 351) (col 8031) (bol 7975)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 351) (col 7983) (bol 7975)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 351) (col 8031) (bol 7975)))
+        (loc_ghost false))))
+     ((id ((stamp 1656) (name tagSimpleNumber))) (name (tagSimpleNumber))
+      (args (GrainValue (WasmValue WasmI32))) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 TagSimpleNumber
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 359) (col 8139) (bol 8131)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 359) (col 8187) (bol 8131)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 359) (col 8139) (bol 8131)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 359) (col 8187) (bol 8131)))
+        (loc_ghost false))))
+     ((id ((stamp 1658) (name untagSimpleNumber))) (name (untagSimpleNumber))
+      (args (GrainValue GrainValue)) (return_type ((WasmValue WasmI32)))
+      (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 UntagSimpleNumber
+           ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 367) (col 8301) (bol 8293)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 367) (col 8353) (bol 8293)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 367) (col 8301) (bol 8293)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 367) (col 8353) (bol 8293)))
+        (loc_ghost false))))
+     ((id ((stamp 1660) (name tagChar))) (name (tagChar))
+      (args (GrainValue (WasmValue WasmI32))) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 TagChar
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 375) (col 8448) (bol 8440)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 375) (col 8479) (bol 8440)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 375) (col 8448) (bol 8440)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 375) (col 8479) (bol 8440)))
+        (loc_ghost false))))
+     ((id ((stamp 1662) (name untagChar))) (name (untagChar))
+      (args (GrainValue GrainValue)) (return_type ((WasmValue WasmI32)))
+      (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 UntagChar
+           ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 383) (col 8580) (bol 8572)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 383) (col 8615) (bol 8572)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 383) (col 8580) (bol 8572)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 383) (col 8615) (bol 8572)))
+        (loc_ghost false))))
+     ((id ((stamp 1664) (name tagInt8))) (name (tagInt8))
+      (args (GrainValue (WasmValue WasmI32))) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 TagInt8
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 391) (col 8711) (bol 8703)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 391) (col 8742) (bol 8703)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 391) (col 8711) (bol 8703)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 391) (col 8742) (bol 8703)))
+        (loc_ghost false))))
+     ((id ((stamp 1666) (name untagInt8))) (name (untagInt8))
+      (args (GrainValue GrainValue)) (return_type ((WasmValue WasmI32)))
+      (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 UntagInt8
+           ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 399) (col 8844) (bol 8836)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 399) (col 8879) (bol 8836)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 399) (col 8844) (bol 8836)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 399) (col 8879) (bol 8836)))
+        (loc_ghost false))))
+     ((id ((stamp 1668) (name tagInt16))) (name (tagInt16))
+      (args (GrainValue (WasmValue WasmI32))) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 TagInt16
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 407) (col 8978) (bol 8970)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 407) (col 9011) (bol 8970)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 407) (col 8978) (bol 8970)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 407) (col 9011) (bol 8970)))
+        (loc_ghost false))))
+     ((id ((stamp 1670) (name untagInt16))) (name (untagInt16))
+      (args (GrainValue GrainValue)) (return_type ((WasmValue WasmI32)))
+      (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 UntagInt16
+           ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 415) (col 9116) (bol 9108)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 415) (col 9153) (bol 9108)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 415) (col 9116) (bol 9108)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 415) (col 9153) (bol 9108)))
+        (loc_ghost false))))
+     ((id ((stamp 1672) (name tagUint8))) (name (tagUint8))
+      (args (GrainValue (WasmValue WasmI32))) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 TagUint8
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 423) (col 9251) (bol 9243)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 423) (col 9284) (bol 9243)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 423) (col 9251) (bol 9243)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 423) (col 9284) (bol 9243)))
+        (loc_ghost false))))
+     ((id ((stamp 1674) (name untagUint8))) (name (untagUint8))
+      (args (GrainValue GrainValue)) (return_type ((WasmValue WasmI32)))
+      (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 UntagUint8
+           ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 431) (col 9388) (bol 9380)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 431) (col 9425) (bol 9380)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 431) (col 9388) (bol 9380)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 431) (col 9425) (bol 9380)))
+        (loc_ghost false))))
+     ((id ((stamp 1676) (name tagUint16))) (name (tagUint16))
+      (args (GrainValue (WasmValue WasmI32))) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 TagUint16
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 439) (col 9526) (bol 9518)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 439) (col 9561) (bol 9518)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 439) (col 9526) (bol 9518)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 439) (col 9561) (bol 9518)))
+        (loc_ghost false))))
+     ((id ((stamp 1678) (name untagUint16))) (name (untagUint16))
+      (args (GrainValue GrainValue)) (return_type ((WasmValue WasmI32)))
+      (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 UntagUint16
+           ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 447) (col 9668) (bol 9660)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+             (line 447) (col 9707) (bol 9660)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 447) (col 9668) (bol 9660)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 447) (col 9707) (bol 9660)))
+        (loc_ghost false))))))
+   (imports
+    (((mimp_id ((stamp 1685) (name fromWasmRef)))
+      (mimp_mod runtime/unsafe/wasmref.gr)
+      (mimp_name WasmArrayRef.fromWasmRef)
+      (mimp_type
+       (MFuncImport (GrainValue (WasmValue WasmRef)) ((WasmValue WasmRef))))
+      (mimp_kind MImportGrain) (mimp_setup MSetupNone) (mimp_used true))
+     ((mimp_id ((stamp 1685) (name fromWasmRef)))
+      (mimp_mod runtime/unsafe/wasmref.gr)
+      (mimp_name WasmArrayRef.fromWasmRef)
+      (mimp_type (MGlobalImport GrainValue true)) (mimp_kind MImportGrain)
+      (mimp_setup MCallGetter) (mimp_used true))))
+   (exports
+    ((WasmFunctionExport (ex_function_name untagUint16)
+      (ex_function_internal_name untagUint16_1678))
+     (WasmGlobalExport (ex_global_name untagUint16)
+      (ex_global_internal_name untagUint16_1678))
+     (WasmFunctionExport (ex_function_name tagUint16)
+      (ex_function_internal_name tagUint16_1676))
+     (WasmGlobalExport (ex_global_name tagUint16)
+      (ex_global_internal_name tagUint16_1676))
+     (WasmFunctionExport (ex_function_name untagUint8)
+      (ex_function_internal_name untagUint8_1674))
+     (WasmGlobalExport (ex_global_name untagUint8)
+      (ex_global_internal_name untagUint8_1674))
+     (WasmFunctionExport (ex_function_name tagUint8)
+      (ex_function_internal_name tagUint8_1672))
+     (WasmGlobalExport (ex_global_name tagUint8)
+      (ex_global_internal_name tagUint8_1672))
+     (WasmFunctionExport (ex_function_name untagInt16)
+      (ex_function_internal_name untagInt16_1670))
+     (WasmGlobalExport (ex_global_name untagInt16)
+      (ex_global_internal_name untagInt16_1670))
+     (WasmFunctionExport (ex_function_name tagInt16)
+      (ex_function_internal_name tagInt16_1668))
+     (WasmGlobalExport (ex_global_name tagInt16)
+      (ex_global_internal_name tagInt16_1668))
+     (WasmFunctionExport (ex_function_name untagInt8)
+      (ex_function_internal_name untagInt8_1666))
+     (WasmGlobalExport (ex_global_name untagInt8)
+      (ex_global_internal_name untagInt8_1666))
+     (WasmFunctionExport (ex_function_name tagInt8)
+      (ex_function_internal_name tagInt8_1664))
+     (WasmGlobalExport (ex_global_name tagInt8)
+      (ex_global_internal_name tagInt8_1664))
+     (WasmFunctionExport (ex_function_name untagChar)
+      (ex_function_internal_name untagChar_1662))
+     (WasmGlobalExport (ex_global_name untagChar)
+      (ex_global_internal_name untagChar_1662))
+     (WasmFunctionExport (ex_function_name tagChar)
+      (ex_function_internal_name tagChar_1660))
+     (WasmGlobalExport (ex_global_name tagChar)
+      (ex_global_internal_name tagChar_1660))
+     (WasmFunctionExport (ex_function_name untagSimpleNumber)
+      (ex_function_internal_name untagSimpleNumber_1658))
+     (WasmGlobalExport (ex_global_name untagSimpleNumber)
+      (ex_global_internal_name untagSimpleNumber_1658))
+     (WasmFunctionExport (ex_function_name tagSimpleNumber)
+      (ex_function_internal_name tagSimpleNumber_1656))
+     (WasmGlobalExport (ex_global_name tagSimpleNumber)
+      (ex_global_internal_name tagSimpleNumber_1656))
+     (WasmFunctionExport (ex_function_name loadValueTag)
+      (ex_function_internal_name loadValueTag_1654))
+     (WasmGlobalExport (ex_global_name loadValueTag)
+      (ex_global_internal_name loadValueTag_1654))
+     (WasmFunctionExport (ex_function_name loadAdtVariant)
+      (ex_function_internal_name loadAdtVariant_1652))
+     (WasmGlobalExport (ex_global_name loadAdtVariant)
+      (ex_global_internal_name loadAdtVariant_1652))
+     (WasmFunctionExport (ex_function_name getRationalDenominator)
+      (ex_function_internal_name getRationalDenominator_1650))
+     (WasmGlobalExport (ex_global_name getRationalDenominator)
+      (ex_global_internal_name getRationalDenominator_1650))
+     (WasmFunctionExport (ex_function_name getRationalNumerator)
+      (ex_function_internal_name getRationalNumerator_1648))
+     (WasmGlobalExport (ex_global_name getRationalNumerator)
+      (ex_global_internal_name getRationalNumerator_1648))
+     (WasmFunctionExport (ex_function_name getFloat64Value)
+      (ex_function_internal_name getFloat64Value_1646))
+     (WasmGlobalExport (ex_global_name getFloat64Value)
+      (ex_global_internal_name getFloat64Value_1646))
+     (WasmFunctionExport (ex_function_name getUint64Value)
+      (ex_function_internal_name getUint64Value_1644))
+     (WasmGlobalExport (ex_global_name getUint64Value)
+      (ex_global_internal_name getUint64Value_1644))
+     (WasmFunctionExport (ex_function_name getInt64Value)
+      (ex_function_internal_name getInt64Value_1642))
+     (WasmGlobalExport (ex_global_name getInt64Value)
+      (ex_global_internal_name getInt64Value_1642))
+     (WasmFunctionExport (ex_function_name getFloat32Value)
+      (ex_function_internal_name getFloat32Value_1640))
+     (WasmGlobalExport (ex_global_name getFloat32Value)
+      (ex_global_internal_name getFloat32Value_1640))
+     (WasmFunctionExport (ex_function_name getUint32Value)
+      (ex_function_internal_name getUint32Value_1638))
+     (WasmGlobalExport (ex_global_name getUint32Value)
+      (ex_global_internal_name getUint32Value_1638))
+     (WasmFunctionExport (ex_function_name getInt32Value)
+      (ex_function_internal_name getInt32Value_1636))
+     (WasmGlobalExport (ex_global_name getInt32Value)
+      (ex_global_internal_name getInt32Value_1636))
+     (WasmFunctionExport (ex_function_name getNumberTag)
+      (ex_function_internal_name getNumberTag_1634))
+     (WasmGlobalExport (ex_global_name getNumberTag)
+      (ex_global_internal_name getNumberTag_1634))
+     (WasmFunctionExport (ex_function_name getBigIntArrayRef)
+      (ex_function_internal_name getBigIntArrayRef_1632))
+     (WasmGlobalExport (ex_global_name getBigIntArrayRef)
+      (ex_global_internal_name getBigIntArrayRef_1632))
+     (WasmFunctionExport (ex_function_name setBigIntFlags)
+      (ex_function_internal_name setBigIntFlags_1627))
+     (WasmGlobalExport (ex_global_name setBigIntFlags)
+      (ex_global_internal_name setBigIntFlags_1627))
+     (WasmFunctionExport (ex_function_name getBigIntFlags)
+      (ex_function_internal_name getBigIntFlags_1625))
+     (WasmGlobalExport (ex_global_name getBigIntFlags)
+      (ex_global_internal_name getBigIntFlags_1625))
+     (WasmFunctionExport (ex_function_name getBigIntSize)
+      (ex_function_internal_name getBigIntSize_1623))
+     (WasmGlobalExport (ex_global_name getBigIntSize)
+      (ex_global_internal_name getBigIntSize_1623))
+     (WasmFunctionExport (ex_function_name allocateBigInt)
+      (ex_function_internal_name allocateBigInt_1621))
+     (WasmGlobalExport (ex_global_name allocateBigInt)
+      (ex_global_internal_name allocateBigInt_1621))
+     (WasmFunctionExport (ex_function_name newRational)
+      (ex_function_internal_name newRational_1618))
+     (WasmGlobalExport (ex_global_name newRational)
+      (ex_global_internal_name newRational_1618))
+     (WasmFunctionExport (ex_function_name newFloat64)
+      (ex_function_internal_name newFloat64_1616))
+     (WasmGlobalExport (ex_global_name newFloat64)
+      (ex_global_internal_name newFloat64_1616))
+     (WasmFunctionExport (ex_function_name newFloat32)
+      (ex_function_internal_name newFloat32_1614))
+     (WasmGlobalExport (ex_global_name newFloat32)
+      (ex_global_internal_name newFloat32_1614))
+     (WasmFunctionExport (ex_function_name newUint64)
+      (ex_function_internal_name newUint64_1612))
+     (WasmGlobalExport (ex_global_name newUint64)
+      (ex_global_internal_name newUint64_1612))
+     (WasmFunctionExport (ex_function_name newInt64)
+      (ex_function_internal_name newInt64_1610))
+     (WasmGlobalExport (ex_global_name newInt64)
+      (ex_global_internal_name newInt64_1610))
+     (WasmFunctionExport (ex_function_name newUint32)
+      (ex_function_internal_name newUint32_1608))
+     (WasmGlobalExport (ex_global_name newUint32)
+      (ex_global_internal_name newUint32_1608))
+     (WasmFunctionExport (ex_function_name newInt32)
+      (ex_function_internal_name newInt32_1606))
+     (WasmGlobalExport (ex_global_name newInt32)
+      (ex_global_internal_name newInt32_1606))
+     (WasmFunctionExport (ex_function_name allocateRecord)
+      (ex_function_internal_name allocateRecord_1602))
+     (WasmGlobalExport (ex_global_name allocateRecord)
+      (ex_global_internal_name allocateRecord_1602))
+     (WasmFunctionExport (ex_function_name allocateAdt)
+      (ex_function_internal_name allocateAdt_1597))
+     (WasmGlobalExport (ex_global_name allocateAdt)
+      (ex_global_internal_name allocateAdt_1597))
+     (WasmFunctionExport (ex_function_name loadVariantTypeId)
+      (ex_function_internal_name loadVariantTypeId_1595))
+     (WasmGlobalExport (ex_global_name loadVariantTypeId)
+      (ex_global_internal_name loadVariantTypeId_1595))
+     (WasmFunctionExport (ex_function_name loadRecordTypeId)
+      (ex_function_internal_name loadRecordTypeId_1593))
+     (WasmGlobalExport (ex_global_name loadRecordTypeId)
+      (ex_global_internal_name loadRecordTypeId_1593))
+     (WasmFunctionExport (ex_function_name loadVariantTypeHash)
+      (ex_function_internal_name loadVariantTypeHash_1591))
+     (WasmGlobalExport (ex_global_name loadVariantTypeHash)
+      (ex_global_internal_name loadVariantTypeHash_1591))
+     (WasmFunctionExport (ex_function_name loadRecordTypeHash)
+      (ex_function_internal_name loadRecordTypeHash_1589))
+     (WasmGlobalExport (ex_global_name loadRecordTypeHash)
+      (ex_global_internal_name loadRecordTypeHash_1589))
+     (WasmFunctionExport (ex_function_name storeCycleMarker)
+      (ex_function_internal_name storeCycleMarker_1586))
+     (WasmGlobalExport (ex_global_name storeCycleMarker)
+      (ex_global_internal_name storeCycleMarker_1586))
+     (WasmFunctionExport (ex_function_name loadCycleMarker)
+      (ex_function_internal_name loadCycleMarker_1584))
+     (WasmGlobalExport (ex_global_name loadCycleMarker)
+      (ex_global_internal_name loadCycleMarker_1584))
+     (WasmFunctionExport (ex_function_name getCompoundValueArrayRef)
+      (ex_function_internal_name getCompoundValueArrayRef_1582))
+     (WasmGlobalExport (ex_global_name getCompoundValueArrayRef)
+      (ex_global_internal_name getCompoundValueArrayRef_1582))
+     (WasmFunctionExport (ex_function_name getStringSize)
+      (ex_function_internal_name getStringSize_1578))
+     (WasmGlobalExport (ex_global_name getStringSize)
+      (ex_global_internal_name getStringSize_1578))
+     (WasmFunctionExport (ex_function_name getStringArrayRef)
+      (ex_function_internal_name getStringArrayRef_1576))
+     (WasmGlobalExport (ex_global_name getStringArrayRef)
+      (ex_global_internal_name getStringArrayRef_1576))
+     (WasmFunctionExport (ex_function_name allocateString)
+      (ex_function_internal_name allocateString_1572))
+     (WasmGlobalExport (ex_global_name allocateString)
+      (ex_global_internal_name allocateString_1572))
+     (WasmFunctionExport (ex_function_name getBytesSize)
+      (ex_function_internal_name getBytesSize_1570))
+     (WasmGlobalExport (ex_global_name getBytesSize)
+      (ex_global_internal_name getBytesSize_1570))
+     (WasmFunctionExport (ex_function_name getBytesArrayRef)
+      (ex_function_internal_name getBytesArrayRef_1550))
+     (WasmGlobalExport (ex_global_name getBytesArrayRef)
+      (ex_global_internal_name getBytesArrayRef_1550))
+     (WasmFunctionExport (ex_function_name allocateBytes)
+      (ex_function_internal_name allocateBytes_1546))
+     (WasmGlobalExport (ex_global_name allocateBytes)
+      (ex_global_internal_name allocateBytes_1546))
+     (WasmFunctionExport (ex_function_name allocateTuple)
+      (ex_function_internal_name allocateTuple_1544))
+     (WasmGlobalExport (ex_global_name allocateTuple)
+      (ex_global_internal_name allocateTuple_1544))
+     (WasmFunctionExport (ex_function_name allocateArray)
+      (ex_function_internal_name allocateArray_1100))
+     (WasmGlobalExport (ex_global_name allocateArray)
+      (ex_global_internal_name allocateArray_1100))))
+   (main_body
+    (((instr_desc
+       (MStore
+        (((MGlobalBind allocateArray_1100 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 14) (col 338) (bol 330)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 14) (col 381) (bol 330)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 14) (col 338) (bol 330)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 14) (col 381) (bol 330)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind allocateTuple_1544 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 22) (col 542) (bol 534)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 22) (col 585) (bol 534)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 22) (col 542) (bol 534)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 22) (col 585) (bol 534)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind allocateBytes_1546 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 30) (col 744) (bol 736)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 30) (col 787) (bol 736)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 30) (col 744) (bol 736)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 30) (col 787) (bol 736)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind getBytesArrayRef_1550 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 39) (col 987) (bol 956)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 40) (col 1043) (bol 994)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 39) (col 987) (bol 956)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 40) (col 1043) (bol 994)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind getBytesSize_1570 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 48) (col 1176) (bol 1168)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 48) (col 1214) (bol 1168)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 48) (col 1176) (bol 1168)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 48) (col 1214) (bol 1168)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind allocateString_1572 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 56) (col 1370) (bol 1362)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 56) (col 1415) (bol 1362)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 56) (col 1370) (bol 1362)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 56) (col 1415) (bol 1362)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind getStringArrayRef_1576 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 65) (col 1620) (bol 1588)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 66) (col 1677) (bol 1627)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 65) (col 1620) (bol 1588)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 66) (col 1677) (bol 1627)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind getStringSize_1578 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 74) (col 1813) (bol 1805)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 74) (col 1853) (bol 1805)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 74) (col 1813) (bol 1805)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 74) (col 1853) (bol 1805)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind getCompoundValueArrayRef_1582 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 83) (col 2087) (bol 2048)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 84) (col 2151) (bol 2094)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 83) (col 2087) (bol 2048)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 84) (col 2151) (bol 2094)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind loadCycleMarker_1584 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 92) (col 2277) (bol 2269)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 92) (col 2337) (bol 2269)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 92) (col 2277) (bol 2269)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 92) (col 2337) (bol 2269)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind storeCycleMarker_1586 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 100) (col 2475) (bol 2467)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 100) (col 2537) (bol 2467)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 100) (col 2475) (bol 2467)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 100) (col 2537) (bol 2467)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind loadRecordTypeHash_1589 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 108) (col 2644) (bol 2636)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 108) (col 2698) (bol 2636)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 108) (col 2644) (bol 2636)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 108) (col 2698) (bol 2636)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind loadVariantTypeHash_1591 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 116) (col 2806) (bol 2798)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 116) (col 2858) (bol 2798)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 116) (col 2806) (bol 2798)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 116) (col 2858) (bol 2798)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind loadRecordTypeId_1593 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 124) (col 2961) (bol 2953)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 124) (col 3011) (bol 2953)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 124) (col 2961) (bol 2953)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 124) (col 3011) (bol 2953)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind loadVariantTypeId_1595 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 132) (col 3115) (bol 3107)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 132) (col 3163) (bol 3107)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 132) (col 3115) (bol 3107)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 132) (col 3163) (bol 3107)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind allocateAdt_1597 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 145) (col 3446) (bol 3438)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 145) (col 3485) (bol 3438)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 145) (col 3446) (bol 3438)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 145) (col 3485) (bol 3438)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind allocateRecord_1602 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 155) (col 3711) (bol 3703)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 155) (col 3756) (bol 3703)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 155) (col 3711) (bol 3703)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 155) (col 3756) (bol 3703)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind newInt32_1606 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 165) (col 3917) (bol 3909)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 165) (col 3950) (bol 3909)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 165) (col 3917) (bol 3909)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 165) (col 3950) (bol 3909)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind newUint32_1608 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 173) (col 4097) (bol 4089)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 173) (col 4132) (bol 4089)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 173) (col 4097) (bol 4089)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 173) (col 4132) (bol 4089)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind newInt64_1610 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 181) (col 4277) (bol 4269)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 181) (col 4310) (bol 4269)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 181) (col 4277) (bol 4269)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 181) (col 4310) (bol 4269)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind newUint64_1612 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 189) (col 4457) (bol 4449)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 189) (col 4492) (bol 4449)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 189) (col 4457) (bol 4449)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 189) (col 4492) (bol 4449)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind newFloat32_1614 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 199) (col 4654) (bol 4646)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 199) (col 4691) (bol 4646)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 199) (col 4654) (bol 4646)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 199) (col 4691) (bol 4646)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind newFloat64_1616 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 207) (col 4842) (bol 4834)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 207) (col 4879) (bol 4834)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 207) (col 4842) (bol 4834)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 207) (col 4879) (bol 4834)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind newRational_1618 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 218) (col 5114) (bol 5106)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 218) (col 5153) (bol 5106)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 218) (col 5114) (bol 5106)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 218) (col 5153) (bol 5106)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind allocateBigInt_1621 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 228) (col 5323) (bol 5315)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 228) (col 5368) (bol 5315)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 228) (col 5323) (bol 5315)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 228) (col 5368) (bol 5315)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind getBigIntSize_1623 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 236) (col 5495) (bol 5487)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 236) (col 5535) (bol 5487)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 236) (col 5495) (bol 5487)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 236) (col 5535) (bol 5487)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind getBigIntFlags_1625 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 244) (col 5641) (bol 5633)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 244) (col 5683) (bol 5633)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 244) (col 5641) (bol 5633)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 244) (col 5683) (bol 5633)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind setBigIntFlags_1627 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 252) (col 5801) (bol 5793)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 252) (col 5847) (bol 5793)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 252) (col 5801) (bol 5793)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 252) (col 5847) (bol 5793)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind getBigIntArrayRef_1632 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 261) (col 6053) (bol 6021)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 262) (col 6110) (bol 6060)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 261) (col 6053) (bol 6021)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 262) (col 6110) (bol 6060)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind getNumberTag_1634 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 272) (col 6241) (bol 6233)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 272) (col 6289) (bol 6233)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 272) (col 6241) (bol 6233)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 272) (col 6289) (bol 6233)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind getInt32Value_1636 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 280) (col 6401) (bol 6393)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 280) (col 6452) (bol 6393)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 280) (col 6401) (bol 6393)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 280) (col 6452) (bol 6393)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind getUint32Value_1638 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 288) (col 6565) (bol 6557)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 288) (col 6618) (bol 6557)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 288) (col 6565) (bol 6557)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 288) (col 6618) (bol 6557)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind getFloat32Value_1640 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 296) (col 6732) (bol 6724)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 296) (col 6787) (bol 6724)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 296) (col 6732) (bol 6724)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 296) (col 6787) (bol 6724)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind getInt64Value_1642 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 304) (col 6899) (bol 6891)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 304) (col 6950) (bol 6891)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 304) (col 6899) (bol 6891)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 304) (col 6950) (bol 6891)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind getUint64Value_1644 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 311) (col 7062) (bol 7054)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 311) (col 7115) (bol 7054)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 311) (col 7062) (bol 7054)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 311) (col 7115) (bol 7054)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind getFloat64Value_1646 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 319) (col 7229) (bol 7221)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 319) (col 7284) (bol 7221)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 319) (col 7229) (bol 7221)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 319) (col 7284) (bol 7221)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind getRationalNumerator_1648 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 327) (col 7412) (bol 7404)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 327) (col 7483) (bol 7404)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 327) (col 7412) (bol 7404)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 327) (col 7483) (bol 7404)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind getRationalDenominator_1650 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 335) (col 7615) (bol 7607)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 335) (col 7690) (bol 7607)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 335) (col 7615) (bol 7607)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 335) (col 7690) (bol 7607)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind loadAdtVariant_1652 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 343) (col 7816) (bol 7808)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 343) (col 7862) (bol 7808)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 343) (col 7816) (bol 7808)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 343) (col 7862) (bol 7808)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind loadValueTag_1654 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 351) (col 7983) (bol 7975)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 351) (col 8031) (bol 7975)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 351) (col 7983) (bol 7975)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 351) (col 8031) (bol 7975)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind tagSimpleNumber_1656 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 359) (col 8139) (bol 8131)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 359) (col 8187) (bol 8131)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 359) (col 8139) (bol 8131)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 359) (col 8187) (bol 8131)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind untagSimpleNumber_1658 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 367) (col 8301) (bol 8293)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 367) (col 8353) (bol 8293)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 367) (col 8301) (bol 8293)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 367) (col 8353) (bol 8293)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind tagChar_1660 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 375) (col 8448) (bol 8440)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 375) (col 8479) (bol 8440)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 375) (col 8448) (bol 8440)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 375) (col 8479) (bol 8440)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind untagChar_1662 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 383) (col 8580) (bol 8572)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 383) (col 8615) (bol 8572)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 383) (col 8580) (bol 8572)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 383) (col 8615) (bol 8572)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind tagInt8_1664 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 391) (col 8711) (bol 8703)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 391) (col 8742) (bol 8703)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 391) (col 8711) (bol 8703)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 391) (col 8742) (bol 8703)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind untagInt8_1666 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 399) (col 8844) (bol 8836)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 399) (col 8879) (bol 8836)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 399) (col 8844) (bol 8836)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 399) (col 8879) (bol 8836)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind tagInt16_1668 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 407) (col 8978) (bol 8970)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 407) (col 9011) (bol 8970)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 407) (col 8978) (bol 8970)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 407) (col 9011) (bol 8970)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind untagInt16_1670 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 415) (col 9116) (bol 9108)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 415) (col 9153) (bol 9108)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 415) (col 9116) (bol 9108)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 415) (col 9153) (bol 9108)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind tagUint8_1672 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 423) (col 9251) (bol 9243)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 423) (col 9284) (bol 9243)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 423) (col 9251) (bol 9243)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 423) (col 9284) (bol 9243)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind untagUint8_1674 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 431) (col 9388) (bol 9380)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 431) (col 9425) (bol 9380)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 431) (col 9388) (bol 9380)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 431) (col 9425) (bol 9380)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind tagUint16_1676 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 439) (col 9526) (bol 9518)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 439) (col 9561) (bol 9518)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 439) (col 9526) (bol 9518)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 439) (col 9561) (bol 9518)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind untagUint16_1678 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 447) (col 9668) (bol 9660)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+               (line 447) (col 9707) (bol 9660)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 447) (col 9668) (bol 9660)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+          (line 447) (col 9707) (bol 9660)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MImmediate
+        ((immediate_desc (MImmConst MConstVoid))
+         (immediate_analyses ((last_usage Unknown))))))
+      (instr_loc dummy_loc))))
+   (main_body_stack_size
+    ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+     (stack_size_f32 0) (stack_size_f64 0)))
+   (globals
+    (((id ((stamp 1597) (name allocateAdt))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1621) (name allocateBigInt))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1100) (name allocateArray))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1602) (name allocateRecord))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1572) (name allocateString))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1546) (name allocateBytes))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1632) (name getBigIntArrayRef))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1625) (name getBigIntFlags))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1550) (name getBytesArrayRef))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1570) (name getBytesSize))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1623) (name getBigIntSize))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1544) (name allocateTuple))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1646) (name getFloat64Value))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1640) (name getFloat32Value))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1642) (name getInt64Value))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1650) (name getRationalDenominator))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1648) (name getRationalNumerator))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1634) (name getNumberTag))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1636) (name getInt32Value))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1582) (name getCompoundValueArrayRef))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1578) (name getStringSize))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1644) (name getUint64Value))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1584) (name loadCycleMarker))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1652) (name loadAdtVariant))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1638) (name getUint32Value))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1654) (name loadValueTag))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1593) (name loadRecordTypeId))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1595) (name loadVariantTypeId))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1616) (name newFloat64))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1614) (name newFloat32))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1591) (name loadVariantTypeHash))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1589) (name loadRecordTypeHash))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1618) (name newRational))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1610) (name newInt64))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1612) (name newUint64))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1627) (name setBigIntFlags))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1608) (name newUint32))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1660) (name tagChar))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1664) (name tagInt8))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1668) (name tagInt16))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1676) (name tagUint16))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1672) (name tagUint8))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1656) (name tagSimpleNumber))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1670) (name untagInt16))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1658) (name untagSimpleNumber))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1674) (name untagUint8))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1678) (name untagUint16))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1666) (name untagInt8))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1662) (name untagChar))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1586) (name storeCycleMarker))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1606) (name newInt32))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1576) (name getStringArrayRef))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))))
+   (compilation_mode Runtime) (type_metadata <opaque>)
+   (prog_loc
+    ((loc_start
+      (position
+       (file
+        /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+       (line 1) (col 0) (bol 0)))
+     (loc_end
+      (position
+       (file
+        /Users/spotandjake/Documents/github/grain/stdlib/runtime/dataStructures.gr)
+       (line 448) (col 9708) (bol 9708)))
+     (loc_ghost false)))))
+ (signature <opaque>))

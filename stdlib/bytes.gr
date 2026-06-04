@@ -1,0 +1,1132 @@
+/**
+ * Utilities for working with byte sequences.
+ *
+ * @example from "bytes" include Bytes
+ *
+ * @example b"\x00"
+ * @example Bytes.make(1)
+ *
+ * @since v0.3.2
+ */
+module Bytes
+
+from "runtime/unsafe/wasmref" include WasmRef
+use WasmRef.{ module WasmArrayRef }
+from "runtime/unsafe/wasmi32" include WasmI32
+from "runtime/unsafe/wasmi64" include WasmI64
+from "runtime/unsafe/wasmf32" include WasmF32
+from "runtime/unsafe/wasmf64" include WasmF64
+from "runtime/unsafe/conv" include Conv
+from "runtime/dataStructures" include DataStructures
+use DataStructures.{
+  tagChar,
+  tagInt8,
+  tagUint8,
+  tagInt16,
+  tagUint16,
+  untagChar,
+  untagInt8,
+  untagUint8,
+  untagInt16,
+  untagUint16,
+  allocateBytes,
+  getBytesSize,
+  getBytesArrayRef,
+  allocateString,
+  getStringSize,
+  getStringArrayRef,
+}
+from "runtime/exception" include Exception
+from "runtime/numbers" include Numbers
+use Numbers.{ coerceNumberToWasmI32 }
+from "runtime/utf8" include Utf8
+use Utf8.{
+  utf8ByteCount,
+  getCodePoint,
+  usvEncodeLength,
+  writeUtf8CodePoint,
+  exception MalformedUnicode,
+}
+
+@unsafe
+let _INT8_BYTE_SIZE = 1n
+@unsafe
+let _INT16_BYTE_SIZE = 2n
+@unsafe
+let _INT32_BYTE_SIZE = 4n
+@unsafe
+let _FLOAT32_BYTE_SIZE = 4n
+@unsafe
+let _INT64_BYTE_SIZE = 8n
+@unsafe
+let _FLOAT64_BYTE_SIZE = 8n
+
+/** Throws an exception if the index specified is out-of-bounds */
+@unsafe
+let checkIndexIsInBounds = (i, byteSize, max) => {
+  use WasmI32.{ (+), (<), (>) }
+  if (i < 0n) {
+    throw IndexOutOfBounds
+  }
+  if (i + byteSize > max) {
+    throw IndexOutOfBounds
+  }
+}
+
+/**
+ * Creates a new byte sequence of the input size.
+ *
+ * @param size: The number of bytes to store
+ * @returns The new byte sequence
+ *
+ * @example Bytes.make(0) == b"""
+ * @example Bytes.make(1) == b"\x00"
+ *
+ * @since v0.3.2
+ */
+@unsafe
+provide let make = (size: Number) => {
+  use WasmI32.{ (+) }
+  let size = coerceNumberToWasmI32(size)
+  let bytes = allocateBytes(size)
+  WasmRef.toGrain(bytes): Bytes
+}
+
+/**
+ * An empty byte sequence.
+ *
+ * @example Bytes.empty == b""
+ *
+ * @since v0.3.2
+ */
+provide let empty = make(0)
+
+/**
+ * Creates a new byte sequence from the input string.
+ *
+ * @param string: The string to copy into a byte sequence
+ * @returns The new byte sequence
+ *
+ * @example Bytes.fromString("\x00\x00") == b"\x00\x00"
+ *
+ * @since v0.3.2
+ */
+@unsafe
+provide let fromString = (string: String) => {
+  use WasmI32.{ (+) }
+  let src = WasmRef.fromGrain(string)
+  let srcSize = getStringSize(src)
+  let srcData = getStringArrayRef(src)
+  let dst = allocateBytes(srcSize)
+  let dstData = getBytesArrayRef(dst)
+  WasmArrayRef.copyI8(dstData, 0n, srcData, 0n, srcSize)
+  WasmRef.toGrain(dst): Bytes
+}
+
+/**
+ * Creates a new string from the input bytes.
+ *
+ * @param bytes: The source byte sequence
+ * @returns The string representation of the bytes
+ *
+ * @example Bytes.toString(b"\x48\x65\x6c\x6c\x6f\x20\x57\x6f\x72\x6c\x64") == "Hello World"
+ * @example Bytes.toString(b"Hello World") == "Hello World"
+ *
+ * @since v0.3.2
+ */
+@unsafe
+provide let toString = (bytes: Bytes) => {
+  let src = WasmRef.fromGrain(bytes)
+  let srcSize = getBytesSize(src)
+  let srcData = getBytesArrayRef(src)
+  let dst = allocateString(srcSize)
+  let dstData = getStringArrayRef(dst)
+  WasmArrayRef.copyI8(dstData, 0n, srcData, 0n, srcSize)
+  WasmRef.toGrain(dst): String
+}
+
+/**
+ * Returns the length of a byte sequence.
+ *
+ * @param bytes: The byte sequence to inspect
+ * @returns The number of bytes
+ *
+ * @example Bytes.length(b"") == 0
+ * @example Bytes.length(b"\x48") == 1
+ *
+ * @since v0.3.2
+ */
+@unsafe
+provide let length = (bytes: Bytes) => {
+  let src = WasmRef.fromGrain(bytes)
+  let srcSize = getBytesSize(src)
+  Conv.wasmI32ToNumber(srcSize)
+}
+
+/**
+ * Creates a new byte sequence that contains the same bytes as the input byte sequence.
+ *
+ * @param bytes: The byte sequence to copy
+ * @returns The new byte sequence
+ *
+ * @example Bytes.copy(b"\x48") == b"\x48"
+ *
+ * @since v0.3.2
+ */
+@unsafe
+provide let copy = (bytes: Bytes) => {
+  let src = WasmRef.fromGrain(bytes)
+  let srcSize = getBytesSize(src)
+  let srcData = getBytesArrayRef(src)
+  let dst = allocateBytes(srcSize)
+  let dstData = getBytesArrayRef(dst)
+  WasmArrayRef.copyI8(dstData, 0n, srcData, 0n, srcSize)
+  WasmRef.toGrain(dst): Bytes
+}
+
+/**
+ * Returns a copy of a subset of the input byte sequence.
+ *
+ * @param start: The start index
+ * @param length: The number of bytes to include after the starting index
+ * @param bytes: The byte sequence to copy from
+ * @returns A byte sequence with of the copied bytes
+ *
+ * @throws InvalidArgument(String): When `start + length` is greater than the bytes size
+ *
+ * @example
+ * assert Bytes.toString(
+ *   Bytes.slice(0, 5, b"\x48\x65\x6c\x6c\x6f\x20\x57\x6f\x72\x6c\x64")
+ * ) == "Hello"
+ *
+ * @since v0.3.2
+ */
+@unsafe
+provide let slice = (start: Number, length: Number, bytes: Bytes) => {
+  let src = WasmRef.fromGrain(bytes)
+  let srcSize = getBytesSize(src)
+  let srcData = getBytesArrayRef(src)
+
+  use WasmI32.{ (+), (>) }
+  let start = coerceNumberToWasmI32(start)
+  let length = coerceNumberToWasmI32(length)
+  if (start + length > srcSize) {
+    throw Exception.InvalidArgument(
+      "The given index and length do not specify a valid range of bytes",
+    )
+  }
+
+  let dst = allocateBytes(length)
+  let dstData = getBytesArrayRef(dst)
+  WasmArrayRef.copyI8(dstData, 0n, srcData, start, length)
+  WasmRef.toGrain(dst): Bytes
+}
+
+/**
+ * Returns a copy of a byte sequence with bytes added or removed from the beginning and/or end.
+ *
+ * A positive number represents bytes to add, while a negative number represents bytes to remove.
+ *
+ * @param left: The number of uninitialized bytes to prepend
+ * @param right: The number of uninitialized bytes to append
+ * @param bytes: The byte sequence get a subset of bytes from
+ * @returns A resized byte sequence
+ *
+ * @throws InvalidArgument(String): When the new size is negative
+ *
+ * @example Bytes.length(Bytes.resize(0, 3, b"")) == 3
+ *
+ * @since v0.3.2
+ */
+@unsafe
+provide let resize = (left: Number, right: Number, bytes: Bytes) => {
+  let src = WasmRef.fromGrain(bytes)
+  let srcSize = getBytesSize(src)
+  let srcData = getBytesArrayRef(src)
+
+  use WasmI32.{ (+), (-), (*), (<), (>) }
+  let left = coerceNumberToWasmI32(left)
+  let right = coerceNumberToWasmI32(right)
+  let newSize = srcSize + left + right
+  if (newSize < 0n) {
+    throw Exception.InvalidArgument("The resulting length is less than 0")
+  }
+
+  let dst = allocateBytes(newSize)
+  let dstData = getBytesArrayRef(dst)
+  let mut srcOffset = 0n
+  let mut dstOffset = 0n
+  if (left < 0n) {
+    srcOffset = left * -1n
+    dstOffset = 0n
+  }
+  if (left > 0n) {
+    srcOffset = 0n
+    dstOffset = left
+  }
+  let len = if (right < 0n) {
+    srcSize + right - srcOffset
+  } else {
+    srcSize - srcOffset
+  }
+  if (len > 0n) {
+    WasmArrayRef.copyI8(dstData, dstOffset, srcData, srcOffset, len)
+  }
+  WasmRef.toGrain(dst): Bytes
+}
+
+/**
+ * Copies a range of bytes from a source byte sequence to a given location
+ * in a destination byte sequence.
+ *
+ * @param srcIndex: The starting index to copy bytes from
+ * @param dstIndex: The starting index to copy bytes into
+ * @param length: The amount of bytes to copy from the source byte sequence
+ * @param src: The source byte sequence
+ * @param dst: The destination byte sequence
+ *
+ * @throws InvalidArgument(String): When `srcIndex + length` is greater than the `src` bytes size
+ * @throws InvalidArgument(String): When the `dstIndex + length` is greater than the `dst` bytes size
+ *
+ * @example
+ * let bytes = Bytes.make(5)
+ * Bytes.move(0, 0, 5, b"\x48\x64\x6c\x6f\x20\x57\x6f\x72\x6c\x64", bytes)
+ * assert Bytes.toString(bytes) == "Hello"
+ *
+ * @since v0.3.2
+ */
+@unsafe
+provide let move = (
+  srcIndex: Number,
+  dstIndex: Number,
+  length: Number,
+  src: Bytes,
+  dst: Bytes,
+) => {
+  use WasmI32.{ (+), (>) }
+  let src = WasmRef.fromGrain(src)
+  let srcSize = getBytesSize(src)
+  let srcData = getBytesArrayRef(src)
+
+  let dst = WasmRef.fromGrain(dst)
+  let dstSize = getBytesSize(dst)
+  let dstData = getBytesArrayRef(dst)
+
+  let srcIndex = coerceNumberToWasmI32(srcIndex)
+  let dstIndex = coerceNumberToWasmI32(dstIndex)
+
+  let length = coerceNumberToWasmI32(length)
+  if (srcIndex + length > srcSize) {
+    throw Exception.InvalidArgument("Invalid source bytes range")
+  }
+  if (dstIndex + length > dstSize) {
+    throw Exception.InvalidArgument("Invalid destination bytes range")
+  }
+  let end = srcIndex + length
+  WasmArrayRef.copyI8(dstData, dstIndex, srcData, srcIndex, length)
+}
+
+/**
+ * Creates a new byte sequence that contains the bytes of both byte sequences.
+ *
+ * @param bytes1: The beginning byte sequence
+ * @param bytes2: The ending byte sequence
+ * @returns The new byte sequence
+ *
+ * @example
+ * let helloBytes = Bytes.fromString("Hello ")
+ * let worldBytes = Bytes.fromString("World")
+ * assert Bytes.toString(Bytes.concat(helloBytes, worldBytes)) == "Hello World"
+ *
+ * @since v0.3.2
+ */
+provide let concat = (bytes1: Bytes, bytes2: Bytes) => {
+  let len1 = length(bytes1)
+  let len2 = length(bytes2)
+  let ret = resize(0, len2, bytes1)
+  move(0, len1, len2, bytes2, ret)
+  ret
+}
+
+/**
+ * Replaces all bytes in a byte sequnce with the new value provided.
+ *
+ * @param value: The value replacing each byte
+ * @param bytes: The byte sequence to update
+ *
+ * @example
+ * let bytes = Bytes.make(5)
+ * Bytes.fill(1us, bytes)
+ * assert bytes == b"\x01\x01\x01\x01\x01"
+ *
+ * @since v0.3.2
+ * @history v0.6.0: `value` argument type changed to `Uint8`
+ */
+@unsafe
+provide let fill = (value: Uint8, bytes: Bytes) => {
+  use WasmI32.{ (+) }
+  let src = WasmRef.fromGrain(bytes)
+  let srcSize = getBytesSize(src)
+  let srcData = getBytesArrayRef(src)
+  WasmArrayRef.fillI8(srcData, 0n, untagUint8(value), srcSize)
+}
+
+/**
+ * Replaces all bytes in a byte sequence with zeroes.
+ *
+ * @param bytes: The byte sequence to clear
+ *
+ * @example
+ * let bytes = Bytes.make(5)
+ * Bytes.fill(1us, bytes)
+ * Bytes.clear(bytes)
+ * assert bytes == b"\x00\x00\x00\x00\x00"
+ *
+ * @since v0.5.0
+ */
+@unsafe
+provide let clear = (bytes: Bytes) => {
+  fill(0us, bytes)
+}
+
+/**
+ * Gets the UTF-8 encoded character at the given byte index.
+ *
+ * @param index: The byte index to access
+ * @param bytes: The byte sequence to access
+ * @returns The character that starts at the given index
+ *
+ * @throws IndexOutOfBounds: When `index` is negative
+ * @throws IndexOutOfBounds: When `index + 1` is greater than the bytes size
+ * @throws MalformedUnicode: When the requested character is not a valid UTF-8 sequence
+ *
+ * @example
+ * let bytes = Bytes.fromString("Hello")
+ * assert Bytes.getChar(0, bytes) == 'H'
+ *
+ * @since v0.7.0
+ */
+@unsafe
+provide let getChar = (index: Number, bytes: Bytes) => {
+  use WasmI32.{ (+), (&), (+), (==), (>) }
+  let src = WasmRef.fromGrain(bytes)
+  let srcSize = getBytesSize(src)
+  let srcData = getBytesArrayRef(src)
+
+  let offset = coerceNumberToWasmI32(index)
+  checkIndexIsInBounds(offset, 1n, srcSize)
+  let byte = WasmArrayRef.getI8U(srcData, offset)
+  let charSize = utf8ByteCount(byte)
+  if (offset + charSize > srcSize) {
+    throw MalformedUnicode
+  }
+  let codePoint = getCodePoint(srcData, offset)
+  tagChar(codePoint)
+}
+
+/**
+ * UTF-8 encodes a character starting at the given byte index.
+ *
+ * @param index: The byte index to update
+ * @param value: The value to set
+ * @param bytes: The byte sequence to mutate
+ *
+ * @throws IndexOutOfBounds: When `index` is negative
+ * @throws IndexOutOfBounds: When `index + charSize` is greater than the bytes size, `charSize` is the number of bytes in the character ranging from 1 to 4
+ *
+ * @example
+ * let bytes = Bytes.make(1)
+ * Bytes.setChar(0, 'a', bytes)
+ * assert Bytes.getChar(0, bytes) == 'a'
+ *
+ * @since v0.7.0
+ */
+@unsafe
+provide let setChar = (index: Number, value: Char, bytes: Bytes) => {
+  use WasmI32.{ (+) }
+  let src = WasmRef.fromGrain(bytes)
+  let srcSize = getBytesSize(src)
+  let srcData = getBytesArrayRef(src)
+  let offset = coerceNumberToWasmI32(index)
+  let usv = untagChar(value)
+  let charSize = usvEncodeLength(usv)
+  checkIndexIsInBounds(offset, charSize, srcSize)
+  ignore(writeUtf8CodePoint(srcData, offset, usv))
+}
+
+/**
+ * Gets a signed 8-bit integer starting at the given byte index.
+ *
+ * @param index: The byte index to access
+ * @param bytes: The byte sequence to access
+ * @returns A signed 8-bit integer that starts at the given index
+ *
+ * @throws IndexOutOfBounds: When `index` is negative
+ * @throws IndexOutOfBounds: When `index + 1` is greater than the bytes size
+ *
+ * @example
+ * let bytes = Bytes.make(1)
+ * Bytes.setInt8(0, 1s, bytes)
+ * assert Bytes.getInt8(0, bytes) == 1s
+ *
+ * @since v0.6.0
+ * @history v0.3.2: Originally called `getInt8S`, returning an `Int32`
+ */
+@unsafe
+provide let getInt8 = (index: Number, bytes: Bytes) => {
+  use WasmI32.{ (+) }
+  let src = WasmRef.fromGrain(bytes)
+  let srcSize = getBytesSize(src)
+  let srcData = getBytesArrayRef(src)
+  let offset = coerceNumberToWasmI32(index)
+  checkIndexIsInBounds(offset, _INT8_BYTE_SIZE, srcSize)
+  let n = WasmArrayRef.getI8S(srcData, offset)
+  tagInt8(n)
+}
+
+/**
+ * Sets a signed 8-bit integer starting at the given byte index.
+ *
+ * @param index: The byte index to update
+ * @param value: The value to set
+ * @param bytes: The byte sequence to mutate
+ *
+ * @throws IndexOutOfBounds: When `index` is negative
+ * @throws IndexOutOfBounds: When `index + 1` is greater than the bytes size
+ *
+ * @example
+ * let bytes = Bytes.make(1)
+ * Bytes.setInt8(0, 2s, bytes)
+ * assert Bytes.getInt8(0, bytes) == 2s
+ *
+ * @since v0.3.2
+ * @history v0.6.0: `value` argument type changed to `Int8`
+ */
+@unsafe
+provide let setInt8 = (index: Number, value: Int8, bytes: Bytes) => {
+  use WasmI32.{ (+) }
+  let src = WasmRef.fromGrain(bytes)
+  let srcSize = getBytesSize(src)
+  let srcData = getBytesArrayRef(src)
+  let offset = coerceNumberToWasmI32(index)
+  checkIndexIsInBounds(offset, _INT8_BYTE_SIZE, srcSize)
+  let v = untagInt8(value)
+  WasmArrayRef.setI8(srcData, offset, v)
+}
+
+/**
+ * Gets an unsigned 8-bit integer starting at the given byte index.
+ *
+ * @param index: The byte index to access
+ * @param bytes: The byte sequence to access
+ * @returns An unsigned 8-bit integer that starts at the given index
+ *
+ * @throws IndexOutOfBounds: When `index` is negative
+ * @throws IndexOutOfBounds: When `index + 1` is greater than the bytes size
+ *
+ * @example
+ * let bytes = Bytes.make(1)
+ * Bytes.setUint8(0, 1us, bytes)
+ * assert Bytes.getUint8(0, bytes) == 1us
+ *
+ * @since v0.6.0
+ * @history v0.3.2: Originally called `getInt8U`, returning an `Int32`
+ */
+@unsafe
+provide let getUint8 = (index: Number, bytes: Bytes) => {
+  use WasmI32.{ (+) }
+  let src = WasmRef.fromGrain(bytes)
+  let srcSize = getBytesSize(src)
+  let srcData = getBytesArrayRef(src)
+  let offset = coerceNumberToWasmI32(index)
+  checkIndexIsInBounds(offset, _INT8_BYTE_SIZE, srcSize)
+  let n = WasmArrayRef.getI8U(srcData, offset)
+  tagUint8(n)
+}
+
+/**
+ * Sets an unsigned 8-bit integer starting at the given byte index.
+ *
+ * @param index: The byte index to update
+ * @param value: The value to set
+ * @param bytes: The byte sequence to mutate
+ *
+ * @throws IndexOutOfBounds: When `index` is negative
+ * @throws IndexOutOfBounds: When `index + 1` is greater than the bytes size
+ *
+ * @example
+ * let bytes = Bytes.make(2)
+ * Bytes.setUint8(1, 2us, bytes)
+ * assert Bytes.getUint8(1, bytes) == 2us
+ *
+ * @since v0.6.0
+ */
+@unsafe
+provide let setUint8 = (index: Number, value: Uint8, bytes: Bytes) => {
+  use WasmI32.{ (+) }
+  let src = WasmRef.fromGrain(bytes)
+  let srcSize = getBytesSize(src)
+  let srcData = getBytesArrayRef(src)
+  let offset = coerceNumberToWasmI32(index)
+  checkIndexIsInBounds(offset, _INT8_BYTE_SIZE, srcSize)
+  let v = untagUint8(value)
+  WasmArrayRef.setI8(srcData, offset, v)
+}
+
+/**
+ * Gets a signed 16-bit integer starting at the given byte index.
+ *
+ * @param index: The byte index to access
+ * @param bytes: The byte sequence to access
+ * @returns A signed 16-bit integer that starts at the given index
+ *
+ * @throws IndexOutOfBounds: When `index` is negative
+ * @throws IndexOutOfBounds: When `index + 2` is greater than the bytes size
+ *
+ * @example
+ * let bytes = Bytes.make(2)
+ * Bytes.setInt16(0, -2S, bytes)
+ * assert Bytes.getInt16(0, bytes) == -2S
+ *
+ * @since v0.6.0
+ * @history v0.3.2: Originally called `getInt16S`, returning an `Int32`
+ */
+@unsafe
+provide let getInt16 = (index: Number, bytes: Bytes) => {
+  use WasmI32.{ (+), (|), (<<), (>>) }
+  let src = WasmRef.fromGrain(bytes)
+  let srcSize = getBytesSize(src)
+  let srcData = getBytesArrayRef(src)
+  let offset = coerceNumberToWasmI32(index)
+  checkIndexIsInBounds(offset, _INT16_BYTE_SIZE, srcSize)
+  let byte1 = WasmArrayRef.getI8U(srcData, offset)
+  let byte2 = WasmArrayRef.getI8U(srcData, offset + 1n)
+  let n = ((byte1 | byte2 << 8n) << 16n) >> 16n
+  tagInt16(n)
+}
+
+/**
+ * Sets a signed 16-bit integer starting at the given byte index.
+ *
+ * @param index: The byte index to update
+ * @param value: The value to set
+ * @param bytes: The byte sequence to mutate
+ *
+ * @throws IndexOutOfBounds: When `index` is negative
+ * @throws IndexOutOfBounds: When `index + 2` is greater than the bytes size
+ *
+ * @example
+ * let bytes = Bytes.make(2)
+ * Bytes.setInt16(0, -1S, bytes)
+ * assert Bytes.getInt16(0, bytes) == -1S
+ *
+ * @since v0.3.2
+ * @history v0.6.0: `value` argument type changed to `Int16`
+ */
+@unsafe
+provide let setInt16 = (index: Number, value: Int16, bytes: Bytes) => {
+  use WasmI32.{ (+), (&), (>>), (<<) }
+  let src = WasmRef.fromGrain(bytes)
+  let srcSize = getBytesSize(src)
+  let srcData = getBytesArrayRef(src)
+  let offset = coerceNumberToWasmI32(index)
+  checkIndexIsInBounds(offset, _INT16_BYTE_SIZE, srcSize)
+  let v = untagInt16(value)
+  WasmArrayRef.setI8(srcData, offset + 0n, v)
+  WasmArrayRef.setI8(srcData, offset + 1n, v >> 8n)
+}
+
+/**
+ * Gets an unsigned 16-bit integer starting at the given byte index.
+ *
+ * @param index: The byte index to access
+ * @param bytes: The byte sequence to access
+ * @returns An unsigned 16-bit integer that starts at the given index
+ *
+ * @throws IndexOutOfBounds: When `index` is negative
+ * @throws IndexOutOfBounds: When `index + 2` is greater than the bytes size
+ *
+ * @example
+ * let bytes = Bytes.make(2)
+ * Bytes.setUint16(0, 2uS, bytes)
+ * assert Bytes.getUint16(0, bytes) == 2uS
+ *
+ * @since v0.6.0
+ * @history v0.3.2: Originally called `getInt16U`, returning an `Int32`
+ */
+@unsafe
+provide let getUint16 = (index: Number, bytes: Bytes) => {
+  use WasmI32.{ (+), (|), (<<), (>>) }
+  let src = WasmRef.fromGrain(bytes)
+  let srcSize = getBytesSize(src)
+  let srcData = getBytesArrayRef(src)
+  let offset = coerceNumberToWasmI32(index)
+  checkIndexIsInBounds(offset, _INT16_BYTE_SIZE, srcSize)
+  let byte1 = WasmArrayRef.getI8U(srcData, offset)
+  let byte2 = WasmArrayRef.getI8U(srcData, offset + 1n)
+  let n = byte1 | byte2 << 8n
+  tagUint16(n)
+}
+
+/**
+ * Sets an unsigned 16-bit integer starting at the given byte index.
+ *
+ * @param index: The byte index to update
+ * @param value: The value to set
+ * @param bytes: The byte sequence to mutate
+ *
+ * @throws IndexOutOfBounds: When `index` is negative
+ * @throws IndexOutOfBounds: When `index + 2` is greater than the bytes size
+ *
+ * @example
+ * let bytes = Bytes.make(2)
+ * Bytes.setUint16(0, 2uS, bytes)
+ * assert Bytes.getUint16(0, bytes) == 2uS
+ *
+ * @since v0.6.0
+ */
+@unsafe
+provide let setUint16 = (index: Number, value: Uint16, bytes: Bytes) => {
+  use WasmI32.{ (+), (&), (>>) }
+  let src = WasmRef.fromGrain(bytes)
+  let srcSize = getBytesSize(src)
+  let srcData = getBytesArrayRef(src)
+  let offset = coerceNumberToWasmI32(index)
+  checkIndexIsInBounds(offset, _INT16_BYTE_SIZE, srcSize)
+  let v = untagUint16(value)
+  WasmArrayRef.setI8(srcData, offset + 0n, v)
+  WasmArrayRef.setI8(srcData, offset + 1n, v >> 8n)
+}
+
+/**
+ * Gets a signed 32-bit integer starting at the given byte index.
+ *
+ * @param index: The byte index to access
+ * @param bytes: The byte sequence to access
+ * @returns A signed 32-bit integer that starts at the given index
+ *
+ * @throws IndexOutOfBounds: When `index` is negative
+ * @throws IndexOutOfBounds: When `index + 4` is greater than the bytes size
+ *
+ * @example
+ * let bytes = Bytes.make(4)
+ * Bytes.setInt32(0, 1l, bytes)
+ * assert Bytes.getInt32(0, bytes) == 1l
+ *
+ * @since v0.3.2
+ */
+@unsafe
+provide let getInt32 = (index: Number, bytes: Bytes) => {
+  use WasmI32.{ (+), (|), (<<) }
+  let src = WasmRef.fromGrain(bytes)
+  let srcSize = getBytesSize(src)
+  let srcData = getBytesArrayRef(src)
+  let offset = coerceNumberToWasmI32(index)
+  checkIndexIsInBounds(offset, _INT32_BYTE_SIZE, srcSize)
+  let byte1 = WasmArrayRef.getI8U(srcData, offset)
+  let byte2 = WasmArrayRef.getI8U(srcData, offset + 1n)
+  let byte3 = WasmArrayRef.getI8U(srcData, offset + 2n)
+  let byte4 = WasmArrayRef.getI8U(srcData, offset + 3n)
+  let n = byte1 | byte2 << 8n | byte3 << 16n | byte4 << 24n
+  Conv.toInt32(n)
+}
+
+/**
+ * Sets a signed 32-bit integer starting at the given byte index.
+ *
+ * @param index: The byte index to update
+ * @param value: The value to set
+ * @param bytes: The byte sequence to mutate
+ *
+ * @throws IndexOutOfBounds: When `index` is negative
+ * @throws IndexOutOfBounds: When `index + 4` is greater than the bytes size
+ *
+ * @example
+ * let bytes = Bytes.make(4)
+ * Bytes.setInt32(0, 1l, bytes)
+ * assert Bytes.getInt32(0, bytes) == 1l
+ *
+ * @since v0.3.2
+ */
+@unsafe
+provide let setInt32 = (index: Number, value: Int32, bytes: Bytes) => {
+  use WasmI32.{ (+), (&), (>>) }
+  let src = WasmRef.fromGrain(bytes)
+  let srcSize = getBytesSize(src)
+  let srcData = getBytesArrayRef(src)
+  let offset = coerceNumberToWasmI32(index)
+  checkIndexIsInBounds(offset, _INT32_BYTE_SIZE, srcSize)
+  let v = Conv.fromInt32(value)
+  WasmArrayRef.setI8(srcData, offset + 0n, v)
+  WasmArrayRef.setI8(srcData, offset + 1n, v >> 8n)
+  WasmArrayRef.setI8(srcData, offset + 2n, v >> 16n)
+  WasmArrayRef.setI8(srcData, offset + 3n, v >> 24n)
+}
+
+/**
+ * Gets an unsigned 32-bit integer starting at the given byte index.
+ *
+ * @param index: The byte index to access
+ * @param bytes: The byte sequence to access
+ * @returns An unsigned 32-bit integer that starts at the given index
+ *
+ * @throws IndexOutOfBounds: When `index` is negative
+ * @throws IndexOutOfBounds: When `index + 4` is greater than the bytes size
+ *
+ * @example
+ * let bytes = Bytes.make(4)
+ * Bytes.setUint32(0, 1ul, bytes)
+ * assert Bytes.getUint32(0, bytes) == 1ul
+ *
+ * @since v0.6.0
+ */
+@unsafe
+provide let getUint32 = (index: Number, bytes: Bytes) => {
+  use WasmI32.{ (+), (|), (<<) }
+  let src = WasmRef.fromGrain(bytes)
+  let srcSize = getBytesSize(src)
+  let srcData = getBytesArrayRef(src)
+  let offset = coerceNumberToWasmI32(index)
+  checkIndexIsInBounds(offset, _INT32_BYTE_SIZE, srcSize)
+  let byte1 = WasmArrayRef.getI8U(srcData, offset)
+  let byte2 = WasmArrayRef.getI8U(srcData, offset + 1n)
+  let byte3 = WasmArrayRef.getI8U(srcData, offset + 2n)
+  let byte4 = WasmArrayRef.getI8U(srcData, offset + 3n)
+  let n = byte1 | byte2 << 8n | byte3 << 16n | byte4 << 24n
+  Conv.toUint32(n)
+}
+
+/**
+ * Sets an unsigned 32-bit integer starting at the given byte index.
+ *
+ * @param index: The byte index to update
+ * @param value: The value to set
+ * @param bytes: The byte sequence to mutate
+ *
+ * @throws IndexOutOfBounds: When `index` is negative
+ * @throws IndexOutOfBounds: When `index + 4` is greater than the bytes size
+ *
+ * @example
+ * let bytes = Bytes.make(4)
+ * Bytes.setUint32(0, 1ul, bytes)
+ * assert Bytes.getUint32(0, bytes) == 1ul
+ *
+ * @since v0.6.0
+ */
+@unsafe
+provide let setUint32 = (index: Number, value: Uint32, bytes: Bytes) => {
+  use WasmI32.{ (+), (&), (>>) }
+  let src = WasmRef.fromGrain(bytes)
+  let srcSize = getBytesSize(src)
+  let srcData = getBytesArrayRef(src)
+  let offset = coerceNumberToWasmI32(index)
+  checkIndexIsInBounds(offset, _INT32_BYTE_SIZE, srcSize)
+  let v = Conv.fromUint32(value)
+  WasmArrayRef.setI8(srcData, offset + 0n, v)
+  WasmArrayRef.setI8(srcData, offset + 1n, v >> 8n)
+  WasmArrayRef.setI8(srcData, offset + 2n, v >> 16n)
+  WasmArrayRef.setI8(srcData, offset + 3n, v >> 24n)
+}
+
+/**
+ * Gets a 32-bit float starting at the given byte index.
+ *
+ * @param index: The byte index to access
+ * @param bytes: The byte sequence to access
+ * @returns A 32-bit float that starts at the given index
+ *
+ * @throws IndexOutOfBounds: When `index` is negative
+ * @throws IndexOutOfBounds: When `index + 4` is greater than the bytes size
+ *
+ * @example
+ * let bytes = Bytes.make(4)
+ * Bytes.setFloat32(0, 1.0f, bytes)
+ * assert Bytes.getFloat32(0, bytes) == 1.0f
+ *
+ * @since v0.3.2
+ */
+@unsafe
+provide let getFloat32 = (index: Number, bytes: Bytes) => {
+  use WasmI32.{ (+), (|), (<<) }
+  let src = WasmRef.fromGrain(bytes)
+  let srcSize = getBytesSize(src)
+  let srcData = getBytesArrayRef(src)
+  let offset = coerceNumberToWasmI32(index)
+  checkIndexIsInBounds(offset, _FLOAT32_BYTE_SIZE, srcSize)
+  let byte1 = WasmArrayRef.getI8U(srcData, offset)
+  let byte2 = WasmArrayRef.getI8U(srcData, offset + 1n)
+  let byte3 = WasmArrayRef.getI8U(srcData, offset + 2n)
+  let byte4 = WasmArrayRef.getI8U(srcData, offset + 3n)
+  let n = byte1 | byte2 << 8n | byte3 << 16n | byte4 << 24n
+  Conv.toFloat32(WasmF32.reinterpretI32(n))
+}
+
+/**
+ * Sets a 32-bit float starting at the given byte index.
+ *
+ * @param index: The byte index to update
+ * @param value: The value to set
+ * @param bytes: The byte sequence to mutate
+ *
+ * @throws IndexOutOfBounds: When `index` is negative
+ * @throws IndexOutOfBounds: When `index + 4` is greater than the bytes size
+ *
+ * @example
+ * let bytes = Bytes.make(4)
+ * Bytes.setFloat32(0, 1.0f, bytes)
+ * assert Bytes.getFloat32(0, bytes) == 1.0f
+ *
+ * @since v0.3.2
+ */
+@unsafe
+provide let setFloat32 = (index: Number, value: Float32, bytes: Bytes) => {
+  use WasmI32.{ (+), (&), (>>) }
+  let src = WasmRef.fromGrain(bytes)
+  let srcSize = getBytesSize(src)
+  let srcData = getBytesArrayRef(src)
+  let offset = coerceNumberToWasmI32(index)
+  checkIndexIsInBounds(offset, _FLOAT32_BYTE_SIZE, srcSize)
+  let v = WasmI32.reinterpretF32(Conv.fromFloat32(value))
+  WasmArrayRef.setI8(srcData, offset + 0n, v)
+  WasmArrayRef.setI8(srcData, offset + 1n, v >> 8n)
+  WasmArrayRef.setI8(srcData, offset + 2n, v >> 16n)
+  WasmArrayRef.setI8(srcData, offset + 3n, v >> 24n)
+}
+
+/**
+ * Gets a signed 64-bit integer starting at the given byte index.
+ *
+ * @param index: The byte index to access
+ * @param bytes: The byte sequence to access
+ * @returns A signed 64-bit integer that starts at the given index
+ *
+ * @throws IndexOutOfBounds: When `index` is negative
+ * @throws IndexOutOfBounds: When `index + 8` is greater than the bytes size
+ *
+ * @example
+ * let bytes = Bytes.make(8)
+ * Bytes.setInt64(0, 1L, bytes)
+ * assert Bytes.getInt64(0, bytes) == 1L
+ *
+ * @since v0.3.2
+ */
+@unsafe
+provide let getInt64 = (index: Number, bytes: Bytes) => {
+  let src = WasmRef.fromGrain(bytes)
+  let srcSize = getBytesSize(src)
+  let srcData = getBytesArrayRef(src)
+  let offset = coerceNumberToWasmI32(index)
+  checkIndexIsInBounds(offset, _INT64_BYTE_SIZE, srcSize)
+  use WasmI32.{ (+), (|), (<<) }
+  let lo0 = WasmArrayRef.getI8U(srcData, offset + 0n)
+  let lo1 = WasmArrayRef.getI8U(srcData, offset + 1n)
+  let lo2 = WasmArrayRef.getI8U(srcData, offset + 2n)
+  let lo3 = WasmArrayRef.getI8U(srcData, offset + 3n)
+  let lo32 = WasmI64.extendI32U(lo0 | lo1 << 8n | lo2 << 16n | lo3 << 24n)
+  let hi0 = WasmArrayRef.getI8U(srcData, offset + 4n)
+  let hi1 = WasmArrayRef.getI8U(srcData, offset + 5n)
+  let hi2 = WasmArrayRef.getI8U(srcData, offset + 6n)
+  let hi3 = WasmArrayRef.getI8U(srcData, offset + 7n)
+  let hi32 = WasmI64.extendI32U(hi0 | hi1 << 8n | hi2 << 16n | hi3 << 24n)
+  use WasmI64.{ (<<), (|) }
+  let n = hi32 << 32N | lo32
+  Conv.toInt64(n)
+}
+
+/**
+ * Sets a signed 64-bit integer starting at the given byte index.
+ *
+ * @param index: The byte index to update
+ * @param value: The value to set
+ * @param bytes: The byte sequence to mutate
+ *
+ * @throws IndexOutOfBounds: When `index` is negative
+ * @throws IndexOutOfBounds: When `index + 8` is greater than the bytes size
+ *
+ * @example
+ * let bytes = Bytes.make(8)
+ * Bytes.setInt64(0, 1L, bytes)
+ * assert Bytes.getInt64(0, bytes) == 1L
+ *
+ * @since v0.3.2
+ */
+@unsafe
+provide let setInt64 = (index: Number, value: Int64, bytes: Bytes) => {
+  let src = WasmRef.fromGrain(bytes)
+  let srcSize = getBytesSize(src)
+  let srcData = getBytesArrayRef(src)
+  let offset = coerceNumberToWasmI32(index)
+  checkIndexIsInBounds(offset, _INT64_BYTE_SIZE, srcSize)
+  let v = Conv.fromInt64(value)
+  use WasmI64.{ (&), (>>) }
+  let lo = WasmI32.wrapI64(v & 0xffffffffN)
+  let hi = WasmI32.wrapI64(v >> 32N)
+  use WasmI32.{ (+), (&), (>>) }
+  WasmArrayRef.setI8(srcData, offset + 0n, lo)
+  WasmArrayRef.setI8(srcData, offset + 1n, lo >> 8n)
+  WasmArrayRef.setI8(srcData, offset + 2n, lo >> 16n)
+  WasmArrayRef.setI8(srcData, offset + 3n, lo >> 24n)
+  WasmArrayRef.setI8(srcData, offset + 4n, hi)
+  WasmArrayRef.setI8(srcData, offset + 5n, hi >> 8n)
+  WasmArrayRef.setI8(srcData, offset + 6n, hi >> 16n)
+  WasmArrayRef.setI8(srcData, offset + 7n, hi >> 24n)
+}
+
+/**
+ * Gets an unsigned 64-bit integer starting at the given byte index.
+ *
+ * @param index: The byte index to access
+ * @param bytes: The byte sequence to access
+ * @returns An unsigned 64-bit integer that starts at the given index
+ *
+ * @throws IndexOutOfBounds: When `index` is negative
+ * @throws IndexOutOfBounds: When `index + 8` is greater than the bytes size
+ *
+ * @example
+ * let bytes = Bytes.make(8)
+ * Bytes.setUint64(0, 1uL, bytes)
+ * assert Bytes.getUint64(0, bytes) == 1uL
+ *
+ * @since v0.6.0
+ */
+@unsafe
+provide let getUint64 = (index: Number, bytes: Bytes) => {
+  let src = WasmRef.fromGrain(bytes)
+  let srcSize = getBytesSize(src)
+  let srcData = getBytesArrayRef(src)
+  let offset = coerceNumberToWasmI32(index)
+  checkIndexIsInBounds(offset, _INT64_BYTE_SIZE, srcSize)
+  use WasmI32.{ (+), (|), (<<) }
+  let lo0 = WasmArrayRef.getI8U(srcData, offset + 0n)
+  let lo1 = WasmArrayRef.getI8U(srcData, offset + 1n)
+  let lo2 = WasmArrayRef.getI8U(srcData, offset + 2n)
+  let lo3 = WasmArrayRef.getI8U(srcData, offset + 3n)
+  let lo32 = WasmI64.extendI32U(lo0 | lo1 << 8n | lo2 << 16n | lo3 << 24n)
+  let hi0 = WasmArrayRef.getI8U(srcData, offset + 4n)
+  let hi1 = WasmArrayRef.getI8U(srcData, offset + 5n)
+  let hi2 = WasmArrayRef.getI8U(srcData, offset + 6n)
+  let hi3 = WasmArrayRef.getI8U(srcData, offset + 7n)
+  let hi32 = WasmI64.extendI32U(hi0 | hi1 << 8n | hi2 << 16n | hi3 << 24n)
+  use WasmI64.{ (<<), (|) }
+  let n = hi32 << 32N | lo32
+  Conv.toUint64(n)
+}
+
+/**
+ * Sets an unsigned 64-bit integer starting at the given byte index.
+ *
+ * @param index: The byte index to update
+ * @param value: The value to set
+ * @param bytes: The byte sequence to mutate
+ *
+ * @throws IndexOutOfBounds: When `index` is negative
+ * @throws IndexOutOfBounds: When `index + 8` is greater than the bytes size
+ *
+ * @example
+ * let bytes = Bytes.make(8)
+ * Bytes.setUint64(0, 1uL, bytes)
+ * assert Bytes.getUint64(0, bytes) == 1uL
+ *
+ * @since v0.6.0
+ */
+@unsafe
+provide let setUint64 = (index: Number, value: Uint64, bytes: Bytes) => {
+  let src = WasmRef.fromGrain(bytes)
+  let srcSize = getBytesSize(src)
+  let srcData = getBytesArrayRef(src)
+  let offset = coerceNumberToWasmI32(index)
+  checkIndexIsInBounds(offset, _INT64_BYTE_SIZE, srcSize)
+  let v = Conv.fromUint64(value)
+  use WasmI64.{ (&), (>>) }
+  let lo = WasmI32.wrapI64(v & 0xffffffffN)
+  let hi = WasmI32.wrapI64(v >> 32N)
+  use WasmI32.{ (+), (&), (>>) }
+  WasmArrayRef.setI8(srcData, offset + 0n, lo)
+  WasmArrayRef.setI8(srcData, offset + 1n, lo >> 8n)
+  WasmArrayRef.setI8(srcData, offset + 2n, lo >> 16n)
+  WasmArrayRef.setI8(srcData, offset + 3n, lo >> 24n)
+  WasmArrayRef.setI8(srcData, offset + 4n, hi)
+  WasmArrayRef.setI8(srcData, offset + 5n, hi >> 8n)
+  WasmArrayRef.setI8(srcData, offset + 6n, hi >> 16n)
+  WasmArrayRef.setI8(srcData, offset + 7n, hi >> 24n)
+}
+
+/**
+ * Gets a 64-bit float starting at the given byte index.
+ *
+ * @param index: The byte index to access
+ * @param bytes: The byte sequence to access
+ * @returns A 64-bit float that starts at the given index
+ *
+ * @throws IndexOutOfBounds: When `index` is negative
+ * @throws IndexOutOfBounds: When `index + 8` is greater than the bytes size
+ *
+ * @example
+ * let bytes = Bytes.make(8)
+ * Bytes.setFloat64(0, 1.0d, bytes)
+ * assert Bytes.getFloat64(0, bytes) == 1.0d
+ *
+ * @since v0.3.2
+ */
+@unsafe
+provide let getFloat64 = (index: Number, bytes: Bytes) => {
+  let src = WasmRef.fromGrain(bytes)
+  let srcSize = getBytesSize(src)
+  let srcData = getBytesArrayRef(src)
+  let offset = coerceNumberToWasmI32(index)
+  checkIndexIsInBounds(offset, _FLOAT64_BYTE_SIZE, srcSize)
+  use WasmI32.{ (+), (|), (<<) }
+  let lo0 = WasmArrayRef.getI8U(srcData, offset + 0n)
+  let lo1 = WasmArrayRef.getI8U(srcData, offset + 1n)
+  let lo2 = WasmArrayRef.getI8U(srcData, offset + 2n)
+  let lo3 = WasmArrayRef.getI8U(srcData, offset + 3n)
+  let lo32 = WasmI64.extendI32U(lo0 | lo1 << 8n | lo2 << 16n | lo3 << 24n)
+  let hi0 = WasmArrayRef.getI8U(srcData, offset + 4n)
+  let hi1 = WasmArrayRef.getI8U(srcData, offset + 5n)
+  let hi2 = WasmArrayRef.getI8U(srcData, offset + 6n)
+  let hi3 = WasmArrayRef.getI8U(srcData, offset + 7n)
+  let hi32 = WasmI64.extendI32U(hi0 | hi1 << 8n | hi2 << 16n | hi3 << 24n)
+  use WasmI64.{ (<<), (|) }
+  let n = hi32 << 32N | lo32
+  Conv.toFloat64(WasmF64.reinterpretI64(n))
+}
+
+/**
+ * Sets a 64-bit float starting at the given byte index.
+ *
+ * @param index: The byte index to update
+ * @param value: The value to set
+ * @param bytes: The byte sequence to mutate
+ *
+ * @throws IndexOutOfBounds: When `index` is negative
+ * @throws IndexOutOfBounds: When `index + 8` is greater than the bytes size
+ *
+ * @example
+ * let bytes = Bytes.make(8)
+ * Bytes.setFloat64(0, 1.0d, bytes)
+ * assert Bytes.getFloat64(0, bytes) == 1.0d
+ *
+ * @since v0.3.2
+ */
+@unsafe
+provide let setFloat64 = (index: Number, value: Float64, bytes: Bytes) => {
+  use WasmI32.{ (+) }
+  let src = WasmRef.fromGrain(bytes)
+  let srcSize = getBytesSize(src)
+  let srcData = getBytesArrayRef(src)
+  let offset = coerceNumberToWasmI32(index)
+  checkIndexIsInBounds(offset, _FLOAT64_BYTE_SIZE, srcSize)
+  let v = WasmI64.reinterpretF64(Conv.fromFloat64(value))
+  use WasmI64.{ (&), (>>) }
+  let lo = WasmI32.wrapI64(v & 0xffffffffN)
+  let hi = WasmI32.wrapI64(v >> 32N)
+  use WasmI32.{ (+), (&), (>>) }
+  WasmArrayRef.setI8(srcData, offset + 0n, lo)
+  WasmArrayRef.setI8(srcData, offset + 1n, lo >> 8n)
+  WasmArrayRef.setI8(srcData, offset + 2n, lo >> 16n)
+  WasmArrayRef.setI8(srcData, offset + 3n, lo >> 24n)
+  WasmArrayRef.setI8(srcData, offset + 4n, hi)
+  WasmArrayRef.setI8(srcData, offset + 5n, hi >> 8n)
+  WasmArrayRef.setI8(srcData, offset + 6n, hi >> 16n)
+  WasmArrayRef.setI8(srcData, offset + 7n, hi >> 24n)
+}

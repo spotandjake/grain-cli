@@ -1,0 +1,3709 @@
+((mash_code
+  ((functions
+    (((id ((stamp 1062) (name sin))) (name (sin))
+      (args (GrainValue (WasmValue WasmF64)))
+      (return_type ((WasmValue WasmF64))) (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI64))
+             ((instr_desc
+               (MPrim1
+                (WasmUnaryI64 (wasm_op Op_reinterpret_float64)
+                 (arg_type Wasm_float64) (ret_type Wasm_int64))
+                ((immediate_desc
+                  (MImmBinding (MArgBind 1 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 26) (col 741) (bol 731)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 26) (col 766) (bol 731)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 26) (col 741) (bol 731)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 26) (col 766) (bol 731)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmI64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI64 (wasm_op Op_shr_u_int64)
+                 (arg_types (Wasm_int64 Wasm_int64)) (ret_type Wasm_int64))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI64 32)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 28) (col 818) (bol 791)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 28) (col 827) (bol 791)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 28) (col 818) (bol 791)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 28) (col 827) (bol 791)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1
+                (WasmUnaryI32 (wasm_op Op_wrap_int64) (arg_type Wasm_int64)
+                 (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 1 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 28) (col 802) (bol 791)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 28) (col 828) (bol 791)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 28) (col 802) (bol 791)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 28) (col 828) (bol 791)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_shr_u_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 31)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 30) (col 866) (bol 853)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 30) (col 876) (bol 853)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 30) (col 866) (bol 853)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 30) (col 876) (bol 853)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 0 GrainValue)
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_eq_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Grain_bool))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 1 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 1)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 30) (col 866) (bol 853)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 30) (col 882) (bol 853)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 30) (col 866) (bol 853)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 30) (col 882) (bol 853)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_and_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 2147483647)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 31) (col 894) (bol 883)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 31) (col 910) (bol 883)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 31) (col 894) (bol 883)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 31) (col 910) (bol 883)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 GrainValue)
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_le_s_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Grain_bool))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 2 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 1072243195)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 34) (col 935) (bol 929)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 34) (col 952) (bol 929)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 34) (col 935) (bol 929)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 34) (col 952) (bol 929)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MDrop
+           ((instr_desc
+             (MIf
+              ((immediate_desc (MImmBinding (MLocalBind 1 GrainValue)))
+               (immediate_analyses ((last_usage Unknown))))
+              (((instr_desc
+                 (MStore
+                  (((MLocalBind 14 GrainValue)
+                    ((instr_desc
+                      (MPrim2
+                       (WasmBinaryI32 (wasm_op Op_lt_s_int32)
+                        (arg_types (Wasm_int32 Wasm_int32))
+                        (ret_type Grain_bool))
+                       ((immediate_desc
+                         (MImmBinding (MLocalBind 2 (WasmValue WasmI32))))
+                        (immediate_analyses ((last_usage Unknown))))
+                       ((immediate_desc
+                         (MImmConst (MConstWasmI32 1045430272)))
+                        (immediate_analyses ((last_usage Unknown))))))
+                     (instr_loc
+                      ((loc_start
+                        (position
+                         (file
+                          /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                         (line 35) (col 964) (bol 956)))
+                       (loc_end
+                        (position
+                         (file
+                          /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                         (line 35) (col 980) (bol 956)))
+                       (loc_ghost false))))))))
+                (instr_loc
+                 ((loc_start
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 35) (col 964) (bol 956)))
+                  (loc_end
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 35) (col 980) (bol 956)))
+                  (loc_ghost false))))
+               ((instr_desc
+                 (MDrop
+                  ((instr_desc
+                    (MIf
+                     ((immediate_desc
+                       (MImmBinding (MLocalBind 14 GrainValue)))
+                      (immediate_analyses ((last_usage Unknown))))
+                     (((instr_desc
+                        (MReturn
+                         (((immediate_desc
+                            (MImmBinding (MArgBind 1 (WasmValue WasmF64))))
+                           (immediate_analyses ((last_usage Unknown)))))))
+                       (instr_loc
+                        ((loc_start
+                          (position
+                           (file
+                            /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                           (line 36) (col 1006) (bol 1000)))
+                         (loc_end
+                          (position
+                           (file
+                            /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                           (line 36) (col 1014) (bol 1000)))
+                         (loc_ghost false)))))
+                     (((instr_desc
+                        (MImmediate
+                         ((immediate_desc (MImmConst MConstVoid))
+                          (immediate_analyses ((last_usage Unknown))))))
+                       (instr_loc
+                        ((loc_start
+                          (position
+                           (file
+                            /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                           (line 35) (col 960) (bol 956)))
+                         (loc_end
+                          (position
+                           (file
+                            /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                           (line 37) (col 1020) (bol 1015)))
+                         (loc_ghost false)))))))
+                   (instr_loc
+                    ((loc_start
+                      (position
+                       (file
+                        /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                       (line 35) (col 960) (bol 956)))
+                     (loc_end
+                      (position
+                       (file
+                        /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                       (line 37) (col 1020) (bol 1015)))
+                     (loc_ghost false))))))
+                (instr_loc
+                 ((loc_start
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 35) (col 960) (bol 956)))
+                  (loc_end
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 37) (col 1020) (bol 1015)))
+                  (loc_ghost false))))
+               ((instr_desc
+                 (MReturnCallKnown (func sin_1225)
+                  (closure
+                   ((immediate_desc
+                     (MImmBinding (MGlobalBind sin_1225 GrainValue)))
+                    (immediate_analyses ((last_usage Unknown)))))
+                  (func_type
+                   (((WasmValue WasmF64) (WasmValue WasmF64) GrainValue)
+                    ((WasmValue WasmF64))))
+                  (args
+                   (((immediate_desc
+                      (MImmBinding (MArgBind 1 (WasmValue WasmF64))))
+                     (immediate_analyses ((last_usage Unknown))))
+                    ((immediate_desc (MImmConst (MConstWasmF64 0)))
+                     (immediate_analyses ((last_usage Unknown))))
+                    ((immediate_desc (MImmConst MConstFalse))
+                     (immediate_analyses ((last_usage Unknown))))))))
+                (instr_loc
+                 ((loc_start
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 38) (col 1032) (bol 1021)))
+                  (loc_end
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 38) (col 1055) (bol 1021)))
+                  (loc_ghost false)))))
+              (((instr_desc
+                 (MImmediate
+                  ((immediate_desc (MImmConst MConstVoid))
+                   (immediate_analyses ((last_usage Unknown))))))
+                (instr_loc
+                 ((loc_start
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 34) (col 931) (bol 929)))
+                  (loc_end
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 39) (col 1059) (bol 1056)))
+                  (loc_ghost false)))))))
+            (instr_loc
+             ((loc_start
+               (position
+                (file
+                 /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                (line 34) (col 931) (bol 929)))
+              (loc_end
+               (position
+                (file
+                 /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                (line 39) (col 1059) (bol 1056)))
+              (loc_ghost false))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 34) (col 931) (bol 929)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 39) (col 1059) (bol 1056)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 GrainValue)
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_ge_s_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Grain_bool))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 2 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 2146435072)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 42) (col 1095) (bol 1089)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 42) (col 1112) (bol 1089)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 42) (col 1095) (bol 1089)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 42) (col 1112) (bol 1089)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MDrop
+           ((instr_desc
+             (MIf
+              ((immediate_desc (MImmBinding (MLocalBind 2 GrainValue)))
+               (immediate_analyses ((last_usage Unknown))))
+              (((instr_desc
+                 (MStore
+                  (((MLocalBind 5 (WasmValue WasmF64))
+                    ((instr_desc
+                      (MPrim2
+                       (WasmBinaryF64 (wasm_op Op_sub_float64)
+                        (arg_types (Wasm_float64 Wasm_float64))
+                        (ret_type Wasm_float64))
+                       ((immediate_desc
+                         (MImmBinding (MArgBind 1 (WasmValue WasmF64))))
+                        (immediate_analyses ((last_usage Unknown))))
+                       ((immediate_desc
+                         (MImmBinding (MArgBind 1 (WasmValue WasmF64))))
+                        (immediate_analyses ((last_usage Unknown))))))
+                     (instr_loc
+                      ((loc_start
+                        (position
+                         (file
+                          /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                         (line 42) (col 1121) (bol 1089)))
+                       (loc_end
+                        (position
+                         (file
+                          /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                         (line 42) (col 1126) (bol 1089)))
+                       (loc_ghost false))))))))
+                (instr_loc
+                 ((loc_start
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 42) (col 1121) (bol 1089)))
+                  (loc_end
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 42) (col 1126) (bol 1089)))
+                  (loc_ghost false))))
+               ((instr_desc
+                 (MReturn
+                  (((immediate_desc
+                     (MImmBinding (MLocalBind 5 (WasmValue WasmF64))))
+                    (immediate_analyses ((last_usage Unknown)))))))
+                (instr_loc
+                 ((loc_start
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 42) (col 1121) (bol 1089)))
+                  (loc_end
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 42) (col 1126) (bol 1089)))
+                  (loc_ghost false)))))
+              (((instr_desc
+                 (MImmediate
+                  ((immediate_desc (MImmConst MConstVoid))
+                   (immediate_analyses ((last_usage Unknown))))))
+                (instr_loc
+                 ((loc_start
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 42) (col 1091) (bol 1089)))
+                  (loc_end
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 42) (col 1126) (bol 1089)))
+                  (loc_ghost false)))))))
+            (instr_loc
+             ((loc_start
+               (position
+                (file
+                 /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                (line 42) (col 1091) (bol 1089)))
+              (loc_end
+               (position
+                (file
+                 /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                (line 42) (col 1126) (bol 1089)))
+              (loc_ghost false))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 42) (col 1091) (bol 1089)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 42) (col 1126) (bol 1089)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 GrainValue)
+             ((instr_desc
+               (MCallKnown (func rempio2_1229)
+                (closure
+                 ((immediate_desc
+                   (MImmBinding (MGlobalBind rempio2_1229 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown)))))
+                (func_type
+                 (((WasmValue WasmF64) (WasmValue WasmI64) GrainValue)
+                  (GrainValue)))
+                (args
+                 (((immediate_desc
+                    (MImmBinding (MArgBind 1 (WasmValue WasmF64))))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc
+                    (MImmBinding (MLocalBind 0 (WasmValue WasmI64))))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmBinding (MLocalBind 0 GrainValue)))
+                   (immediate_analyses ((last_usage Unknown))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 45) (col 1179) (bol 1159)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 45) (col 1198) (bol 1159)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 45) (col 1179) (bol 1159)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 45) (col 1198) (bol 1159)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 4 GrainValue)
+             ((instr_desc
+               (MImmediate
+                ((immediate_desc (MImmConst MConstVoid))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 5 GrainValue)
+             ((instr_desc
+               (MImmediate
+                ((immediate_desc (MImmConst MConstVoid))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 6 GrainValue)
+             ((instr_desc
+               (MImmediate
+                ((immediate_desc (MImmConst MConstVoid))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 7 GrainValue)
+             ((instr_desc
+               (MTupleOp (MTupleGet 0)
+                ((immediate_desc (MImmBinding (MLocalBind 3 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 8 GrainValue)
+             ((instr_desc
+               (MTupleOp (MTupleGet 1)
+                ((immediate_desc (MImmBinding (MLocalBind 3 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 9 GrainValue)
+             ((instr_desc
+               (MTupleOp (MTupleGet 2)
+                ((immediate_desc (MImmBinding (MLocalBind 3 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MDrop
+           ((instr_desc
+             (MSet (MLocalBind 6 GrainValue)
+              ((instr_desc
+                (MImmediate
+                 ((immediate_desc (MImmBinding (MLocalBind 9 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown))))))
+               (instr_loc dummy_loc))))
+            (instr_loc dummy_loc))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MDrop
+           ((instr_desc
+             (MSet (MLocalBind 5 GrainValue)
+              ((instr_desc
+                (MImmediate
+                 ((immediate_desc (MImmBinding (MLocalBind 8 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown))))))
+               (instr_loc dummy_loc))))
+            (instr_loc dummy_loc))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MDrop
+           ((instr_desc
+             (MSet (MLocalBind 4 GrainValue)
+              ((instr_desc
+                (MImmediate
+                 ((immediate_desc (MImmBinding (MLocalBind 7 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown))))))
+               (instr_loc dummy_loc))))
+            (instr_loc dummy_loc))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 (WasmValue WasmI32))
+             ((instr_desc
+               (MCallKnown (func fromInt32_1234)
+                (closure
+                 ((immediate_desc
+                   (MImmBinding (MGlobalBind fromInt32_1234 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown)))))
+                (func_type ((GrainValue) ((WasmValue WasmI32))))
+                (args
+                 (((immediate_desc (MImmBinding (MLocalBind 4 GrainValue)))
+                   (immediate_analyses ((last_usage Unknown))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 46) (col 1209) (bol 1199)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 46) (col 1221) (bol 1199)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 46) (col 1209) (bol 1199)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 46) (col 1221) (bol 1199)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmF64))
+             ((instr_desc
+               (MCallKnown (func fromFloat64_1235)
+                (closure
+                 ((immediate_desc
+                   (MImmBinding (MGlobalBind fromFloat64_1235 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown)))))
+                (func_type ((GrainValue) ((WasmValue WasmF64))))
+                (args
+                 (((immediate_desc (MImmBinding (MLocalBind 5 GrainValue)))
+                   (immediate_analyses ((last_usage Unknown))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 47) (col 1233) (bol 1222)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 47) (col 1248) (bol 1222)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 47) (col 1233) (bol 1222)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 47) (col 1248) (bol 1222)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmF64))
+             ((instr_desc
+               (MCallKnown (func fromFloat64_1235)
+                (closure
+                 ((immediate_desc
+                   (MImmBinding (MGlobalBind fromFloat64_1235 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown)))))
+                (func_type ((GrainValue) ((WasmValue WasmF64))))
+                (args
+                 (((immediate_desc (MImmBinding (MLocalBind 6 GrainValue)))
+                   (immediate_analyses ((last_usage Unknown))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 48) (col 1260) (bol 1249)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 48) (col 1275) (bol 1249)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 48) (col 1260) (bol 1249)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 48) (col 1275) (bol 1249)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 4 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_and_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 3 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 3)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 50) (col 1293) (bol 1277)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 50) (col 1299) (bol 1277)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 50) (col 1293) (bol 1277)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 50) (col 1299) (bol 1277)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 10 GrainValue)
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_eq_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Grain_bool))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 4 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 0)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 11 GrainValue)
+             ((instr_desc
+               (MIf
+                ((immediate_desc (MImmBinding (MLocalBind 10 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                (((instr_desc
+                   (MImmediate
+                    ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                     (immediate_analyses ((last_usage Unknown))))))
+                  (instr_loc dummy_loc)))
+                (((instr_desc
+                   (MStore
+                    (((MLocalBind 12 GrainValue)
+                      ((instr_desc
+                        (MPrim2
+                         (WasmBinaryI32 (wasm_op Op_eq_int32)
+                          (arg_types (Wasm_int32 Wasm_int32))
+                          (ret_type Grain_bool))
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 4 (WasmValue WasmI32))))
+                          (immediate_analyses ((last_usage Unknown))))
+                         ((immediate_desc (MImmConst (MConstWasmI32 1)))
+                          (immediate_analyses ((last_usage Unknown))))))
+                       (instr_loc dummy_loc))))))
+                  (instr_loc dummy_loc))
+                 ((instr_desc
+                   (MIf
+                    ((immediate_desc
+                      (MImmBinding (MLocalBind 12 GrainValue)))
+                     (immediate_analyses ((last_usage Unknown))))
+                    (((instr_desc
+                       (MImmediate
+                        ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                         (immediate_analyses ((last_usage Unknown))))))
+                      (instr_loc dummy_loc)))
+                    (((instr_desc
+                       (MStore
+                        (((MLocalBind 13 GrainValue)
+                          ((instr_desc
+                            (MPrim2
+                             (WasmBinaryI32 (wasm_op Op_eq_int32)
+                              (arg_types (Wasm_int32 Wasm_int32))
+                              (ret_type Grain_bool))
+                             ((immediate_desc
+                               (MImmBinding
+                                (MLocalBind 4 (WasmValue WasmI32))))
+                              (immediate_analyses ((last_usage Unknown))))
+                             ((immediate_desc (MImmConst (MConstWasmI32 2)))
+                              (immediate_analyses ((last_usage Unknown))))))
+                           (instr_loc dummy_loc))))))
+                      (instr_loc dummy_loc))
+                     ((instr_desc
+                       (MIf
+                        ((immediate_desc
+                          (MImmBinding (MLocalBind 13 GrainValue)))
+                         (immediate_analyses ((last_usage Unknown))))
+                        (((instr_desc
+                           (MImmediate
+                            ((immediate_desc
+                              (MImmConst (MConstSimpleNumber 2)))
+                             (immediate_analyses ((last_usage Unknown))))))
+                          (instr_loc dummy_loc)))
+                        (((instr_desc
+                           (MImmediate
+                            ((immediate_desc
+                              (MImmConst (MConstSimpleNumber 3)))
+                             (immediate_analyses ((last_usage Unknown))))))
+                          (instr_loc dummy_loc)))))
+                      (instr_loc dummy_loc)))))
+                  (instr_loc dummy_loc)))))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 (WasmValue WasmF64))
+             ((instr_desc
+               (MSwitch
+                ((immediate_desc (MImmBinding (MLocalBind 11 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((0
+                  (((instr_desc
+                     (MCallKnown (func sin_1225)
+                      (closure
+                       ((immediate_desc
+                         (MImmBinding (MGlobalBind sin_1225 GrainValue)))
+                        (immediate_analyses ((last_usage Unknown)))))
+                      (func_type
+                       (((WasmValue WasmF64) (WasmValue WasmF64) GrainValue)
+                        ((WasmValue WasmF64))))
+                      (args
+                       (((immediate_desc
+                          (MImmBinding (MLocalBind 0 (WasmValue WasmF64))))
+                         (immediate_analyses ((last_usage Unknown))))
+                        ((immediate_desc
+                          (MImmBinding (MLocalBind 1 (WasmValue WasmF64))))
+                         (immediate_analyses ((last_usage Unknown))))
+                        ((immediate_desc (MImmConst MConstTrue))
+                         (immediate_analyses ((last_usage Unknown))))))))
+                    (instr_loc
+                     ((loc_start
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 51) (col 1313) (bol 1303)))
+                      (loc_end
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 51) (col 1334) (bol 1303)))
+                      (loc_ghost false))))))
+                 (1
+                  (((instr_desc
+                     (MCallKnown (func cos_1243)
+                      (closure
+                       ((immediate_desc
+                         (MImmBinding (MGlobalBind cos_1243 GrainValue)))
+                        (immediate_analyses ((last_usage Unknown)))))
+                      (func_type
+                       (((WasmValue WasmF64) (WasmValue WasmF64))
+                        ((WasmValue WasmF64))))
+                      (args
+                       (((immediate_desc
+                          (MImmBinding (MLocalBind 0 (WasmValue WasmF64))))
+                         (immediate_analyses ((last_usage Unknown))))
+                        ((immediate_desc
+                          (MImmBinding (MLocalBind 1 (WasmValue WasmF64))))
+                         (immediate_analyses ((last_usage Unknown))))))))
+                    (instr_loc
+                     ((loc_start
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 52) (col 1346) (bol 1336)))
+                      (loc_end
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 52) (col 1361) (bol 1336)))
+                      (loc_ghost false))))))
+                 (2
+                  (((instr_desc
+                     (MStore
+                      (((MLocalBind 3 (WasmValue WasmF64))
+                        ((instr_desc
+                          (MCallKnown (func sin_1225)
+                           (closure
+                            ((immediate_desc
+                              (MImmBinding (MGlobalBind sin_1225 GrainValue)))
+                             (immediate_analyses ((last_usage Unknown)))))
+                           (func_type
+                            (((WasmValue WasmF64) (WasmValue WasmF64)
+                              GrainValue)
+                             ((WasmValue WasmF64))))
+                           (args
+                            (((immediate_desc
+                               (MImmBinding
+                                (MLocalBind 0 (WasmValue WasmF64))))
+                              (immediate_analyses ((last_usage Unknown))))
+                             ((immediate_desc
+                               (MImmBinding
+                                (MLocalBind 1 (WasmValue WasmF64))))
+                              (immediate_analyses ((last_usage Unknown))))
+                             ((immediate_desc (MImmConst MConstTrue))
+                              (immediate_analyses ((last_usage Unknown))))))))
+                         (instr_loc
+                          ((loc_start
+                            (position
+                             (file
+                              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                             (line 53) (col 1373) (bol 1363)))
+                           (loc_end
+                            (position
+                             (file
+                              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                             (line 53) (col 1394) (bol 1363)))
+                           (loc_ghost false))))))))
+                    (instr_loc
+                     ((loc_start
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 53) (col 1373) (bol 1363)))
+                      (loc_end
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 53) (col 1394) (bol 1363)))
+                      (loc_ghost false))))
+                   ((instr_desc
+                     (MPrim2
+                      (WasmBinaryF64 (wasm_op Op_mul_float64)
+                       (arg_types (Wasm_float64 Wasm_float64))
+                       (ret_type Wasm_float64))
+                      ((immediate_desc
+                        (MImmBinding (MLocalBind 3 (WasmValue WasmF64))))
+                       (immediate_analyses ((last_usage Unknown))))
+                      ((immediate_desc
+                        (MImmConst (MConstWasmF64 -4616189618054758400)))
+                       (immediate_analyses ((last_usage Unknown))))))
+                    (instr_loc
+                     ((loc_start
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 53) (col 1373) (bol 1363)))
+                      (loc_end
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 53) (col 1402) (bol 1363)))
+                      (loc_ghost false))))))
+                 (3
+                  (((instr_desc
+                     (MStore
+                      (((MLocalBind 4 (WasmValue WasmF64))
+                        ((instr_desc
+                          (MCallKnown (func cos_1243)
+                           (closure
+                            ((immediate_desc
+                              (MImmBinding (MGlobalBind cos_1243 GrainValue)))
+                             (immediate_analyses ((last_usage Unknown)))))
+                           (func_type
+                            (((WasmValue WasmF64) (WasmValue WasmF64))
+                             ((WasmValue WasmF64))))
+                           (args
+                            (((immediate_desc
+                               (MImmBinding
+                                (MLocalBind 0 (WasmValue WasmF64))))
+                              (immediate_analyses ((last_usage Unknown))))
+                             ((immediate_desc
+                               (MImmBinding
+                                (MLocalBind 1 (WasmValue WasmF64))))
+                              (immediate_analyses ((last_usage Unknown))))))))
+                         (instr_loc
+                          ((loc_start
+                            (position
+                             (file
+                              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                             (line 54) (col 1413) (bol 1404)))
+                           (loc_end
+                            (position
+                             (file
+                              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                             (line 54) (col 1428) (bol 1404)))
+                           (loc_ghost false))))))))
+                    (instr_loc
+                     ((loc_start
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 54) (col 1413) (bol 1404)))
+                      (loc_end
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 54) (col 1428) (bol 1404)))
+                      (loc_ghost false))))
+                   ((instr_desc
+                     (MPrim2
+                      (WasmBinaryF64 (wasm_op Op_mul_float64)
+                       (arg_types (Wasm_float64 Wasm_float64))
+                       (ret_type Wasm_float64))
+                      ((immediate_desc
+                        (MImmBinding (MLocalBind 4 (WasmValue WasmF64))))
+                       (immediate_analyses ((last_usage Unknown))))
+                      ((immediate_desc
+                        (MImmConst (MConstWasmF64 -4616189618054758400)))
+                       (immediate_analyses ((last_usage Unknown))))))
+                    (instr_loc
+                     ((loc_start
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 54) (col 1413) (bol 1404)))
+                      (loc_end
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 54) (col 1436) (bol 1404)))
+                      (loc_ghost false)))))))
+                (((instr_desc
+                   (MImmediate
+                    ((immediate_desc MImmTrap)
+                     (immediate_analyses ((last_usage Unknown))))))
+                  (instr_loc dummy_loc)))
+                (WasmValue WasmF64)))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MReturn
+           (((immediate_desc
+              (MImmBinding (MLocalBind 2 (WasmValue WasmF64))))
+             (immediate_analyses ((last_usage Unknown)))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 50) (col 1279) (bol 1277)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 55) (col 1441) (bol 1438)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 15) (stack_size_i32 5) (stack_size_i64 2)
+        (stack_size_f32 0) (stack_size_f64 6)))
+      (attrs
+       (((txt Unsafe)
+         (loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 20) (col 563) (bol 562)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 20) (col 569) (bol 562)))
+           (loc_ghost false))))))
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+          (line 21) (col 588) (bol 570)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+          (line 56) (col 1443) (bol 1442)))
+        (loc_ghost false))))
+     ((id ((stamp 1197) (name cos))) (name (cos))
+      (args (GrainValue (WasmValue WasmF64)))
+      (return_type ((WasmValue WasmF64))) (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI64))
+             ((instr_desc
+               (MPrim1
+                (WasmUnaryI64 (wasm_op Op_reinterpret_float64)
+                 (arg_type Wasm_float64) (ret_type Wasm_int64))
+                ((immediate_desc
+                  (MImmBinding (MArgBind 1 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 63) (col 1623) (bol 1613)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 63) (col 1648) (bol 1613)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 63) (col 1623) (bol 1613)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 63) (col 1648) (bol 1613)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmI64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI64 (wasm_op Op_shr_u_int64)
+                 (arg_types (Wasm_int64 Wasm_int64)) (ret_type Wasm_int64))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI64 32)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 66) (col 1701) (bol 1674)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 66) (col 1710) (bol 1674)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 66) (col 1701) (bol 1674)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 66) (col 1710) (bol 1674)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1
+                (WasmUnaryI32 (wasm_op Op_wrap_int64) (arg_type Wasm_int64)
+                 (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 1 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 66) (col 1685) (bol 1674)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 66) (col 1711) (bol 1674)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 66) (col 1685) (bol 1674)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 66) (col 1711) (bol 1674)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_shr_u_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 31)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 68) (col 1749) (bol 1736)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 68) (col 1759) (bol 1736)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 68) (col 1749) (bol 1736)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 68) (col 1759) (bol 1736)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 0 GrainValue)
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_eq_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Grain_bool))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 1 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 1)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 68) (col 1749) (bol 1736)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 68) (col 1765) (bol 1736)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 68) (col 1749) (bol 1736)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 68) (col 1765) (bol 1736)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_and_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 2147483647)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 69) (col 1777) (bol 1766)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 69) (col 1793) (bol 1766)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 69) (col 1777) (bol 1766)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 69) (col 1793) (bol 1766)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 GrainValue)
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_le_s_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Grain_bool))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 2 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 1072243195)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 72) (col 1818) (bol 1812)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 72) (col 1835) (bol 1812)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 72) (col 1818) (bol 1812)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 72) (col 1835) (bol 1812)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MDrop
+           ((instr_desc
+             (MIf
+              ((immediate_desc (MImmBinding (MLocalBind 1 GrainValue)))
+               (immediate_analyses ((last_usage Unknown))))
+              (((instr_desc
+                 (MStore
+                  (((MLocalBind 14 GrainValue)
+                    ((instr_desc
+                      (MPrim2
+                       (WasmBinaryI32 (wasm_op Op_lt_s_int32)
+                        (arg_types (Wasm_int32 Wasm_int32))
+                        (ret_type Grain_bool))
+                       ((immediate_desc
+                         (MImmBinding (MLocalBind 2 (WasmValue WasmI32))))
+                        (immediate_analyses ((last_usage Unknown))))
+                       ((immediate_desc
+                         (MImmConst (MConstWasmI32 1044816030)))
+                        (immediate_analyses ((last_usage Unknown))))))
+                     (instr_loc
+                      ((loc_start
+                        (position
+                         (file
+                          /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                         (line 73) (col 1847) (bol 1839)))
+                       (loc_end
+                        (position
+                         (file
+                          /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                         (line 73) (col 1863) (bol 1839)))
+                       (loc_ghost false))))))))
+                (instr_loc
+                 ((loc_start
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 73) (col 1847) (bol 1839)))
+                  (loc_end
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 73) (col 1863) (bol 1839)))
+                  (loc_ghost false))))
+               ((instr_desc
+                 (MDrop
+                  ((instr_desc
+                    (MIf
+                     ((immediate_desc
+                       (MImmBinding (MLocalBind 14 GrainValue)))
+                      (immediate_analyses ((last_usage Unknown))))
+                     (((instr_desc
+                        (MReturn
+                         (((immediate_desc
+                            (MImmConst (MConstWasmF64 4607182418800017408)))
+                           (immediate_analyses ((last_usage Unknown)))))))
+                       (instr_loc
+                        ((loc_start
+                          (position
+                           (file
+                            /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                           (line 74) (col 1899) (bol 1893)))
+                         (loc_end
+                          (position
+                           (file
+                            /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                           (line 74) (col 1910) (bol 1893)))
+                         (loc_ghost false)))))
+                     (((instr_desc
+                        (MImmediate
+                         ((immediate_desc (MImmConst MConstVoid))
+                          (immediate_analyses ((last_usage Unknown))))))
+                       (instr_loc
+                        ((loc_start
+                          (position
+                           (file
+                            /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                           (line 73) (col 1843) (bol 1839)))
+                         (loc_end
+                          (position
+                           (file
+                            /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                           (line 75) (col 1916) (bol 1911)))
+                         (loc_ghost false)))))))
+                   (instr_loc
+                    ((loc_start
+                      (position
+                       (file
+                        /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                       (line 73) (col 1843) (bol 1839)))
+                     (loc_end
+                      (position
+                       (file
+                        /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                       (line 75) (col 1916) (bol 1911)))
+                     (loc_ghost false))))))
+                (instr_loc
+                 ((loc_start
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 73) (col 1843) (bol 1839)))
+                  (loc_end
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 75) (col 1916) (bol 1911)))
+                  (loc_ghost false))))
+               ((instr_desc
+                 (MReturnCallKnown (func cos_1243)
+                  (closure
+                   ((immediate_desc
+                     (MImmBinding (MGlobalBind cos_1243 GrainValue)))
+                    (immediate_analyses ((last_usage Unknown)))))
+                  (func_type
+                   (((WasmValue WasmF64) (WasmValue WasmF64))
+                    ((WasmValue WasmF64))))
+                  (args
+                   (((immediate_desc
+                      (MImmBinding (MArgBind 1 (WasmValue WasmF64))))
+                     (immediate_analyses ((last_usage Unknown))))
+                    ((immediate_desc (MImmConst (MConstWasmF64 0)))
+                     (immediate_analyses ((last_usage Unknown))))))))
+                (instr_loc
+                 ((loc_start
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 76) (col 1928) (bol 1917)))
+                  (loc_end
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 76) (col 1944) (bol 1917)))
+                  (loc_ghost false)))))
+              (((instr_desc
+                 (MImmediate
+                  ((immediate_desc (MImmConst MConstVoid))
+                   (immediate_analyses ((last_usage Unknown))))))
+                (instr_loc
+                 ((loc_start
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 72) (col 1814) (bol 1812)))
+                  (loc_end
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 77) (col 1948) (bol 1945)))
+                  (loc_ghost false)))))))
+            (instr_loc
+             ((loc_start
+               (position
+                (file
+                 /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                (line 72) (col 1814) (bol 1812)))
+              (loc_end
+               (position
+                (file
+                 /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                (line 77) (col 1948) (bol 1945)))
+              (loc_ghost false))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 72) (col 1814) (bol 1812)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 77) (col 1948) (bol 1945)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 GrainValue)
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_ge_s_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Grain_bool))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 2 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 2146435072)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 80) (col 1984) (bol 1978)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 80) (col 2001) (bol 1978)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 80) (col 1984) (bol 1978)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 80) (col 2001) (bol 1978)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MDrop
+           ((instr_desc
+             (MIf
+              ((immediate_desc (MImmBinding (MLocalBind 2 GrainValue)))
+               (immediate_analyses ((last_usage Unknown))))
+              (((instr_desc
+                 (MStore
+                  (((MLocalBind 5 (WasmValue WasmF64))
+                    ((instr_desc
+                      (MPrim2
+                       (WasmBinaryF64 (wasm_op Op_sub_float64)
+                        (arg_types (Wasm_float64 Wasm_float64))
+                        (ret_type Wasm_float64))
+                       ((immediate_desc
+                         (MImmBinding (MArgBind 1 (WasmValue WasmF64))))
+                        (immediate_analyses ((last_usage Unknown))))
+                       ((immediate_desc
+                         (MImmBinding (MArgBind 1 (WasmValue WasmF64))))
+                        (immediate_analyses ((last_usage Unknown))))))
+                     (instr_loc
+                      ((loc_start
+                        (position
+                         (file
+                          /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                         (line 80) (col 2010) (bol 1978)))
+                       (loc_end
+                        (position
+                         (file
+                          /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                         (line 80) (col 2015) (bol 1978)))
+                       (loc_ghost false))))))))
+                (instr_loc
+                 ((loc_start
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 80) (col 2010) (bol 1978)))
+                  (loc_end
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 80) (col 2015) (bol 1978)))
+                  (loc_ghost false))))
+               ((instr_desc
+                 (MReturn
+                  (((immediate_desc
+                     (MImmBinding (MLocalBind 5 (WasmValue WasmF64))))
+                    (immediate_analyses ((last_usage Unknown)))))))
+                (instr_loc
+                 ((loc_start
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 80) (col 2010) (bol 1978)))
+                  (loc_end
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 80) (col 2015) (bol 1978)))
+                  (loc_ghost false)))))
+              (((instr_desc
+                 (MImmediate
+                  ((immediate_desc (MImmConst MConstVoid))
+                   (immediate_analyses ((last_usage Unknown))))))
+                (instr_loc
+                 ((loc_start
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 80) (col 1980) (bol 1978)))
+                  (loc_end
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 80) (col 2015) (bol 1978)))
+                  (loc_ghost false)))))))
+            (instr_loc
+             ((loc_start
+               (position
+                (file
+                 /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                (line 80) (col 1980) (bol 1978)))
+              (loc_end
+               (position
+                (file
+                 /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                (line 80) (col 2015) (bol 1978)))
+              (loc_ghost false))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 80) (col 1980) (bol 1978)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 80) (col 2015) (bol 1978)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 GrainValue)
+             ((instr_desc
+               (MCallKnown (func rempio2_1229)
+                (closure
+                 ((immediate_desc
+                   (MImmBinding (MGlobalBind rempio2_1229 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown)))))
+                (func_type
+                 (((WasmValue WasmF64) (WasmValue WasmI64) GrainValue)
+                  (GrainValue)))
+                (args
+                 (((immediate_desc
+                    (MImmBinding (MArgBind 1 (WasmValue WasmF64))))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc
+                    (MImmBinding (MLocalBind 0 (WasmValue WasmI64))))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmBinding (MLocalBind 0 GrainValue)))
+                   (immediate_analyses ((last_usage Unknown))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 83) (col 2068) (bol 2048)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 83) (col 2087) (bol 2048)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 83) (col 2068) (bol 2048)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 83) (col 2087) (bol 2048)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 4 GrainValue)
+             ((instr_desc
+               (MImmediate
+                ((immediate_desc (MImmConst MConstVoid))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 5 GrainValue)
+             ((instr_desc
+               (MImmediate
+                ((immediate_desc (MImmConst MConstVoid))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 6 GrainValue)
+             ((instr_desc
+               (MImmediate
+                ((immediate_desc (MImmConst MConstVoid))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 7 GrainValue)
+             ((instr_desc
+               (MTupleOp (MTupleGet 0)
+                ((immediate_desc (MImmBinding (MLocalBind 3 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 8 GrainValue)
+             ((instr_desc
+               (MTupleOp (MTupleGet 1)
+                ((immediate_desc (MImmBinding (MLocalBind 3 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 9 GrainValue)
+             ((instr_desc
+               (MTupleOp (MTupleGet 2)
+                ((immediate_desc (MImmBinding (MLocalBind 3 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MDrop
+           ((instr_desc
+             (MSet (MLocalBind 6 GrainValue)
+              ((instr_desc
+                (MImmediate
+                 ((immediate_desc (MImmBinding (MLocalBind 9 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown))))))
+               (instr_loc dummy_loc))))
+            (instr_loc dummy_loc))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MDrop
+           ((instr_desc
+             (MSet (MLocalBind 5 GrainValue)
+              ((instr_desc
+                (MImmediate
+                 ((immediate_desc (MImmBinding (MLocalBind 8 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown))))))
+               (instr_loc dummy_loc))))
+            (instr_loc dummy_loc))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MDrop
+           ((instr_desc
+             (MSet (MLocalBind 4 GrainValue)
+              ((instr_desc
+                (MImmediate
+                 ((immediate_desc (MImmBinding (MLocalBind 7 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown))))))
+               (instr_loc dummy_loc))))
+            (instr_loc dummy_loc))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 (WasmValue WasmI32))
+             ((instr_desc
+               (MCallKnown (func fromInt32_1234)
+                (closure
+                 ((immediate_desc
+                   (MImmBinding (MGlobalBind fromInt32_1234 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown)))))
+                (func_type ((GrainValue) ((WasmValue WasmI32))))
+                (args
+                 (((immediate_desc (MImmBinding (MLocalBind 4 GrainValue)))
+                   (immediate_analyses ((last_usage Unknown))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 84) (col 2098) (bol 2088)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 84) (col 2110) (bol 2088)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 84) (col 2098) (bol 2088)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 84) (col 2110) (bol 2088)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmF64))
+             ((instr_desc
+               (MCallKnown (func fromFloat64_1235)
+                (closure
+                 ((immediate_desc
+                   (MImmBinding (MGlobalBind fromFloat64_1235 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown)))))
+                (func_type ((GrainValue) ((WasmValue WasmF64))))
+                (args
+                 (((immediate_desc (MImmBinding (MLocalBind 5 GrainValue)))
+                   (immediate_analyses ((last_usage Unknown))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 85) (col 2122) (bol 2111)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 85) (col 2137) (bol 2111)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 85) (col 2122) (bol 2111)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 85) (col 2137) (bol 2111)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmF64))
+             ((instr_desc
+               (MCallKnown (func fromFloat64_1235)
+                (closure
+                 ((immediate_desc
+                   (MImmBinding (MGlobalBind fromFloat64_1235 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown)))))
+                (func_type ((GrainValue) ((WasmValue WasmF64))))
+                (args
+                 (((immediate_desc (MImmBinding (MLocalBind 6 GrainValue)))
+                   (immediate_analyses ((last_usage Unknown))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 86) (col 2149) (bol 2138)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 86) (col 2164) (bol 2138)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 86) (col 2149) (bol 2138)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 86) (col 2164) (bol 2138)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 4 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_and_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 3 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 3)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 88) (col 2182) (bol 2166)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 88) (col 2188) (bol 2166)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 88) (col 2182) (bol 2166)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 88) (col 2188) (bol 2166)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 10 GrainValue)
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_eq_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Grain_bool))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 4 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 0)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 11 GrainValue)
+             ((instr_desc
+               (MIf
+                ((immediate_desc (MImmBinding (MLocalBind 10 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                (((instr_desc
+                   (MImmediate
+                    ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                     (immediate_analyses ((last_usage Unknown))))))
+                  (instr_loc dummy_loc)))
+                (((instr_desc
+                   (MStore
+                    (((MLocalBind 12 GrainValue)
+                      ((instr_desc
+                        (MPrim2
+                         (WasmBinaryI32 (wasm_op Op_eq_int32)
+                          (arg_types (Wasm_int32 Wasm_int32))
+                          (ret_type Grain_bool))
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 4 (WasmValue WasmI32))))
+                          (immediate_analyses ((last_usage Unknown))))
+                         ((immediate_desc (MImmConst (MConstWasmI32 1)))
+                          (immediate_analyses ((last_usage Unknown))))))
+                       (instr_loc dummy_loc))))))
+                  (instr_loc dummy_loc))
+                 ((instr_desc
+                   (MIf
+                    ((immediate_desc
+                      (MImmBinding (MLocalBind 12 GrainValue)))
+                     (immediate_analyses ((last_usage Unknown))))
+                    (((instr_desc
+                       (MImmediate
+                        ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                         (immediate_analyses ((last_usage Unknown))))))
+                      (instr_loc dummy_loc)))
+                    (((instr_desc
+                       (MStore
+                        (((MLocalBind 13 GrainValue)
+                          ((instr_desc
+                            (MPrim2
+                             (WasmBinaryI32 (wasm_op Op_eq_int32)
+                              (arg_types (Wasm_int32 Wasm_int32))
+                              (ret_type Grain_bool))
+                             ((immediate_desc
+                               (MImmBinding
+                                (MLocalBind 4 (WasmValue WasmI32))))
+                              (immediate_analyses ((last_usage Unknown))))
+                             ((immediate_desc (MImmConst (MConstWasmI32 2)))
+                              (immediate_analyses ((last_usage Unknown))))))
+                           (instr_loc dummy_loc))))))
+                      (instr_loc dummy_loc))
+                     ((instr_desc
+                       (MIf
+                        ((immediate_desc
+                          (MImmBinding (MLocalBind 13 GrainValue)))
+                         (immediate_analyses ((last_usage Unknown))))
+                        (((instr_desc
+                           (MImmediate
+                            ((immediate_desc
+                              (MImmConst (MConstSimpleNumber 2)))
+                             (immediate_analyses ((last_usage Unknown))))))
+                          (instr_loc dummy_loc)))
+                        (((instr_desc
+                           (MImmediate
+                            ((immediate_desc
+                              (MImmConst (MConstSimpleNumber 3)))
+                             (immediate_analyses ((last_usage Unknown))))))
+                          (instr_loc dummy_loc)))))
+                      (instr_loc dummy_loc)))))
+                  (instr_loc dummy_loc)))))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 (WasmValue WasmF64))
+             ((instr_desc
+               (MSwitch
+                ((immediate_desc (MImmBinding (MLocalBind 11 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((0
+                  (((instr_desc
+                     (MCallKnown (func cos_1243)
+                      (closure
+                       ((immediate_desc
+                         (MImmBinding (MGlobalBind cos_1243 GrainValue)))
+                        (immediate_analyses ((last_usage Unknown)))))
+                      (func_type
+                       (((WasmValue WasmF64) (WasmValue WasmF64))
+                        ((WasmValue WasmF64))))
+                      (args
+                       (((immediate_desc
+                          (MImmBinding (MLocalBind 0 (WasmValue WasmF64))))
+                         (immediate_analyses ((last_usage Unknown))))
+                        ((immediate_desc
+                          (MImmBinding (MLocalBind 1 (WasmValue WasmF64))))
+                         (immediate_analyses ((last_usage Unknown))))))))
+                    (instr_loc
+                     ((loc_start
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 89) (col 2202) (bol 2192)))
+                      (loc_end
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 89) (col 2217) (bol 2192)))
+                      (loc_ghost false))))))
+                 (1
+                  (((instr_desc
+                     (MStore
+                      (((MLocalBind 3 (WasmValue WasmF64))
+                        ((instr_desc
+                          (MCallKnown (func sin_1225)
+                           (closure
+                            ((immediate_desc
+                              (MImmBinding (MGlobalBind sin_1225 GrainValue)))
+                             (immediate_analyses ((last_usage Unknown)))))
+                           (func_type
+                            (((WasmValue WasmF64) (WasmValue WasmF64)
+                              GrainValue)
+                             ((WasmValue WasmF64))))
+                           (args
+                            (((immediate_desc
+                               (MImmBinding
+                                (MLocalBind 0 (WasmValue WasmF64))))
+                              (immediate_analyses ((last_usage Unknown))))
+                             ((immediate_desc
+                               (MImmBinding
+                                (MLocalBind 1 (WasmValue WasmF64))))
+                              (immediate_analyses ((last_usage Unknown))))
+                             ((immediate_desc (MImmConst MConstTrue))
+                              (immediate_analyses ((last_usage Unknown))))))))
+                         (instr_loc
+                          ((loc_start
+                            (position
+                             (file
+                              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                             (line 90) (col 2229) (bol 2219)))
+                           (loc_end
+                            (position
+                             (file
+                              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                             (line 90) (col 2250) (bol 2219)))
+                           (loc_ghost false))))))))
+                    (instr_loc
+                     ((loc_start
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 90) (col 2229) (bol 2219)))
+                      (loc_end
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 90) (col 2250) (bol 2219)))
+                      (loc_ghost false))))
+                   ((instr_desc
+                     (MPrim2
+                      (WasmBinaryF64 (wasm_op Op_mul_float64)
+                       (arg_types (Wasm_float64 Wasm_float64))
+                       (ret_type Wasm_float64))
+                      ((immediate_desc
+                        (MImmBinding (MLocalBind 3 (WasmValue WasmF64))))
+                       (immediate_analyses ((last_usage Unknown))))
+                      ((immediate_desc
+                        (MImmConst (MConstWasmF64 -4616189618054758400)))
+                       (immediate_analyses ((last_usage Unknown))))))
+                    (instr_loc
+                     ((loc_start
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 90) (col 2229) (bol 2219)))
+                      (loc_end
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 90) (col 2258) (bol 2219)))
+                      (loc_ghost false))))))
+                 (2
+                  (((instr_desc
+                     (MStore
+                      (((MLocalBind 4 (WasmValue WasmF64))
+                        ((instr_desc
+                          (MCallKnown (func cos_1243)
+                           (closure
+                            ((immediate_desc
+                              (MImmBinding (MGlobalBind cos_1243 GrainValue)))
+                             (immediate_analyses ((last_usage Unknown)))))
+                           (func_type
+                            (((WasmValue WasmF64) (WasmValue WasmF64))
+                             ((WasmValue WasmF64))))
+                           (args
+                            (((immediate_desc
+                               (MImmBinding
+                                (MLocalBind 0 (WasmValue WasmF64))))
+                              (immediate_analyses ((last_usage Unknown))))
+                             ((immediate_desc
+                               (MImmBinding
+                                (MLocalBind 1 (WasmValue WasmF64))))
+                              (immediate_analyses ((last_usage Unknown))))))))
+                         (instr_loc
+                          ((loc_start
+                            (position
+                             (file
+                              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                             (line 91) (col 2270) (bol 2260)))
+                           (loc_end
+                            (position
+                             (file
+                              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                             (line 91) (col 2285) (bol 2260)))
+                           (loc_ghost false))))))))
+                    (instr_loc
+                     ((loc_start
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 91) (col 2270) (bol 2260)))
+                      (loc_end
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 91) (col 2285) (bol 2260)))
+                      (loc_ghost false))))
+                   ((instr_desc
+                     (MPrim2
+                      (WasmBinaryF64 (wasm_op Op_mul_float64)
+                       (arg_types (Wasm_float64 Wasm_float64))
+                       (ret_type Wasm_float64))
+                      ((immediate_desc
+                        (MImmBinding (MLocalBind 4 (WasmValue WasmF64))))
+                       (immediate_analyses ((last_usage Unknown))))
+                      ((immediate_desc
+                        (MImmConst (MConstWasmF64 -4616189618054758400)))
+                       (immediate_analyses ((last_usage Unknown))))))
+                    (instr_loc
+                     ((loc_start
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 91) (col 2270) (bol 2260)))
+                      (loc_end
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 91) (col 2293) (bol 2260)))
+                      (loc_ghost false))))))
+                 (3
+                  (((instr_desc
+                     (MCallKnown (func sin_1225)
+                      (closure
+                       ((immediate_desc
+                         (MImmBinding (MGlobalBind sin_1225 GrainValue)))
+                        (immediate_analyses ((last_usage Unknown)))))
+                      (func_type
+                       (((WasmValue WasmF64) (WasmValue WasmF64) GrainValue)
+                        ((WasmValue WasmF64))))
+                      (args
+                       (((immediate_desc
+                          (MImmBinding (MLocalBind 0 (WasmValue WasmF64))))
+                         (immediate_analyses ((last_usage Unknown))))
+                        ((immediate_desc
+                          (MImmBinding (MLocalBind 1 (WasmValue WasmF64))))
+                         (immediate_analyses ((last_usage Unknown))))
+                        ((immediate_desc (MImmConst MConstTrue))
+                         (immediate_analyses ((last_usage Unknown))))))))
+                    (instr_loc
+                     ((loc_start
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 92) (col 2304) (bol 2295)))
+                      (loc_end
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 92) (col 2325) (bol 2295)))
+                      (loc_ghost false)))))))
+                (((instr_desc
+                   (MImmediate
+                    ((immediate_desc MImmTrap)
+                     (immediate_analyses ((last_usage Unknown))))))
+                  (instr_loc dummy_loc)))
+                (WasmValue WasmF64)))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MReturn
+           (((immediate_desc
+              (MImmBinding (MLocalBind 2 (WasmValue WasmF64))))
+             (immediate_analyses ((last_usage Unknown)))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 88) (col 2168) (bol 2166)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 93) (col 2330) (bol 2327)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 15) (stack_size_i32 5) (stack_size_i64 2)
+        (stack_size_f32 0) (stack_size_f64 6)))
+      (attrs
+       (((txt Unsafe)
+         (loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 58) (col 1446) (bol 1445)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 58) (col 1452) (bol 1445)))
+           (loc_ghost false))))))
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+          (line 59) (col 1471) (bol 1453)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+          (line 94) (col 2332) (bol 2331)))
+        (loc_ghost false))))
+     ((id ((stamp 1209) (name tan))) (name (tan))
+      (args (GrainValue (WasmValue WasmF64)))
+      (return_type ((WasmValue WasmF64))) (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI64))
+             ((instr_desc
+               (MPrim1
+                (WasmUnaryI64 (wasm_op Op_reinterpret_float64)
+                 (arg_type Wasm_float64) (ret_type Wasm_int64))
+                ((immediate_desc
+                  (MImmBinding (MArgBind 1 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 101) (col 2507) (bol 2497)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 101) (col 2532) (bol 2497)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 101) (col 2507) (bol 2497)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 101) (col 2532) (bol 2497)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmI64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI64 (wasm_op Op_shr_u_int64)
+                 (arg_types (Wasm_int64 Wasm_int64)) (ret_type Wasm_int64))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI64 32)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 103) (col 2584) (bol 2557)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 103) (col 2593) (bol 2557)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 103) (col 2584) (bol 2557)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 103) (col 2593) (bol 2557)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim1
+                (WasmUnaryI32 (wasm_op Op_wrap_int64) (arg_type Wasm_int64)
+                 (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 1 (WasmValue WasmI64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 103) (col 2568) (bol 2557)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 103) (col 2594) (bol 2557)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 103) (col 2568) (bol 2557)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 103) (col 2594) (bol 2557)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_shr_u_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 31)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 105) (col 2632) (bol 2619)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 105) (col 2642) (bol 2619)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 105) (col 2632) (bol 2619)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 105) (col 2642) (bol 2619)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 0 GrainValue)
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_eq_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Grain_bool))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 1 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 1)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 105) (col 2632) (bol 2619)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 105) (col 2648) (bol 2619)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 105) (col 2632) (bol 2619)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 105) (col 2648) (bol 2619)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_and_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 2147483647)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 106) (col 2660) (bol 2649)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 106) (col 2676) (bol 2649)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 106) (col 2660) (bol 2649)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 106) (col 2676) (bol 2649)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 GrainValue)
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_le_s_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Grain_bool))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 2 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 1072243195)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 109) (col 2701) (bol 2695)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 109) (col 2718) (bol 2695)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 109) (col 2701) (bol 2695)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 109) (col 2718) (bol 2695)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MDrop
+           ((instr_desc
+             (MIf
+              ((immediate_desc (MImmBinding (MLocalBind 1 GrainValue)))
+               (immediate_analyses ((last_usage Unknown))))
+              (((instr_desc
+                 (MStore
+                  (((MLocalBind 14 GrainValue)
+                    ((instr_desc
+                      (MPrim2
+                       (WasmBinaryI32 (wasm_op Op_lt_s_int32)
+                        (arg_types (Wasm_int32 Wasm_int32))
+                        (ret_type Grain_bool))
+                       ((immediate_desc
+                         (MImmBinding (MLocalBind 2 (WasmValue WasmI32))))
+                        (immediate_analyses ((last_usage Unknown))))
+                       ((immediate_desc
+                         (MImmConst (MConstWasmI32 1044381696)))
+                        (immediate_analyses ((last_usage Unknown))))))
+                     (instr_loc
+                      ((loc_start
+                        (position
+                         (file
+                          /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                         (line 110) (col 2730) (bol 2722)))
+                       (loc_end
+                        (position
+                         (file
+                          /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                         (line 110) (col 2746) (bol 2722)))
+                       (loc_ghost false))))))))
+                (instr_loc
+                 ((loc_start
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 110) (col 2730) (bol 2722)))
+                  (loc_end
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 110) (col 2746) (bol 2722)))
+                  (loc_ghost false))))
+               ((instr_desc
+                 (MDrop
+                  ((instr_desc
+                    (MIf
+                     ((immediate_desc
+                       (MImmBinding (MLocalBind 14 GrainValue)))
+                      (immediate_analyses ((last_usage Unknown))))
+                     (((instr_desc
+                        (MReturn
+                         (((immediate_desc
+                            (MImmBinding (MArgBind 1 (WasmValue WasmF64))))
+                           (immediate_analyses ((last_usage Unknown)))))))
+                       (instr_loc
+                        ((loc_start
+                          (position
+                           (file
+                            /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                           (line 111) (col 2772) (bol 2766)))
+                         (loc_end
+                          (position
+                           (file
+                            /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                           (line 111) (col 2780) (bol 2766)))
+                         (loc_ghost false)))))
+                     (((instr_desc
+                        (MImmediate
+                         ((immediate_desc (MImmConst MConstVoid))
+                          (immediate_analyses ((last_usage Unknown))))))
+                       (instr_loc
+                        ((loc_start
+                          (position
+                           (file
+                            /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                           (line 110) (col 2726) (bol 2722)))
+                         (loc_end
+                          (position
+                           (file
+                            /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                           (line 112) (col 2786) (bol 2781)))
+                         (loc_ghost false)))))))
+                   (instr_loc
+                    ((loc_start
+                      (position
+                       (file
+                        /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                       (line 110) (col 2726) (bol 2722)))
+                     (loc_end
+                      (position
+                       (file
+                        /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                       (line 112) (col 2786) (bol 2781)))
+                     (loc_ghost false))))))
+                (instr_loc
+                 ((loc_start
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 110) (col 2726) (bol 2722)))
+                  (loc_end
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 112) (col 2786) (bol 2781)))
+                  (loc_ghost false))))
+               ((instr_desc
+                 (MReturnCallKnown (func tan_1272)
+                  (closure
+                   ((immediate_desc
+                     (MImmBinding (MGlobalBind tan_1272 GrainValue)))
+                    (immediate_analyses ((last_usage Unknown)))))
+                  (func_type
+                   (((WasmValue WasmF64) (WasmValue WasmF64) GrainValue)
+                    ((WasmValue WasmF64))))
+                  (args
+                   (((immediate_desc
+                      (MImmBinding (MArgBind 1 (WasmValue WasmF64))))
+                     (immediate_analyses ((last_usage Unknown))))
+                    ((immediate_desc (MImmConst (MConstWasmF64 0)))
+                     (immediate_analyses ((last_usage Unknown))))
+                    ((immediate_desc (MImmConst MConstTrue))
+                     (immediate_analyses ((last_usage Unknown))))))))
+                (instr_loc
+                 ((loc_start
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 113) (col 2798) (bol 2787)))
+                  (loc_end
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 113) (col 2820) (bol 2787)))
+                  (loc_ghost false)))))
+              (((instr_desc
+                 (MImmediate
+                  ((immediate_desc (MImmConst MConstVoid))
+                   (immediate_analyses ((last_usage Unknown))))))
+                (instr_loc
+                 ((loc_start
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 109) (col 2697) (bol 2695)))
+                  (loc_end
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 114) (col 2824) (bol 2821)))
+                  (loc_ghost false)))))))
+            (instr_loc
+             ((loc_start
+               (position
+                (file
+                 /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                (line 109) (col 2697) (bol 2695)))
+              (loc_end
+               (position
+                (file
+                 /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                (line 114) (col 2824) (bol 2821)))
+              (loc_ghost false))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 109) (col 2697) (bol 2695)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 114) (col 2824) (bol 2821)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 GrainValue)
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_ge_s_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Grain_bool))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 2 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 2146435072)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 117) (col 2860) (bol 2854)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 117) (col 2877) (bol 2854)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 117) (col 2860) (bol 2854)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 117) (col 2877) (bol 2854)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MDrop
+           ((instr_desc
+             (MIf
+              ((immediate_desc (MImmBinding (MLocalBind 2 GrainValue)))
+               (immediate_analyses ((last_usage Unknown))))
+              (((instr_desc
+                 (MStore
+                  (((MLocalBind 3 (WasmValue WasmF64))
+                    ((instr_desc
+                      (MPrim2
+                       (WasmBinaryF64 (wasm_op Op_sub_float64)
+                        (arg_types (Wasm_float64 Wasm_float64))
+                        (ret_type Wasm_float64))
+                       ((immediate_desc
+                         (MImmBinding (MArgBind 1 (WasmValue WasmF64))))
+                        (immediate_analyses ((last_usage Unknown))))
+                       ((immediate_desc
+                         (MImmBinding (MArgBind 1 (WasmValue WasmF64))))
+                        (immediate_analyses ((last_usage Unknown))))))
+                     (instr_loc
+                      ((loc_start
+                        (position
+                         (file
+                          /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                         (line 117) (col 2886) (bol 2854)))
+                       (loc_end
+                        (position
+                         (file
+                          /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                         (line 117) (col 2891) (bol 2854)))
+                       (loc_ghost false))))))))
+                (instr_loc
+                 ((loc_start
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 117) (col 2886) (bol 2854)))
+                  (loc_end
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 117) (col 2891) (bol 2854)))
+                  (loc_ghost false))))
+               ((instr_desc
+                 (MReturn
+                  (((immediate_desc
+                     (MImmBinding (MLocalBind 3 (WasmValue WasmF64))))
+                    (immediate_analyses ((last_usage Unknown)))))))
+                (instr_loc
+                 ((loc_start
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 117) (col 2886) (bol 2854)))
+                  (loc_end
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 117) (col 2891) (bol 2854)))
+                  (loc_ghost false)))))
+              (((instr_desc
+                 (MImmediate
+                  ((immediate_desc (MImmConst MConstVoid))
+                   (immediate_analyses ((last_usage Unknown))))))
+                (instr_loc
+                 ((loc_start
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 117) (col 2856) (bol 2854)))
+                  (loc_end
+                   (position
+                    (file
+                     /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                    (line 117) (col 2891) (bol 2854)))
+                  (loc_ghost false)))))))
+            (instr_loc
+             ((loc_start
+               (position
+                (file
+                 /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                (line 117) (col 2856) (bol 2854)))
+              (loc_end
+               (position
+                (file
+                 /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                (line 117) (col 2891) (bol 2854)))
+              (loc_ghost false))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 117) (col 2856) (bol 2854)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 117) (col 2891) (bol 2854)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 GrainValue)
+             ((instr_desc
+               (MCallKnown (func rempio2_1229)
+                (closure
+                 ((immediate_desc
+                   (MImmBinding (MGlobalBind rempio2_1229 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown)))))
+                (func_type
+                 (((WasmValue WasmF64) (WasmValue WasmI64) GrainValue)
+                  (GrainValue)))
+                (args
+                 (((immediate_desc
+                    (MImmBinding (MArgBind 1 (WasmValue WasmF64))))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc
+                    (MImmBinding (MLocalBind 0 (WasmValue WasmI64))))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmBinding (MLocalBind 0 GrainValue)))
+                   (immediate_analyses ((last_usage Unknown))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 119) (col 2913) (bol 2893)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 119) (col 2932) (bol 2893)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 119) (col 2913) (bol 2893)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 119) (col 2932) (bol 2893)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 4 GrainValue)
+             ((instr_desc
+               (MImmediate
+                ((immediate_desc (MImmConst MConstVoid))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 5 GrainValue)
+             ((instr_desc
+               (MImmediate
+                ((immediate_desc (MImmConst MConstVoid))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 6 GrainValue)
+             ((instr_desc
+               (MImmediate
+                ((immediate_desc (MImmConst MConstVoid))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 7 GrainValue)
+             ((instr_desc
+               (MTupleOp (MTupleGet 0)
+                ((immediate_desc (MImmBinding (MLocalBind 3 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 8 GrainValue)
+             ((instr_desc
+               (MTupleOp (MTupleGet 1)
+                ((immediate_desc (MImmBinding (MLocalBind 3 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 9 GrainValue)
+             ((instr_desc
+               (MTupleOp (MTupleGet 2)
+                ((immediate_desc (MImmBinding (MLocalBind 3 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MDrop
+           ((instr_desc
+             (MSet (MLocalBind 6 GrainValue)
+              ((instr_desc
+                (MImmediate
+                 ((immediate_desc (MImmBinding (MLocalBind 9 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown))))))
+               (instr_loc dummy_loc))))
+            (instr_loc dummy_loc))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MDrop
+           ((instr_desc
+             (MSet (MLocalBind 5 GrainValue)
+              ((instr_desc
+                (MImmediate
+                 ((immediate_desc (MImmBinding (MLocalBind 8 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown))))))
+               (instr_loc dummy_loc))))
+            (instr_loc dummy_loc))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MDrop
+           ((instr_desc
+             (MSet (MLocalBind 4 GrainValue)
+              ((instr_desc
+                (MImmediate
+                 ((immediate_desc (MImmBinding (MLocalBind 7 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown))))))
+               (instr_loc dummy_loc))))
+            (instr_loc dummy_loc))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 (WasmValue WasmI32))
+             ((instr_desc
+               (MCallKnown (func fromInt32_1234)
+                (closure
+                 ((immediate_desc
+                   (MImmBinding (MGlobalBind fromInt32_1234 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown)))))
+                (func_type ((GrainValue) ((WasmValue WasmI32))))
+                (args
+                 (((immediate_desc (MImmBinding (MLocalBind 4 GrainValue)))
+                   (immediate_analyses ((last_usage Unknown))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 120) (col 2943) (bol 2933)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 120) (col 2955) (bol 2933)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 120) (col 2943) (bol 2933)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 120) (col 2955) (bol 2933)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmF64))
+             ((instr_desc
+               (MCallKnown (func fromFloat64_1235)
+                (closure
+                 ((immediate_desc
+                   (MImmBinding (MGlobalBind fromFloat64_1235 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown)))))
+                (func_type ((GrainValue) ((WasmValue WasmF64))))
+                (args
+                 (((immediate_desc (MImmBinding (MLocalBind 5 GrainValue)))
+                   (immediate_analyses ((last_usage Unknown))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 121) (col 2967) (bol 2956)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 121) (col 2982) (bol 2956)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 121) (col 2967) (bol 2956)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 121) (col 2982) (bol 2956)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmF64))
+             ((instr_desc
+               (MCallKnown (func fromFloat64_1235)
+                (closure
+                 ((immediate_desc
+                   (MImmBinding (MGlobalBind fromFloat64_1235 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown)))))
+                (func_type ((GrainValue) ((WasmValue WasmF64))))
+                (args
+                 (((immediate_desc (MImmBinding (MLocalBind 6 GrainValue)))
+                   (immediate_analyses ((last_usage Unknown))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 122) (col 2994) (bol 2983)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 122) (col 3009) (bol 2983)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 122) (col 2994) (bol 2983)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 122) (col 3009) (bol 2983)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 4 (WasmValue WasmI32))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_and_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Wasm_int32))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 3 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 3)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 124) (col 3065) (bol 3049)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                  (line 124) (col 3071) (bol 3049)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 124) (col 3065) (bol 3049)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 124) (col 3071) (bol 3049)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 10 GrainValue)
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_eq_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Grain_bool))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 4 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstWasmI32 0)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 11 GrainValue)
+             ((instr_desc
+               (MIf
+                ((immediate_desc (MImmBinding (MLocalBind 10 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                (((instr_desc
+                   (MImmediate
+                    ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                     (immediate_analyses ((last_usage Unknown))))))
+                  (instr_loc dummy_loc)))
+                (((instr_desc
+                   (MStore
+                    (((MLocalBind 12 GrainValue)
+                      ((instr_desc
+                        (MPrim2
+                         (WasmBinaryI32 (wasm_op Op_eq_int32)
+                          (arg_types (Wasm_int32 Wasm_int32))
+                          (ret_type Grain_bool))
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 4 (WasmValue WasmI32))))
+                          (immediate_analyses ((last_usage Unknown))))
+                         ((immediate_desc (MImmConst (MConstWasmI32 1)))
+                          (immediate_analyses ((last_usage Unknown))))))
+                       (instr_loc dummy_loc))))))
+                  (instr_loc dummy_loc))
+                 ((instr_desc
+                   (MIf
+                    ((immediate_desc
+                      (MImmBinding (MLocalBind 12 GrainValue)))
+                     (immediate_analyses ((last_usage Unknown))))
+                    (((instr_desc
+                       (MImmediate
+                        ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                         (immediate_analyses ((last_usage Unknown))))))
+                      (instr_loc dummy_loc)))
+                    (((instr_desc
+                       (MStore
+                        (((MLocalBind 13 GrainValue)
+                          ((instr_desc
+                            (MPrim2
+                             (WasmBinaryI32 (wasm_op Op_eq_int32)
+                              (arg_types (Wasm_int32 Wasm_int32))
+                              (ret_type Grain_bool))
+                             ((immediate_desc
+                               (MImmBinding
+                                (MLocalBind 4 (WasmValue WasmI32))))
+                              (immediate_analyses ((last_usage Unknown))))
+                             ((immediate_desc (MImmConst (MConstWasmI32 2)))
+                              (immediate_analyses ((last_usage Unknown))))))
+                           (instr_loc dummy_loc))))))
+                      (instr_loc dummy_loc))
+                     ((instr_desc
+                       (MIf
+                        ((immediate_desc
+                          (MImmBinding (MLocalBind 13 GrainValue)))
+                         (immediate_analyses ((last_usage Unknown))))
+                        (((instr_desc
+                           (MImmediate
+                            ((immediate_desc
+                              (MImmConst (MConstSimpleNumber 2)))
+                             (immediate_analyses ((last_usage Unknown))))))
+                          (instr_loc dummy_loc)))
+                        (((instr_desc
+                           (MImmediate
+                            ((immediate_desc
+                              (MImmConst (MConstSimpleNumber 3)))
+                             (immediate_analyses ((last_usage Unknown))))))
+                          (instr_loc dummy_loc)))))
+                      (instr_loc dummy_loc)))))
+                  (instr_loc dummy_loc)))))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 (WasmValue WasmF64))
+             ((instr_desc
+               (MSwitch
+                ((immediate_desc (MImmBinding (MLocalBind 11 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((0
+                  (((instr_desc
+                     (MCallKnown (func tan_1272)
+                      (closure
+                       ((immediate_desc
+                         (MImmBinding (MGlobalBind tan_1272 GrainValue)))
+                        (immediate_analyses ((last_usage Unknown)))))
+                      (func_type
+                       (((WasmValue WasmF64) (WasmValue WasmF64) GrainValue)
+                        ((WasmValue WasmF64))))
+                      (args
+                       (((immediate_desc
+                          (MImmBinding (MLocalBind 0 (WasmValue WasmF64))))
+                         (immediate_analyses ((last_usage Unknown))))
+                        ((immediate_desc
+                          (MImmBinding (MLocalBind 1 (WasmValue WasmF64))))
+                         (immediate_analyses ((last_usage Unknown))))
+                        ((immediate_desc (MImmConst MConstTrue))
+                         (immediate_analyses ((last_usage Unknown))))))))
+                    (instr_loc
+                     ((loc_start
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 125) (col 3085) (bol 3075)))
+                      (loc_end
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 125) (col 3106) (bol 3075)))
+                      (loc_ghost false))))))
+                 (1
+                  (((instr_desc
+                     (MCallKnown (func tan_1272)
+                      (closure
+                       ((immediate_desc
+                         (MImmBinding (MGlobalBind tan_1272 GrainValue)))
+                        (immediate_analyses ((last_usage Unknown)))))
+                      (func_type
+                       (((WasmValue WasmF64) (WasmValue WasmF64) GrainValue)
+                        ((WasmValue WasmF64))))
+                      (args
+                       (((immediate_desc
+                          (MImmBinding (MLocalBind 0 (WasmValue WasmF64))))
+                         (immediate_analyses ((last_usage Unknown))))
+                        ((immediate_desc
+                          (MImmBinding (MLocalBind 1 (WasmValue WasmF64))))
+                         (immediate_analyses ((last_usage Unknown))))
+                        ((immediate_desc (MImmConst MConstFalse))
+                         (immediate_analyses ((last_usage Unknown))))))))
+                    (instr_loc
+                     ((loc_start
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 126) (col 3118) (bol 3108)))
+                      (loc_end
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 126) (col 3140) (bol 3108)))
+                      (loc_ghost false))))))
+                 (2
+                  (((instr_desc
+                     (MCallKnown (func tan_1272)
+                      (closure
+                       ((immediate_desc
+                         (MImmBinding (MGlobalBind tan_1272 GrainValue)))
+                        (immediate_analyses ((last_usage Unknown)))))
+                      (func_type
+                       (((WasmValue WasmF64) (WasmValue WasmF64) GrainValue)
+                        ((WasmValue WasmF64))))
+                      (args
+                       (((immediate_desc
+                          (MImmBinding (MLocalBind 0 (WasmValue WasmF64))))
+                         (immediate_analyses ((last_usage Unknown))))
+                        ((immediate_desc
+                          (MImmBinding (MLocalBind 1 (WasmValue WasmF64))))
+                         (immediate_analyses ((last_usage Unknown))))
+                        ((immediate_desc (MImmConst MConstTrue))
+                         (immediate_analyses ((last_usage Unknown))))))))
+                    (instr_loc
+                     ((loc_start
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 127) (col 3152) (bol 3142)))
+                      (loc_end
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 127) (col 3173) (bol 3142)))
+                      (loc_ghost false))))))
+                 (3
+                  (((instr_desc
+                     (MCallKnown (func tan_1272)
+                      (closure
+                       ((immediate_desc
+                         (MImmBinding (MGlobalBind tan_1272 GrainValue)))
+                        (immediate_analyses ((last_usage Unknown)))))
+                      (func_type
+                       (((WasmValue WasmF64) (WasmValue WasmF64) GrainValue)
+                        ((WasmValue WasmF64))))
+                      (args
+                       (((immediate_desc
+                          (MImmBinding (MLocalBind 0 (WasmValue WasmF64))))
+                         (immediate_analyses ((last_usage Unknown))))
+                        ((immediate_desc
+                          (MImmBinding (MLocalBind 1 (WasmValue WasmF64))))
+                         (immediate_analyses ((last_usage Unknown))))
+                        ((immediate_desc (MImmConst MConstFalse))
+                         (immediate_analyses ((last_usage Unknown))))))))
+                    (instr_loc
+                     ((loc_start
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 128) (col 3184) (bol 3175)))
+                      (loc_end
+                       (position
+                        (file
+                         /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+                        (line 128) (col 3206) (bol 3175)))
+                      (loc_ghost false)))))))
+                (((instr_desc
+                   (MImmediate
+                    ((immediate_desc MImmTrap)
+                     (immediate_analyses ((last_usage Unknown))))))
+                  (instr_loc dummy_loc)))
+                (WasmValue WasmF64)))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MReturn
+           (((immediate_desc
+              (MImmBinding (MLocalBind 2 (WasmValue WasmF64))))
+             (immediate_analyses ((last_usage Unknown)))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 124) (col 3051) (bol 3049)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 129) (col 3211) (bol 3208)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 15) (stack_size_i32 5) (stack_size_i64 2)
+        (stack_size_f32 0) (stack_size_f64 4)))
+      (attrs
+       (((txt Unsafe)
+         (loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 96) (col 2335) (bol 2334)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+             (line 96) (col 2341) (bol 2334)))
+           (loc_ghost false))))))
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+          (line 97) (col 2360) (bol 2342)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+          (line 130) (col 3213) (bol 3212)))
+        (loc_ghost false))))))
+   (imports
+    (((mimp_id ((stamp 1272) (name tan)))
+      (mimp_mod runtime/math/kernel/tan.gr) (mimp_name tan)
+      (mimp_type
+       (MFuncImport
+        (GrainValue (WasmValue WasmF64) (WasmValue WasmF64)
+         (WasmValue WasmRef))
+        ((WasmValue WasmF64))))
+      (mimp_kind MImportGrain) (mimp_setup MSetupNone) (mimp_used true))
+     ((mimp_id ((stamp 1272) (name tan)))
+      (mimp_mod runtime/math/kernel/tan.gr) (mimp_name tan)
+      (mimp_type (MGlobalImport GrainValue true)) (mimp_kind MImportGrain)
+      (mimp_setup MCallGetter) (mimp_used true))
+     ((mimp_id ((stamp 1243) (name cos)))
+      (mimp_mod runtime/math/kernel/cos.gr) (mimp_name cos)
+      (mimp_type
+       (MFuncImport (GrainValue (WasmValue WasmF64) (WasmValue WasmF64))
+        ((WasmValue WasmF64))))
+      (mimp_kind MImportGrain) (mimp_setup MSetupNone) (mimp_used true))
+     ((mimp_id ((stamp 1243) (name cos)))
+      (mimp_mod runtime/math/kernel/cos.gr) (mimp_name cos)
+      (mimp_type (MGlobalImport GrainValue true)) (mimp_kind MImportGrain)
+      (mimp_setup MCallGetter) (mimp_used true))
+     ((mimp_id ((stamp 1235) (name fromFloat64)))
+      (mimp_mod runtime/unsafe/conv.gr) (mimp_name fromFloat64)
+      (mimp_type
+       (MFuncImport (GrainValue (WasmValue WasmRef)) ((WasmValue WasmF64))))
+      (mimp_kind MImportGrain) (mimp_setup MSetupNone) (mimp_used true))
+     ((mimp_id ((stamp 1235) (name fromFloat64)))
+      (mimp_mod runtime/unsafe/conv.gr) (mimp_name fromFloat64)
+      (mimp_type (MGlobalImport GrainValue true)) (mimp_kind MImportGrain)
+      (mimp_setup MCallGetter) (mimp_used true))
+     ((mimp_id ((stamp 1234) (name fromInt32)))
+      (mimp_mod runtime/unsafe/conv.gr) (mimp_name fromInt32)
+      (mimp_type
+       (MFuncImport (GrainValue (WasmValue WasmRef)) ((WasmValue WasmI32))))
+      (mimp_kind MImportGrain) (mimp_setup MSetupNone) (mimp_used true))
+     ((mimp_id ((stamp 1234) (name fromInt32)))
+      (mimp_mod runtime/unsafe/conv.gr) (mimp_name fromInt32)
+      (mimp_type (MGlobalImport GrainValue true)) (mimp_kind MImportGrain)
+      (mimp_setup MCallGetter) (mimp_used true))
+     ((mimp_id ((stamp 1229) (name rempio2)))
+      (mimp_mod runtime/math/rempio2.gr) (mimp_name rempio2)
+      (mimp_type
+       (MFuncImport
+        (GrainValue (WasmValue WasmF64) (WasmValue WasmI64)
+         (WasmValue WasmRef))
+        ((WasmValue WasmRef))))
+      (mimp_kind MImportGrain) (mimp_setup MSetupNone) (mimp_used true))
+     ((mimp_id ((stamp 1229) (name rempio2)))
+      (mimp_mod runtime/math/rempio2.gr) (mimp_name rempio2)
+      (mimp_type (MGlobalImport GrainValue true)) (mimp_kind MImportGrain)
+      (mimp_setup MCallGetter) (mimp_used true))
+     ((mimp_id ((stamp 1225) (name sin)))
+      (mimp_mod runtime/math/kernel/sin.gr) (mimp_name sin)
+      (mimp_type
+       (MFuncImport
+        (GrainValue (WasmValue WasmF64) (WasmValue WasmF64)
+         (WasmValue WasmRef))
+        ((WasmValue WasmF64))))
+      (mimp_kind MImportGrain) (mimp_setup MSetupNone) (mimp_used true))
+     ((mimp_id ((stamp 1225) (name sin)))
+      (mimp_mod runtime/math/kernel/sin.gr) (mimp_name sin)
+      (mimp_type (MGlobalImport GrainValue true)) (mimp_kind MImportGrain)
+      (mimp_setup MCallGetter) (mimp_used true))))
+   (exports
+    ((WasmFunctionExport (ex_function_name tan)
+      (ex_function_internal_name tan_1209))
+     (WasmGlobalExport (ex_global_name tan)
+      (ex_global_internal_name tan_1209))
+     (WasmFunctionExport (ex_function_name cos)
+      (ex_function_internal_name cos_1197))
+     (WasmGlobalExport (ex_global_name cos)
+      (ex_global_internal_name cos_1197))
+     (WasmFunctionExport (ex_function_name sin)
+      (ex_function_internal_name sin_1062))
+     (WasmGlobalExport (ex_global_name sin)
+      (ex_global_internal_name sin_1062))))
+   (main_body
+    (((instr_desc
+       (MStore
+        (((MGlobalBind sin_1062 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+               (line 21) (col 588) (bol 570)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+               (line 56) (col 1443) (bol 1442)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+          (line 21) (col 588) (bol 570)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+          (line 56) (col 1443) (bol 1442)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind cos_1197 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+               (line 59) (col 1471) (bol 1453)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+               (line 94) (col 2332) (bol 2331)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+          (line 59) (col 1471) (bol 1453)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+          (line 94) (col 2332) (bol 2331)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind tan_1209 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+               (line 97) (col 2360) (bol 2342)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+               (line 130) (col 3213) (bol 3212)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+          (line 97) (col 2360) (bol 2342)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+          (line 130) (col 3213) (bol 3212)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MImmediate
+        ((immediate_desc (MImmConst MConstVoid))
+         (immediate_analyses ((last_usage Unknown))))))
+      (instr_loc dummy_loc))))
+   (main_body_stack_size
+    ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+     (stack_size_f32 0) (stack_size_f64 0)))
+   (globals
+    (((id ((stamp 1197) (name cos))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1209) (name tan))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1062) (name sin))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))))
+   (compilation_mode Normal) (type_metadata <opaque>)
+   (prog_loc
+    ((loc_start
+      (position
+       (file
+        /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+       (line 1) (col 0) (bol 0)))
+     (loc_end
+      (position
+       (file
+        /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/trig.gr)
+       (line 131) (col 3214) (bol 3214)))
+     (loc_ghost false)))))
+ (signature <opaque>))

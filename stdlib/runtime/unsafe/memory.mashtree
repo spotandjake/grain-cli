@@ -1,0 +1,1014 @@
+((mash_code
+  ((functions
+    (((id ((stamp 1090) (name copy))) (name (copy))
+      (args
+       (GrainValue (WasmValue WasmI32) (WasmValue WasmI32)
+        (WasmValue WasmI32)))
+      (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MPrimN WasmMemoryCopy
+           (((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmI32))))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 2 (WasmValue WasmI32))))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 3 (WasmValue WasmI32))))
+             (immediate_analyses ((last_usage Unknown)))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+             (line 16) (col 442) (bol 434)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+             (line 16) (col 478) (bol 434)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+          (line 16) (col 442) (bol 434)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+          (line 16) (col 478) (bol 434)))
+        (loc_ghost false))))
+     ((id ((stamp 1309) (name fill))) (name (fill))
+      (args
+       (GrainValue (WasmValue WasmI32) (WasmValue WasmI32)
+        (WasmValue WasmI32)))
+      (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MPrimN WasmMemoryFill
+           (((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmI32))))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 2 (WasmValue WasmI32))))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 3 (WasmValue WasmI32))))
+             (immediate_analyses ((last_usage Unknown)))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+             (line 25) (col 768) (bol 760)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+             (line 25) (col 804) (bol 760)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+          (line 25) (col 768) (bol 760)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+          (line 25) (col 804) (bol 760)))
+        (loc_ghost false))))
+     ((id ((stamp 1313) (name compare))) (name (compare))
+      (args
+       (GrainValue (WasmValue WasmI32) (WasmValue WasmI32)
+        (WasmValue WasmI32)))
+      (return_type ((WasmValue WasmI32))) (closure ())
+      (body
+       (((instr_desc
+          (MPrimN WasmMemoryCompare
+           (((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmI32))))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 2 (WasmValue WasmI32))))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 3 (WasmValue WasmI32))))
+             (immediate_analyses ((last_usage Unknown)))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+             (line 36) (col 1183) (bol 1175)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+             (line 36) (col 1225) (bol 1175)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+          (line 36) (col 1183) (bol 1175)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+          (line 36) (col 1225) (bol 1175)))
+        (loc_ghost false))))
+     ((id ((stamp 1317) (name copyRefArrayToLinearMemory)))
+      (name (copyRefArrayToLinearMemory))
+      (args (GrainValue (WasmValue WasmI32) GrainValue (WasmValue WasmI32)))
+      (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI32))
+             ((instr_desc
+               (MImmediate
+                ((immediate_desc (MImmConst (MConstWasmI32 0)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MFor
+           ((((instr_desc
+               (MStore
+                (((MLocalBind 6 (WasmValue WasmI32))
+                  ((instr_desc
+                    (MImmediate
+                     ((immediate_desc
+                       (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                      (immediate_analyses ((last_usage Unknown))))))
+                   (instr_loc
+                    ((loc_start
+                      (position
+                       (file
+                        /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                       (line 46) (col 1502) (bol 1479)))
+                     (loc_end
+                      (position
+                       (file
+                        /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                       (line 46) (col 1503) (bol 1479)))
+                     (loc_ghost false))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                  (line 46) (col 1502) (bol 1479)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                  (line 46) (col 1503) (bol 1479)))
+                (loc_ghost false))))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_lt_u_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Grain_bool))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 6 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MArgBind 3 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                  (line 46) (col 1502) (bol 1479)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                  (line 46) (col 1512) (bol 1479)))
+                (loc_ghost false))))))
+           ((((instr_desc
+               (MStore
+                (((MLocalBind 4 (WasmValue WasmI32))
+                  ((instr_desc
+                    (MImmediate
+                     ((immediate_desc
+                       (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                      (immediate_analyses ((last_usage Unknown))))))
+                   (instr_loc
+                    ((loc_start
+                      (position
+                       (file
+                        /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                       (line 46) (col 1514) (bol 1479)))
+                     (loc_end
+                      (position
+                       (file
+                        /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                       (line 46) (col 1515) (bol 1479)))
+                     (loc_ghost false))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                  (line 46) (col 1514) (bol 1479)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                  (line 46) (col 1515) (bol 1479)))
+                (loc_ghost false))))
+             ((instr_desc
+               (MStore
+                (((MLocalBind 5 (WasmValue WasmI32))
+                  ((instr_desc
+                    (MPrim2
+                     (WasmBinaryI32 (wasm_op Op_add_int32)
+                      (arg_types (Wasm_int32 Wasm_int32))
+                      (ret_type Wasm_int32))
+                     ((immediate_desc
+                       (MImmBinding (MLocalBind 4 (WasmValue WasmI32))))
+                      (immediate_analyses ((last_usage Unknown))))
+                     ((immediate_desc (MImmConst (MConstWasmI32 1)))
+                      (immediate_analyses ((last_usage Unknown))))))
+                   (instr_loc
+                    ((loc_start
+                      (position
+                       (file
+                        /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                       (line 46) (col 1514) (bol 1479)))
+                     (loc_end
+                      (position
+                       (file
+                        /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                       (line 46) (col 1521) (bol 1479)))
+                     (loc_ghost false))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                  (line 46) (col 1514) (bol 1479)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                  (line 46) (col 1521) (bol 1479)))
+                (loc_ghost false))))
+             ((instr_desc
+               (MSet (MLocalBind 0 (WasmValue WasmI32))
+                ((instr_desc
+                  (MImmediate
+                   ((immediate_desc
+                     (MImmBinding (MLocalBind 5 (WasmValue WasmI32))))
+                    (immediate_analyses ((last_usage Unknown))))))
+                 (instr_loc
+                  ((loc_start
+                    (position
+                     (file
+                      /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                     (line 46) (col 1514) (bol 1479)))
+                   (loc_end
+                    (position
+                     (file
+                      /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                     (line 46) (col 1521) (bol 1479)))
+                   (loc_ghost false))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                  (line 46) (col 1514) (bol 1479)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                  (line 46) (col 1521) (bol 1479)))
+                (loc_ghost false))))))
+           (((instr_desc
+              (MStore
+               (((MLocalBind 1 (WasmValue WasmI32))
+                 ((instr_desc
+                   (MImmediate
+                    ((immediate_desc
+                      (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                     (immediate_analyses ((last_usage Unknown))))))
+                  (instr_loc
+                   ((loc_start
+                     (position
+                      (file
+                       /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                      (line 47) (col 1575) (bol 1525)))
+                    (loc_end
+                     (position
+                      (file
+                       /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                      (line 47) (col 1576) (bol 1525)))
+                    (loc_ghost false))))))))
+             (instr_loc
+              ((loc_start
+                (position
+                 (file
+                  /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                 (line 47) (col 1575) (bol 1525)))
+               (loc_end
+                (position
+                 (file
+                  /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                 (line 47) (col 1576) (bol 1525)))
+               (loc_ghost false))))
+            ((instr_desc
+              (MStore
+               (((MLocalBind 2 (WasmValue WasmI32))
+                 ((instr_desc
+                   (MCallKnown (func getI8U_1360)
+                    (closure
+                     ((immediate_desc
+                       (MImmBinding (MGlobalBind getI8U_1360 GrainValue)))
+                      (immediate_analyses ((last_usage Unknown)))))
+                    (func_type
+                     ((GrainValue (WasmValue WasmI32)) ((WasmValue WasmI32))))
+                    (args
+                     (((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                       (immediate_analyses ((last_usage Unknown))))
+                      ((immediate_desc
+                        (MImmBinding (MLocalBind 1 (WasmValue WasmI32))))
+                       (immediate_analyses ((last_usage Unknown))))))))
+                  (instr_loc
+                   ((loc_start
+                     (position
+                      (file
+                       /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                      (line 47) (col 1550) (bol 1525)))
+                    (loc_end
+                     (position
+                      (file
+                       /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                      (line 47) (col 1577) (bol 1525)))
+                    (loc_ghost false))))))))
+             (instr_loc
+              ((loc_start
+                (position
+                 (file
+                  /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                 (line 47) (col 1550) (bol 1525)))
+               (loc_end
+                (position
+                 (file
+                  /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                 (line 47) (col 1577) (bol 1525)))
+               (loc_ghost false))))
+            ((instr_desc
+              (MStore
+               (((MLocalBind 3 (WasmValue WasmI32))
+                 ((instr_desc
+                   (MImmediate
+                    ((immediate_desc
+                      (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                     (immediate_analyses ((last_usage Unknown))))))
+                  (instr_loc
+                   ((loc_start
+                     (position
+                      (file
+                       /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                      (line 47) (col 1579) (bol 1525)))
+                    (loc_end
+                     (position
+                      (file
+                       /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                      (line 47) (col 1580) (bol 1525)))
+                    (loc_ghost false))))))))
+             (instr_loc
+              ((loc_start
+                (position
+                 (file
+                  /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                 (line 47) (col 1579) (bol 1525)))
+               (loc_end
+                (position
+                 (file
+                  /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                 (line 47) (col 1580) (bol 1525)))
+               (loc_ghost false))))
+            ((instr_desc
+              (MPrimN (WasmStoreI32 (sz 1))
+               (((immediate_desc
+                  (MImmBinding (MArgBind 1 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 2 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 3 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown)))))))
+             (instr_loc
+              ((loc_start
+                (position
+                 (file
+                  /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                 (line 47) (col 1529) (bol 1525)))
+               (loc_end
+                (position
+                 (file
+                  /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                 (line 47) (col 1581) (bol 1525)))
+               (loc_ghost false)))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+             (line 46) (col 1481) (bol 1479)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+             (line 48) (col 1585) (bol 1582)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 7) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+          (line 45) (col 1454) (bol 1413)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+          (line 49) (col 1587) (bol 1586)))
+        (loc_ghost false))))
+     ((id ((stamp 1340) (name copyLinearMemoryToRefArray)))
+      (name (copyLinearMemoryToRefArray))
+      (args (GrainValue GrainValue (WasmValue WasmI32) (WasmValue WasmI32)))
+      (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI32))
+             ((instr_desc
+               (MImmediate
+                ((immediate_desc (MImmConst (MConstWasmI32 0)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MFor
+           ((((instr_desc
+               (MStore
+                (((MLocalBind 6 (WasmValue WasmI32))
+                  ((instr_desc
+                    (MImmediate
+                     ((immediate_desc
+                       (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                      (immediate_analyses ((last_usage Unknown))))))
+                   (instr_loc
+                    ((loc_start
+                      (position
+                       (file
+                        /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                       (line 59) (col 1868) (bol 1845)))
+                     (loc_end
+                      (position
+                       (file
+                        /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                       (line 59) (col 1869) (bol 1845)))
+                     (loc_ghost false))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                  (line 59) (col 1868) (bol 1845)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                  (line 59) (col 1869) (bol 1845)))
+                (loc_ghost false))))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryI32 (wasm_op Op_lt_u_int32)
+                 (arg_types (Wasm_int32 Wasm_int32)) (ret_type Grain_bool))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 6 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MArgBind 3 (WasmValue WasmI32))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                  (line 59) (col 1868) (bol 1845)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                  (line 59) (col 1878) (bol 1845)))
+                (loc_ghost false))))))
+           ((((instr_desc
+               (MStore
+                (((MLocalBind 4 (WasmValue WasmI32))
+                  ((instr_desc
+                    (MImmediate
+                     ((immediate_desc
+                       (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                      (immediate_analyses ((last_usage Unknown))))))
+                   (instr_loc
+                    ((loc_start
+                      (position
+                       (file
+                        /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                       (line 59) (col 1880) (bol 1845)))
+                     (loc_end
+                      (position
+                       (file
+                        /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                       (line 59) (col 1881) (bol 1845)))
+                     (loc_ghost false))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                  (line 59) (col 1880) (bol 1845)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                  (line 59) (col 1881) (bol 1845)))
+                (loc_ghost false))))
+             ((instr_desc
+               (MStore
+                (((MLocalBind 5 (WasmValue WasmI32))
+                  ((instr_desc
+                    (MPrim2
+                     (WasmBinaryI32 (wasm_op Op_add_int32)
+                      (arg_types (Wasm_int32 Wasm_int32))
+                      (ret_type Wasm_int32))
+                     ((immediate_desc
+                       (MImmBinding (MLocalBind 4 (WasmValue WasmI32))))
+                      (immediate_analyses ((last_usage Unknown))))
+                     ((immediate_desc (MImmConst (MConstWasmI32 1)))
+                      (immediate_analyses ((last_usage Unknown))))))
+                   (instr_loc
+                    ((loc_start
+                      (position
+                       (file
+                        /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                       (line 59) (col 1880) (bol 1845)))
+                     (loc_end
+                      (position
+                       (file
+                        /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                       (line 59) (col 1887) (bol 1845)))
+                     (loc_ghost false))))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                  (line 59) (col 1880) (bol 1845)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                  (line 59) (col 1887) (bol 1845)))
+                (loc_ghost false))))
+             ((instr_desc
+               (MSet (MLocalBind 0 (WasmValue WasmI32))
+                ((instr_desc
+                  (MImmediate
+                   ((immediate_desc
+                     (MImmBinding (MLocalBind 5 (WasmValue WasmI32))))
+                    (immediate_analyses ((last_usage Unknown))))))
+                 (instr_loc
+                  ((loc_start
+                    (position
+                     (file
+                      /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                     (line 59) (col 1880) (bol 1845)))
+                   (loc_end
+                    (position
+                     (file
+                      /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                     (line 59) (col 1887) (bol 1845)))
+                   (loc_ghost false))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                  (line 59) (col 1880) (bol 1845)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                  (line 59) (col 1887) (bol 1845)))
+                (loc_ghost false))))))
+           (((instr_desc
+              (MStore
+               (((MLocalBind 1 (WasmValue WasmI32))
+                 ((instr_desc
+                   (MImmediate
+                    ((immediate_desc
+                      (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                     (immediate_analyses ((last_usage Unknown))))))
+                  (instr_loc
+                   ((loc_start
+                     (position
+                      (file
+                       /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                      (line 60) (col 1920) (bol 1891)))
+                    (loc_end
+                     (position
+                      (file
+                       /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                      (line 60) (col 1921) (bol 1891)))
+                    (loc_ghost false))))))))
+             (instr_loc
+              ((loc_start
+                (position
+                 (file
+                  /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                 (line 60) (col 1920) (bol 1891)))
+               (loc_end
+                (position
+                 (file
+                  /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                 (line 60) (col 1921) (bol 1891)))
+               (loc_ghost false))))
+            ((instr_desc
+              (MStore
+               (((MLocalBind 2 (WasmValue WasmI32))
+                 ((instr_desc
+                   (MImmediate
+                    ((immediate_desc
+                      (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                     (immediate_analyses ((last_usage Unknown))))))
+                  (instr_loc
+                   ((loc_start
+                     (position
+                      (file
+                       /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                      (line 60) (col 1943) (bol 1891)))
+                    (loc_end
+                     (position
+                      (file
+                       /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                      (line 60) (col 1944) (bol 1891)))
+                    (loc_ghost false))))))))
+             (instr_loc
+              ((loc_start
+                (position
+                 (file
+                  /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                 (line 60) (col 1943) (bol 1891)))
+               (loc_end
+                (position
+                 (file
+                  /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                 (line 60) (col 1944) (bol 1891)))
+               (loc_ghost false))))
+            ((instr_desc
+              (MStore
+               (((MLocalBind 3 (WasmValue WasmI32))
+                 ((instr_desc
+                   (MPrim2 (WasmLoadI32 (sz 1) (signed false))
+                    ((immediate_desc
+                      (MImmBinding (MArgBind 2 (WasmValue WasmI32))))
+                     (immediate_analyses ((last_usage Unknown))))
+                    ((immediate_desc
+                      (MImmBinding (MLocalBind 2 (WasmValue WasmI32))))
+                     (immediate_analyses ((last_usage Unknown))))))
+                  (instr_loc
+                   ((loc_start
+                     (position
+                      (file
+                       /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                      (line 60) (col 1923) (bol 1891)))
+                    (loc_end
+                     (position
+                      (file
+                       /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                      (line 60) (col 1945) (bol 1891)))
+                    (loc_ghost false))))))))
+             (instr_loc
+              ((loc_start
+                (position
+                 (file
+                  /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                 (line 60) (col 1923) (bol 1891)))
+               (loc_end
+                (position
+                 (file
+                  /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                 (line 60) (col 1945) (bol 1891)))
+               (loc_ghost false))))
+            ((instr_desc
+              (MCallKnown (func setI8_1371)
+               (closure
+                ((immediate_desc
+                  (MImmBinding (MGlobalBind setI8_1371 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown)))))
+               (func_type
+                ((GrainValue (WasmValue WasmI32) (WasmValue WasmI32))
+                 (GrainValue)))
+               (args
+                (((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown))))
+                 ((immediate_desc
+                   (MImmBinding (MLocalBind 1 (WasmValue WasmI32))))
+                  (immediate_analyses ((last_usage Unknown))))
+                 ((immediate_desc
+                   (MImmBinding (MLocalBind 3 (WasmValue WasmI32))))
+                  (immediate_analyses ((last_usage Unknown))))))))
+             (instr_loc
+              ((loc_start
+                (position
+                 (file
+                  /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                 (line 60) (col 1895) (bol 1891)))
+               (loc_end
+                (position
+                 (file
+                  /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+                 (line 60) (col 1946) (bol 1891)))
+               (loc_ghost false)))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+             (line 59) (col 1847) (bol 1845)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+             (line 61) (col 1950) (bol 1947)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 7) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+          (line 58) (col 1820) (bol 1779)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+          (line 62) (col 1952) (bol 1951)))
+        (loc_ghost false))))))
+   (imports
+    (((mimp_id ((stamp 1371) (name setI8)))
+      (mimp_mod runtime/unsafe/wasmref.gr) (mimp_name WasmArrayRef.setI8)
+      (mimp_type
+       (MFuncImport
+        (GrainValue (WasmValue WasmRef) (WasmValue WasmI32)
+         (WasmValue WasmI32))
+        (GrainValue)))
+      (mimp_kind MImportGrain) (mimp_setup MSetupNone) (mimp_used true))
+     ((mimp_id ((stamp 1371) (name setI8)))
+      (mimp_mod runtime/unsafe/wasmref.gr) (mimp_name WasmArrayRef.setI8)
+      (mimp_type (MGlobalImport GrainValue true)) (mimp_kind MImportGrain)
+      (mimp_setup MCallGetter) (mimp_used true))
+     ((mimp_id ((stamp 1360) (name getI8U)))
+      (mimp_mod runtime/unsafe/wasmref.gr) (mimp_name WasmArrayRef.getI8U)
+      (mimp_type
+       (MFuncImport (GrainValue (WasmValue WasmRef) (WasmValue WasmI32))
+        ((WasmValue WasmI32))))
+      (mimp_kind MImportGrain) (mimp_setup MSetupNone) (mimp_used true))
+     ((mimp_id ((stamp 1360) (name getI8U)))
+      (mimp_mod runtime/unsafe/wasmref.gr) (mimp_name WasmArrayRef.getI8U)
+      (mimp_type (MGlobalImport GrainValue true)) (mimp_kind MImportGrain)
+      (mimp_setup MCallGetter) (mimp_used true))))
+   (exports
+    ((WasmFunctionExport (ex_function_name copyLinearMemoryToRefArray)
+      (ex_function_internal_name copyLinearMemoryToRefArray_1340))
+     (WasmGlobalExport (ex_global_name copyLinearMemoryToRefArray)
+      (ex_global_internal_name copyLinearMemoryToRefArray_1340))
+     (WasmFunctionExport (ex_function_name copyRefArrayToLinearMemory)
+      (ex_function_internal_name copyRefArrayToLinearMemory_1317))
+     (WasmGlobalExport (ex_global_name copyRefArrayToLinearMemory)
+      (ex_global_internal_name copyRefArrayToLinearMemory_1317))
+     (WasmFunctionExport (ex_function_name compare)
+      (ex_function_internal_name compare_1313))
+     (WasmGlobalExport (ex_global_name compare)
+      (ex_global_internal_name compare_1313))
+     (WasmFunctionExport (ex_function_name fill)
+      (ex_function_internal_name fill_1309))
+     (WasmGlobalExport (ex_global_name fill)
+      (ex_global_internal_name fill_1309))
+     (WasmFunctionExport (ex_function_name copy)
+      (ex_function_internal_name copy_1090))
+     (WasmGlobalExport (ex_global_name copy)
+      (ex_global_internal_name copy_1090))))
+   (main_body
+    (((instr_desc
+       (MStore
+        (((MGlobalBind copy_1090 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+               (line 16) (col 442) (bol 434)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+               (line 16) (col 478) (bol 434)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+          (line 16) (col 442) (bol 434)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+          (line 16) (col 478) (bol 434)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind fill_1309 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+               (line 25) (col 768) (bol 760)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+               (line 25) (col 804) (bol 760)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+          (line 25) (col 768) (bol 760)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+          (line 25) (col 804) (bol 760)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind compare_1313 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+               (line 36) (col 1183) (bol 1175)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+               (line 36) (col 1225) (bol 1175)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+          (line 36) (col 1183) (bol 1175)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+          (line 36) (col 1225) (bol 1175)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind copyRefArrayToLinearMemory_1317 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+               (line 45) (col 1454) (bol 1413)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+               (line 49) (col 1587) (bol 1586)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+          (line 45) (col 1454) (bol 1413)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+          (line 49) (col 1587) (bol 1586)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind copyLinearMemoryToRefArray_1340 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+               (line 58) (col 1820) (bol 1779)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+               (line 62) (col 1952) (bol 1951)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+          (line 58) (col 1820) (bol 1779)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+          (line 62) (col 1952) (bol 1951)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MImmediate
+        ((immediate_desc (MImmConst MConstVoid))
+         (immediate_analyses ((last_usage Unknown))))))
+      (instr_loc dummy_loc))))
+   (main_body_stack_size
+    ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+     (stack_size_f32 0) (stack_size_f64 0)))
+   (globals
+    (((id ((stamp 1313) (name compare))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1340) (name copyLinearMemoryToRefArray))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1309) (name fill))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1317) (name copyRefArrayToLinearMemory))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1090) (name copy))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))))
+   (compilation_mode Runtime) (type_metadata <opaque>)
+   (prog_loc
+    ((loc_start
+      (position
+       (file
+        /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+       (line 1) (col 0) (bol 0)))
+     (loc_end
+      (position
+       (file
+        /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/memory.gr)
+       (line 63) (col 1953) (bol 1953)))
+     (loc_ghost false)))))
+ (signature <opaque>))

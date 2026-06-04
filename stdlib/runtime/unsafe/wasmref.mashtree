@@ -1,0 +1,2585 @@
+((mash_code
+  ((functions
+    (((id ((stamp 1000) (name fromGrain))) (name (fromGrain))
+      (args (GrainValue GrainValue)) (return_type ((WasmValue WasmRef)))
+      (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 WasmFromGrain
+           ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 18) (col 484) (bol 476)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 18) (col 523) (bol 476)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 18) (col 484) (bol 476)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 18) (col 523) (bol 476)))
+        (loc_ghost false))))
+     ((id ((stamp 1392) (name toGrain))) (name (toGrain))
+      (args (GrainValue (WasmValue WasmRef))) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 WasmToGrain
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 32) (col 1096) (bol 1088)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 32) (col 1131) (bol 1088)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 32) (col 1096) (bol 1088)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 32) (col 1131) (bol 1088)))
+        (loc_ghost false))))
+     ((id ((stamp 1394) (name isRefI31))) (name (isRefI31))
+      (args (GrainValue (WasmValue WasmRef))) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 IsRefI31
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 40) (col 1314) (bol 1306)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 40) (col 1347) (bol 1306)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 40) (col 1314) (bol 1306)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 40) (col 1347) (bol 1306)))
+        (loc_ghost false))))
+     ((id ((stamp 1396) (name isGrainHeapValue))) (name (isGrainHeapValue))
+      (args (GrainValue (WasmValue WasmRef))) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 IsGrainHeapValue
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 48) (col 1544) (bol 1536)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 48) (col 1595) (bol 1536)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 48) (col 1544) (bol 1536)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 48) (col 1595) (bol 1536)))
+        (loc_ghost false))))
+     ((id ((stamp 1398) (name i31GetS))) (name (i31GetS))
+      (args (GrainValue (WasmValue WasmRef)))
+      (return_type ((WasmValue WasmI32))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 (I31Get (signed true))
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 58) (col 1856) (bol 1848)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 58) (col 1888) (bol 1848)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 58) (col 1856) (bol 1848)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 58) (col 1888) (bol 1848)))
+        (loc_ghost false))))
+     ((id ((stamp 1400) (name i31GetU))) (name (i31GetU))
+      (args (GrainValue (WasmValue WasmRef)))
+      (return_type ((WasmValue WasmI32))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 (I31Get (signed false))
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 68) (col 2153) (bol 2145)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 68) (col 2185) (bol 2145)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 68) (col 2153) (bol 2145)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 68) (col 2185) (bol 2145)))
+        (loc_ghost false))))
+     ((id ((stamp 1402) (name i31Make))) (name (i31Make))
+      (args (GrainValue (WasmValue WasmI32)))
+      (return_type ((WasmValue WasmRef))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 I31Make
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 76) (col 2354) (bol 2346)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 76) (col 2385) (bol 2346)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 76) (col 2354) (bol 2346)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 76) (col 2385) (bol 2346)))
+        (loc_ghost false))))
+     ((id ((stamp 1407) (name ==))) (name (==))
+      (args (GrainValue (WasmValue WasmRef) (WasmValue WasmRef)))
+      (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MPrim2 Is
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))
+           ((immediate_desc (MImmBinding (MArgBind 2 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 89) (col 2850) (bol 2793)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 89) (col 2866) (bol 2793)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 89) (col 2812) (bol 2793)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 89) (col 2866) (bol 2793)))
+        (loc_ghost false))))
+     ((id ((stamp 1412) (name !=))) (name (!=))
+      (args (GrainValue (WasmValue WasmRef) (WasmValue WasmRef)))
+      (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 GrainValue)
+             ((instr_desc
+               (MPrim2 Is
+                ((immediate_desc
+                  (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MArgBind 2 (WasmValue WasmRef))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                  (line 102) (col 3347) (bol 3288)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                  (line 102) (col 3363) (bol 3288)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 102) (col 3347) (bol 3288)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 102) (col 3363) (bol 3288)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MPrim1 Not
+           ((immediate_desc (MImmBinding (MLocalBind 0 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 102) (col 3345) (bol 3288)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 102) (col 3364) (bol 3288)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 1) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 102) (col 3307) (bol 3288)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 102) (col 3364) (bol 3288)))
+        (loc_ghost false))))
+     ((id ((stamp 1419) (name makeAny))) (name (makeAny))
+      (args (GrainValue (WasmValue WasmI32) (WasmValue WasmRef)))
+      (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MPrim2 AllocateWasmArrayAnyRef
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))
+           ((immediate_desc (MImmBinding (MArgBind 2 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 122) (col 4100) (bol 4096)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 122) (col 4145) (bol 4096)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 121) (col 4052) (bol 4028)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 122) (col 4159) (bol 4096)))
+        (loc_ghost false))))
+     ((id ((stamp 1422) (name fromWasmRef))) (name (fromWasmRef))
+      (args (GrainValue (WasmValue WasmRef))) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MImmediate
+           ((immediate_desc (MImmBinding (MArgBind 1 (WasmValue WasmRef))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 132) (col 4574) (bol 4528)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 132) (col 4577) (bol 4528)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 132) (col 4556) (bol 4528)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 132) (col 4591) (bol 4528)))
+        (loc_ghost false))))
+     ((id ((stamp 1426) (name length))) (name (length))
+      (args (GrainValue GrainValue)) (return_type ((WasmValue WasmI32)))
+      (closure ())
+      (body
+       (((instr_desc
+          (MPrim1 WasmRefArrayLen
+           ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 141) (col 4856) (bol 4808)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 141) (col 4871) (bol 4808)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 141) (col 4831) (bol 4808)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 141) (col 4871) (bol 4808)))
+        (loc_ghost false))))
+     ((id ((stamp 1431) (name getI8S))) (name (getI8S))
+      (args (GrainValue GrainValue (WasmValue WasmI32)))
+      (return_type ((WasmValue WasmI32))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim2 (WasmRefArrayGet (array_type Wasm_packed_i8) (signed true))
+           ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))
+           ((immediate_desc (MImmBinding (MArgBind 2 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 156) (col 5480) (bol 5476)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 156) (col 5505) (bol 5476)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 155) (col 5435) (bol 5412)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 156) (col 5505) (bol 5476)))
+        (loc_ghost false))))
+     ((id ((stamp 1437) (name getI8U))) (name (getI8U))
+      (args (GrainValue GrainValue (WasmValue WasmI32)))
+      (return_type ((WasmValue WasmI32))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim2
+           (WasmRefArrayGet (array_type Wasm_packed_i8) (signed false))
+           ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))
+           ((immediate_desc (MImmBinding (MArgBind 2 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 171) (col 6118) (bol 6114)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 171) (col 6143) (bol 6114)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 170) (col 6073) (bol 6050)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 171) (col 6143) (bol 6114)))
+        (loc_ghost false))))
+     ((id ((stamp 1444) (name setI8))) (name (setI8))
+      (args (GrainValue GrainValue (WasmValue WasmI32) (WasmValue WasmI32)))
+      (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MPrimN (WasmRefArraySet (array_type Wasm_packed_i8))
+           (((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 2 (WasmValue WasmI32))))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 3 (WasmValue WasmI32))))
+             (immediate_analyses ((last_usage Unknown)))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 185) (col 6745) (bol 6741)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 185) (col 6776) (bol 6741)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 184) (col 6684) (bol 6662)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 185) (col 6776) (bol 6741)))
+        (loc_ghost false))))
+     ((id ((stamp 1451) (name getI64))) (name (getI64))
+      (args (GrainValue GrainValue (WasmValue WasmI32)))
+      (return_type ((WasmValue WasmI64))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim2 (WasmRefArrayGet (array_type Wasm_int64) (signed false))
+           ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))
+           ((immediate_desc (MImmBinding (MArgBind 2 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 199) (col 7337) (bol 7333)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 199) (col 7362) (bol 7333)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 198) (col 7292) (bol 7269)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 199) (col 7362) (bol 7333)))
+        (loc_ghost false))))
+     ((id ((stamp 1458) (name setI64))) (name (setI64))
+      (args (GrainValue GrainValue (WasmValue WasmI32) (WasmValue WasmI64)))
+      (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MPrimN (WasmRefArraySet (array_type Wasm_int64))
+           (((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 2 (WasmValue WasmI32))))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 3 (WasmValue WasmI64))))
+             (immediate_analyses ((last_usage Unknown)))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 213) (col 7970) (bol 7966)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 213) (col 8002) (bol 7966)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 212) (col 7909) (bol 7886)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 213) (col 8002) (bol 7966)))
+        (loc_ghost false))))
+     ((id ((stamp 1465) (name getAny))) (name (getAny))
+      (args (GrainValue GrainValue (WasmValue WasmI32)))
+      (return_type ((WasmValue WasmRef))) (closure ())
+      (body
+       (((instr_desc
+          (MPrim2 (WasmRefArrayGet (array_type Wasm_any) (signed false))
+           ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))
+           ((immediate_desc (MImmBinding (MArgBind 2 (WasmValue WasmI32))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 227) (col 8619) (bol 8615)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 227) (col 8644) (bol 8615)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 226) (col 8574) (bol 8551)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 227) (col 8653) (bol 8615)))
+        (loc_ghost false))))
+     ((id ((stamp 1472) (name setAny))) (name (setAny))
+      (args (GrainValue GrainValue (WasmValue WasmI32) (WasmValue WasmRef)))
+      (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MPrimN (WasmRefArraySet (array_type Wasm_any))
+           (((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 2 (WasmValue WasmI32))))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 3 (WasmValue WasmRef))))
+             (immediate_analyses ((last_usage Unknown)))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 241) (col 9271) (bol 9267)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 241) (col 9303) (bol 9267)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 240) (col 9210) (bol 9187)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 241) (col 9303) (bol 9267)))
+        (loc_ghost false))))
+     ((id ((stamp 1482) (name copyI8))) (name (copyI8))
+      (args
+       (GrainValue GrainValue (WasmValue WasmI32) GrainValue
+        (WasmValue WasmI32) (WasmValue WasmI32)))
+      (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MPrimN (WasmRefArrayCopy (array_type Wasm_packed_i8))
+           (((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 2 (WasmValue WasmI32))))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 3 GrainValue)))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 4 (WasmValue WasmI32))))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 5 (WasmValue WasmI32))))
+             (immediate_analyses ((last_usage Unknown)))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 260) (col 9759) (bol 9755)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 260) (col 9813) (bol 9755)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 253) (col 9656) (bol 9633)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 261) (col 9817) (bol 9814)))
+        (loc_ghost false))))
+     ((id ((stamp 1494) (name copyI64))) (name (copyI64))
+      (args
+       (GrainValue GrainValue (WasmValue WasmI32) GrainValue
+        (WasmValue WasmI32) (WasmValue WasmI32)))
+      (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MPrimN (WasmRefArrayCopy (array_type Wasm_int64))
+           (((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 2 (WasmValue WasmI32))))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 3 GrainValue)))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 4 (WasmValue WasmI32))))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 5 (WasmValue WasmI32))))
+             (immediate_analyses ((last_usage Unknown)))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 280) (col 10279) (bol 10275)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 280) (col 10334) (bol 10275)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 273) (col 10176) (bol 10152)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 281) (col 10338) (bol 10335)))
+        (loc_ghost false))))
+     ((id ((stamp 1506) (name copyAny))) (name (copyAny))
+      (args
+       (GrainValue GrainValue (WasmValue WasmI32) GrainValue
+        (WasmValue WasmI32) (WasmValue WasmI32)))
+      (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MPrimN (WasmRefArrayCopy (array_type Wasm_any))
+           (((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 2 (WasmValue WasmI32))))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 3 GrainValue)))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 4 (WasmValue WasmI32))))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 5 (WasmValue WasmI32))))
+             (immediate_analyses ((last_usage Unknown)))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 300) (col 10818) (bol 10814)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 300) (col 10873) (bol 10814)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 293) (col 10715) (bol 10691)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 301) (col 10877) (bol 10874)))
+        (loc_ghost false))))
+     ((id ((stamp 1517) (name fillI8))) (name (fillI8))
+      (args
+       (GrainValue GrainValue (WasmValue WasmI32) (WasmValue WasmI32)
+        (WasmValue WasmI32)))
+      (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MPrimN (WasmRefArrayFill (array_type Wasm_packed_i8))
+           (((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 2 (WasmValue WasmI32))))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 3 (WasmValue WasmI32))))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 4 (WasmValue WasmI32))))
+             (immediate_analyses ((last_usage Unknown)))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 313) (col 11333) (bol 11329)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 313) (col 11369) (bol 11329)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 312) (col 11279) (bol 11256)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 314) (col 11373) (bol 11370)))
+        (loc_ghost false))))
+     ((id ((stamp 1527) (name fillI64))) (name (fillI64))
+      (args
+       (GrainValue GrainValue (WasmValue WasmI32) (WasmValue WasmI64)
+        (WasmValue WasmI32)))
+      (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MPrimN (WasmRefArrayFill (array_type Wasm_int64))
+           (((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 2 (WasmValue WasmI32))))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 3 (WasmValue WasmI64))))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 4 (WasmValue WasmI32))))
+             (immediate_analyses ((last_usage Unknown)))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 326) (col 11781) (bol 11777)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 326) (col 11818) (bol 11777)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 325) (col 11727) (bol 11703)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 327) (col 11822) (bol 11819)))
+        (loc_ghost false))))
+     ((id ((stamp 1537) (name fillAny))) (name (fillAny))
+      (args
+       (GrainValue GrainValue (WasmValue WasmI32) GrainValue
+        (WasmValue WasmI32)))
+      (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MPrimN (WasmRefArrayFill (array_type Wasm_any))
+           (((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 2 (WasmValue WasmI32))))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 3 GrainValue)))
+             (immediate_analyses ((last_usage Unknown))))
+            ((immediate_desc (MImmBinding (MArgBind 4 (WasmValue WasmI32))))
+             (immediate_analyses ((last_usage Unknown)))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 339) (col 12234) (bol 12230)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 339) (col 12271) (bol 12230)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 338) (col 12180) (bol 12156)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 340) (col 12275) (bol 12272)))
+        (loc_ghost false))))
+     ((id ((stamp 1542) (name compareI8))) (name (compareI8))
+      (args
+       (GrainValue GrainValue (WasmValue WasmI32) GrainValue
+        (WasmValue WasmI32) (WasmValue WasmI32)))
+      (return_type ((WasmValue WasmI32))) (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmI32))
+             ((instr_desc
+               (MImmediate
+                ((immediate_desc (MImmConst (MConstWasmI32 0)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc dummy_loc))))))
+         (instr_loc dummy_loc))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 0 GrainValue)
+             ((instr_desc
+               (MFor
+                ((((instr_desc
+                    (MStore
+                     (((MLocalBind 10 (WasmValue WasmI32))
+                       ((instr_desc
+                         (MImmediate
+                          ((immediate_desc
+                            (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                           (immediate_analyses ((last_usage Unknown))))))
+                        (instr_loc
+                         ((loc_start
+                           (position
+                            (file
+                             /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                            (line 359) (col 12813) (bol 12788)))
+                          (loc_end
+                           (position
+                            (file
+                             /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                            (line 359) (col 12814) (bol 12788)))
+                          (loc_ghost false))))))))
+                   (instr_loc
+                    ((loc_start
+                      (position
+                       (file
+                        /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                       (line 359) (col 12813) (bol 12788)))
+                     (loc_end
+                      (position
+                       (file
+                        /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                       (line 359) (col 12814) (bol 12788)))
+                     (loc_ghost false))))
+                  ((instr_desc
+                    (MPrim2
+                     (WasmBinaryI32 (wasm_op Op_lt_s_int32)
+                      (arg_types (Wasm_int32 Wasm_int32))
+                      (ret_type Grain_bool))
+                     ((immediate_desc
+                       (MImmBinding (MLocalBind 10 (WasmValue WasmI32))))
+                      (immediate_analyses ((last_usage Unknown))))
+                     ((immediate_desc
+                       (MImmBinding (MArgBind 5 (WasmValue WasmI32))))
+                      (immediate_analyses ((last_usage Unknown))))))
+                   (instr_loc
+                    ((loc_start
+                      (position
+                       (file
+                        /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                       (line 359) (col 12813) (bol 12788)))
+                     (loc_end
+                      (position
+                       (file
+                        /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                       (line 359) (col 12823) (bol 12788)))
+                     (loc_ghost false))))))
+                ((((instr_desc
+                    (MStore
+                     (((MLocalBind 8 (WasmValue WasmI32))
+                       ((instr_desc
+                         (MImmediate
+                          ((immediate_desc
+                            (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                           (immediate_analyses ((last_usage Unknown))))))
+                        (instr_loc
+                         ((loc_start
+                           (position
+                            (file
+                             /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                            (line 359) (col 12825) (bol 12788)))
+                          (loc_end
+                           (position
+                            (file
+                             /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                            (line 359) (col 12826) (bol 12788)))
+                          (loc_ghost false))))))))
+                   (instr_loc
+                    ((loc_start
+                      (position
+                       (file
+                        /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                       (line 359) (col 12825) (bol 12788)))
+                     (loc_end
+                      (position
+                       (file
+                        /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                       (line 359) (col 12826) (bol 12788)))
+                     (loc_ghost false))))
+                  ((instr_desc
+                    (MStore
+                     (((MLocalBind 9 (WasmValue WasmI32))
+                       ((instr_desc
+                         (MPrim2
+                          (WasmBinaryI32 (wasm_op Op_add_int32)
+                           (arg_types (Wasm_int32 Wasm_int32))
+                           (ret_type Wasm_int32))
+                          ((immediate_desc
+                            (MImmBinding (MLocalBind 8 (WasmValue WasmI32))))
+                           (immediate_analyses ((last_usage Unknown))))
+                          ((immediate_desc (MImmConst (MConstWasmI32 1)))
+                           (immediate_analyses ((last_usage Unknown))))))
+                        (instr_loc
+                         ((loc_start
+                           (position
+                            (file
+                             /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                            (line 359) (col 12825) (bol 12788)))
+                          (loc_end
+                           (position
+                            (file
+                             /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                            (line 359) (col 12832) (bol 12788)))
+                          (loc_ghost false))))))))
+                   (instr_loc
+                    ((loc_start
+                      (position
+                       (file
+                        /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                       (line 359) (col 12825) (bol 12788)))
+                     (loc_end
+                      (position
+                       (file
+                        /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                       (line 359) (col 12832) (bol 12788)))
+                     (loc_ghost false))))
+                  ((instr_desc
+                    (MSet (MLocalBind 0 (WasmValue WasmI32))
+                     ((instr_desc
+                       (MImmediate
+                        ((immediate_desc
+                          (MImmBinding (MLocalBind 9 (WasmValue WasmI32))))
+                         (immediate_analyses ((last_usage Unknown))))))
+                      (instr_loc
+                       ((loc_start
+                         (position
+                          (file
+                           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                          (line 359) (col 12825) (bol 12788)))
+                        (loc_end
+                         (position
+                          (file
+                           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                          (line 359) (col 12832) (bol 12788)))
+                        (loc_ghost false))))))
+                   (instr_loc
+                    ((loc_start
+                      (position
+                       (file
+                        /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                       (line 359) (col 12825) (bol 12788)))
+                     (loc_end
+                      (position
+                       (file
+                        /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                       (line 359) (col 12832) (bol 12788)))
+                     (loc_ghost false))))))
+                (((instr_desc
+                   (MStore
+                    (((MLocalBind 1 (WasmValue WasmI32))
+                      ((instr_desc
+                        (MImmediate
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                          (immediate_analyses ((last_usage Unknown))))))
+                       (instr_loc
+                        ((loc_start
+                          (position
+                           (file
+                            /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                           (line 360) (col 12882) (bol 12836)))
+                         (loc_end
+                          (position
+                           (file
+                            /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                           (line 360) (col 12883) (bol 12836)))
+                         (loc_ghost false))))))))
+                  (instr_loc
+                   ((loc_start
+                     (position
+                      (file
+                       /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                      (line 360) (col 12882) (bol 12836)))
+                    (loc_end
+                     (position
+                      (file
+                       /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                      (line 360) (col 12883) (bol 12836)))
+                    (loc_ghost false))))
+                 ((instr_desc
+                   (MStore
+                    (((MLocalBind 2 (WasmValue WasmI32))
+                      ((instr_desc
+                        (MPrim2
+                         (WasmBinaryI32 (wasm_op Op_add_int32)
+                          (arg_types (Wasm_int32 Wasm_int32))
+                          (ret_type Wasm_int32))
+                         ((immediate_desc
+                           (MImmBinding (MArgBind 2 (WasmValue WasmI32))))
+                          (immediate_analyses ((last_usage Unknown))))
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 1 (WasmValue WasmI32))))
+                          (immediate_analyses ((last_usage Unknown))))))
+                       (instr_loc
+                        ((loc_start
+                          (position
+                           (file
+                            /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                           (line 360) (col 12868) (bol 12836)))
+                         (loc_end
+                          (position
+                           (file
+                            /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                           (line 360) (col 12883) (bol 12836)))
+                         (loc_ghost false))))))))
+                  (instr_loc
+                   ((loc_start
+                     (position
+                      (file
+                       /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                      (line 360) (col 12868) (bol 12836)))
+                    (loc_end
+                     (position
+                      (file
+                       /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                      (line 360) (col 12883) (bol 12836)))
+                    (loc_ghost false))))
+                 ((instr_desc
+                   (MStore
+                    (((MLocalBind 3 (WasmValue WasmI32))
+                      ((instr_desc
+                        (MCallKnown (func getI8U_1437)
+                         (closure
+                          ((immediate_desc
+                            (MImmBinding
+                             (MGlobalBind getI8U_1437 GrainValue)))
+                           (immediate_analyses ((last_usage Unknown)))))
+                         (func_type
+                          ((GrainValue (WasmValue WasmI32))
+                           ((WasmValue WasmI32))))
+                         (args
+                          (((immediate_desc
+                             (MImmBinding (MArgBind 1 GrainValue)))
+                            (immediate_analyses ((last_usage Unknown))))
+                           ((immediate_desc
+                             (MImmBinding (MLocalBind 2 (WasmValue WasmI32))))
+                            (immediate_analyses ((last_usage Unknown))))))))
+                       (instr_loc
+                        ((loc_start
+                          (position
+                           (file
+                            /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                           (line 360) (col 12854) (bol 12836)))
+                         (loc_end
+                          (position
+                           (file
+                            /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                           (line 360) (col 12884) (bol 12836)))
+                         (loc_ghost false))))))))
+                  (instr_loc
+                   ((loc_start
+                     (position
+                      (file
+                       /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                      (line 360) (col 12854) (bol 12836)))
+                    (loc_end
+                     (position
+                      (file
+                       /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                      (line 360) (col 12884) (bol 12836)))
+                    (loc_ghost false))))
+                 ((instr_desc
+                   (MStore
+                    (((MLocalBind 4 (WasmValue WasmI32))
+                      ((instr_desc
+                        (MImmediate
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 0 (WasmValue WasmI32))))
+                          (immediate_analyses ((last_usage Unknown))))))
+                       (instr_loc
+                        ((loc_start
+                          (position
+                           (file
+                            /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                           (line 361) (col 12925) (bol 12885)))
+                         (loc_end
+                          (position
+                           (file
+                            /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                           (line 361) (col 12926) (bol 12885)))
+                         (loc_ghost false))))))))
+                  (instr_loc
+                   ((loc_start
+                     (position
+                      (file
+                       /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                      (line 361) (col 12925) (bol 12885)))
+                    (loc_end
+                     (position
+                      (file
+                       /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                      (line 361) (col 12926) (bol 12885)))
+                    (loc_ghost false))))
+                 ((instr_desc
+                   (MStore
+                    (((MLocalBind 5 (WasmValue WasmI32))
+                      ((instr_desc
+                        (MPrim2
+                         (WasmBinaryI32 (wasm_op Op_add_int32)
+                          (arg_types (Wasm_int32 Wasm_int32))
+                          (ret_type Wasm_int32))
+                         ((immediate_desc
+                           (MImmBinding (MArgBind 4 (WasmValue WasmI32))))
+                          (immediate_analyses ((last_usage Unknown))))
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 4 (WasmValue WasmI32))))
+                          (immediate_analyses ((last_usage Unknown))))))
+                       (instr_loc
+                        ((loc_start
+                          (position
+                           (file
+                            /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                           (line 361) (col 12910) (bol 12885)))
+                         (loc_end
+                          (position
+                           (file
+                            /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                           (line 361) (col 12926) (bol 12885)))
+                         (loc_ghost false))))))))
+                  (instr_loc
+                   ((loc_start
+                     (position
+                      (file
+                       /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                      (line 361) (col 12910) (bol 12885)))
+                    (loc_end
+                     (position
+                      (file
+                       /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                      (line 361) (col 12926) (bol 12885)))
+                    (loc_ghost false))))
+                 ((instr_desc
+                   (MStore
+                    (((MLocalBind 6 (WasmValue WasmI32))
+                      ((instr_desc
+                        (MCallKnown (func getI8U_1437)
+                         (closure
+                          ((immediate_desc
+                            (MImmBinding
+                             (MGlobalBind getI8U_1437 GrainValue)))
+                           (immediate_analyses ((last_usage Unknown)))))
+                         (func_type
+                          ((GrainValue (WasmValue WasmI32))
+                           ((WasmValue WasmI32))))
+                         (args
+                          (((immediate_desc
+                             (MImmBinding (MArgBind 3 GrainValue)))
+                            (immediate_analyses ((last_usage Unknown))))
+                           ((immediate_desc
+                             (MImmBinding (MLocalBind 5 (WasmValue WasmI32))))
+                            (immediate_analyses ((last_usage Unknown))))))))
+                       (instr_loc
+                        ((loc_start
+                          (position
+                           (file
+                            /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                           (line 361) (col 12895) (bol 12885)))
+                         (loc_end
+                          (position
+                           (file
+                            /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                           (line 361) (col 12927) (bol 12885)))
+                         (loc_ghost false))))))))
+                  (instr_loc
+                   ((loc_start
+                     (position
+                      (file
+                       /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                      (line 361) (col 12895) (bol 12885)))
+                    (loc_end
+                     (position
+                      (file
+                       /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                      (line 361) (col 12927) (bol 12885)))
+                    (loc_ghost false))))
+                 ((instr_desc
+                   (MStore
+                    (((MLocalBind 7 (WasmValue WasmI32))
+                      ((instr_desc
+                        (MPrim2
+                         (WasmBinaryI32 (wasm_op Op_sub_int32)
+                          (arg_types (Wasm_int32 Wasm_int32))
+                          (ret_type Wasm_int32))
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 3 (WasmValue WasmI32))))
+                          (immediate_analyses ((last_usage Unknown))))
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 6 (WasmValue WasmI32))))
+                          (immediate_analyses ((last_usage Unknown))))))
+                       (instr_loc
+                        ((loc_start
+                          (position
+                           (file
+                            /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                           (line 360) (col 12854) (bol 12836)))
+                         (loc_end
+                          (position
+                           (file
+                            /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                           (line 361) (col 12927) (bol 12885)))
+                         (loc_ghost false))))))))
+                  (instr_loc
+                   ((loc_start
+                     (position
+                      (file
+                       /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                      (line 360) (col 12854) (bol 12836)))
+                    (loc_end
+                     (position
+                      (file
+                       /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                      (line 361) (col 12927) (bol 12885)))
+                    (loc_ghost false))))
+                 ((instr_desc
+                   (MStore
+                    (((MLocalBind 1 GrainValue)
+                      ((instr_desc
+                        (MPrim2
+                         (WasmBinaryI32 (wasm_op Op_ne_int32)
+                          (arg_types (Wasm_int32 Wasm_int32))
+                          (ret_type Grain_bool))
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 7 (WasmValue WasmI32))))
+                          (immediate_analyses ((last_usage Unknown))))
+                         ((immediate_desc (MImmConst (MConstWasmI32 0)))
+                          (immediate_analyses ((last_usage Unknown))))))
+                       (instr_loc
+                        ((loc_start
+                          (position
+                           (file
+                            /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                           (line 362) (col 12938) (bol 12928)))
+                         (loc_end
+                          (position
+                           (file
+                            /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                           (line 362) (col 12949) (bol 12928)))
+                         (loc_ghost false))))))))
+                  (instr_loc
+                   ((loc_start
+                     (position
+                      (file
+                       /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                      (line 362) (col 12938) (bol 12928)))
+                    (loc_end
+                     (position
+                      (file
+                       /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                      (line 362) (col 12949) (bol 12928)))
+                    (loc_ghost false))))
+                 ((instr_desc
+                   (MIf
+                    ((immediate_desc (MImmBinding (MLocalBind 1 GrainValue)))
+                     (immediate_analyses ((last_usage Unknown))))
+                    (((instr_desc
+                       (MReturn
+                        (((immediate_desc
+                           (MImmBinding (MLocalBind 7 (WasmValue WasmI32))))
+                          (immediate_analyses ((last_usage Unknown)))))))
+                      (instr_loc
+                       ((loc_start
+                         (position
+                          (file
+                           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                          (line 362) (col 12951) (bol 12928)))
+                        (loc_end
+                         (position
+                          (file
+                           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                          (line 362) (col 12963) (bol 12928)))
+                        (loc_ghost false)))))
+                    (((instr_desc
+                       (MImmediate
+                        ((immediate_desc (MImmConst MConstVoid))
+                         (immediate_analyses ((last_usage Unknown))))))
+                      (instr_loc
+                       ((loc_start
+                         (position
+                          (file
+                           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                          (line 362) (col 12934) (bol 12928)))
+                        (loc_end
+                         (position
+                          (file
+                           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                          (line 362) (col 12963) (bol 12928)))
+                        (loc_ghost false)))))))
+                  (instr_loc
+                   ((loc_start
+                     (position
+                      (file
+                       /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                      (line 362) (col 12934) (bol 12928)))
+                    (loc_end
+                     (position
+                      (file
+                       /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                      (line 362) (col 12963) (bol 12928)))
+                    (loc_ghost false)))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                  (line 359) (col 12792) (bol 12788)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+                  (line 363) (col 12969) (bol 12964)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 359) (col 12792) (bol 12788)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 363) (col 12969) (bol 12964)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MReturn
+           (((immediate_desc (MImmConst (MConstWasmI32 0)))
+             (immediate_analyses ((last_usage Unknown)))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 364) (col 12974) (bol 12970)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+             (line 364) (col 12983) (bol 12970)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 2) (stack_size_i32 11) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ())
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 351) (col 12639) (bol 12613)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 365) (col 12987) (bol 12984)))
+        (loc_ghost false))))))
+   (imports ())
+   (exports
+    ((WasmFunctionExport (ex_function_name WasmArrayRef.compareI8)
+      (ex_function_internal_name compareI8_1542))
+     (WasmGlobalExport (ex_global_name WasmArrayRef.compareI8)
+      (ex_global_internal_name compareI8_1542))
+     (WasmFunctionExport (ex_function_name WasmArrayRef.fillAny)
+      (ex_function_internal_name fillAny_1537))
+     (WasmGlobalExport (ex_global_name WasmArrayRef.fillAny)
+      (ex_global_internal_name fillAny_1537))
+     (WasmFunctionExport (ex_function_name WasmArrayRef.fillI64)
+      (ex_function_internal_name fillI64_1527))
+     (WasmGlobalExport (ex_global_name WasmArrayRef.fillI64)
+      (ex_global_internal_name fillI64_1527))
+     (WasmFunctionExport (ex_function_name WasmArrayRef.fillI8)
+      (ex_function_internal_name fillI8_1517))
+     (WasmGlobalExport (ex_global_name WasmArrayRef.fillI8)
+      (ex_global_internal_name fillI8_1517))
+     (WasmFunctionExport (ex_function_name WasmArrayRef.copyAny)
+      (ex_function_internal_name copyAny_1506))
+     (WasmGlobalExport (ex_global_name WasmArrayRef.copyAny)
+      (ex_global_internal_name copyAny_1506))
+     (WasmFunctionExport (ex_function_name WasmArrayRef.copyI64)
+      (ex_function_internal_name copyI64_1494))
+     (WasmGlobalExport (ex_global_name WasmArrayRef.copyI64)
+      (ex_global_internal_name copyI64_1494))
+     (WasmFunctionExport (ex_function_name WasmArrayRef.copyI8)
+      (ex_function_internal_name copyI8_1482))
+     (WasmGlobalExport (ex_global_name WasmArrayRef.copyI8)
+      (ex_global_internal_name copyI8_1482))
+     (WasmFunctionExport (ex_function_name WasmArrayRef.setAny)
+      (ex_function_internal_name setAny_1472))
+     (WasmGlobalExport (ex_global_name WasmArrayRef.setAny)
+      (ex_global_internal_name setAny_1472))
+     (WasmFunctionExport (ex_function_name WasmArrayRef.getAny)
+      (ex_function_internal_name getAny_1465))
+     (WasmGlobalExport (ex_global_name WasmArrayRef.getAny)
+      (ex_global_internal_name getAny_1465))
+     (WasmFunctionExport (ex_function_name WasmArrayRef.setI64)
+      (ex_function_internal_name setI64_1458))
+     (WasmGlobalExport (ex_global_name WasmArrayRef.setI64)
+      (ex_global_internal_name setI64_1458))
+     (WasmFunctionExport (ex_function_name WasmArrayRef.getI64)
+      (ex_function_internal_name getI64_1451))
+     (WasmGlobalExport (ex_global_name WasmArrayRef.getI64)
+      (ex_global_internal_name getI64_1451))
+     (WasmFunctionExport (ex_function_name WasmArrayRef.setI8)
+      (ex_function_internal_name setI8_1444))
+     (WasmGlobalExport (ex_global_name WasmArrayRef.setI8)
+      (ex_global_internal_name setI8_1444))
+     (WasmFunctionExport (ex_function_name WasmArrayRef.getI8U)
+      (ex_function_internal_name getI8U_1437))
+     (WasmGlobalExport (ex_global_name WasmArrayRef.getI8U)
+      (ex_global_internal_name getI8U_1437))
+     (WasmFunctionExport (ex_function_name WasmArrayRef.getI8S)
+      (ex_function_internal_name getI8S_1431))
+     (WasmGlobalExport (ex_global_name WasmArrayRef.getI8S)
+      (ex_global_internal_name getI8S_1431))
+     (WasmFunctionExport (ex_function_name WasmArrayRef.length)
+      (ex_function_internal_name length_1426))
+     (WasmGlobalExport (ex_global_name WasmArrayRef.length)
+      (ex_global_internal_name length_1426))
+     (WasmFunctionExport (ex_function_name WasmArrayRef.fromWasmRef)
+      (ex_function_internal_name fromWasmRef_1422))
+     (WasmGlobalExport (ex_global_name WasmArrayRef.fromWasmRef)
+      (ex_global_internal_name fromWasmRef_1422))
+     (WasmFunctionExport (ex_function_name WasmArrayRef.makeAny)
+      (ex_function_internal_name makeAny_1419))
+     (WasmGlobalExport (ex_global_name WasmArrayRef.makeAny)
+      (ex_global_internal_name makeAny_1419))
+     (WasmFunctionExport (ex_function_name !=)
+      (ex_function_internal_name !=_1412))
+     (WasmGlobalExport (ex_global_name !=) (ex_global_internal_name !=_1412))
+     (WasmFunctionExport (ex_function_name ==)
+      (ex_function_internal_name ==_1407))
+     (WasmGlobalExport (ex_global_name ==) (ex_global_internal_name ==_1407))
+     (WasmFunctionExport (ex_function_name i31Make)
+      (ex_function_internal_name i31Make_1402))
+     (WasmGlobalExport (ex_global_name i31Make)
+      (ex_global_internal_name i31Make_1402))
+     (WasmFunctionExport (ex_function_name i31GetU)
+      (ex_function_internal_name i31GetU_1400))
+     (WasmGlobalExport (ex_global_name i31GetU)
+      (ex_global_internal_name i31GetU_1400))
+     (WasmFunctionExport (ex_function_name i31GetS)
+      (ex_function_internal_name i31GetS_1398))
+     (WasmGlobalExport (ex_global_name i31GetS)
+      (ex_global_internal_name i31GetS_1398))
+     (WasmFunctionExport (ex_function_name isGrainHeapValue)
+      (ex_function_internal_name isGrainHeapValue_1396))
+     (WasmGlobalExport (ex_global_name isGrainHeapValue)
+      (ex_global_internal_name isGrainHeapValue_1396))
+     (WasmFunctionExport (ex_function_name isRefI31)
+      (ex_function_internal_name isRefI31_1394))
+     (WasmGlobalExport (ex_global_name isRefI31)
+      (ex_global_internal_name isRefI31_1394))
+     (WasmFunctionExport (ex_function_name toGrain)
+      (ex_function_internal_name toGrain_1392))
+     (WasmGlobalExport (ex_global_name toGrain)
+      (ex_global_internal_name toGrain_1392))
+     (WasmFunctionExport (ex_function_name fromGrain)
+      (ex_function_internal_name fromGrain_1000))
+     (WasmGlobalExport (ex_global_name fromGrain)
+      (ex_global_internal_name fromGrain_1000))))
+   (main_body
+    (((instr_desc
+       (MStore
+        (((MGlobalBind fromGrain_1000 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 18) (col 484) (bol 476)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 18) (col 523) (bol 476)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 18) (col 484) (bol 476)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 18) (col 523) (bol 476)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind toGrain_1392 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 32) (col 1096) (bol 1088)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 32) (col 1131) (bol 1088)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 32) (col 1096) (bol 1088)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 32) (col 1131) (bol 1088)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind isRefI31_1394 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 40) (col 1314) (bol 1306)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 40) (col 1347) (bol 1306)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 40) (col 1314) (bol 1306)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 40) (col 1347) (bol 1306)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind isGrainHeapValue_1396 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 48) (col 1544) (bol 1536)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 48) (col 1595) (bol 1536)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 48) (col 1544) (bol 1536)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 48) (col 1595) (bol 1536)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind i31GetS_1398 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 58) (col 1856) (bol 1848)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 58) (col 1888) (bol 1848)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 58) (col 1856) (bol 1848)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 58) (col 1888) (bol 1848)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind i31GetU_1400 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 68) (col 2153) (bol 2145)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 68) (col 2185) (bol 2145)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 68) (col 2153) (bol 2145)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 68) (col 2185) (bol 2145)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind i31Make_1402 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 76) (col 2354) (bol 2346)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 76) (col 2385) (bol 2346)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 76) (col 2354) (bol 2346)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 76) (col 2385) (bol 2346)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind ==_1407 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 89) (col 2812) (bol 2793)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 89) (col 2866) (bol 2793)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 89) (col 2812) (bol 2793)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 89) (col 2866) (bol 2793)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind !=_1412 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 102) (col 3307) (bol 3288)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 102) (col 3364) (bol 3288)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 102) (col 3307) (bol 3288)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 102) (col 3364) (bol 3288)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind makeAny_1419 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 121) (col 4052) (bol 4028)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 122) (col 4159) (bol 4096)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 121) (col 4052) (bol 4028)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 122) (col 4159) (bol 4096)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind fromWasmRef_1422 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 132) (col 4556) (bol 4528)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 132) (col 4591) (bol 4528)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 132) (col 4556) (bol 4528)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 132) (col 4591) (bol 4528)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind length_1426 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 141) (col 4831) (bol 4808)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 141) (col 4871) (bol 4808)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 141) (col 4831) (bol 4808)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 141) (col 4871) (bol 4808)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind getI8S_1431 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 155) (col 5435) (bol 5412)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 156) (col 5505) (bol 5476)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 155) (col 5435) (bol 5412)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 156) (col 5505) (bol 5476)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind getI8U_1437 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 170) (col 6073) (bol 6050)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 171) (col 6143) (bol 6114)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 170) (col 6073) (bol 6050)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 171) (col 6143) (bol 6114)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind setI8_1444 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 184) (col 6684) (bol 6662)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 185) (col 6776) (bol 6741)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 184) (col 6684) (bol 6662)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 185) (col 6776) (bol 6741)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind getI64_1451 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 198) (col 7292) (bol 7269)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 199) (col 7362) (bol 7333)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 198) (col 7292) (bol 7269)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 199) (col 7362) (bol 7333)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind setI64_1458 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 212) (col 7909) (bol 7886)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 213) (col 8002) (bol 7966)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 212) (col 7909) (bol 7886)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 213) (col 8002) (bol 7966)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind getAny_1465 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 226) (col 8574) (bol 8551)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 227) (col 8653) (bol 8615)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 226) (col 8574) (bol 8551)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 227) (col 8653) (bol 8615)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind setAny_1472 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 240) (col 9210) (bol 9187)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 241) (col 9303) (bol 9267)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 240) (col 9210) (bol 9187)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 241) (col 9303) (bol 9267)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind copyI8_1482 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 253) (col 9656) (bol 9633)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 261) (col 9817) (bol 9814)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 253) (col 9656) (bol 9633)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 261) (col 9817) (bol 9814)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind copyI64_1494 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 273) (col 10176) (bol 10152)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 281) (col 10338) (bol 10335)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 273) (col 10176) (bol 10152)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 281) (col 10338) (bol 10335)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind copyAny_1506 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 293) (col 10715) (bol 10691)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 301) (col 10877) (bol 10874)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 293) (col 10715) (bol 10691)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 301) (col 10877) (bol 10874)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind fillI8_1517 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 312) (col 11279) (bol 11256)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 314) (col 11373) (bol 11370)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 312) (col 11279) (bol 11256)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 314) (col 11373) (bol 11370)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind fillI64_1527 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 325) (col 11727) (bol 11703)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 327) (col 11822) (bol 11819)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 325) (col 11727) (bol 11703)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 327) (col 11822) (bol 11819)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind fillAny_1537 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 338) (col 12180) (bol 12156)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 340) (col 12275) (bol 12272)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 338) (col 12180) (bol 12156)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 340) (col 12275) (bol 12272)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind compareI8_1542 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 351) (col 12639) (bol 12613)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+               (line 365) (col 12987) (bol 12984)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 351) (col 12639) (bol 12613)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+          (line 365) (col 12987) (bol 12984)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MImmediate
+        ((immediate_desc (MImmConst MConstVoid))
+         (immediate_analyses ((last_usage Unknown))))))
+      (instr_loc dummy_loc))))
+   (main_body_stack_size
+    ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+     (stack_size_f32 0) (stack_size_f64 0)))
+   (globals
+    (((id ((stamp 1412) (name !=))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1542) (name compareI8))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1506) (name copyAny))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1407) (name ==))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1482) (name copyI8))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1527) (name fillI64))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1537) (name fillAny))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1000) (name fromGrain))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1517) (name fillI8))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1494) (name copyI64))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1465) (name getAny))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1451) (name getI64))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1437) (name getI8U))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1431) (name getI8S))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1422) (name fromWasmRef))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1402) (name i31Make))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1400) (name i31GetU))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1426) (name length))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1394) (name isRefI31))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1396) (name isGrainHeapValue))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1472) (name setAny))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1458) (name setI64))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1392) (name toGrain))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1444) (name setI8))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1419) (name makeAny))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1398) (name i31GetS))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))))
+   (compilation_mode Runtime) (type_metadata <opaque>)
+   (prog_loc
+    ((loc_start
+      (position
+       (file
+        /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+       (line 1) (col 0) (bol 0)))
+     (loc_end
+      (position
+       (file
+        /Users/spotandjake/Documents/github/grain/stdlib/runtime/unsafe/wasmref.gr)
+       (line 367) (col 12990) (bol 12990)))
+     (loc_ghost false)))))
+ (signature <opaque>))

@@ -1,0 +1,2541 @@
+((mash_code
+  ((functions
+    (((id ((stamp 1037) (name isSome))) (name (isSome))
+      (args (GrainValue GrainValue)) (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 GrainValue)
+             ((instr_desc
+               (MAdtOp MAdtGetTag
+                ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 GrainValue)
+             ((instr_desc
+               (MPrim2 Is
+                ((immediate_desc (MImmBinding (MLocalBind 0 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 GrainValue)
+             ((instr_desc
+               (MIf
+                ((immediate_desc (MImmBinding (MLocalBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                (((instr_desc
+                   (MImmediate
+                    ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                     (immediate_analyses ((last_usage Unknown))))))))
+                (((instr_desc
+                   (MStore
+                    (((MLocalBind 3 GrainValue)
+                      ((instr_desc
+                        (MPrim2 Is
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 0 GrainValue)))
+                          (immediate_analyses ((last_usage Unknown))))
+                         ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                          (immediate_analyses ((last_usage Unknown))))))))))))
+                 ((instr_desc
+                   (MIf
+                    ((immediate_desc (MImmBinding (MLocalBind 3 GrainValue)))
+                     (immediate_analyses ((last_usage Unknown))))
+                    (((instr_desc
+                       (MImmediate
+                        ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                         (immediate_analyses ((last_usage Unknown))))))))
+                    (((instr_desc
+                       (MImmediate
+                        ((immediate_desc MImmTrap)
+                         (immediate_analyses ((last_usage Unknown))))))))))))))))))))
+        ((instr_desc
+          (MSwitch
+           ((immediate_desc (MImmBinding (MLocalBind 2 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))
+           ((0
+             (((instr_desc
+                (MImmediate
+                 ((immediate_desc (MImmConst MConstTrue))
+                  (immediate_analyses ((last_usage Unknown)))))))))
+            (1
+             (((instr_desc
+                (MImmediate
+                 ((immediate_desc (MImmConst MConstFalse))
+                  (immediate_analyses ((last_usage Unknown))))))))))
+           (((instr_desc
+              (MImmediate
+               ((immediate_desc MImmTrap)
+                (immediate_analyses ((last_usage Unknown))))))))
+           GrainValue)))))
+      (stack_size
+       ((stack_size_ref 4) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ()))
+     ((id ((stamp 1039) (name isNone))) (name (isNone))
+      (args (GrainValue GrainValue)) (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 GrainValue)
+             ((instr_desc
+               (MAdtOp MAdtGetTag
+                ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 GrainValue)
+             ((instr_desc
+               (MPrim2 Is
+                ((immediate_desc (MImmBinding (MLocalBind 0 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 GrainValue)
+             ((instr_desc
+               (MIf
+                ((immediate_desc (MImmBinding (MLocalBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                (((instr_desc
+                   (MImmediate
+                    ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                     (immediate_analyses ((last_usage Unknown))))))))
+                (((instr_desc
+                   (MStore
+                    (((MLocalBind 3 GrainValue)
+                      ((instr_desc
+                        (MPrim2 Is
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 0 GrainValue)))
+                          (immediate_analyses ((last_usage Unknown))))
+                         ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                          (immediate_analyses ((last_usage Unknown))))))))))))
+                 ((instr_desc
+                   (MIf
+                    ((immediate_desc (MImmBinding (MLocalBind 3 GrainValue)))
+                     (immediate_analyses ((last_usage Unknown))))
+                    (((instr_desc
+                       (MImmediate
+                        ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                         (immediate_analyses ((last_usage Unknown))))))))
+                    (((instr_desc
+                       (MImmediate
+                        ((immediate_desc MImmTrap)
+                         (immediate_analyses ((last_usage Unknown))))))))))))))))))))
+        ((instr_desc
+          (MSwitch
+           ((immediate_desc (MImmBinding (MLocalBind 2 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))
+           ((0
+             (((instr_desc
+                (MImmediate
+                 ((immediate_desc (MImmConst MConstTrue))
+                  (immediate_analyses ((last_usage Unknown)))))))))
+            (1
+             (((instr_desc
+                (MImmediate
+                 ((immediate_desc (MImmConst MConstFalse))
+                  (immediate_analyses ((last_usage Unknown))))))))))
+           (((instr_desc
+              (MImmediate
+               ((immediate_desc MImmTrap)
+                (immediate_analyses ((last_usage Unknown))))))))
+           GrainValue)))))
+      (stack_size
+       ((stack_size_ref 4) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ()))
+     ((id ((stamp 1041) (name contains))) (name (contains))
+      (args (GrainValue GrainValue GrainValue)) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 GrainValue)
+             ((instr_desc
+               (MImmediate
+                ((immediate_desc (MImmConst MConstVoid))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 GrainValue)
+             ((instr_desc
+               (MAdtOp MAdtGetTag
+                ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 GrainValue)
+             ((instr_desc
+               (MPrim2 Is
+                ((immediate_desc (MImmBinding (MLocalBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 GrainValue)
+             ((instr_desc
+               (MIf
+                ((immediate_desc (MImmBinding (MLocalBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                (((instr_desc
+                   (MImmediate
+                    ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                     (immediate_analyses ((last_usage Unknown))))))))
+                (((instr_desc
+                   (MStore
+                    (((MLocalBind 4 GrainValue)
+                      ((instr_desc
+                        (MPrim2 Is
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 1 GrainValue)))
+                          (immediate_analyses ((last_usage Unknown))))
+                         ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                          (immediate_analyses ((last_usage Unknown))))))))))))
+                 ((instr_desc
+                   (MIf
+                    ((immediate_desc (MImmBinding (MLocalBind 4 GrainValue)))
+                     (immediate_analyses ((last_usage Unknown))))
+                    (((instr_desc
+                       (MStore
+                        (((MLocalBind 5 GrainValue)
+                          ((instr_desc
+                            (MAdtOp (MAdtGet 0)
+                             ((immediate_desc
+                               (MImmBinding (MArgBind 2 GrainValue)))
+                              (immediate_analyses ((last_usage Unknown))))))))))))
+                     ((instr_desc
+                       (MDrop
+                        ((instr_desc
+                          (MSet (MLocalBind 0 GrainValue)
+                           ((instr_desc
+                             (MImmediate
+                              ((immediate_desc
+                                (MImmBinding (MLocalBind 5 GrainValue)))
+                               (immediate_analyses ((last_usage Unknown)))))))))))))
+                     ((instr_desc
+                       (MImmediate
+                        ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                         (immediate_analyses ((last_usage Unknown))))))))
+                    (((instr_desc
+                       (MImmediate
+                        ((immediate_desc MImmTrap)
+                         (immediate_analyses ((last_usage Unknown))))))))))))))))))))
+        ((instr_desc
+          (MSwitch
+           ((immediate_desc (MImmBinding (MLocalBind 3 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))
+           ((0
+             (((instr_desc
+                (MReturnCallKnown (func ==_1135)
+                 (closure
+                  ((immediate_desc
+                    (MImmBinding (MGlobalBind ==_1135 GrainValue)))
+                   (immediate_analyses ((last_usage Unknown)))))
+                 (func_type ((GrainValue GrainValue) (GrainValue)))
+                 (args
+                  (((immediate_desc (MImmBinding (MLocalBind 0 GrainValue)))
+                    (immediate_analyses ((last_usage Unknown))))
+                   ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                    (immediate_analyses ((last_usage Unknown)))))))))))
+            (1
+             (((instr_desc
+                (MImmediate
+                 ((immediate_desc (MImmConst MConstFalse))
+                  (immediate_analyses ((last_usage Unknown))))))))))
+           (((instr_desc
+              (MImmediate
+               ((immediate_desc MImmTrap)
+                (immediate_analyses ((last_usage Unknown))))))))
+           GrainValue)))))
+      (stack_size
+       ((stack_size_ref 6) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ()))
+     ((id ((stamp 1045) (name expect))) (name (expect))
+      (args (GrainValue GrainValue GrainValue)) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 GrainValue)
+             ((instr_desc
+               (MImmediate
+                ((immediate_desc (MImmConst MConstVoid))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 GrainValue)
+             ((instr_desc
+               (MAdtOp MAdtGetTag
+                ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 GrainValue)
+             ((instr_desc
+               (MPrim2 Is
+                ((immediate_desc (MImmBinding (MLocalBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 GrainValue)
+             ((instr_desc
+               (MIf
+                ((immediate_desc (MImmBinding (MLocalBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                (((instr_desc
+                   (MImmediate
+                    ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                     (immediate_analyses ((last_usage Unknown))))))))
+                (((instr_desc
+                   (MStore
+                    (((MLocalBind 4 GrainValue)
+                      ((instr_desc
+                        (MPrim2 Is
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 1 GrainValue)))
+                          (immediate_analyses ((last_usage Unknown))))
+                         ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                          (immediate_analyses ((last_usage Unknown))))))))))))
+                 ((instr_desc
+                   (MIf
+                    ((immediate_desc (MImmBinding (MLocalBind 4 GrainValue)))
+                     (immediate_analyses ((last_usage Unknown))))
+                    (((instr_desc
+                       (MStore
+                        (((MLocalBind 5 GrainValue)
+                          ((instr_desc
+                            (MAdtOp (MAdtGet 0)
+                             ((immediate_desc
+                               (MImmBinding (MArgBind 2 GrainValue)))
+                              (immediate_analyses ((last_usage Unknown))))))))))))
+                     ((instr_desc
+                       (MDrop
+                        ((instr_desc
+                          (MSet (MLocalBind 0 GrainValue)
+                           ((instr_desc
+                             (MImmediate
+                              ((immediate_desc
+                                (MImmBinding (MLocalBind 5 GrainValue)))
+                               (immediate_analyses ((last_usage Unknown)))))))))))))
+                     ((instr_desc
+                       (MImmediate
+                        ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                         (immediate_analyses ((last_usage Unknown))))))))
+                    (((instr_desc
+                       (MImmediate
+                        ((immediate_desc MImmTrap)
+                         (immediate_analyses ((last_usage Unknown))))))))))))))))))))
+        ((instr_desc
+          (MSwitch
+           ((immediate_desc (MImmBinding (MLocalBind 3 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))
+           ((0
+             (((instr_desc
+                (MImmediate
+                 ((immediate_desc (MImmBinding (MLocalBind 0 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown)))))))))
+            (1
+             (((instr_desc
+                (MReturnCallKnown (func fail_1144)
+                 (closure
+                  ((immediate_desc
+                    (MImmBinding (MGlobalBind fail_1144 GrainValue)))
+                   (immediate_analyses ((last_usage Unknown)))))
+                 (func_type ((GrainValue) (GrainValue)))
+                 (args
+                  (((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                    (immediate_analyses ((last_usage Unknown))))))))))))
+           (((instr_desc
+              (MImmediate
+               ((immediate_desc MImmTrap)
+                (immediate_analyses ((last_usage Unknown))))))))
+           GrainValue)))))
+      (stack_size
+       ((stack_size_ref 6) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ()))
+     ((id ((stamp 1049) (name unwrap))) (name (unwrap))
+      (args (GrainValue GrainValue)) (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 GrainValue)
+             ((instr_desc
+               (MAllocate (MString "Could not unwrap None value")))))))))
+        ((instr_desc
+          (MReturnCallKnown (func expect_1045)
+           (closure
+            ((immediate_desc
+              (MImmBinding (MGlobalBind expect_1045 GrainValue)))
+             (immediate_analyses ((last_usage Unknown)))))
+           (func_type ((GrainValue GrainValue) (GrainValue)))
+           (args
+            (((immediate_desc (MImmBinding (MLocalBind 0 GrainValue)))
+              (immediate_analyses ((last_usage Unknown))))
+             ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+              (immediate_analyses ((last_usage Unknown)))))))))))
+      (stack_size
+       ((stack_size_ref 1) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ()))
+     ((id ((stamp 1051) (name unwrapWithDefault))) (name (unwrapWithDefault))
+      (args (GrainValue GrainValue GrainValue)) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 GrainValue)
+             ((instr_desc
+               (MImmediate
+                ((immediate_desc (MImmConst MConstVoid))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 GrainValue)
+             ((instr_desc
+               (MAdtOp MAdtGetTag
+                ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 GrainValue)
+             ((instr_desc
+               (MPrim2 Is
+                ((immediate_desc (MImmBinding (MLocalBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 GrainValue)
+             ((instr_desc
+               (MIf
+                ((immediate_desc (MImmBinding (MLocalBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                (((instr_desc
+                   (MImmediate
+                    ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                     (immediate_analyses ((last_usage Unknown))))))))
+                (((instr_desc
+                   (MStore
+                    (((MLocalBind 4 GrainValue)
+                      ((instr_desc
+                        (MPrim2 Is
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 1 GrainValue)))
+                          (immediate_analyses ((last_usage Unknown))))
+                         ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                          (immediate_analyses ((last_usage Unknown))))))))))))
+                 ((instr_desc
+                   (MIf
+                    ((immediate_desc (MImmBinding (MLocalBind 4 GrainValue)))
+                     (immediate_analyses ((last_usage Unknown))))
+                    (((instr_desc
+                       (MStore
+                        (((MLocalBind 5 GrainValue)
+                          ((instr_desc
+                            (MAdtOp (MAdtGet 0)
+                             ((immediate_desc
+                               (MImmBinding (MArgBind 2 GrainValue)))
+                              (immediate_analyses ((last_usage Unknown))))))))))))
+                     ((instr_desc
+                       (MDrop
+                        ((instr_desc
+                          (MSet (MLocalBind 0 GrainValue)
+                           ((instr_desc
+                             (MImmediate
+                              ((immediate_desc
+                                (MImmBinding (MLocalBind 5 GrainValue)))
+                               (immediate_analyses ((last_usage Unknown)))))))))))))
+                     ((instr_desc
+                       (MImmediate
+                        ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                         (immediate_analyses ((last_usage Unknown))))))))
+                    (((instr_desc
+                       (MImmediate
+                        ((immediate_desc MImmTrap)
+                         (immediate_analyses ((last_usage Unknown))))))))))))))))))))
+        ((instr_desc
+          (MSwitch
+           ((immediate_desc (MImmBinding (MLocalBind 3 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))
+           ((0
+             (((instr_desc
+                (MImmediate
+                 ((immediate_desc (MImmBinding (MLocalBind 0 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown)))))))))
+            (1
+             (((instr_desc
+                (MImmediate
+                 ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown))))))))))
+           (((instr_desc
+              (MImmediate
+               ((immediate_desc MImmTrap)
+                (immediate_analyses ((last_usage Unknown))))))))
+           GrainValue)))))
+      (stack_size
+       ((stack_size_ref 6) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ()))
+     ((id ((stamp 1055) (name map))) (name (map))
+      (args (GrainValue GrainValue GrainValue)) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 GrainValue)
+             ((instr_desc
+               (MImmediate
+                ((immediate_desc (MImmConst MConstVoid))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 GrainValue)
+             ((instr_desc
+               (MAdtOp MAdtGetTag
+                ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 GrainValue)
+             ((instr_desc
+               (MPrim2 Is
+                ((immediate_desc (MImmBinding (MLocalBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 GrainValue)
+             ((instr_desc
+               (MIf
+                ((immediate_desc (MImmBinding (MLocalBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                (((instr_desc
+                   (MImmediate
+                    ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                     (immediate_analyses ((last_usage Unknown))))))))
+                (((instr_desc
+                   (MStore
+                    (((MLocalBind 4 GrainValue)
+                      ((instr_desc
+                        (MPrim2 Is
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 1 GrainValue)))
+                          (immediate_analyses ((last_usage Unknown))))
+                         ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                          (immediate_analyses ((last_usage Unknown))))))))))))
+                 ((instr_desc
+                   (MIf
+                    ((immediate_desc (MImmBinding (MLocalBind 4 GrainValue)))
+                     (immediate_analyses ((last_usage Unknown))))
+                    (((instr_desc
+                       (MStore
+                        (((MLocalBind 5 GrainValue)
+                          ((instr_desc
+                            (MAdtOp (MAdtGet 0)
+                             ((immediate_desc
+                               (MImmBinding (MArgBind 2 GrainValue)))
+                              (immediate_analyses ((last_usage Unknown))))))))))))
+                     ((instr_desc
+                       (MDrop
+                        ((instr_desc
+                          (MSet (MLocalBind 0 GrainValue)
+                           ((instr_desc
+                             (MImmediate
+                              ((immediate_desc
+                                (MImmBinding (MLocalBind 5 GrainValue)))
+                               (immediate_analyses ((last_usage Unknown)))))))))))))
+                     ((instr_desc
+                       (MImmediate
+                        ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                         (immediate_analyses ((last_usage Unknown))))))))
+                    (((instr_desc
+                       (MImmediate
+                        ((immediate_desc MImmTrap)
+                         (immediate_analyses ((last_usage Unknown))))))))))))))))))))
+        ((instr_desc
+          (MSwitch
+           ((immediate_desc (MImmBinding (MLocalBind 3 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))
+           ((0
+             (((instr_desc
+                (MStore
+                 (((MLocalBind 6 GrainValue)
+                   ((instr_desc
+                     (MCallIndirect
+                      (func
+                       ((immediate_desc
+                         (MImmBinding (MArgBind 1 GrainValue)))
+                        (immediate_analyses ((last_usage Unknown)))))
+                      (func_type ((GrainValue) (GrainValue)))
+                      (args
+                       (((immediate_desc
+                          (MImmBinding (MLocalBind 0 GrainValue)))
+                         (immediate_analyses ((last_usage Unknown))))))))))))))
+              ((instr_desc
+                (MAllocate
+                 (MADT
+                  ((immediate_desc
+                    (MImmConst (MConstSimpleNumber 250551095)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmConst (MConstSimpleNumber 3)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  (((immediate_desc (MImmBinding (MLocalBind 6 GrainValue)))
+                    (immediate_analyses ((last_usage Unknown)))))))))))
+            (1
+             (((instr_desc
+                (MAllocate
+                 (MADT
+                  ((immediate_desc
+                    (MImmConst (MConstSimpleNumber 250551095)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmConst (MConstSimpleNumber 3)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ())))))))
+           (((instr_desc
+              (MImmediate
+               ((immediate_desc MImmTrap)
+                (immediate_analyses ((last_usage Unknown))))))))
+           GrainValue)))))
+      (stack_size
+       ((stack_size_ref 7) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ()))
+     ((id ((stamp 1059) (name mapWithDefault))) (name (mapWithDefault))
+      (args (GrainValue GrainValue GrainValue GrainValue))
+      (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 GrainValue)
+             ((instr_desc
+               (MImmediate
+                ((immediate_desc (MImmConst MConstVoid))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 GrainValue)
+             ((instr_desc
+               (MAdtOp MAdtGetTag
+                ((immediate_desc (MImmBinding (MArgBind 3 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 GrainValue)
+             ((instr_desc
+               (MPrim2 Is
+                ((immediate_desc (MImmBinding (MLocalBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 GrainValue)
+             ((instr_desc
+               (MIf
+                ((immediate_desc (MImmBinding (MLocalBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                (((instr_desc
+                   (MImmediate
+                    ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                     (immediate_analyses ((last_usage Unknown))))))))
+                (((instr_desc
+                   (MStore
+                    (((MLocalBind 4 GrainValue)
+                      ((instr_desc
+                        (MPrim2 Is
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 1 GrainValue)))
+                          (immediate_analyses ((last_usage Unknown))))
+                         ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                          (immediate_analyses ((last_usage Unknown))))))))))))
+                 ((instr_desc
+                   (MIf
+                    ((immediate_desc (MImmBinding (MLocalBind 4 GrainValue)))
+                     (immediate_analyses ((last_usage Unknown))))
+                    (((instr_desc
+                       (MStore
+                        (((MLocalBind 5 GrainValue)
+                          ((instr_desc
+                            (MAdtOp (MAdtGet 0)
+                             ((immediate_desc
+                               (MImmBinding (MArgBind 3 GrainValue)))
+                              (immediate_analyses ((last_usage Unknown))))))))))))
+                     ((instr_desc
+                       (MDrop
+                        ((instr_desc
+                          (MSet (MLocalBind 0 GrainValue)
+                           ((instr_desc
+                             (MImmediate
+                              ((immediate_desc
+                                (MImmBinding (MLocalBind 5 GrainValue)))
+                               (immediate_analyses ((last_usage Unknown)))))))))))))
+                     ((instr_desc
+                       (MImmediate
+                        ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                         (immediate_analyses ((last_usage Unknown))))))))
+                    (((instr_desc
+                       (MImmediate
+                        ((immediate_desc MImmTrap)
+                         (immediate_analyses ((last_usage Unknown))))))))))))))))))))
+        ((instr_desc
+          (MSwitch
+           ((immediate_desc (MImmBinding (MLocalBind 3 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))
+           ((0
+             (((instr_desc
+                (MReturnCallIndirect
+                 (func
+                  ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                   (immediate_analyses ((last_usage Unknown)))))
+                 (func_type ((GrainValue) (GrainValue)))
+                 (args
+                  (((immediate_desc (MImmBinding (MLocalBind 0 GrainValue)))
+                    (immediate_analyses ((last_usage Unknown)))))))))))
+            (1
+             (((instr_desc
+                (MImmediate
+                 ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown))))))))))
+           (((instr_desc
+              (MImmediate
+               ((immediate_desc MImmTrap)
+                (immediate_analyses ((last_usage Unknown))))))))
+           GrainValue)))))
+      (stack_size
+       ((stack_size_ref 6) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ()))
+     ((id ((stamp 1064) (name mapWithDefaultFn))) (name (mapWithDefaultFn))
+      (args (GrainValue GrainValue GrainValue GrainValue))
+      (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 GrainValue)
+             ((instr_desc
+               (MImmediate
+                ((immediate_desc (MImmConst MConstVoid))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 GrainValue)
+             ((instr_desc
+               (MAdtOp MAdtGetTag
+                ((immediate_desc (MImmBinding (MArgBind 3 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 GrainValue)
+             ((instr_desc
+               (MPrim2 Is
+                ((immediate_desc (MImmBinding (MLocalBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 GrainValue)
+             ((instr_desc
+               (MIf
+                ((immediate_desc (MImmBinding (MLocalBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                (((instr_desc
+                   (MImmediate
+                    ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                     (immediate_analyses ((last_usage Unknown))))))))
+                (((instr_desc
+                   (MStore
+                    (((MLocalBind 4 GrainValue)
+                      ((instr_desc
+                        (MPrim2 Is
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 1 GrainValue)))
+                          (immediate_analyses ((last_usage Unknown))))
+                         ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                          (immediate_analyses ((last_usage Unknown))))))))))))
+                 ((instr_desc
+                   (MIf
+                    ((immediate_desc (MImmBinding (MLocalBind 4 GrainValue)))
+                     (immediate_analyses ((last_usage Unknown))))
+                    (((instr_desc
+                       (MStore
+                        (((MLocalBind 5 GrainValue)
+                          ((instr_desc
+                            (MAdtOp (MAdtGet 0)
+                             ((immediate_desc
+                               (MImmBinding (MArgBind 3 GrainValue)))
+                              (immediate_analyses ((last_usage Unknown))))))))))))
+                     ((instr_desc
+                       (MDrop
+                        ((instr_desc
+                          (MSet (MLocalBind 0 GrainValue)
+                           ((instr_desc
+                             (MImmediate
+                              ((immediate_desc
+                                (MImmBinding (MLocalBind 5 GrainValue)))
+                               (immediate_analyses ((last_usage Unknown)))))))))))))
+                     ((instr_desc
+                       (MImmediate
+                        ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                         (immediate_analyses ((last_usage Unknown))))))))
+                    (((instr_desc
+                       (MImmediate
+                        ((immediate_desc MImmTrap)
+                         (immediate_analyses ((last_usage Unknown))))))))))))))))))))
+        ((instr_desc
+          (MSwitch
+           ((immediate_desc (MImmBinding (MLocalBind 3 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))
+           ((0
+             (((instr_desc
+                (MReturnCallIndirect
+                 (func
+                  ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                   (immediate_analyses ((last_usage Unknown)))))
+                 (func_type ((GrainValue) (GrainValue)))
+                 (args
+                  (((immediate_desc (MImmBinding (MLocalBind 0 GrainValue)))
+                    (immediate_analyses ((last_usage Unknown)))))))))))
+            (1
+             (((instr_desc
+                (MReturnCallIndirect
+                 (func
+                  ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                   (immediate_analyses ((last_usage Unknown)))))
+                 (func_type (() (GrainValue))) (args ())))))))
+           (((instr_desc
+              (MImmediate
+               ((immediate_desc MImmTrap)
+                (immediate_analyses ((last_usage Unknown))))))))
+           GrainValue)))))
+      (stack_size
+       ((stack_size_ref 6) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ()))
+     ((id ((stamp 1069) (name flatMap))) (name (flatMap))
+      (args (GrainValue GrainValue GrainValue)) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 GrainValue)
+             ((instr_desc
+               (MImmediate
+                ((immediate_desc (MImmConst MConstVoid))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 GrainValue)
+             ((instr_desc
+               (MAdtOp MAdtGetTag
+                ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 GrainValue)
+             ((instr_desc
+               (MPrim2 Is
+                ((immediate_desc (MImmBinding (MLocalBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 GrainValue)
+             ((instr_desc
+               (MIf
+                ((immediate_desc (MImmBinding (MLocalBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                (((instr_desc
+                   (MImmediate
+                    ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                     (immediate_analyses ((last_usage Unknown))))))))
+                (((instr_desc
+                   (MStore
+                    (((MLocalBind 4 GrainValue)
+                      ((instr_desc
+                        (MPrim2 Is
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 1 GrainValue)))
+                          (immediate_analyses ((last_usage Unknown))))
+                         ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                          (immediate_analyses ((last_usage Unknown))))))))))))
+                 ((instr_desc
+                   (MIf
+                    ((immediate_desc (MImmBinding (MLocalBind 4 GrainValue)))
+                     (immediate_analyses ((last_usage Unknown))))
+                    (((instr_desc
+                       (MStore
+                        (((MLocalBind 5 GrainValue)
+                          ((instr_desc
+                            (MAdtOp (MAdtGet 0)
+                             ((immediate_desc
+                               (MImmBinding (MArgBind 2 GrainValue)))
+                              (immediate_analyses ((last_usage Unknown))))))))))))
+                     ((instr_desc
+                       (MDrop
+                        ((instr_desc
+                          (MSet (MLocalBind 0 GrainValue)
+                           ((instr_desc
+                             (MImmediate
+                              ((immediate_desc
+                                (MImmBinding (MLocalBind 5 GrainValue)))
+                               (immediate_analyses ((last_usage Unknown)))))))))))))
+                     ((instr_desc
+                       (MImmediate
+                        ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                         (immediate_analyses ((last_usage Unknown))))))))
+                    (((instr_desc
+                       (MImmediate
+                        ((immediate_desc MImmTrap)
+                         (immediate_analyses ((last_usage Unknown))))))))))))))))))))
+        ((instr_desc
+          (MSwitch
+           ((immediate_desc (MImmBinding (MLocalBind 3 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))
+           ((0
+             (((instr_desc
+                (MReturnCallIndirect
+                 (func
+                  ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                   (immediate_analyses ((last_usage Unknown)))))
+                 (func_type ((GrainValue) (GrainValue)))
+                 (args
+                  (((immediate_desc (MImmBinding (MLocalBind 0 GrainValue)))
+                    (immediate_analyses ((last_usage Unknown)))))))))))
+            (1
+             (((instr_desc
+                (MAllocate
+                 (MADT
+                  ((immediate_desc
+                    (MImmConst (MConstSimpleNumber 250551095)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmConst (MConstSimpleNumber 3)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ())))))))
+           (((instr_desc
+              (MImmediate
+               ((immediate_desc MImmTrap)
+                (immediate_analyses ((last_usage Unknown))))))))
+           GrainValue)))))
+      (stack_size
+       ((stack_size_ref 6) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ()))
+     ((id ((stamp 1073) (name filter))) (name (filter))
+      (args (GrainValue GrainValue GrainValue)) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 GrainValue)
+             ((instr_desc
+               (MImmediate
+                ((immediate_desc (MImmConst MConstVoid))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 GrainValue)
+             ((instr_desc
+               (MAdtOp MAdtGetTag
+                ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 GrainValue)
+             ((instr_desc
+               (MPrim2 Is
+                ((immediate_desc (MImmBinding (MLocalBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 GrainValue)
+             ((instr_desc
+               (MIf
+                ((immediate_desc (MImmBinding (MLocalBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                (((instr_desc
+                   (MImmediate
+                    ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                     (immediate_analyses ((last_usage Unknown))))))))
+                (((instr_desc
+                   (MStore
+                    (((MLocalBind 4 GrainValue)
+                      ((instr_desc
+                        (MPrim2 Is
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 1 GrainValue)))
+                          (immediate_analyses ((last_usage Unknown))))
+                         ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                          (immediate_analyses ((last_usage Unknown))))))))))))
+                 ((instr_desc
+                   (MIf
+                    ((immediate_desc (MImmBinding (MLocalBind 4 GrainValue)))
+                     (immediate_analyses ((last_usage Unknown))))
+                    (((instr_desc
+                       (MStore
+                        (((MLocalBind 5 GrainValue)
+                          ((instr_desc
+                            (MAdtOp (MAdtGet 0)
+                             ((immediate_desc
+                               (MImmBinding (MArgBind 2 GrainValue)))
+                              (immediate_analyses ((last_usage Unknown))))))))))))
+                     ((instr_desc
+                       (MDrop
+                        ((instr_desc
+                          (MSet (MLocalBind 0 GrainValue)
+                           ((instr_desc
+                             (MImmediate
+                              ((immediate_desc
+                                (MImmBinding (MLocalBind 5 GrainValue)))
+                               (immediate_analyses ((last_usage Unknown)))))))))))))
+                     ((instr_desc
+                       (MImmediate
+                        ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                         (immediate_analyses ((last_usage Unknown))))))))
+                    (((instr_desc
+                       (MImmediate
+                        ((immediate_desc MImmTrap)
+                         (immediate_analyses ((last_usage Unknown))))))))))))))))))))
+        ((instr_desc
+          (MSwitch
+           ((immediate_desc (MImmBinding (MLocalBind 3 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))
+           ((0
+             (((instr_desc
+                (MStore
+                 (((MLocalBind 6 GrainValue)
+                   ((instr_desc
+                     (MCallIndirect
+                      (func
+                       ((immediate_desc
+                         (MImmBinding (MArgBind 1 GrainValue)))
+                        (immediate_analyses ((last_usage Unknown)))))
+                      (func_type ((GrainValue) (GrainValue)))
+                      (args
+                       (((immediate_desc
+                          (MImmBinding (MLocalBind 0 GrainValue)))
+                         (immediate_analyses ((last_usage Unknown))))))))))))))
+              ((instr_desc
+                (MIf
+                 ((immediate_desc (MImmBinding (MLocalBind 6 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown))))
+                 (((instr_desc
+                    (MAllocate
+                     (MADT
+                      ((immediate_desc
+                        (MImmConst (MConstSimpleNumber 250551095)))
+                       (immediate_analyses ((last_usage Unknown))))
+                      ((immediate_desc (MImmConst (MConstSimpleNumber 3)))
+                       (immediate_analyses ((last_usage Unknown))))
+                      ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                       (immediate_analyses ((last_usage Unknown))))
+                      (((immediate_desc
+                         (MImmBinding (MLocalBind 0 GrainValue)))
+                        (immediate_analyses ((last_usage Unknown))))))))))
+                 (((instr_desc
+                    (MAllocate
+                     (MADT
+                      ((immediate_desc
+                        (MImmConst (MConstSimpleNumber 250551095)))
+                       (immediate_analyses ((last_usage Unknown))))
+                      ((immediate_desc (MImmConst (MConstSimpleNumber 3)))
+                       (immediate_analyses ((last_usage Unknown))))
+                      ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                       (immediate_analyses ((last_usage Unknown))))
+                      ()))))))))))
+            (1
+             (((instr_desc
+                (MAllocate
+                 (MADT
+                  ((immediate_desc
+                    (MImmConst (MConstSimpleNumber 250551095)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmConst (MConstSimpleNumber 3)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ())))))))
+           (((instr_desc
+              (MImmediate
+               ((immediate_desc MImmTrap)
+                (immediate_analyses ((last_usage Unknown))))))))
+           GrainValue)))))
+      (stack_size
+       ((stack_size_ref 7) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ()))
+     ((id ((stamp 1077) (name zip))) (name (zip))
+      (args (GrainValue GrainValue GrainValue)) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 GrainValue)
+             ((instr_desc
+               (MAllocate
+                (MTuple
+                 (((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                   (immediate_analyses ((last_usage Unknown))))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 GrainValue)
+             ((instr_desc
+               (MImmediate
+                ((immediate_desc (MImmConst MConstVoid))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 GrainValue)
+             ((instr_desc
+               (MImmediate
+                ((immediate_desc (MImmConst MConstVoid))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 GrainValue)
+             ((instr_desc
+               (MTupleOp (MTupleGet 0)
+                ((immediate_desc (MImmBinding (MLocalBind 0 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 4 GrainValue)
+             ((instr_desc
+               (MTupleOp (MTupleGet 1)
+                ((immediate_desc (MImmBinding (MLocalBind 0 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 5 GrainValue)
+             ((instr_desc
+               (MAdtOp MAdtGetTag
+                ((immediate_desc (MImmBinding (MLocalBind 3 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 6 GrainValue)
+             ((instr_desc
+               (MPrim2 Is
+                ((immediate_desc (MImmBinding (MLocalBind 5 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 7 GrainValue)
+             ((instr_desc
+               (MIf
+                ((immediate_desc (MImmBinding (MLocalBind 6 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                (((instr_desc
+                   (MStore
+                    (((MLocalBind 8 GrainValue)
+                      ((instr_desc
+                        (MAdtOp (MAdtGet 0)
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 3 GrainValue)))
+                          (immediate_analyses ((last_usage Unknown))))))))))))
+                 ((instr_desc
+                   (MStore
+                    (((MLocalBind 9 GrainValue)
+                      ((instr_desc
+                        (MAdtOp MAdtGetTag
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 4 GrainValue)))
+                          (immediate_analyses ((last_usage Unknown))))))))))))
+                 ((instr_desc
+                   (MStore
+                    (((MLocalBind 10 GrainValue)
+                      ((instr_desc
+                        (MPrim2 Is
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 9 GrainValue)))
+                          (immediate_analyses ((last_usage Unknown))))
+                         ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                          (immediate_analyses ((last_usage Unknown))))))))))))
+                 ((instr_desc
+                   (MIf
+                    ((immediate_desc
+                      (MImmBinding (MLocalBind 10 GrainValue)))
+                     (immediate_analyses ((last_usage Unknown))))
+                    (((instr_desc
+                       (MStore
+                        (((MLocalBind 11 GrainValue)
+                          ((instr_desc
+                            (MAdtOp (MAdtGet 0)
+                             ((immediate_desc
+                               (MImmBinding (MLocalBind 4 GrainValue)))
+                              (immediate_analyses ((last_usage Unknown))))))))))))
+                     ((instr_desc
+                       (MDrop
+                        ((instr_desc
+                          (MSet (MLocalBind 1 GrainValue)
+                           ((instr_desc
+                             (MImmediate
+                              ((immediate_desc
+                                (MImmBinding (MLocalBind 8 GrainValue)))
+                               (immediate_analyses ((last_usage Unknown)))))))))))))
+                     ((instr_desc
+                       (MDrop
+                        ((instr_desc
+                          (MSet (MLocalBind 2 GrainValue)
+                           ((instr_desc
+                             (MImmediate
+                              ((immediate_desc
+                                (MImmBinding (MLocalBind 11 GrainValue)))
+                               (immediate_analyses ((last_usage Unknown)))))))))))))
+                     ((instr_desc
+                       (MImmediate
+                        ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                         (immediate_analyses ((last_usage Unknown))))))))
+                    (((instr_desc
+                       (MImmediate
+                        ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                         (immediate_analyses ((last_usage Unknown))))))))))))
+                (((instr_desc
+                   (MImmediate
+                    ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                     (immediate_analyses ((last_usage Unknown))))))))))))))))
+        ((instr_desc
+          (MSwitch
+           ((immediate_desc (MImmBinding (MLocalBind 7 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))
+           ((0
+             (((instr_desc
+                (MStore
+                 (((MLocalBind 12 GrainValue)
+                   ((instr_desc
+                     (MAllocate
+                      (MTuple
+                       (((immediate_desc
+                          (MImmBinding (MLocalBind 1 GrainValue)))
+                         (immediate_analyses ((last_usage Unknown))))
+                        ((immediate_desc
+                          (MImmBinding (MLocalBind 2 GrainValue)))
+                         (immediate_analyses ((last_usage Unknown))))))))))))))
+              ((instr_desc
+                (MAllocate
+                 (MADT
+                  ((immediate_desc
+                    (MImmConst (MConstSimpleNumber 250551095)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmConst (MConstSimpleNumber 3)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  (((immediate_desc (MImmBinding (MLocalBind 12 GrainValue)))
+                    (immediate_analyses ((last_usage Unknown)))))))))))
+            (1
+             (((instr_desc
+                (MAllocate
+                 (MADT
+                  ((immediate_desc
+                    (MImmConst (MConstSimpleNumber 250551095)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmConst (MConstSimpleNumber 3)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ())))))))
+           (((instr_desc
+              (MImmediate
+               ((immediate_desc MImmTrap)
+                (immediate_analyses ((last_usage Unknown))))))))
+           GrainValue)))))
+      (stack_size
+       ((stack_size_ref 13) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ()))
+     ((id ((stamp 1082) (name zipWith))) (name (zipWith))
+      (args (GrainValue GrainValue GrainValue GrainValue))
+      (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 GrainValue)
+             ((instr_desc
+               (MAllocate
+                (MTuple
+                 (((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmBinding (MArgBind 3 GrainValue)))
+                   (immediate_analyses ((last_usage Unknown))))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 GrainValue)
+             ((instr_desc
+               (MImmediate
+                ((immediate_desc (MImmConst MConstVoid))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 GrainValue)
+             ((instr_desc
+               (MImmediate
+                ((immediate_desc (MImmConst MConstVoid))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 GrainValue)
+             ((instr_desc
+               (MTupleOp (MTupleGet 0)
+                ((immediate_desc (MImmBinding (MLocalBind 0 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 4 GrainValue)
+             ((instr_desc
+               (MTupleOp (MTupleGet 1)
+                ((immediate_desc (MImmBinding (MLocalBind 0 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 5 GrainValue)
+             ((instr_desc
+               (MAdtOp MAdtGetTag
+                ((immediate_desc (MImmBinding (MLocalBind 3 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 6 GrainValue)
+             ((instr_desc
+               (MPrim2 Is
+                ((immediate_desc (MImmBinding (MLocalBind 5 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 7 GrainValue)
+             ((instr_desc
+               (MIf
+                ((immediate_desc (MImmBinding (MLocalBind 6 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                (((instr_desc
+                   (MStore
+                    (((MLocalBind 8 GrainValue)
+                      ((instr_desc
+                        (MAdtOp (MAdtGet 0)
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 3 GrainValue)))
+                          (immediate_analyses ((last_usage Unknown))))))))))))
+                 ((instr_desc
+                   (MStore
+                    (((MLocalBind 9 GrainValue)
+                      ((instr_desc
+                        (MAdtOp MAdtGetTag
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 4 GrainValue)))
+                          (immediate_analyses ((last_usage Unknown))))))))))))
+                 ((instr_desc
+                   (MStore
+                    (((MLocalBind 10 GrainValue)
+                      ((instr_desc
+                        (MPrim2 Is
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 9 GrainValue)))
+                          (immediate_analyses ((last_usage Unknown))))
+                         ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                          (immediate_analyses ((last_usage Unknown))))))))))))
+                 ((instr_desc
+                   (MIf
+                    ((immediate_desc
+                      (MImmBinding (MLocalBind 10 GrainValue)))
+                     (immediate_analyses ((last_usage Unknown))))
+                    (((instr_desc
+                       (MStore
+                        (((MLocalBind 11 GrainValue)
+                          ((instr_desc
+                            (MAdtOp (MAdtGet 0)
+                             ((immediate_desc
+                               (MImmBinding (MLocalBind 4 GrainValue)))
+                              (immediate_analyses ((last_usage Unknown))))))))))))
+                     ((instr_desc
+                       (MDrop
+                        ((instr_desc
+                          (MSet (MLocalBind 1 GrainValue)
+                           ((instr_desc
+                             (MImmediate
+                              ((immediate_desc
+                                (MImmBinding (MLocalBind 8 GrainValue)))
+                               (immediate_analyses ((last_usage Unknown)))))))))))))
+                     ((instr_desc
+                       (MDrop
+                        ((instr_desc
+                          (MSet (MLocalBind 2 GrainValue)
+                           ((instr_desc
+                             (MImmediate
+                              ((immediate_desc
+                                (MImmBinding (MLocalBind 11 GrainValue)))
+                               (immediate_analyses ((last_usage Unknown)))))))))))))
+                     ((instr_desc
+                       (MImmediate
+                        ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                         (immediate_analyses ((last_usage Unknown))))))))
+                    (((instr_desc
+                       (MImmediate
+                        ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                         (immediate_analyses ((last_usage Unknown))))))))))))
+                (((instr_desc
+                   (MImmediate
+                    ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                     (immediate_analyses ((last_usage Unknown))))))))))))))))
+        ((instr_desc
+          (MSwitch
+           ((immediate_desc (MImmBinding (MLocalBind 7 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))
+           ((0
+             (((instr_desc
+                (MStore
+                 (((MLocalBind 12 GrainValue)
+                   ((instr_desc
+                     (MCallIndirect
+                      (func
+                       ((immediate_desc
+                         (MImmBinding (MArgBind 1 GrainValue)))
+                        (immediate_analyses ((last_usage Unknown)))))
+                      (func_type ((GrainValue GrainValue) (GrainValue)))
+                      (args
+                       (((immediate_desc
+                          (MImmBinding (MLocalBind 1 GrainValue)))
+                         (immediate_analyses ((last_usage Unknown))))
+                        ((immediate_desc
+                          (MImmBinding (MLocalBind 2 GrainValue)))
+                         (immediate_analyses ((last_usage Unknown))))))))))))))
+              ((instr_desc
+                (MAllocate
+                 (MADT
+                  ((immediate_desc
+                    (MImmConst (MConstSimpleNumber 250551095)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmConst (MConstSimpleNumber 3)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  (((immediate_desc (MImmBinding (MLocalBind 12 GrainValue)))
+                    (immediate_analyses ((last_usage Unknown)))))))))))
+            (1
+             (((instr_desc
+                (MAllocate
+                 (MADT
+                  ((immediate_desc
+                    (MImmConst (MConstSimpleNumber 250551095)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmConst (MConstSimpleNumber 3)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ())))))))
+           (((instr_desc
+              (MImmediate
+               ((immediate_desc MImmTrap)
+                (immediate_analyses ((last_usage Unknown))))))))
+           GrainValue)))))
+      (stack_size
+       ((stack_size_ref 13) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ()))
+     ((id ((stamp 1088) (name flatten))) (name (flatten))
+      (args (GrainValue GrainValue)) (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 GrainValue)
+             ((instr_desc
+               (MImmediate
+                ((immediate_desc (MImmConst MConstVoid))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 GrainValue)
+             ((instr_desc
+               (MAdtOp MAdtGetTag
+                ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 GrainValue)
+             ((instr_desc
+               (MPrim2 Is
+                ((immediate_desc (MImmBinding (MLocalBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 GrainValue)
+             ((instr_desc
+               (MIf
+                ((immediate_desc (MImmBinding (MLocalBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                (((instr_desc
+                   (MStore
+                    (((MLocalBind 4 GrainValue)
+                      ((instr_desc
+                        (MAdtOp (MAdtGet 0)
+                         ((immediate_desc
+                           (MImmBinding (MArgBind 1 GrainValue)))
+                          (immediate_analyses ((last_usage Unknown))))))))))))
+                 ((instr_desc
+                   (MStore
+                    (((MLocalBind 5 GrainValue)
+                      ((instr_desc
+                        (MAdtOp MAdtGetTag
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 4 GrainValue)))
+                          (immediate_analyses ((last_usage Unknown))))))))))))
+                 ((instr_desc
+                   (MStore
+                    (((MLocalBind 6 GrainValue)
+                      ((instr_desc
+                        (MPrim2 Is
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 5 GrainValue)))
+                          (immediate_analyses ((last_usage Unknown))))
+                         ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                          (immediate_analyses ((last_usage Unknown))))))))))))
+                 ((instr_desc
+                   (MIf
+                    ((immediate_desc (MImmBinding (MLocalBind 6 GrainValue)))
+                     (immediate_analyses ((last_usage Unknown))))
+                    (((instr_desc
+                       (MStore
+                        (((MLocalBind 7 GrainValue)
+                          ((instr_desc
+                            (MAdtOp (MAdtGet 0)
+                             ((immediate_desc
+                               (MImmBinding (MLocalBind 4 GrainValue)))
+                              (immediate_analyses ((last_usage Unknown))))))))))))
+                     ((instr_desc
+                       (MDrop
+                        ((instr_desc
+                          (MSet (MLocalBind 0 GrainValue)
+                           ((instr_desc
+                             (MImmediate
+                              ((immediate_desc
+                                (MImmBinding (MLocalBind 7 GrainValue)))
+                               (immediate_analyses ((last_usage Unknown)))))))))))))
+                     ((instr_desc
+                       (MImmediate
+                        ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                         (immediate_analyses ((last_usage Unknown))))))))
+                    (((instr_desc
+                       (MImmediate
+                        ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                         (immediate_analyses ((last_usage Unknown))))))))))))
+                (((instr_desc
+                   (MImmediate
+                    ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                     (immediate_analyses ((last_usage Unknown))))))))))))))))
+        ((instr_desc
+          (MSwitch
+           ((immediate_desc (MImmBinding (MLocalBind 3 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))
+           ((0
+             (((instr_desc
+                (MAllocate
+                 (MADT
+                  ((immediate_desc
+                    (MImmConst (MConstSimpleNumber 250551095)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmConst (MConstSimpleNumber 3)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  (((immediate_desc (MImmBinding (MLocalBind 0 GrainValue)))
+                    (immediate_analyses ((last_usage Unknown)))))))))))
+            (1
+             (((instr_desc
+                (MAllocate
+                 (MADT
+                  ((immediate_desc
+                    (MImmConst (MConstSimpleNumber 250551095)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmConst (MConstSimpleNumber 3)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ())))))))
+           (((instr_desc
+              (MImmediate
+               ((immediate_desc MImmTrap)
+                (immediate_analyses ((last_usage Unknown))))))))
+           GrainValue)))))
+      (stack_size
+       ((stack_size_ref 8) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ()))
+     ((id ((stamp 1091) (name toList))) (name (toList))
+      (args (GrainValue GrainValue)) (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 GrainValue)
+             ((instr_desc
+               (MImmediate
+                ((immediate_desc (MImmConst MConstVoid))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 GrainValue)
+             ((instr_desc
+               (MAdtOp MAdtGetTag
+                ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 GrainValue)
+             ((instr_desc
+               (MPrim2 Is
+                ((immediate_desc (MImmBinding (MLocalBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 GrainValue)
+             ((instr_desc
+               (MIf
+                ((immediate_desc (MImmBinding (MLocalBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                (((instr_desc
+                   (MImmediate
+                    ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                     (immediate_analyses ((last_usage Unknown))))))))
+                (((instr_desc
+                   (MStore
+                    (((MLocalBind 4 GrainValue)
+                      ((instr_desc
+                        (MPrim2 Is
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 1 GrainValue)))
+                          (immediate_analyses ((last_usage Unknown))))
+                         ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                          (immediate_analyses ((last_usage Unknown))))))))))))
+                 ((instr_desc
+                   (MIf
+                    ((immediate_desc (MImmBinding (MLocalBind 4 GrainValue)))
+                     (immediate_analyses ((last_usage Unknown))))
+                    (((instr_desc
+                       (MStore
+                        (((MLocalBind 5 GrainValue)
+                          ((instr_desc
+                            (MAdtOp (MAdtGet 0)
+                             ((immediate_desc
+                               (MImmBinding (MArgBind 1 GrainValue)))
+                              (immediate_analyses ((last_usage Unknown))))))))))))
+                     ((instr_desc
+                       (MDrop
+                        ((instr_desc
+                          (MSet (MLocalBind 0 GrainValue)
+                           ((instr_desc
+                             (MImmediate
+                              ((immediate_desc
+                                (MImmBinding (MLocalBind 5 GrainValue)))
+                               (immediate_analyses ((last_usage Unknown)))))))))))))
+                     ((instr_desc
+                       (MImmediate
+                        ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                         (immediate_analyses ((last_usage Unknown))))))))
+                    (((instr_desc
+                       (MImmediate
+                        ((immediate_desc MImmTrap)
+                         (immediate_analyses ((last_usage Unknown))))))))))))))))))))
+        ((instr_desc
+          (MSwitch
+           ((immediate_desc (MImmBinding (MLocalBind 3 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))
+           ((0
+             (((instr_desc
+                (MStore
+                 (((MLocalBind 6 GrainValue)
+                   ((instr_desc
+                     (MAllocate
+                      (MADT
+                       ((immediate_desc
+                         (MImmConst (MConstSimpleNumber 282430892)))
+                        (immediate_analyses ((last_usage Unknown))))
+                       ((immediate_desc (MImmConst (MConstSimpleNumber 5)))
+                        (immediate_analyses ((last_usage Unknown))))
+                       ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                        (immediate_analyses ((last_usage Unknown))))
+                       ())))))))))
+              ((instr_desc
+                (MAllocate
+                 (MADT
+                  ((immediate_desc
+                    (MImmConst (MConstSimpleNumber 282430892)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmConst (MConstSimpleNumber 5)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  (((immediate_desc (MImmBinding (MLocalBind 0 GrainValue)))
+                    (immediate_analyses ((last_usage Unknown))))
+                   ((immediate_desc (MImmBinding (MLocalBind 6 GrainValue)))
+                    (immediate_analyses ((last_usage Unknown)))))))))))
+            (1
+             (((instr_desc
+                (MAllocate
+                 (MADT
+                  ((immediate_desc
+                    (MImmConst (MConstSimpleNumber 282430892)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmConst (MConstSimpleNumber 5)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ())))))))
+           (((instr_desc
+              (MImmediate
+               ((immediate_desc MImmTrap)
+                (immediate_analyses ((last_usage Unknown))))))))
+           GrainValue)))))
+      (stack_size
+       ((stack_size_ref 7) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ()))
+     ((id ((stamp 1094) (name toArray))) (name (toArray))
+      (args (GrainValue GrainValue)) (return_type (GrainValue)) (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 GrainValue)
+             ((instr_desc
+               (MImmediate
+                ((immediate_desc (MImmConst MConstVoid))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 GrainValue)
+             ((instr_desc
+               (MAdtOp MAdtGetTag
+                ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 GrainValue)
+             ((instr_desc
+               (MPrim2 Is
+                ((immediate_desc (MImmBinding (MLocalBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 GrainValue)
+             ((instr_desc
+               (MIf
+                ((immediate_desc (MImmBinding (MLocalBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                (((instr_desc
+                   (MImmediate
+                    ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                     (immediate_analyses ((last_usage Unknown))))))))
+                (((instr_desc
+                   (MStore
+                    (((MLocalBind 4 GrainValue)
+                      ((instr_desc
+                        (MPrim2 Is
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 1 GrainValue)))
+                          (immediate_analyses ((last_usage Unknown))))
+                         ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                          (immediate_analyses ((last_usage Unknown))))))))))))
+                 ((instr_desc
+                   (MIf
+                    ((immediate_desc (MImmBinding (MLocalBind 4 GrainValue)))
+                     (immediate_analyses ((last_usage Unknown))))
+                    (((instr_desc
+                       (MStore
+                        (((MLocalBind 5 GrainValue)
+                          ((instr_desc
+                            (MAdtOp (MAdtGet 0)
+                             ((immediate_desc
+                               (MImmBinding (MArgBind 1 GrainValue)))
+                              (immediate_analyses ((last_usage Unknown))))))))))))
+                     ((instr_desc
+                       (MDrop
+                        ((instr_desc
+                          (MSet (MLocalBind 0 GrainValue)
+                           ((instr_desc
+                             (MImmediate
+                              ((immediate_desc
+                                (MImmBinding (MLocalBind 5 GrainValue)))
+                               (immediate_analyses ((last_usage Unknown)))))))))))))
+                     ((instr_desc
+                       (MImmediate
+                        ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                         (immediate_analyses ((last_usage Unknown))))))))
+                    (((instr_desc
+                       (MImmediate
+                        ((immediate_desc MImmTrap)
+                         (immediate_analyses ((last_usage Unknown))))))))))))))))))))
+        ((instr_desc
+          (MSwitch
+           ((immediate_desc (MImmBinding (MLocalBind 3 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))
+           ((0
+             (((instr_desc
+                (MAllocate
+                 (MArray
+                  (((immediate_desc (MImmBinding (MLocalBind 0 GrainValue)))
+                    (immediate_analyses ((last_usage Unknown)))))))))))
+            (1 (((instr_desc (MAllocate (MArray ())))))))
+           (((instr_desc
+              (MImmediate
+               ((immediate_desc MImmTrap)
+                (immediate_analyses ((last_usage Unknown))))))))
+           GrainValue)))))
+      (stack_size
+       ((stack_size_ref 6) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ()))
+     ((id ((stamp 1097) (name toResult))) (name (toResult))
+      (args (GrainValue GrainValue GrainValue)) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 GrainValue)
+             ((instr_desc
+               (MImmediate
+                ((immediate_desc (MImmConst MConstVoid))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 GrainValue)
+             ((instr_desc
+               (MAdtOp MAdtGetTag
+                ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 GrainValue)
+             ((instr_desc
+               (MPrim2 Is
+                ((immediate_desc (MImmBinding (MLocalBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 GrainValue)
+             ((instr_desc
+               (MIf
+                ((immediate_desc (MImmBinding (MLocalBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                (((instr_desc
+                   (MImmediate
+                    ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                     (immediate_analyses ((last_usage Unknown))))))))
+                (((instr_desc
+                   (MStore
+                    (((MLocalBind 4 GrainValue)
+                      ((instr_desc
+                        (MPrim2 Is
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 1 GrainValue)))
+                          (immediate_analyses ((last_usage Unknown))))
+                         ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                          (immediate_analyses ((last_usage Unknown))))))))))))
+                 ((instr_desc
+                   (MIf
+                    ((immediate_desc (MImmBinding (MLocalBind 4 GrainValue)))
+                     (immediate_analyses ((last_usage Unknown))))
+                    (((instr_desc
+                       (MStore
+                        (((MLocalBind 5 GrainValue)
+                          ((instr_desc
+                            (MAdtOp (MAdtGet 0)
+                             ((immediate_desc
+                               (MImmBinding (MArgBind 2 GrainValue)))
+                              (immediate_analyses ((last_usage Unknown))))))))))))
+                     ((instr_desc
+                       (MDrop
+                        ((instr_desc
+                          (MSet (MLocalBind 0 GrainValue)
+                           ((instr_desc
+                             (MImmediate
+                              ((immediate_desc
+                                (MImmBinding (MLocalBind 5 GrainValue)))
+                               (immediate_analyses ((last_usage Unknown)))))))))))))
+                     ((instr_desc
+                       (MImmediate
+                        ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                         (immediate_analyses ((last_usage Unknown))))))))
+                    (((instr_desc
+                       (MImmediate
+                        ((immediate_desc MImmTrap)
+                         (immediate_analyses ((last_usage Unknown))))))))))))))))))))
+        ((instr_desc
+          (MSwitch
+           ((immediate_desc (MImmBinding (MLocalBind 3 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))
+           ((0
+             (((instr_desc
+                (MAllocate
+                 (MADT
+                  ((immediate_desc
+                    (MImmConst (MConstSimpleNumber 178574644)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmConst (MConstSimpleNumber 4)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  (((immediate_desc (MImmBinding (MLocalBind 0 GrainValue)))
+                    (immediate_analyses ((last_usage Unknown)))))))))))
+            (1
+             (((instr_desc
+                (MAllocate
+                 (MADT
+                  ((immediate_desc
+                    (MImmConst (MConstSimpleNumber 178574644)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmConst (MConstSimpleNumber 4)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                   (immediate_analyses ((last_usage Unknown))))
+                  (((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                    (immediate_analyses ((last_usage Unknown))))))))))))
+           (((instr_desc
+              (MImmediate
+               ((immediate_desc MImmTrap)
+                (immediate_analyses ((last_usage Unknown))))))))
+           GrainValue)))))
+      (stack_size
+       ((stack_size_ref 6) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ()))
+     ((id ((stamp 1101) (name sideEffect))) (name (sideEffect))
+      (args (GrainValue GrainValue GrainValue)) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 GrainValue)
+             ((instr_desc
+               (MImmediate
+                ((immediate_desc (MImmConst MConstVoid))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 GrainValue)
+             ((instr_desc
+               (MAdtOp MAdtGetTag
+                ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 GrainValue)
+             ((instr_desc
+               (MPrim2 Is
+                ((immediate_desc (MImmBinding (MLocalBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 GrainValue)
+             ((instr_desc
+               (MIf
+                ((immediate_desc (MImmBinding (MLocalBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                (((instr_desc
+                   (MImmediate
+                    ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                     (immediate_analyses ((last_usage Unknown))))))))
+                (((instr_desc
+                   (MStore
+                    (((MLocalBind 4 GrainValue)
+                      ((instr_desc
+                        (MPrim2 Is
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 1 GrainValue)))
+                          (immediate_analyses ((last_usage Unknown))))
+                         ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                          (immediate_analyses ((last_usage Unknown))))))))))))
+                 ((instr_desc
+                   (MIf
+                    ((immediate_desc (MImmBinding (MLocalBind 4 GrainValue)))
+                     (immediate_analyses ((last_usage Unknown))))
+                    (((instr_desc
+                       (MStore
+                        (((MLocalBind 5 GrainValue)
+                          ((instr_desc
+                            (MAdtOp (MAdtGet 0)
+                             ((immediate_desc
+                               (MImmBinding (MArgBind 2 GrainValue)))
+                              (immediate_analyses ((last_usage Unknown))))))))))))
+                     ((instr_desc
+                       (MDrop
+                        ((instr_desc
+                          (MSet (MLocalBind 0 GrainValue)
+                           ((instr_desc
+                             (MImmediate
+                              ((immediate_desc
+                                (MImmBinding (MLocalBind 5 GrainValue)))
+                               (immediate_analyses ((last_usage Unknown)))))))))))))
+                     ((instr_desc
+                       (MImmediate
+                        ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                         (immediate_analyses ((last_usage Unknown))))))))
+                    (((instr_desc
+                       (MImmediate
+                        ((immediate_desc MImmTrap)
+                         (immediate_analyses ((last_usage Unknown))))))))))))))))))))
+        ((instr_desc
+          (MSwitch
+           ((immediate_desc (MImmBinding (MLocalBind 3 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))
+           ((0
+             (((instr_desc
+                (MReturnCallIndirect
+                 (func
+                  ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                   (immediate_analyses ((last_usage Unknown)))))
+                 (func_type ((GrainValue) (GrainValue)))
+                 (args
+                  (((immediate_desc (MImmBinding (MLocalBind 0 GrainValue)))
+                    (immediate_analyses ((last_usage Unknown)))))))))))
+            (1
+             (((instr_desc
+                (MImmediate
+                 ((immediate_desc (MImmConst MConstVoid))
+                  (immediate_analyses ((last_usage Unknown))))))))))
+           (((instr_desc
+              (MImmediate
+               ((immediate_desc MImmTrap)
+                (immediate_analyses ((last_usage Unknown))))))))
+           GrainValue)))))
+      (stack_size
+       ((stack_size_ref 6) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ()))
+     ((id ((stamp 1105) (name peek))) (name (peek))
+      (args (GrainValue GrainValue GrainValue)) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MDrop
+           ((instr_desc
+             (MCallKnown (func sideEffect_1101)
+              (closure
+               ((immediate_desc
+                 (MImmBinding (MGlobalBind sideEffect_1101 GrainValue)))
+                (immediate_analyses ((last_usage Unknown)))))
+              (func_type ((GrainValue GrainValue) (GrainValue)))
+              (args
+               (((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MImmediate
+           ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+            (immediate_analyses ((last_usage Unknown)))))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ()))
+     ((id ((stamp 1108) (name ||))) (name (||))
+      (args (GrainValue GrainValue GrainValue)) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 GrainValue)
+             ((instr_desc
+               (MImmediate
+                ((immediate_desc (MImmConst MConstVoid))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 GrainValue)
+             ((instr_desc
+               (MAdtOp MAdtGetTag
+                ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 GrainValue)
+             ((instr_desc
+               (MPrim2 Is
+                ((immediate_desc (MImmBinding (MLocalBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 GrainValue)
+             ((instr_desc
+               (MIf
+                ((immediate_desc (MImmBinding (MLocalBind 2 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                (((instr_desc
+                   (MImmediate
+                    ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                     (immediate_analyses ((last_usage Unknown))))))))
+                (((instr_desc
+                   (MStore
+                    (((MLocalBind 4 GrainValue)
+                      ((instr_desc
+                        (MPrim2 Is
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 1 GrainValue)))
+                          (immediate_analyses ((last_usage Unknown))))
+                         ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                          (immediate_analyses ((last_usage Unknown))))))))))))
+                 ((instr_desc
+                   (MIf
+                    ((immediate_desc (MImmBinding (MLocalBind 4 GrainValue)))
+                     (immediate_analyses ((last_usage Unknown))))
+                    (((instr_desc
+                       (MStore
+                        (((MLocalBind 5 GrainValue)
+                          ((instr_desc
+                            (MAdtOp (MAdtGet 0)
+                             ((immediate_desc
+                               (MImmBinding (MArgBind 1 GrainValue)))
+                              (immediate_analyses ((last_usage Unknown))))))))))))
+                     ((instr_desc
+                       (MDrop
+                        ((instr_desc
+                          (MSet (MLocalBind 0 GrainValue)
+                           ((instr_desc
+                             (MImmediate
+                              ((immediate_desc
+                                (MImmBinding (MLocalBind 5 GrainValue)))
+                               (immediate_analyses ((last_usage Unknown)))))))))))))
+                     ((instr_desc
+                       (MImmediate
+                        ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                         (immediate_analyses ((last_usage Unknown))))))))
+                    (((instr_desc
+                       (MImmediate
+                        ((immediate_desc MImmTrap)
+                         (immediate_analyses ((last_usage Unknown))))))))))))))))))))
+        ((instr_desc
+          (MSwitch
+           ((immediate_desc (MImmBinding (MLocalBind 3 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))
+           ((0
+             (((instr_desc
+                (MImmediate
+                 ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown)))))))))
+            (1
+             (((instr_desc
+                (MImmediate
+                 ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown))))))))))
+           (((instr_desc
+              (MImmediate
+               ((immediate_desc MImmTrap)
+                (immediate_analyses ((last_usage Unknown))))))))
+           GrainValue)))))
+      (stack_size
+       ((stack_size_ref 6) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ()))
+     ((id ((stamp 1112) (name &&))) (name (&&))
+      (args (GrainValue GrainValue GrainValue)) (return_type (GrainValue))
+      (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 GrainValue)
+             ((instr_desc
+               (MAdtOp MAdtGetTag
+                ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 GrainValue)
+             ((instr_desc
+               (MPrim2 Is
+                ((immediate_desc (MImmBinding (MLocalBind 0 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                 (immediate_analyses ((last_usage Unknown))))))))))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 GrainValue)
+             ((instr_desc
+               (MIf
+                ((immediate_desc (MImmBinding (MLocalBind 1 GrainValue)))
+                 (immediate_analyses ((last_usage Unknown))))
+                (((instr_desc
+                   (MImmediate
+                    ((immediate_desc (MImmConst (MConstSimpleNumber 1)))
+                     (immediate_analyses ((last_usage Unknown))))))))
+                (((instr_desc
+                   (MStore
+                    (((MLocalBind 3 GrainValue)
+                      ((instr_desc
+                        (MPrim2 Is
+                         ((immediate_desc
+                           (MImmBinding (MLocalBind 0 GrainValue)))
+                          (immediate_analyses ((last_usage Unknown))))
+                         ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                          (immediate_analyses ((last_usage Unknown))))))))))))
+                 ((instr_desc
+                   (MIf
+                    ((immediate_desc (MImmBinding (MLocalBind 3 GrainValue)))
+                     (immediate_analyses ((last_usage Unknown))))
+                    (((instr_desc
+                       (MImmediate
+                        ((immediate_desc (MImmConst (MConstSimpleNumber 0)))
+                         (immediate_analyses ((last_usage Unknown))))))))
+                    (((instr_desc
+                       (MImmediate
+                        ((immediate_desc MImmTrap)
+                         (immediate_analyses ((last_usage Unknown))))))))))))))))))))
+        ((instr_desc
+          (MSwitch
+           ((immediate_desc (MImmBinding (MLocalBind 2 GrainValue)))
+            (immediate_analyses ((last_usage Unknown))))
+           ((0
+             (((instr_desc
+                (MImmediate
+                 ((immediate_desc (MImmBinding (MArgBind 2 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown)))))))))
+            (1
+             (((instr_desc
+                (MImmediate
+                 ((immediate_desc (MImmBinding (MArgBind 1 GrainValue)))
+                  (immediate_analyses ((last_usage Unknown))))))))))
+           (((instr_desc
+              (MImmediate
+               ((immediate_desc MImmTrap)
+                (immediate_analyses ((last_usage Unknown))))))))
+           GrainValue)))))
+      (stack_size
+       ((stack_size_ref 4) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 0)))
+      (attrs ()))))
+   (imports
+    (((mimp_id ((stamp 1144) (name fail))) (mimp_mod pervasives.gr)
+      (mimp_name fail)
+      (mimp_type
+       (MFuncImport (GrainValue (WasmValue WasmRef)) ((WasmValue WasmRef))))
+      (mimp_kind MImportGrain) (mimp_setup MSetupNone) (mimp_used true))
+     ((mimp_id ((stamp 1144) (name fail))) (mimp_mod pervasives.gr)
+      (mimp_name fail) (mimp_type (MGlobalImport GrainValue true))
+      (mimp_kind MImportGrain) (mimp_setup MCallGetter) (mimp_used true))
+     ((mimp_id ((stamp 1135) (name ==))) (mimp_mod pervasives.gr)
+      (mimp_name ==)
+      (mimp_type
+       (MFuncImport (GrainValue (WasmValue WasmRef) (WasmValue WasmRef))
+        ((WasmValue WasmRef))))
+      (mimp_kind MImportGrain) (mimp_setup MSetupNone) (mimp_used true))
+     ((mimp_id ((stamp 1135) (name ==))) (mimp_mod pervasives.gr)
+      (mimp_name ==) (mimp_type (MGlobalImport GrainValue true))
+      (mimp_kind MImportGrain) (mimp_setup MCallGetter) (mimp_used true))))
+   (exports
+    ((WasmFunctionExport (ex_function_name &&)
+      (ex_function_internal_name &&_1112))
+     (WasmGlobalExport (ex_global_name &&) (ex_global_internal_name &&_1112))
+     (WasmFunctionExport (ex_function_name ||)
+      (ex_function_internal_name ||_1108))
+     (WasmGlobalExport (ex_global_name ||) (ex_global_internal_name ||_1108))
+     (WasmFunctionExport (ex_function_name peek)
+      (ex_function_internal_name peek_1105))
+     (WasmGlobalExport (ex_global_name peek)
+      (ex_global_internal_name peek_1105))
+     (WasmFunctionExport (ex_function_name sideEffect)
+      (ex_function_internal_name sideEffect_1101))
+     (WasmGlobalExport (ex_global_name sideEffect)
+      (ex_global_internal_name sideEffect_1101))
+     (WasmFunctionExport (ex_function_name toResult)
+      (ex_function_internal_name toResult_1097))
+     (WasmGlobalExport (ex_global_name toResult)
+      (ex_global_internal_name toResult_1097))
+     (WasmFunctionExport (ex_function_name toArray)
+      (ex_function_internal_name toArray_1094))
+     (WasmGlobalExport (ex_global_name toArray)
+      (ex_global_internal_name toArray_1094))
+     (WasmFunctionExport (ex_function_name toList)
+      (ex_function_internal_name toList_1091))
+     (WasmGlobalExport (ex_global_name toList)
+      (ex_global_internal_name toList_1091))
+     (WasmFunctionExport (ex_function_name flatten)
+      (ex_function_internal_name flatten_1088))
+     (WasmGlobalExport (ex_global_name flatten)
+      (ex_global_internal_name flatten_1088))
+     (WasmFunctionExport (ex_function_name zipWith)
+      (ex_function_internal_name zipWith_1082))
+     (WasmGlobalExport (ex_global_name zipWith)
+      (ex_global_internal_name zipWith_1082))
+     (WasmFunctionExport (ex_function_name zip)
+      (ex_function_internal_name zip_1077))
+     (WasmGlobalExport (ex_global_name zip)
+      (ex_global_internal_name zip_1077))
+     (WasmFunctionExport (ex_function_name filter)
+      (ex_function_internal_name filter_1073))
+     (WasmGlobalExport (ex_global_name filter)
+      (ex_global_internal_name filter_1073))
+     (WasmFunctionExport (ex_function_name flatMap)
+      (ex_function_internal_name flatMap_1069))
+     (WasmGlobalExport (ex_global_name flatMap)
+      (ex_global_internal_name flatMap_1069))
+     (WasmFunctionExport (ex_function_name mapWithDefaultFn)
+      (ex_function_internal_name mapWithDefaultFn_1064))
+     (WasmGlobalExport (ex_global_name mapWithDefaultFn)
+      (ex_global_internal_name mapWithDefaultFn_1064))
+     (WasmFunctionExport (ex_function_name mapWithDefault)
+      (ex_function_internal_name mapWithDefault_1059))
+     (WasmGlobalExport (ex_global_name mapWithDefault)
+      (ex_global_internal_name mapWithDefault_1059))
+     (WasmFunctionExport (ex_function_name map)
+      (ex_function_internal_name map_1055))
+     (WasmGlobalExport (ex_global_name map)
+      (ex_global_internal_name map_1055))
+     (WasmFunctionExport (ex_function_name unwrapWithDefault)
+      (ex_function_internal_name unwrapWithDefault_1051))
+     (WasmGlobalExport (ex_global_name unwrapWithDefault)
+      (ex_global_internal_name unwrapWithDefault_1051))
+     (WasmFunctionExport (ex_function_name unwrap)
+      (ex_function_internal_name unwrap_1049))
+     (WasmGlobalExport (ex_global_name unwrap)
+      (ex_global_internal_name unwrap_1049))
+     (WasmFunctionExport (ex_function_name expect)
+      (ex_function_internal_name expect_1045))
+     (WasmGlobalExport (ex_global_name expect)
+      (ex_global_internal_name expect_1045))
+     (WasmFunctionExport (ex_function_name contains)
+      (ex_function_internal_name contains_1041))
+     (WasmGlobalExport (ex_global_name contains)
+      (ex_global_internal_name contains_1041))
+     (WasmFunctionExport (ex_function_name isNone)
+      (ex_function_internal_name isNone_1039))
+     (WasmGlobalExport (ex_global_name isNone)
+      (ex_global_internal_name isNone_1039))
+     (WasmFunctionExport (ex_function_name isSome)
+      (ex_function_internal_name isSome_1037))
+     (WasmGlobalExport (ex_global_name isSome)
+      (ex_global_internal_name isSome_1037))))
+   (main_body
+    (((instr_desc
+       (MStore
+        (((MGlobalBind isSome_1037 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))))))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind isNone_1039 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))))))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind contains_1041 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))))))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind expect_1045 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))))))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind unwrap_1049 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))))))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind unwrapWithDefault_1051 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))))))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind map_1055 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))))))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind mapWithDefault_1059 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))))))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind mapWithDefaultFn_1064 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))))))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind flatMap_1069 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))))))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind filter_1073 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))))))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind zip_1077 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))))))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind zipWith_1082 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))))))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind flatten_1088 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))))))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind toList_1091 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))))))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind toArray_1094 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))))))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind toResult_1097 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))))))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind sideEffect_1101 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))))))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind peek_1105 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))))))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind ||_1108 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))))))))
+     ((instr_desc
+       (MStore
+        (((MGlobalBind &&_1112 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))))))))
+     ((instr_desc
+       (MImmediate
+        ((immediate_desc (MImmConst MConstVoid))
+         (immediate_analyses ((last_usage Unknown)))))))))
+   (main_body_stack_size
+    ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+     (stack_size_f32 0) (stack_size_f64 0)))
+   (globals
+    (((id ((stamp 1112) (name &&))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1041) (name contains))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1073) (name filter))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1088) (name flatten))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1069) (name flatMap))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1045) (name expect))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1037) (name isSome))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1055) (name map))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1064) (name mapWithDefaultFn))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1101) (name sideEffect))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1105) (name peek))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1059) (name mapWithDefault))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1039) (name isNone))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1097) (name toResult))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1091) (name toList))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1051) (name unwrapWithDefault))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1108) (name ||))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1082) (name zipWith))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1077) (name zip))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1049) (name unwrap))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))
+     ((id ((stamp 1094) (name toArray))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))))
+   (compilation_mode Normal) (type_metadata <opaque>)))
+ (signature <opaque>))

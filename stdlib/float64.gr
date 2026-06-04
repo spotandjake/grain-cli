@@ -1,0 +1,611 @@
+/**
+ * Utilities for working with the Float64 type.
+ *
+ * @example from "float64" include Float64
+ *
+ * @example 5.0d
+ * @example -5.0d
+ * @example Infinityd
+ * @example NaNd
+ *
+ * @since v0.2.0
+ */
+module Float64
+
+from "runtime/unsafe/wasmi32" include WasmI32
+from "runtime/unsafe/wasmf64" include WasmF64
+use WasmF64.{ (-), (+), (*), (/), (<), (<=), (>), (>=) }
+from "runtime/unsafe/conv" include Conv
+from "runtime/numbers" include Numbers
+use Numbers.{
+  coerceNumberToFloat64 as fromNumber,
+  coerceFloat64ToNumber as toNumber,
+}
+from "runtime/math/trig" include Trig
+use Trig.{ sin, cos, tan }
+
+/**
+ * Infinity represented as a Float64 value.
+ * This is an alternative to the `Infinityd` literal.
+ *
+ * @since v0.4.0
+ */
+@unsafe
+provide let infinity = Infinityd
+
+/**
+ * NaN (Not a Number) represented as a Float64 value.
+ * This is an alternative to the `NaNd` literal.
+ *
+ * @since v0.4.0
+ */
+@unsafe
+provide let nan = NaNd
+
+/**
+ * Pi represented as a Float64 value.
+ *
+ * @since v0.5.2
+ */
+provide let pi = 3.141592653589793d
+
+/**
+ * Tau represented as a Float64 value.
+ *
+ * @since v0.5.2
+ */
+provide let tau = 6.283185307179586d
+
+/**
+ * Euler's number represented as a Float64 value.
+ *
+ * @since v0.5.2
+ */
+provide let e = 2.718281828459045d
+
+provide { fromNumber, toNumber }
+
+/**
+ * Interprets an Int64 as a Float64.
+ *
+ * @param value: The value to convert
+ * @returns The Int64 interpreted as an Float64
+ *
+ * @example assert Float64.reinterpretInt64(4607182418800017408L) == 1.0d
+ * @example assert Float64.reinterpretInt64(-4616189618054758400L) == -1.0d
+ *
+ * @since v0.7.0
+ */
+@unsafe
+provide let reinterpretInt64 = (value: Int64) => {
+  let value = Conv.fromInt64(value)
+  let value = WasmF64.reinterpretI64(value)
+  Conv.toFloat64(value)
+}
+
+/**
+ * Interprets an Uint64 as a Float64.
+ *
+ * @param value: The value to convert
+ * @returns The Uint64 interpreted as an Float64
+ *
+ * @example assert Float64.reinterpretUint64(4607182418800017408uL) == 1.0d
+ * @example assert Float64.reinterpretUint64(13830554455654793216uL) == -1.0d
+ *
+ * @since v0.7.0
+ */
+@unsafe
+provide let reinterpretUint64 = (value: Uint64) => {
+  let value = Conv.fromUint64(value)
+  let value = WasmF64.reinterpretI64(value)
+  Conv.toFloat64(value)
+}
+
+/**
+ * Computes the sum of its operands.
+ *
+ * @param x: The first operand
+ * @param y: The second operand
+ * @returns The sum of the two operands
+ *
+ * @example
+ * use Float64.{ (+) }
+ * assert 1.0d + 1.0d == 2.0d
+ *
+ * @since v0.6.0
+ * @history v0.2.0: Originally named `add`
+ */
+@unsafe
+provide let (+) = (x: Float64, y: Float64) => {
+  let xv = Conv.fromFloat64(x)
+  let yv = Conv.fromFloat64(y)
+  Conv.toFloat64(xv + yv)
+}
+
+/**
+ * Computes the difference of its operands.
+ *
+ * @param x: The first operand
+ * @param y: The second operand
+ * @returns The difference of the two operands
+ *
+ * @example
+ * use Float64.{ (-) }
+ * assert 5.0d - 4.0d == 1.0d
+ *
+ * @since v0.6.0
+ * @history v0.2.0: Originally named `sub`
+ */
+@unsafe
+provide let (-) = (x: Float64, y: Float64) => {
+  let xv = Conv.fromFloat64(x)
+  let yv = Conv.fromFloat64(y)
+  Conv.toFloat64(xv - yv)
+}
+
+/**
+ * Computes the product of its operands.
+ *
+ * @param x: The first operand
+ * @param y: The second operand
+ * @returns The product of the two operands
+ *
+ * @example
+ * use Float64.{ (*) }
+ * assert -5.0d * 4.0d == -20.0d
+ *
+ * @since v0.6.0
+ * @history v0.2.0: Originally named `mul`
+ */
+@unsafe
+provide let (*) = (x: Float64, y: Float64) => {
+  let xv = Conv.fromFloat64(x)
+  let yv = Conv.fromFloat64(y)
+  Conv.toFloat64(xv * yv)
+}
+
+/**
+ * Computes the quotient of its operands.
+ *
+ * @param x: The first operand
+ * @param y: The second operand
+ * @returns The quotient of the two operands
+ *
+ * @example
+ * use Float64.{ (/) }
+ * assert 25.0d / 4.0d == 6.25d
+ *
+ * @since v0.6.0
+ * @history v0.2.0: Originally named `div`
+ */
+@unsafe
+provide let (/) = (x: Float64, y: Float64) => {
+  let xv = Conv.fromFloat64(x)
+  let yv = Conv.fromFloat64(y)
+  Conv.toFloat64(xv / yv)
+}
+
+/**
+ * Computes the exponentiation of the given base and power.
+ *
+ * @param base: The base float
+ * @param power: The exponent float
+ * @returns The base raised to the given power
+ *
+ * @example
+ * use Float64.{ (**) }
+ * assert 2.0d ** 2.0d == 4.0d
+ *
+ * @since v0.7.0
+ */
+@unsafe
+provide let (**) = (base: Float64, power: Float64) => {
+  let basev = Conv.fromFloat64(base)
+  let powerv = Conv.fromFloat64(power)
+  Conv.toFloat64(Numbers.powf(basev, powerv))
+}
+
+/**
+ * Checks if the first value is less than the second value.
+ *
+ * @param x: The first value
+ * @param y: The second value
+ * @returns `true` if the first value is less than the second value or `false` otherwise
+ *
+ * @example
+ * use Float64.{ (<) }
+ * assert -5.0d < 5.0d
+ *
+ * @since v0.6.0
+ * @history v0.2.0: Originally named `lt`
+ */
+@unsafe
+provide let (<) = (x: Float64, y: Float64) => {
+  let xv = Conv.fromFloat64(x)
+  let yv = Conv.fromFloat64(y)
+  xv < yv
+}
+
+/**
+ * Checks if the first value is greater than the second value.
+ *
+ * @param x: The first value
+ * @param y: The second value
+ * @returns `true` if the first value is greater than the second value or `false` otherwise
+ *
+ * @example
+ * use Float64.{ (>) }
+ * assert 6.0d > 5.0d
+ *
+ * @since v0.6.0
+ * @history v0.2.0: Originally named `gt`
+ */
+@unsafe
+provide let (>) = (x: Float64, y: Float64) => {
+  let xv = Conv.fromFloat64(x)
+  let yv = Conv.fromFloat64(y)
+  xv > yv
+}
+
+/**
+ * Checks if the first value is less than or equal to the second value.
+ *
+ * @param x: The first value
+ * @param y: The second value
+ * @returns `true` if the first value is less than or equal to the second value or `false` otherwise
+ *
+ * @example
+ * use Float64.{ (<=) }
+ * assert 1.0d <= 2.0d
+ *
+ * @example
+ * use Float64.{ (<=) }
+ * assert 2.0d <= 2.0d
+ *
+ * @since v0.6.0
+ * @history v0.2.0: Originally named `lte`
+ */
+@unsafe
+provide let (<=) = (x: Float64, y: Float64) => {
+  let xv = Conv.fromFloat64(x)
+  let yv = Conv.fromFloat64(y)
+  xv <= yv
+}
+
+/**
+ * Checks if the first value is greater than or equal to the second value.
+ *
+ * @param x: The first value
+ * @param y: The second value
+ * @returns `true` if the first value is greater than or equal to the second value or `false` otherwise
+ *
+ * @example
+ * use Float64.{ (>=) }
+ * assert 5.0d >= 2.0d
+ *
+ * @example
+ * use Float64.{ (>=) }
+ * assert -1.0d >= -1.0d
+ *
+ * @since v0.6.0
+ * @history v0.2.0: Originally named `gte`
+ */
+@unsafe
+provide let (>=) = (x: Float64, y: Float64) => {
+  let xv = Conv.fromFloat64(x)
+  let yv = Conv.fromFloat64(y)
+  xv >= yv
+}
+
+/**
+ * Checks if a float is finite.
+ * All values are finite exept for NaN, infinity or negative infinity.
+ *
+ * @param x: The number to check
+ * @returns `true` if the value is finite or `false` otherwise
+ *
+ * @example Float64.isFinite(0.5d)
+ * @example Float64.isFinite(1.0d)
+ * @example Float64.isFinite(Infinityd) == false
+ * @example Float64.isFinite(-Infinityd) == false
+ * @example Float64.isFinite(NaNd) == false
+ *
+ * @since v0.7.0
+ */
+@unsafe
+provide let isFinite = (x: Float64) => {
+  // uses the fact that all finite floats minus themselves are zero
+  // (NaN - NaN == NaN, inf - inf == NaN,
+  //  -inf - -inf == NaN, inf - -inf == inf, -inf - inf == -inf)
+  x - x == 0.0d
+}
+
+/**
+ * Checks if the value is a float NaN value (Not A Number).
+ *
+ * @param x: The value to check
+ * @returns `true` if the value is NaN, otherwise `false`
+ *
+ * @example Float64.isNaN(NaNd)
+ * @example Float64.isNaN(Infinityd) == false
+ * @example Float64.isNaN(-Infinityd) == false
+ * @example Float64.isNaN(0.5d) == false
+ * @example Float64.isNaN(1.0d) == false
+ *
+ * @since v0.6.5
+ */
+provide let isNaN = (x: Float64) => x != x
+
+/**
+ * Checks if a float is infinite, that is either of positive or negative infinity.
+ *
+ * @param x: The value to check
+ * @returns `true` if the value is infinite or `false` otherwise
+ *
+ * @example Float64.isInfinite(Infinityd)
+ * @example Float64.isInfinite(-Infinityd)
+ * @example Float64.isInfinite(NaNd) == false
+ * @example Float64.isInfinite(0.5d) == false
+ * @example Float64.isInfinite(1.0d) == false
+ *
+ * @since v0.6.5
+ */
+provide let isInfinite = (x: Float64) => x == Infinityd || x == -Infinityd
+
+/**
+ * Returns the smaller of its operands.
+ *
+ * @param x: The first operand
+ * @param y: The second operand
+ * @returns The smaller of the two operands
+ *
+ * @example Float64.min(5.0d, 2.0d) == 2.0d
+ *
+ * @since v0.7.0
+ */
+@unsafe
+provide let min = (x: Float64, y: Float64) => {
+  let xv = Conv.fromFloat64(x)
+  let yv = Conv.fromFloat64(y)
+  Conv.toFloat64(WasmF64.min(xv, yv))
+}
+
+/**
+ * Returns the larger of its operands.
+ *
+ * @param x: The first operand
+ * @param y: The second operand
+ * @returns The larger of the two operands
+ *
+ * @example Float64.max(5.0d, 2.0d) == 5.0d
+ *
+ * @since v0.7.0
+ */
+@unsafe
+provide let max = (x: Float64, y: Float64) => {
+  let xv = Conv.fromFloat64(x)
+  let yv = Conv.fromFloat64(y)
+  Conv.toFloat64(WasmF64.max(xv, yv))
+}
+
+/**
+ * Returns the absolute value. That is, it returns `x` if `x` is positive or zero and the negation of `x` if `x` is negative.
+ *
+ * @param x: The operand
+ * @returns The absolute value of the operand
+ *
+ * @example Float64.abs(-1.0d) == 1.0d
+ * @example Float64.abs(5.0d) == 5.0d
+ *
+ * @since v0.6.5
+ */
+@unsafe
+provide let abs = (x: Float64) => {
+  let xv = Conv.fromFloat64(x)
+  Conv.toFloat64(WasmF64.abs(xv))
+}
+
+/**
+ * Returns the negation of its operand.
+ *
+ * @param x: The operand
+ * @returns The negated operand
+ *
+ * @example Float64.neg(-1.0d) == 1.0d
+ * @example Float64.neg(1.0d) == -1.0d
+ *
+ * @since v0.6.5
+ */
+@unsafe
+provide let neg = (x: Float64) => {
+  let xv = Conv.fromFloat64(x)
+  Conv.toFloat64(WasmF64.neg(xv))
+}
+
+/**
+ * Rounds its operand up to the next largest whole value.
+ *
+ * @param x: The operand to ceil
+ * @returns The next largest whole value of the operand
+ *
+ * @example Float64.ceil(5.5d) == 6.0d
+ * @example Float64.ceil(-5.5d) == -5.0d
+ *
+ * @since v0.7.0
+ */
+@unsafe
+provide let ceil = (x: Float64) => {
+  let xv = Conv.fromFloat64(x)
+  Conv.toFloat64(WasmF64.ceil(xv))
+}
+
+/**
+ * Rounds its operand down to the largest whole value less than the operand.
+ *
+ * @param x: The operand to floor
+ * @returns The previous whole value of the operand
+ *
+ * @example Float64.floor(5.5d) == 5.0d
+ * @example Float64.floor(-5.5d) == -6.0d
+ *
+ * @since v0.7.0
+ */
+@unsafe
+provide let floor = (x: Float64) => {
+  let xv = Conv.fromFloat64(x)
+  Conv.toFloat64(WasmF64.floor(xv))
+}
+
+/**
+ * Returns the whole value part of its operand, removing any fractional value.
+ *
+ * @param x: The operand to truncate
+ * @returns The whole value part of the operand
+ *
+ * @example Float64.trunc(5.5d) == 5.0d
+ *
+ * @since v0.7.0
+ */
+@unsafe
+provide let trunc = (x: Float64) => {
+  let xv = Conv.fromFloat64(x)
+  Conv.toFloat64(WasmF64.trunc(xv))
+}
+
+/**
+ * Returns its operand rounded to its nearest integer.
+ *
+ * @param x: The operand to round
+ * @returns The nearest integer to the operand
+ *
+ * @example Float64.round(5.5d) == 6.0d
+ * @example Float64.round(5.4d) == 5.0d
+ * @example Float64.round(-5.5d) == -6.0d
+ * @example Float64.round(-5.4d) == -5.0d
+ *
+ * @since v0.7.0
+ */
+@unsafe
+provide let round = (x: Float64) => {
+  let xv = Conv.fromFloat64(x)
+  Conv.toFloat64(WasmF64.nearest(xv))
+}
+
+/**
+ * Computes the square root of its operand.
+ *
+ * @param x: The operand to square root
+ * @returns The square root of the operand
+ *
+ * @example Float64.sqrt(25.0d) == 5.0d
+ *
+ * @since v0.7.0
+ */
+@unsafe
+provide let sqrt = (x: Float64) => {
+  let xv = Conv.fromFloat64(x)
+  Conv.toFloat64(WasmF64.sqrt(xv))
+}
+
+/**
+ * Copys the sign of the second operand to the first operand.
+ *
+ * @param x: The operand to be modify
+ * @param y: The operand to copy the sign from
+ * @returns The first operand with the sign of the second operand
+ *
+ * @example Float64.copySign(2.0d, 1.0d) == 2.0d
+ * @example Float64.copySign(3.0d, -1.0d) == -3.0d
+ * @example Float64.copySign(-5.0d, 1.0d) == 5.0d
+ *
+ * @since v0.7.0
+ */
+@unsafe
+provide let copySign = (x: Float64, y: Float64) => {
+  let xv = Conv.fromFloat64(x)
+  let yv = Conv.fromFloat64(y)
+  Conv.toFloat64(WasmF64.copySign(xv, yv))
+}
+
+/**
+ * Determines whether two values are considered close to each other using a relative and absolute tolerance.
+ *
+ * @param a: The first value
+ * @param b: The second value
+ * @param relativeTolerance: The maximum tolerance to use relative to the larger absolute value `a` or `b`
+ * @param absoluteTolerance: The absolute tolerance to use, regardless of the values of `a` or `b`
+ * @returns `true` if the values are considered close to each other or `false` otherwise
+ *
+ * @example Float64.isClose(1.233d, 1.233d)
+ * @example Float64.isClose(1.233d, 1.233000001d)
+ * @example Float64.isClose(8.005d, 8.450d, absoluteTolerance=0.5d)
+ * @example Float64.isClose(4.0d, 4.1d, relativeTolerance=0.025d)
+ * @example Float64.isClose(1.233d, 1.24d) == false
+ * @example Float64.isClose(1.233d, 1.4566d) == false
+ * @example Float64.isClose(8.005d, 8.450d, absoluteTolerance=0.4d) == false
+ * @example Float64.isClose(4.0d, 4.1d, relativeTolerance=0.024d) == false
+ *
+ * @since v0.7.0
+ */
+provide let isClose = (a, b, relativeTolerance=1e-9d, absoluteTolerance=0.0d) => {
+  if (a == b) {
+    true
+  } else if (isFinite(a) && isFinite(b)) {
+    abs(a - b)
+      <= max(relativeTolerance * max(abs(a), abs(b)), absoluteTolerance)
+  } else {
+    // NaN and infinities which were not equal
+    false
+  }
+}
+
+/**
+ * Computes the sine of a float (in radians).
+ *
+ * @param radians: The input in radians
+ * @returns The computed sine
+ *
+ * @example Float64.sin(0.0d) == 0.0d
+ *
+ * @since v0.7.0
+ */
+@unsafe
+provide let sin = (radians: Float64) => {
+  let xval = Conv.fromFloat64(radians)
+  let value = sin(xval)
+  Conv.toFloat64(value)
+}
+
+/**
+ * Computes the cosine of a float (in radians).
+ *
+ * @param radians: The input in radians
+ * @returns The computed cosine
+ *
+ * @example Float64.cos(0.0d) == 1.0d
+ *
+ * @since v0.7.0
+ */
+@unsafe
+provide let cos = (radians: Float64) => {
+  let xval = Conv.fromFloat64(radians)
+  let value = cos(xval)
+  Conv.toFloat64(value)
+}
+
+/**
+ * Computes the tangent of a number (in radians).
+ *
+ * @param radians: The input in radians
+ * @returns The computed tangent
+ *
+ * @example Float64.tan(0.0d) == 0.0d
+ *
+ * @since v0.7.0
+ */
+@unsafe
+provide let tan = (radians: Float64) => {
+  let xval = Conv.fromFloat64(radians)
+  let value = tan(xval)
+  Conv.toFloat64(value)
+}

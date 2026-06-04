@@ -1,0 +1,956 @@
+((mash_code
+  ((functions
+    (((id ((stamp 1037) (name cos))) (name (cos))
+      (args (GrainValue (WasmValue WasmF64) (WasmValue WasmF64)))
+      (return_type ((WasmValue WasmF64))) (closure ())
+      (body
+       (((instr_desc
+          (MStore
+           (((MLocalBind 0 (WasmValue WasmF64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryF64 (wasm_op Op_mul_float64)
+                 (arg_types (Wasm_float64 Wasm_float64))
+                 (ret_type Wasm_float64))
+                ((immediate_desc
+                  (MImmBinding (MArgBind 1 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MArgBind 1 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 64) (col 2837) (bol 2827)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 64) (col 2842) (bol 2827)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 64) (col 2837) (bol 2827)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 64) (col 2842) (bol 2827)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 1 (WasmValue WasmF64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryF64 (wasm_op Op_mul_float64)
+                 (arg_types (Wasm_float64 Wasm_float64))
+                 (ret_type Wasm_float64))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 65) (col 2853) (bol 2843)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 65) (col 2858) (bol 2843)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 65) (col 2853) (bol 2843)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 65) (col 2858) (bol 2843)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 2 (WasmValue WasmF64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryF64 (wasm_op Op_mul_float64)
+                 (arg_types (Wasm_float64 Wasm_float64))
+                 (ret_type Wasm_float64))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmConst (MConstWasmF64 4537941361668330896)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 66) (col 2889) (bol 2859)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 66) (col 2895) (bol 2859)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 66) (col 2889) (bol 2859)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 66) (col 2895) (bol 2859)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 3 (WasmValue WasmF64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryF64 (wasm_op Op_add_float64)
+                 (arg_types (Wasm_float64 Wasm_float64))
+                 (ret_type Wasm_float64))
+                ((immediate_desc
+                  (MImmConst (MConstWasmF64 -4659324094485802633)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 2 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 66) (col 2884) (bol 2859)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 66) (col 2895) (bol 2859)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 66) (col 2884) (bol 2859)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 66) (col 2895) (bol 2859)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 4 (WasmValue WasmF64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryF64 (wasm_op Op_mul_float64)
+                 (arg_types (Wasm_float64 Wasm_float64))
+                 (ret_type Wasm_float64))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 3 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 66) (col 2879) (bol 2859)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 66) (col 2895) (bol 2859)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 66) (col 2879) (bol 2859)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 66) (col 2895) (bol 2859)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 5 (WasmValue WasmF64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryF64 (wasm_op Op_add_float64)
+                 (arg_types (Wasm_float64 Wasm_float64))
+                 (ret_type Wasm_float64))
+                ((immediate_desc
+                  (MImmConst (MConstWasmF64 4586165620538955084)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 4 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 66) (col 2874) (bol 2859)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 66) (col 2895) (bol 2859)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 66) (col 2874) (bol 2859)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 66) (col 2895) (bol 2859)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 6 (WasmValue WasmF64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryF64 (wasm_op Op_mul_float64)
+                 (arg_types (Wasm_float64 Wasm_float64))
+                 (ret_type Wasm_float64))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 5 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 66) (col 2869) (bol 2859)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 66) (col 2895) (bol 2859)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 66) (col 2869) (bol 2859)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 66) (col 2895) (bol 2859)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 7 (WasmValue WasmF64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryF64 (wasm_op Op_mul_float64)
+                 (arg_types (Wasm_float64 Wasm_float64))
+                 (ret_type Wasm_float64))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 1 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 1 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 66) (col 2900) (bol 2859)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 66) (col 2905) (bol 2859)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 66) (col 2900) (bol 2859)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 66) (col 2905) (bol 2859)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 8 (WasmValue WasmF64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryF64 (wasm_op Op_mul_float64)
+                 (arg_types (Wasm_float64 Wasm_float64))
+                 (ret_type Wasm_float64))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmConst (MConstWasmF64 -4780295122622859052)))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 66) (col 2924) (bol 2859)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 66) (col 2930) (bol 2859)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 66) (col 2924) (bol 2859)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 66) (col 2930) (bol 2859)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 9 (WasmValue WasmF64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryF64 (wasm_op Op_add_float64)
+                 (arg_types (Wasm_float64 Wasm_float64))
+                 (ret_type Wasm_float64))
+                ((immediate_desc
+                  (MImmConst (MConstWasmF64 4477121870137962948)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 8 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 66) (col 2919) (bol 2859)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 66) (col 2930) (bol 2859)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 66) (col 2919) (bol 2859)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 66) (col 2930) (bol 2859)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 10 (WasmValue WasmF64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryF64 (wasm_op Op_mul_float64)
+                 (arg_types (Wasm_float64 Wasm_float64))
+                 (ret_type Wasm_float64))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 9 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 66) (col 2914) (bol 2859)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 66) (col 2930) (bol 2859)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 66) (col 2914) (bol 2859)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 66) (col 2930) (bol 2859)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 11 (WasmValue WasmF64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryF64 (wasm_op Op_add_float64)
+                 (arg_types (Wasm_float64 Wasm_float64))
+                 (ret_type Wasm_float64))
+                ((immediate_desc
+                  (MImmConst (MConstWasmF64 -4714566979978243411)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 10 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 66) (col 2909) (bol 2859)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 66) (col 2930) (bol 2859)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 66) (col 2909) (bol 2859)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 66) (col 2930) (bol 2859)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 12 (WasmValue WasmF64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryF64 (wasm_op Op_mul_float64)
+                 (arg_types (Wasm_float64 Wasm_float64))
+                 (ret_type Wasm_float64))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 7 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 11 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 66) (col 2900) (bol 2859)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 66) (col 2930) (bol 2859)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 66) (col 2900) (bol 2859)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 66) (col 2930) (bol 2859)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 13 (WasmValue WasmF64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryF64 (wasm_op Op_add_float64)
+                 (arg_types (Wasm_float64 Wasm_float64))
+                 (ret_type Wasm_float64))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 6 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 12 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 66) (col 2869) (bol 2859)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 66) (col 2930) (bol 2859)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 66) (col 2869) (bol 2859)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 66) (col 2930) (bol 2859)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 14 (WasmValue WasmF64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryF64 (wasm_op Op_mul_float64)
+                 (arg_types (Wasm_float64 Wasm_float64))
+                 (ret_type Wasm_float64))
+                ((immediate_desc
+                  (MImmConst (MConstWasmF64 4602678819172646912)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 67) (col 2944) (bol 2933)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 67) (col 2952) (bol 2933)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 67) (col 2944) (bol 2933)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 67) (col 2952) (bol 2933)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 15 (WasmValue WasmF64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryF64 (wasm_op Op_sub_float64)
+                 (arg_types (Wasm_float64 Wasm_float64))
+                 (ret_type Wasm_float64))
+                ((immediate_desc
+                  (MImmConst (MConstWasmF64 4607182418800017408)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 14 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 68) (col 2963) (bol 2953)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 68) (col 2972) (bol 2953)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 68) (col 2963) (bol 2953)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 68) (col 2972) (bol 2953)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 16 (WasmValue WasmF64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryF64 (wasm_op Op_sub_float64)
+                 (arg_types (Wasm_float64 Wasm_float64))
+                 (ret_type Wasm_float64))
+                ((immediate_desc
+                  (MImmConst (MConstWasmF64 4607182418800017408)))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 15 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 69) (col 2980) (bol 2973)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 69) (col 2988) (bol 2973)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 69) (col 2980) (bol 2973)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 69) (col 2988) (bol 2973)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 17 (WasmValue WasmF64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryF64 (wasm_op Op_sub_float64)
+                 (arg_types (Wasm_float64 Wasm_float64))
+                 (ret_type Wasm_float64))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 16 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 14 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 69) (col 2980) (bol 2973)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 69) (col 2993) (bol 2973)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 69) (col 2980) (bol 2973)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 69) (col 2993) (bol 2973)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 18 (WasmValue WasmF64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryF64 (wasm_op Op_mul_float64)
+                 (arg_types (Wasm_float64 Wasm_float64))
+                 (ret_type Wasm_float64))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 0 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 13 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 69) (col 2997) (bol 2973)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 69) (col 3002) (bol 2973)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 69) (col 2997) (bol 2973)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 69) (col 3002) (bol 2973)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 19 (WasmValue WasmF64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryF64 (wasm_op Op_mul_float64)
+                 (arg_types (Wasm_float64 Wasm_float64))
+                 (ret_type Wasm_float64))
+                ((immediate_desc
+                  (MImmBinding (MArgBind 1 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MArgBind 2 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 69) (col 3005) (bol 2973)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 69) (col 3010) (bol 2973)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 69) (col 3005) (bol 2973)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 69) (col 3010) (bol 2973)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 20 (WasmValue WasmF64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryF64 (wasm_op Op_sub_float64)
+                 (arg_types (Wasm_float64 Wasm_float64))
+                 (ret_type Wasm_float64))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 18 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 19 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 69) (col 2997) (bol 2973)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 69) (col 3010) (bol 2973)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 69) (col 2997) (bol 2973)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 69) (col 3010) (bol 2973)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MStore
+           (((MLocalBind 21 (WasmValue WasmF64))
+             ((instr_desc
+               (MPrim2
+                (WasmBinaryF64 (wasm_op Op_add_float64)
+                 (arg_types (Wasm_float64 Wasm_float64))
+                 (ret_type Wasm_float64))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 17 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))
+                ((immediate_desc
+                  (MImmBinding (MLocalBind 20 (WasmValue WasmF64))))
+                 (immediate_analyses ((last_usage Unknown))))))
+              (instr_loc
+               ((loc_start
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 69) (col 2980) (bol 2973)))
+                (loc_end
+                 (position
+                  (file
+                   /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+                  (line 69) (col 3010) (bol 2973)))
+                (loc_ghost false))))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 69) (col 2980) (bol 2973)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 69) (col 3010) (bol 2973)))
+           (loc_ghost false))))
+        ((instr_desc
+          (MPrim2
+           (WasmBinaryF64 (wasm_op Op_add_float64)
+            (arg_types (Wasm_float64 Wasm_float64)) (ret_type Wasm_float64))
+           ((immediate_desc
+             (MImmBinding (MLocalBind 15 (WasmValue WasmF64))))
+            (immediate_analyses ((last_usage Unknown))))
+           ((immediate_desc
+             (MImmBinding (MLocalBind 21 (WasmValue WasmF64))))
+            (immediate_analyses ((last_usage Unknown))))))
+         (instr_loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 69) (col 2975) (bol 2973)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 69) (col 3010) (bol 2973)))
+           (loc_ghost false))))))
+      (stack_size
+       ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+        (stack_size_f32 0) (stack_size_f64 22)))
+      (attrs
+       (((txt Unsafe)
+         (loc
+          ((loc_start
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 54) (col 2328) (bol 2327)))
+           (loc_end
+            (position
+             (file
+              /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+             (line 54) (col 2334) (bol 2327)))
+           (loc_ghost false))))))
+      (func_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+          (line 55) (col 2353) (bol 2335)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+          (line 70) (col 3014) (bol 3013)))
+        (loc_ghost false))))))
+   (imports ())
+   (exports
+    ((WasmFunctionExport (ex_function_name cos)
+      (ex_function_internal_name cos_1037))
+     (WasmGlobalExport (ex_global_name cos)
+      (ex_global_internal_name cos_1037))))
+   (main_body
+    (((instr_desc
+       (MStore
+        (((MGlobalBind cos_1037 GrainValue)
+          ((instr_desc
+            (MImmediate
+             ((immediate_desc (MImmConst MConstVoid))
+              (immediate_analyses ((last_usage Unknown))))))
+           (instr_loc
+            ((loc_start
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+               (line 55) (col 2353) (bol 2335)))
+             (loc_end
+              (position
+               (file
+                /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+               (line 70) (col 3014) (bol 3013)))
+             (loc_ghost false))))))))
+      (instr_loc
+       ((loc_start
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+          (line 55) (col 2353) (bol 2335)))
+        (loc_end
+         (position
+          (file
+           /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+          (line 70) (col 3014) (bol 3013)))
+        (loc_ghost false))))
+     ((instr_desc
+       (MImmediate
+        ((immediate_desc (MImmConst MConstVoid))
+         (immediate_analyses ((last_usage Unknown))))))
+      (instr_loc dummy_loc))))
+   (main_body_stack_size
+    ((stack_size_ref 0) (stack_size_i32 0) (stack_size_i64 0)
+     (stack_size_f32 0) (stack_size_f64 0)))
+   (globals
+    (((id ((stamp 1037) (name cos))) (mutable_ true)
+      (allocation_type GrainValue) (initial_value ()))))
+   (compilation_mode Normal) (type_metadata <opaque>)
+   (prog_loc
+    ((loc_start
+      (position
+       (file
+        /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+       (line 1) (col 0) (bol 0)))
+     (loc_end
+      (position
+       (file
+        /Users/spotandjake/Documents/github/grain/stdlib/runtime/math/kernel/cos.gr)
+       (line 71) (col 3015) (bol 3015)))
+     (loc_ghost false)))))
+ (signature <opaque>))
