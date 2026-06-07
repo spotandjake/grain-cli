@@ -6,9 +6,10 @@
   "tasks": {
     "grain": "deno run -P --config=./deno.json ./src/main.ts",
     "build": "deno compile -P --output ./dist/grain ./src/main.ts",
+    "setup": "deno run -P --config=./deno.json ./setup.ts",
     "format": "deno fmt",
     "check-format": "deno fmt --check",
-    "clean": "rm -f ./src/artifacts/*.cjs ./src/artifacts/*.exe"
+    "clean": "rm -f ./src/artifacts/*"
   },
   "compile": {
     "include": [
@@ -16,8 +17,8 @@
       "src/artifacts/graindoc.bc.cjs",
       "src/artifacts/grainformat.bc.cjs", 
       "src/artifacts/grainlsp.bc.cjs",
-      "src/shims/fs.cjs",
-      "src/stdlib/"
+      "src/artifacts/stdlib/",
+      "src/shims/fs.cjs"
     ],
     "exclude": [],
     "permissions": {
@@ -30,7 +31,8 @@
   "fmt": {
     "include": [
       "src/**/*.ts",
-      "src/shims/fs.cjs"
+      "src/shims/fs.cjs",
+      "setup.ts"
     ],
     "exclude": ["src/artifacts/"]
   },
@@ -43,7 +45,6 @@
     }
   },
   "imports": {
-    "@grain/stdlib": "npm:@grain/stdlib@^0.7.2",
     "commander": "npm:commander@^14.0.3"
   },
   "exports": {

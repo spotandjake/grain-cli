@@ -5,6 +5,7 @@
 // This allows the compiler to use files from the stdlib.
 const realFs = require("node:fs");
 
+// NOTE: This shim can be removed with deno `v2.8.3` which adds support for `fstatSync` in the vfs.
 function wrapFstatSync(fn) {
   return function (...args) {
     try {
@@ -13,6 +14,7 @@ function wrapFstatSync(fn) {
       // We only want to handle the `NotSupported` error thrown by the deno vfs
       if (err.name !== "NotSupported") throw err;
       return {
+        isCharacterDevice: () => true,
         isFile: () => true,
         isDirectory: () => false,
         size: 0,

@@ -8,17 +8,15 @@ The reason for this rewrite is the current cli is built using `@yao-pkg/pkg` whi
 This project is rather simple to build, as long as the steps below are followed:
 
 1) Run `deno install`
-   - This will install the dependencies used by the project
 2) Run `git clone https://github.com/grain-lang/grain`
-   - This will clone the grain repo
-   - It's important to switch to the `oscar/oos` build currently do to vfs restrictions within deno.
-3) Follow the grain compiler setup / build process.
-4) Run `npm run compiler build` && `npm run compiler build:js` in the grain directory.
-5) Copy the `grain/cli/bin/*.exe`, `grain/cli/bin/*.bc.js` files into `./src/artifacts`
-6) Rename the `*.bc.js` files to `*.bc.cjs`
-7) Replace `"node:fs"` with `../shims/fs.cjs` in the `*bc.cjs` files
-8) Copy the stdlib from grain into `src`
-9) Run `deno task build` which will package the entire cli
+   1) If the grain repo is already on your system you can use that instead.
+   2) Switch to the `oscar/oos` branch (This is required)
+   3) Follow the grain compiler setup / build process.
+   4) Run `npm run compiler build`
+   5) Run `npm run compiler build:js`
+3) Run `deno task setup ./grain`
+   1) If you are using a different directory for grain replace `./grain` with the directory.
+4) Run `deno task build` which will package the entire cli.
 
 Once the initial setup is run the project is active and any of the development commands will work, without adding the compiler artifacts and stdlib however the cli will fail to work as intended.
 
@@ -33,6 +31,10 @@ Once the initial setup is run the project is active and any of the development c
 
 `deno task build`, this packages the entire cli into an executable which can be found at `./dist/grain`.
 
+### Setup
+
+`deno task setup <GRAIN_ROOT>`, this copies the required artifacts from the grain repository.
+
 ### Format
 
 `deno task format`, this can be used to format the entire project.
@@ -45,29 +47,24 @@ Once the initial setup is run the project is active and any of the development c
 
 `deno task clean`, this will remove any artifact files, and wipe the stdlib. I would only run this if you plan on re setting up the cli.
 
-## Notes
+## Hacks
 
-This section covers some important notes about this experiment that might be interesting. This section is split into two parts, the first one covers why the artifact setup works the way it does and the second one covers all the "hacks" and oddities that make this project work.
+This section describes some of the more important hacks that are performed in the cli in depth and why, along with what would allow us to remove these "hacks". While I am refering to these as hacks not everything listed is explicitly a hack and some are just design decisions.
 
-### Setup
+A lot of these hacks could be solved with deno's [`--self-extracting`](https://docs.deno.com/runtime/reference/cli/compile/#self-extracting-executables) flag which allows the compiled binary to extract it's vfs to a temporary folder on your system however this has been avoided as it makes things less portable.
 
-The setup for this project is a little more convulted then I would like, the first issue is getting ahold of the `*.bc.js` and `*.exe` artifacts from the compiler, which need to be copied this could be done automatically but I have no clue where your working with grain and settting up a script to automate the copying would be convuluted or duplicate the build process. As such this has been left to the user. The story behind the stdlib is rather similar however, there is nothing truly stopping us from importing `@grain/stdlib` from npm, the main reason this doesn't work right now is to get around some deno virtual file system issues documented in the section below, we are using the `oscar/oos` branch of grain which means the stdlib is not published yet and as such not available on npm.
+### Main.ts
 
-### Hacks
+The largest hack is that of `main.ts` while the true entry point for the cli is `./src/cli.ts` and this can be used as the entry point while running with `deno run` we must use `main.ts` with `deno compile` the reason for this is similar to issues I was running into when experimenting with `node-sea` where `process.execPath` / `deno.execPath` point's to the compiled deno executable which will always enter through the default entry point no matter what script you call it with, this works differently then when using the standard `deno run` where calling deno again from inside would run it with the new script. The solution to this is to put a script in front of the cli itself that can detect if we are trying to run the main cli or a subscript. The way I implemented this is to use an environmental variable, `GRAIN_INTERNAL` which passes the arguments and such which we can then rewrite and trick the executable into thinking it was called like a separate script.
 
-This section documents all the hacks that make this project work and what would be required to stop them.
+I think this hack is going to exist long term if we wanted to get rid of it we would need to rework the way that grain compiles and instead of exposing `grainc` and other tooling as cli applications we would want to expose them as library functions, and call them via worker threads. I don't think this hack is obscure or complex though so for the time being it seems fine to include. Some questions may be raised around the choice of an environment variable this was chosen because there aren't many other alternatives or flags I can use to pass the downside of this choice is technically an actor on the system could override this flag which may mess up the cli, we could easily add additional protections against this however and I really don't think its a major worry.
 
-#### Main.ts
+### `oscar/oos`
 
-The first hack is in the entry file of `main.ts`, in reality the main file of our cli is `cli.ts` however, if we entered directly there then when we call deno to run our artifact files through our sub commands we would get stuck in a loop with the cli. This is because `Deno.execPath` resolves to the compiled binary when we are running with `deno compile`, the way this hack works is when we call a subcommand we set an environmental variable indicating that we are trying to run a different script and instead of re-entering through the `cli` we now redirect the application to the artifact. Before redirecting we override the `argv` of the process with the new arguments as these would not have changed by default, this makes our artifacts think they are running in their own binary when really we've just hijacked the existing deno compile binary.
+The next key decision and this one truly isn't a hack is the use of the `oscar/oos` branch the reason for this decision is that working off main we build object files inline with the source this means that when compiling the stdlib we would try and write to the vfs which isn't great in pkg we could avoid this by remapping writes to a `target` directory and while this could be done with our vfs shim it's rather complex and seemed rather fragile.
 
-#### Shims
+If we want to fix this better long term I suggest that we handle this on the grain side of things. Using the out of source builds branch is a great fix though as it writes to a `target` directory by default. The write behaviour may still cause issues related to `--debug` / `--verbose` calls however as those would likely try to write alongside the stdlib in the vfs, this can be solved in the fs shim rather easily again. 
 
-The second issue relates again to `deno compile` and the virtual file system. We ship the standard library in deno's vfs which means that when the compiler wants to operate on these files it's subject to the limit of the vfs, the `oscar/oos` branch was used because of this as we do not need to write object files to the stdlib directory and instead write them to a target directory however, the vfs still doesn't support `fstat` so our fs shim exists to stub bad calls to the vfs and prevent errors, while this could lead to unintended consequences if we weren't being careful because we are only loading the stdlib from here it's not really a problem.
+### `./shims/fs.cjs`
 
-A lot of these issues could be solved with deno's [`--self-extracting`](https://docs.deno.com/runtime/reference/cli/compile/#self-extracting-executables) flag which allows the compiled binary to extract it's vfs to a temporary folder on your system however this has been avoided as it makes things less portable.
-
-
-## Merging with grain
-
-This section covers what would be required to merge this with grain, in reality not much would be required I think the hardest thing to figure out is how deno is going to be interacting with our package.json files and npm. We would also need to find a good alternative for `npm link` we could use `deno install` but it's not live in the same way that `npm link` is, the best solution I could come up with is we use `npm link` to symlink a resolver binary that calls into our cli and executes our live cli script. I think the other question is if it's really worth switching to deno or not.
+This is the largest hack in this project, the idea is that when working on this I noticed that we were still hitting `NotSupported` errors from the vfs, that were coming from `fs.fstatSync` calls this just seems to be an issue up stream in deno and once deno `v2.8.3` is released we could easily drop this as a nicer version of my shim was introduced upstream. This shim essentially just allows us to wrap fs functions with override logic as we please.

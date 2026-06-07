@@ -1,5 +1,6 @@
 import { Command, Help, Option } from "commander";
 import config from "../deno.json" with { type: "json" };
+// import stdlibPath from "@grain/stdlib";
 import {
   defaultWasmLocation,
   ForwardOption,
@@ -16,7 +17,7 @@ import setupDocCommand from "./commands/doc.ts";
 import setupFormatCommand from "./commands/format.ts";
 
 // NOTE: This can be replaced with `import stdlibPath from "@grain/stdlib"` once we publish the 0.8 stdlib package to npm
-const stdlibPath = new URL("./stdlib", import.meta.url).pathname;
+const stdlibPath = new URL("./artifacts/stdlib", import.meta.url).pathname;
 
 // NOTE: The grain cli skips processing any arguments past `--`
 let endOptsI = process.argv.findIndex((x) => x === "--");
